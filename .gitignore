@@ -20,3 +20,7 @@ target/
 .vscode/
 .idea/
 .DS_Store
+
+# Local planning docs, not published
+/PROJECT_CONTEXT.md
+/ARCHITECTURE.md
