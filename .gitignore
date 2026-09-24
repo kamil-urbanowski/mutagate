@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Secrets
+.env
+
+# Scratch: cloned target repos and temp working copies
+work/
+.mutagate/
+
+# Java build output that may land in work dirs
+target/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
