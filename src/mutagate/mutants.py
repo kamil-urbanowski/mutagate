@@ -3,6 +3,7 @@
 Pure logic over data. Nothing here touches the filesystem or runs anything.
 """
 
+from collections.abc import Collection
 from dataclasses import dataclass, field
 from enum import Enum
 
@@ -28,6 +29,7 @@ class Mutant:
     verification runs.
 
     Killing tests are normalized by `pit.py` to `fully.qualified.TestClass#method`.
+    The fields follow PIT's XML report; confirm them against a real report.
     """
 
     source_file: str
@@ -62,7 +64,7 @@ def for_class(mutants: list[Mutant], class_name: str) -> list[Mutant]:
     raise NotImplementedError
 
 
-def select_classes(baseline: list[Mutant], excluded: set[str]) -> list[str]:
+def select_classes(baseline: list[Mutant], excluded: Collection[str]) -> list[str]:
     """Apply the selection rule to a baseline ledger.
 
     Every class with at least one undetected mutant, minus the classes recorded
