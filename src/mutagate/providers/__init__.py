@@ -1,3 +1,3 @@
-from .base import Provider
+from .base import Provider, ProviderError
 
-__all__ = ["Provider"]
+__all__ = ["Provider", "ProviderError"]

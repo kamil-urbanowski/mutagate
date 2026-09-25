@@ -19,7 +19,7 @@ PIT finds those gaps but cannot fill them. MutaGate closes the loop.
 A generated test is kept only if it:
 
 1. compiles,
-2. passes against the unmodified code, and
+2. passes against the unmodified code, every time it runs, and
 3. kills the specific mutant it was written for.
 
 Anything else is discarded. A program makes that call, not a person.
