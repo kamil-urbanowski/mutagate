@@ -9,7 +9,7 @@ from enum import Enum
 
 
 class Status(str, Enum):
-    """PIT's outcome for one mutant. Confirm the full set against a real report."""
+    """PIT's outcome for one mutant. The full set from PIT 1.30.0."""
 
     KILLED = "KILLED"
     SURVIVED = "SURVIVED"
@@ -18,6 +18,9 @@ class Status(str, Enum):
     MEMORY_ERROR = "MEMORY_ERROR"
     RUN_ERROR = "RUN_ERROR"
     NON_VIABLE = "NON_VIABLE"
+    NOT_STARTED = "NOT_STARTED"
+    STARTED = "STARTED"
+    EQUIVALENT = "EQUIVALENT"
 
 
 @dataclass(frozen=True)
@@ -29,7 +32,7 @@ class Mutant:
     verification runs.
 
     Killing tests are normalized by `pit.py` to `fully.qualified.TestClass#method`.
-    The fields follow PIT's XML report; confirm them against a real report.
+    The fields follow PIT's XML report, confirmed against a real one.
     """
 
     source_file: str
