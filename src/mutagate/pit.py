@@ -29,7 +29,7 @@ from datetime import datetime
 from pathlib import Path
 
 from .gate import Candidate
-from .mutants import Mutant, Status
+from .mutants import UNFINISHED, Mutant, Status
 
 PITEST_MAVEN_VERSION = "1.30.0"
 PITEST_JUNIT5_PLUGIN_VERSION = "1.2.3"
@@ -199,9 +199,20 @@ def run_pit(workspace: Path, target_class: str | None, excluded_tests: set[str])
 
 
 def parse_report(report_dir: Path) -> list[Mutant]:
-    """Read PIT's XML report into Mutant records, including their killing tests."""
+    """Read PIT's XML report into Mutant records, including their killing tests.
+
+    Raises PitError if PIT left any mutant unfinished (NOT_STARTED or STARTED):
+    the run is incomplete and its results cannot be scored.
+    """
     root = ET.parse(report_dir / REPORT_FILE).getroot()
-    return [_mutant(element) for element in root.iter("mutation")]
+    mutants = [_mutant(element) for element in root.iter("mutation")]
+    unfinished = [m for m in mutants if m.status in UNFINISHED]
+    if unfinished:
+        raise PitError(
+            f"PIT run incomplete: {len(unfinished)} of {len(mutants)} mutants unfinished"
+            f" (first: {unfinished[0].mutated_class} line {unfinished[0].line})"
+        )
+    return mutants
 
 
 def describe_setup(repo: Path) -> dict[str, str]:

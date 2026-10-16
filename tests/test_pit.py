@@ -151,3 +151,11 @@ def test_unrecognized_test_name_raises(tmp_path):
     )
     with pytest.raises(ValueError, match="unrecognized test name"):
         pit.parse_report(tmp_path)
+
+
+def test_unfinished_mutant_fails_the_run(tmp_path):
+    (tmp_path / pit.REPORT_FILE).write_text(
+        REPORT.replace("status='NO_COVERAGE'", "status='STARTED'")
+    )
+    with pytest.raises(pit.PitError, match="1 of 2 mutants unfinished"):
+        pit.parse_report(tmp_path)
