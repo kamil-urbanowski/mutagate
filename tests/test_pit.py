@@ -100,7 +100,8 @@ def test_add_pit_plugin_refuses_existing_pitest(tmp_path):
         pit.add_pit_plugin(pom)
 
 
-def test_workspace_is_a_copy_without_build_output(tmp_path):
+def test_workspace_is_a_copy_without_build_output(tmp_path, monkeypatch):
+    monkeypatch.setattr(pit, "check_toolchain", lambda cwd: ("3.9.16", "21.0.12.1"))
     repo = tmp_path / "demo"
     (repo / "target").mkdir(parents=True)
     (repo / "target" / "stale.class").write_text("")
@@ -159,3 +160,28 @@ def test_unfinished_mutant_fails_the_run(tmp_path):
     )
     with pytest.raises(pit.PitError, match="1 of 2 mutants unfinished"):
         pit.parse_report(tmp_path)
+
+
+MVN_V = """Apache Maven 3.9.16 (2bdd9fddda4b155ebf8000e807eb73fd829a51d5)
+Maven home: /opt/homebrew/Cellar/maven/3.9.16/libexec
+Java version: {java}, vendor: Homebrew, runtime: /opt/homebrew/Cellar/openjdk/libexec
+"""
+
+
+@pytest.mark.parametrize("java", ["21.0.12.1", "21.0.13", "21"])
+def test_toolchain_accepts_java_21(monkeypatch, tmp_path, java):
+    monkeypatch.setattr(pit, "_run", lambda cmd, cwd: (True, MVN_V.format(java=java)))
+    assert pit.check_toolchain(tmp_path) == ("3.9.16", java)
+
+
+@pytest.mark.parametrize("java", ["27.0.1", "17.0.9", "1.8.0_392", "unknown"])
+def test_toolchain_refuses_other_java(monkeypatch, tmp_path, java):
+    monkeypatch.setattr(pit, "_run", lambda cmd, cwd: (True, MVN_V.format(java=java)))
+    with pytest.raises(pit.PitError, match="requires Java 21"):
+        pit.check_toolchain(tmp_path)
+
+
+def test_toolchain_refuses_unreadable_output(monkeypatch, tmp_path):
+    monkeypatch.setattr(pit, "_run", lambda cmd, cwd: (False, "mvn: command not found"))
+    with pytest.raises(pit.PitError, match="could not read"):
+        pit.check_toolchain(tmp_path)

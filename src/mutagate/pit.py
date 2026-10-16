@@ -34,6 +34,9 @@ from .mutants import UNFINISHED, Mutant, Status
 PITEST_MAVEN_VERSION = "1.30.0"
 PITEST_JUNIT5_PLUGIN_VERSION = "1.2.3"
 
+# Every repo is built and measured on this JDK; any update within it is accepted.
+JAVA_MAJOR_VERSION = 21
+
 REPORT_FILE = "mutations.xml"
 
 MAIN_SOURCES = Path("src/main/java")
@@ -57,9 +60,11 @@ def make_workspace(repo: Path) -> Path:
     """Copy `repo` to a fresh temporary directory and return the copy's root.
 
     The repo's own build output (`target/`) is not copied. The pinned PIT plugin
-    is added to the copy's `pom.xml`.
+    is added to the copy's `pom.xml`. Refuses to start unless Maven runs on the
+    pinned JDK, so no build or PIT run can use another.
     """
     repo = repo.resolve()
+    check_toolchain(repo)
     workspace = Path(tempfile.mkdtemp(prefix="mutagate-")) / repo.name
     shutil.copytree(repo, workspace, ignore=lambda d, names: ["target"] if Path(d) == repo else [])
     add_pit_plugin(workspace / "pom.xml")
@@ -215,21 +220,38 @@ def parse_report(report_dir: Path) -> list[Mutant]:
     return mutants
 
 
-def describe_setup(repo: Path) -> dict[str, str]:
-    """The repo commit and tool versions a baseline was measured on, and the date."""
-    ok, output = _run(["mvn", "-v"], repo)
+def check_toolchain(cwd: Path) -> tuple[str, str]:
+    """Maven's version and the Java version Maven runs on, read from `mvn -v`.
+
+    Raises PitError unless Java's major version is JAVA_MAJOR_VERSION. Maven
+    uses `JAVA_HOME`, which can differ from the `java` on the PATH.
+    """
+    ok, output = _run(["mvn", "-v"], cwd)
     maven = re.search(r"Apache Maven (\S+)", output)
     java = re.search(r"Java version: ([^,\s]+)", output)
     if not ok or not maven or not java:
         raise PitError("could not read Maven and Java versions from `mvn -v`", output)
+    major = re.match(r"\d+", java.group(1))
+    if major is None or int(major.group()) != JAVA_MAJOR_VERSION:
+        raise PitError(
+            f"Maven is running on Java {java.group(1)}; MutaGate requires Java "
+            f"{JAVA_MAJOR_VERSION}. Point JAVA_HOME at a JDK {JAVA_MAJOR_VERSION}.",
+            output,
+        )
+    return maven.group(1), java.group(1)
+
+
+def describe_setup(repo: Path) -> dict[str, str]:
+    """The repo commit and tool versions a baseline was measured on, and the date."""
+    maven, java = check_toolchain(repo)
     ok, commit = _run(["git", "rev-parse", "HEAD"], repo)
     if not ok:
         raise PitError(f"could not read the commit of {repo}", commit)
     return {
         "repo_commit": commit.strip(),
         "date": datetime.now().astimezone().date().isoformat(),
-        "java": java.group(1),
-        "maven": maven.group(1),
+        "java": java,
+        "maven": maven,
         "pitest_maven": PITEST_MAVEN_VERSION,
         "pitest_junit5_plugin": PITEST_JUNIT5_PLUGIN_VERSION,
     }
