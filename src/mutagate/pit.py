@@ -3,15 +3,21 @@
 The only module that touches the target repository or runs external processes.
 All work happens on a temporary copy; the original is never written to.
 
-PIT runs through Maven with `-D` properties, without editing the copy's build
-configuration. The exception, if step 1 confirms it is needed: the copy's build
-configuration may be edited so PIT can run JUnit 5 tests.
+PIT runs through Maven with `-D` properties. The copy's build configuration is
+left unchanged with one exception: PIT cannot run JUnit 5 tests without its
+JUnit 5 plugin, so the pinned `pitest-maven` (1.30.0) is added to the copy's
+`pom.xml`, with `pitest-junit5-plugin` (1.2.3) as its dependency.
 
-    mvn org.pitest:pitest-maven:mutationCoverage \
-        -DtargetClasses=... -DoutputFormats=XML -DfullMutationMatrix=true
+    mvn -B test-compile org.pitest:pitest-maven:mutationCoverage \
+        -DtargetClasses=... -DoutputFormats=XML -DfullMutationMatrix=true \
+        -DtimestampedReports=false
 
 `fullMutationMatrix` makes the report list every test that killed each mutant,
 not just the first. Batched verification depends on it.
+
+A class-scoped run sets `targetClasses=pkg.Outer,pkg.Outer$*` so nested and
+anonymous classes are included. A bare `pkg.Outer*` would also match other
+classes that share the prefix.
 """
 
 from pathlib import Path
