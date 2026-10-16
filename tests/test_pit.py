@@ -113,6 +113,7 @@ def test_workspace_is_a_copy_without_build_output(tmp_path, monkeypatch):
     workspace = pit.make_workspace(repo)
     try:
         assert workspace.name == "demo"
+        assert workspace == workspace.resolve()
         assert not (workspace / "target").exists()
         assert (workspace / "src/main/java/pkg/target/Foo.java").exists()
         assert len(plugins_in(workspace / "pom.xml")) == 1
@@ -223,3 +224,22 @@ def test_toolchain_refuses_unreadable_output(monkeypatch, tmp_path):
     monkeypatch.setattr(pit, "_run", lambda cmd, cwd: (False, "mvn: command not found"))
     with pytest.raises(pit.PitError, match="could not read"):
         pit.check_toolchain(tmp_path)
+
+
+def test_build_output_names_files_from_the_repo_root(monkeypatch, tmp_path):
+    workspace = tmp_path / "demo"
+    workspace.mkdir()
+    real = str(workspace.resolve())
+    output = (
+        f"[ERROR] {real}/src/test/java/pkg/FooTest.java:[9,16] cannot find symbol\n"
+        f"[ERROR] Please refer to {real}/target/surefire-reports\n"
+        f"[INFO] Building in {real}\n"
+    )
+    monkeypatch.setattr(pit, "_run", lambda cmd, cwd: (False, output))
+    ok, cleaned = pit.compile_tests(workspace)
+    assert not ok
+    assert cleaned.splitlines() == [
+        "[ERROR] src/test/java/pkg/FooTest.java:[9,16] cannot find symbol",
+        "[ERROR] Please refer to target/surefire-reports",
+        "[INFO] Building in .",
+    ]

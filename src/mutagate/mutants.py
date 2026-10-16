@@ -113,11 +113,29 @@ def select_targets(mutants: list[Mutant], class_name: str) -> list[Mutant]:
     return [m for m in for_class(mutants, class_name) if not is_detected(m)]
 
 
-def excluding_tests(mutants: list[Mutant], test_classes: set[str]) -> list[Mutant]:
-    """Drop every kill made by the given test classes.
+def killed_by(mutant: Mutant, test_class: str) -> bool:
+    """Whether a test class is among the mutant's killing tests.
 
-    Applied to the verification run with the rejected candidates' classes, so
-    the after-score counts only existing tests and kept candidates. A mutant
-    left with no killing test no longer counts as killed.
+    Counts a kill by one of its methods (`Class#method`), a method of a nested
+    class (`Class$Inner#method`), or the class as a whole (`Class`).
     """
-    raise NotImplementedError
+    return any(
+        test == test_class or test.startswith((f"{test_class}#", f"{test_class}$"))
+        for test in mutant.killing_tests
+    )
+
+
+def newly_detected(
+    baseline: list[Mutant], verification: list[Mutant], kept_classes: Collection[str]
+) -> list[Mutant]:
+    """Mutants the baseline did not detect that a kept test killed in verification.
+
+    The after-score counts the baseline's detected mutants plus these. Kills by
+    rejected candidates never count.
+    """
+    undetected = {m for m in baseline if not is_detected(m)}
+    return [
+        m
+        for m in verification
+        if m in undetected and any(killed_by(m, test_class) for test_class in kept_classes)
+    ]
