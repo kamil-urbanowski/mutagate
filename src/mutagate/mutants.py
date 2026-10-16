@@ -23,6 +23,20 @@ class Status(str, Enum):
     EQUIVALENT = "EQUIVALENT"
 
 
+DETECTED = frozenset(
+    {
+        Status.KILLED,
+        Status.TIMED_OUT,
+        Status.MEMORY_ERROR,
+        Status.RUN_ERROR,
+        Status.NON_VIABLE,
+        Status.EQUIVALENT,
+    }
+)
+UNDETECTED = frozenset({Status.SURVIVED, Status.NO_COVERAGE})
+UNFINISHED = frozenset({Status.NOT_STARTED, Status.STARTED})
+
+
 @dataclass(frozen=True)
 class Mutant:
     """One deliberate defect PIT introduced, and what the suite did about it.
@@ -50,18 +64,19 @@ class Mutant:
 def is_detected(mutant: Mutant) -> bool:
     """Whether the suite counts as having caught this mutant.
 
-    KILLED is detected. Which other statuses count is not yet decided (see
-    PROJECT_CONTEXT.md). Decide it here, once; every score and every target
-    selection goes through this function.
-
-    KILLED is detected; SURVIVED and NO_COVERAGE are not. Any other status
-    raises until it is decided.
+    Every score and every target selection goes through this function. The
+    rule follows PIT's own split (decided 10/16/26): KILLED, TIMED_OUT,
+    MEMORY_ERROR, RUN_ERROR, NON_VIABLE, and EQUIVALENT are detected; SURVIVED
+    and NO_COVERAGE are not. NOT_STARTED and STARTED mean PIT never finished
+    the mutant, so the run is incomplete and they raise.
     """
-    if mutant.status is Status.KILLED:
+    if mutant.status in DETECTED:
         return True
-    if mutant.status in (Status.SURVIVED, Status.NO_COVERAGE):
+    if mutant.status in UNDETECTED:
         return False
-    raise ValueError(f"not decided whether {mutant.status.value} counts as detected")
+    raise ValueError(
+        f"{mutant.status.value}: PIT did not finish this mutant; the run is incomplete"
+    )
 
 
 def mutation_score(mutants: list[Mutant]) -> float:

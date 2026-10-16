@@ -15,15 +15,30 @@ def mutant(cls="pkg.Foo", line=1, status=Status.KILLED):
     return Mutant("Foo.java", cls, "m", "()V", line, "M", (0,), "d", status)
 
 
-def test_detected_statuses():
-    assert is_detected(mutant(status=Status.KILLED))
-    assert not is_detected(mutant(status=Status.SURVIVED))
-    assert not is_detected(mutant(status=Status.NO_COVERAGE))
+@pytest.mark.parametrize(
+    "status",
+    [
+        Status.KILLED,
+        Status.TIMED_OUT,
+        Status.MEMORY_ERROR,
+        Status.RUN_ERROR,
+        Status.NON_VIABLE,
+        Status.EQUIVALENT,
+    ],
+)
+def test_detected_statuses(status):
+    assert is_detected(mutant(status=status))
 
 
-def test_undecided_status_raises():
-    with pytest.raises(ValueError, match="TIMED_OUT"):
-        is_detected(mutant(status=Status.TIMED_OUT))
+@pytest.mark.parametrize("status", [Status.SURVIVED, Status.NO_COVERAGE])
+def test_undetected_statuses(status):
+    assert not is_detected(mutant(status=status))
+
+
+@pytest.mark.parametrize("status", [Status.NOT_STARTED, Status.STARTED])
+def test_unfinished_status_raises(status):
+    with pytest.raises(ValueError, match="incomplete"):
+        is_detected(mutant(status=status))
 
 
 def test_mutation_score():
