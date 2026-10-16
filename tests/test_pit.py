@@ -141,13 +141,51 @@ def test_parse_report(tmp_path):
     assert uncovered.killing_tests == ()
 
 
+@pytest.mark.parametrize(
+    "name, expected",
+    [
+        (
+            "pkg.FooTest.[engine:junit-jupiter]/[class:pkg.FooTest]/[method:adds()]",
+            "pkg.FooTest#adds",
+        ),
+        (
+            (
+                "pkg.FooTest.[engine:junit-jupiter]/[class:pkg.FooTest]/[nested-class:Inner]"
+                "/[method:saves(java.nio.file.Path)]"
+            ),
+            "pkg.FooTest$Inner#saves",
+        ),
+        (
+            (
+                "pkg.FooTest.[engine:junit-jupiter]/[class:pkg.FooTest]/[nested-class:A]"
+                "/[nested-class:B]/[method:x()]"
+            ),
+            "pkg.FooTest$A$B#x",
+        ),
+        ("pkg.FooTest.[engine:junit-jupiter]/[class:pkg.FooTest]", "pkg.FooTest"),
+    ],
+)
+def test_test_names(name, expected):
+    assert pit._test_name(name) == expected
+
+
+def test_duplicate_killing_tests_are_recorded_once(tmp_path):
+    whole = "pkg.FooTest.[engine:junit-jupiter]/[class:pkg.FooTest]"
+    (tmp_path / pit.REPORT_FILE).write_text(
+        REPORT.replace("<killingTests>pkg.FooTest.", f"<killingTests>{whole}|{whole}|pkg.FooTest.")
+    )
+    killed, _ = pit.parse_report(tmp_path)
+    assert killed.killing_tests == ("pkg.BarTest#subtracts", "pkg.FooTest", "pkg.FooTest#adds")
+
+
 def test_unrecognized_test_name_raises(tmp_path):
-    nested = (
-        "pkg.FooTest.[engine:junit-jupiter]/[class:pkg.FooTest]/[nested-class:Inner]/[method:x()]"
+    parameterized = (
+        "pkg.FooTest.[engine:junit-jupiter]/[class:pkg.FooTest]"
+        "/[test-template:x(int)]/[test-template-invocation:#1]"
     )
     (tmp_path / pit.REPORT_FILE).write_text(
         REPORT.replace(
-            "pkg.FooTest.[engine:junit-jupiter]/[class:pkg.FooTest]/[method:adds()]", nested
+            "pkg.FooTest.[engine:junit-jupiter]/[class:pkg.FooTest]/[method:adds()]", parameterized
         )
     )
     with pytest.raises(ValueError, match="unrecognized test name"):

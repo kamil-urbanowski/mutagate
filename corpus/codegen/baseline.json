@@ -1,0 +1,4076 @@
+{
+  "repo_commit": "7697931d89755fe35b6cd149d774babd85af9bd5",
+  "date": "2026-10-16",
+  "java": "21.0.12.1",
+  "maven": "3.9.16",
+  "pitest_maven": "1.30.0",
+  "pitest_junit5_plugin": "1.2.3",
+  "mutants": [
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "boolOf",
+      "method_description": "(Ljava/util/Map;Ljava/lang/String;Z)Z",
+      "line": 307,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        10
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "boolOf",
+      "method_description": "(Ljava/util/Map;Ljava/lang/String;Z)Z",
+      "line": 307,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indexes": [
+        20
+      ],
+      "description": "replaced boolean return with false for io/github/describeadmin/codegen/parser/SpecLoader::boolOf",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "boolOf",
+      "method_description": "(Ljava/util/Map;Ljava/lang/String;Z)Z",
+      "line": 307,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        20
+      ],
+      "description": "replaced boolean return with true for io/github/describeadmin/codegen/parser/SpecLoader::boolOf",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "intOf",
+      "method_description": "(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/Integer;",
+      "line": 302,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        10
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#booleanRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#doubleRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#duplicateRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#jsonRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reportsAllErrorsAtOnce",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reservedFieldRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#sysPrefixRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#timestampRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#illegalValueRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "intOf",
+      "method_description": "(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/Integer;",
+      "line": 302,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        20
+      ],
+      "description": "replaced Integer return value with 0 for io/github/describeadmin/codegen/parser/SpecLoader::intOf",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "lambda$parse$0",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+      "line": 116,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/parser/SpecLoader::lambda$parse$0",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#booleanRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#doubleRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#duplicateRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#jsonRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reservedFieldRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#sysPrefixRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#timestampRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#illegalValueRejected"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "lambda$parseLayout$1",
+      "method_description": "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/Layout;",
+      "line": 159,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        13
+      ],
+      "description": "replaced return value with null for io/github/describeadmin/codegen/parser/SpecLoader::lambda$parseLayout$1",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "load",
+      "method_description": "(Ljava/nio/file/Path;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 48,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "replaced return value with null for io/github/describeadmin/codegen/parser/SpecLoader::load",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#auditIdsAreStrings",
+        "io.github.describeadmin.codegen.GeneratorTest#nestedLayoutKeepsModuleSegment",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "load",
+      "method_description": "(Ljava/nio/file/Path;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 59,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        30
+      ],
+      "description": "replaced return value with null for io/github/describeadmin/codegen/parser/SpecLoader::load",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#auditIdsAreStrings",
+        "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+        "io.github.describeadmin.codegen.GeneratorTest#nestedLayoutKeepsModuleSegment",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 64,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "replaced return value with null for io/github/describeadmin/codegen/parser/SpecLoader::parse",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 70,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        11
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#booleanRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#doubleRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#duplicateRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#jsonRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reportsAllErrorsAtOnce",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reservedFieldRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#sysPrefixRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#timestampRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#illegalValueRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 87,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        94
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#reportsAllErrorsAtOnce"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 87,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        99
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 90,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        111
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 90,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        116
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 93,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        128
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 93,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        133
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 96,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        145
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 96,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        149
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 99,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        162
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 99,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        167
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 102,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        179
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#sysPrefixRejected"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 102,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        183
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#sysPrefixRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 108,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        204
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 108,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        207
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 115,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        234
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#booleanRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#doubleRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#duplicateRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#jsonRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reportsAllErrorsAtOnce",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reservedFieldRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#sysPrefixRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#timestampRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#illegalValueRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 120,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        259
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 121,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        269
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 82,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        69
+      ],
+      "description": "removed call to io/github/describeadmin/codegen/parser/SpecLoader::require",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 83,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        76
+      ],
+      "description": "removed call to io/github/describeadmin/codegen/parser/SpecLoader::require",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 84,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        83
+      ],
+      "description": "removed call to io/github/describeadmin/codegen/parser/SpecLoader::require",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 85,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        90
+      ],
+      "description": "removed call to io/github/describeadmin/codegen/parser/SpecLoader::require",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parse",
+      "method_description": "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Lio/github/describeadmin/codegen/model/ModuleSpec;",
+      "line": 119,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        291
+      ],
+      "description": "replaced return value with null for io/github/describeadmin/codegen/parser/SpecLoader::parse",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#auditIdsAreStrings",
+        "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+        "io.github.describeadmin.codegen.GeneratorTest#nestedLayoutKeepsModuleSegment",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 178,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+      "indexes": [
+        65
+      ],
+      "description": "changed conditional boundary",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#booleanRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#doubleRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#duplicateRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#jsonRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reportsAllErrorsAtOnce",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reservedFieldRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#sysPrefixRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#timestampRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#illegalValueRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 246,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+      "indexes": [
+        369
+      ],
+      "description": "changed conditional boundary",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 165,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        4
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#booleanRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#doubleRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#duplicateRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#jsonRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reservedFieldRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#timestampRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 169,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        20
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#booleanRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#doubleRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#duplicateRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#jsonRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reservedFieldRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#timestampRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 178,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        65
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#booleanRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#doubleRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#duplicateRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#jsonRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reservedFieldRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#timestampRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 180,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        77
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#booleanRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#doubleRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#duplicateRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#jsonRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reservedFieldRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#timestampRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 187,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        105
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#booleanRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#doubleRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#duplicateRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#jsonRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reservedFieldRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#timestampRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 193,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        128
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 196,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        142
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 200,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        156
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 205,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        174
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#booleanRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#doubleRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#duplicateRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#jsonRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reportsAllErrorsAtOnce",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reservedFieldRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#sysPrefixRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#timestampRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#illegalValueRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 207,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        188
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 210,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        203
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 213,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        218
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 219,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        241
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#booleanRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#jsonRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#timestampRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 223,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        264
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#booleanRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#doubleRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#jsonRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#timestampRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 238,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        333
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#duplicateRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reportsAllErrorsAtOnce",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reservedFieldRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 246,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        361
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 246,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        363
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 246,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        365
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 246,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        369
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 251,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        383
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 251,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        385
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 254,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        398
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 254,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        401
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 254,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        404
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 258,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        416
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 260,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        433
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseFields",
+      "method_description": "(Ljava/lang/Object;Ljava/util/List;)Ljava/util/List;",
+      "line": 263,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        457
+      ],
+      "description": "replaced return value with Collections.emptyList for io/github/describeadmin/codegen/parser/SpecLoader::parseFields",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "parseLayout",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Lio/github/describeadmin/codegen/model/Layout;",
+      "line": 156,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        11
+      ],
+      "description": "replaced return value with null for io/github/describeadmin/codegen/parser/SpecLoader::parseLayout",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#precedence",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "require",
+      "method_description": "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
+      "line": 290,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        4
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reportsAllErrorsAtOnce",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "require",
+      "method_description": "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
+      "line": 290,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "resolveLayout",
+      "method_description": "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/util/List;)Lio/github/describeadmin/codegen/parser/SpecLoader$LayoutChoice;",
+      "line": 139,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        4
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#booleanRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#doubleRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#duplicateRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#jsonRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reportsAllErrorsAtOnce",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reservedFieldRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#sysPrefixRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#timestampRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#illegalEnvValueRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#illegalValueRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#precedence",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "resolveLayout",
+      "method_description": "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/util/List;)Lio/github/describeadmin/codegen/parser/SpecLoader$LayoutChoice;",
+      "line": 142,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        20
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#illegalEnvValueRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#illegalValueRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#precedence",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "resolveLayout",
+      "method_description": "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/util/List;)Lio/github/describeadmin/codegen/parser/SpecLoader$LayoutChoice;",
+      "line": 147,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        41
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#booleanRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#doubleRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#duplicateRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#jsonRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reportsAllErrorsAtOnce",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reservedFieldRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#sysPrefixRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#timestampRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#illegalEnvValueRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#precedence"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "resolveLayout",
+      "method_description": "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/util/List;)Lio/github/describeadmin/codegen/parser/SpecLoader$LayoutChoice;",
+      "line": 147,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        44
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#illegalEnvValueRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#precedence"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "resolveLayout",
+      "method_description": "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/util/List;)Lio/github/describeadmin/codegen/parser/SpecLoader$LayoutChoice;",
+      "line": 140,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        15
+      ],
+      "description": "replaced return value with null for io/github/describeadmin/codegen/parser/SpecLoader::resolveLayout",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#precedence"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "resolveLayout",
+      "method_description": "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/util/List;)Lio/github/describeadmin/codegen/parser/SpecLoader$LayoutChoice;",
+      "line": 143,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        36
+      ],
+      "description": "replaced return value with null for io/github/describeadmin/codegen/parser/SpecLoader::resolveLayout",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#precedence",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "resolveLayout",
+      "method_description": "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/util/List;)Lio/github/describeadmin/codegen/parser/SpecLoader$LayoutChoice;",
+      "line": 148,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        59
+      ],
+      "description": "replaced return value with null for io/github/describeadmin/codegen/parser/SpecLoader::resolveLayout",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#precedence"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "resolveLayout",
+      "method_description": "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/util/List;)Lio/github/describeadmin/codegen/parser/SpecLoader$LayoutChoice;",
+      "line": 152,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        68
+      ],
+      "description": "replaced return value with null for io/github/describeadmin/codegen/parser/SpecLoader::resolveLayout",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#precedence"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "str",
+      "method_description": "(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;",
+      "line": 297,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        10
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#booleanRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#doubleRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#duplicateRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#jsonRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reportsAllErrorsAtOnce",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reservedFieldRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#sysPrefixRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#timestampRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "str",
+      "method_description": "(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;",
+      "line": 297,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        20
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/parser/SpecLoader::str",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#booleanRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#jsonRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#reservedFieldRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#sysPrefixRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#timestampRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "toSnake",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 280,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        30
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal"
+      ]
+    },
+    {
+      "source_file": "SpecLoader.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecLoader",
+      "mutated_method": "toSnake",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 286,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        58
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/parser/SpecLoader::toSnake",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal"
+      ]
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "display",
+      "method_description": "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/lang/String;",
+      "line": 173,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        26
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "display",
+      "method_description": "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/lang/String;",
+      "line": 173,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        38
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/CodegenCli::display",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "display",
+      "method_description": "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/lang/String;",
+      "line": 176,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        50
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/CodegenCli::display",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "main",
+      "method_description": "([Ljava/lang/String;)V",
+      "line": 42,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        15
+      ],
+      "description": "removed call to java/lang/System::exit",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "main",
+      "method_description": "([Ljava/lang/String;)V",
+      "line": 44,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        29
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "main",
+      "method_description": "([Ljava/lang/String;)V",
+      "line": 45,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        33
+      ],
+      "description": "removed call to java/lang/System::exit",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "main",
+      "method_description": "([Ljava/lang/String;)V",
+      "line": 47,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        50
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "main",
+      "method_description": "([Ljava/lang/String;)V",
+      "line": 48,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        54
+      ],
+      "description": "removed call to java/lang/System::exit",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "pkgPath",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 181,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/CodegenCli::pkgPath",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "plan",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/util/Map;",
+      "line": 164,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        173
+      ],
+      "description": "replaced return value with Collections.emptyMap for io/github/describeadmin/codegen/CodegenCli::plan",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "printUsage",
+      "method_description": "(Ljava/io/PrintStream;)V",
+      "line": 185,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        5
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 65,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+      "indexes": [
+        78
+      ],
+      "description": "changed conditional boundary",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 67,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator",
+      "indexes": [
+        142
+      ],
+      "description": "Changed increment from 1 to -1",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 68,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator",
+      "indexes": [
+        154
+      ],
+      "description": "Changed increment from 1 to -1",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 69,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator",
+      "indexes": [
+        166
+      ],
+      "description": "Changed increment from 1 to -1",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 53,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 53,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        11
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 53,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        17
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 55,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        27
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 65,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        78
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 82,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        209
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 86,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        223
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 98,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        280
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 111,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        345
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 111,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        347
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 116,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        367
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 117,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        373
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 124,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        416
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 130,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        452
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 131,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        481
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 131,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        483
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 54,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        22
+      ],
+      "description": "removed call to io/github/describeadmin/codegen/CodegenCli::printUsage",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 73,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        191
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 74,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        195
+      ],
+      "description": "removed call to io/github/describeadmin/codegen/CodegenCli::printUsage",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 87,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        231
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 94,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        258
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 95,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        274
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 99,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        290
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 101,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        295
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 112,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        353
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 117,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        382
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 124,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        426
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 128,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        440
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 132,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        488
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 75,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indexes": [
+        199
+      ],
+      "description": "replaced int return with 0 for io/github/describeadmin/codegen/CodegenCli::run",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "CodegenCli.java",
+      "mutated_class": "io.github.describeadmin.codegen.CodegenCli",
+      "mutated_method": "run",
+      "method_description": "([Ljava/lang/String;Ljava/io/PrintStream;)I",
+      "line": 88,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indexes": [
+        235
+      ],
+      "description": "replaced int return with 0 for io/github/describeadmin/codegen/CodegenCli::run",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "api",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 71,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        30
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "api",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 83,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        196
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::api",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#apiPathHasNoDuplicatePrefix",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#auditIdsAreStrings",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#longMapsToString",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#mutationApisTakeStringId",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#pageMetadataStaysNumeric"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "clientPath",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 61,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        8
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::clientPath",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#apiPathHasNoDuplicatePrefix"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "controlOf",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldType;)Ljava/lang/String;",
+      "line": 606,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        36
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::controlOf",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#importsAreMinimal"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "elementImports",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 461,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        58
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::elementImports",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#importsAreMinimal"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "fieldTestId",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+      "line": 35,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::fieldTestId",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#longUsesTextInput",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "formItem",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+      "line": 569,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        134
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "formItem",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+      "line": 598,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        247
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::formItem",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#controlsMatchFieldTypes",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#longUsesTextInput",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "formModel",
+      "method_description": "(Ljava/util/List;Ljava/lang/String;)Ljava/lang/String;",
+      "line": 446,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        18
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::formModel",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "initialValue",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+      "line": 616,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        32
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::initialValue",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "kebab",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 41,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        30
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#longUsesTextInput",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "kebab",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 47,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        58
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::kebab",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#longUsesTextInput",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "lambda$api$0",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+      "line": 67,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::lambda$api$0",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "lambda$api$1",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/util/stream/Stream;",
+      "line": 74,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "lambda$api$1",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/util/stream/Stream;",
+      "line": 74,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        54
+      ],
+      "description": "replaced return value with Stream.empty for io/github/describeadmin/codegen/generator/VueGenerator::lambda$api$1",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "lambda$elementImports$9",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 462,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::lambda$elementImports$9",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#importsAreMinimal"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "lambda$formModel$8",
+      "method_description": "(Ljava/lang/String;Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+      "line": 447,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::lambda$formModel$8",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "lambda$page$2",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Z",
+      "line": 169,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "lambda$page$2",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Z",
+      "line": 169,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        13
+      ],
+      "description": "replaced boolean return with true for io/github/describeadmin/codegen/generator/VueGenerator::lambda$page$2",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "lambda$page$3",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+      "line": 170,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        12
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::lambda$page$3",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "lambda$page$4",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/util/stream/Stream;",
+      "line": 174,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "lambda$page$4",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/util/stream/Stream;",
+      "line": 174,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        54
+      ],
+      "description": "replaced return value with Stream.empty for io/github/describeadmin/codegen/generator/VueGenerator::lambda$page$4",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "lambda$page$5",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Z",
+      "line": 183,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#textFieldNotInTable"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "lambda$page$5",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Z",
+      "line": 183,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        14
+      ],
+      "description": "replaced boolean return with true for io/github/describeadmin/codegen/generator/VueGenerator::lambda$page$5",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#textFieldNotInTable"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "lambda$page$6",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+      "line": 184,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        8
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::lambda$page$6",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#textFieldNotInTable"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "lambda$page$7",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+      "line": 200,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::lambda$page$7",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#controlsMatchFieldTypes",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#longUsesTextInput",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "lambda$searchFormScript$10",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/util/stream/Stream;",
+      "line": 479,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "lambda$searchFormScript$10",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/util/stream/Stream;",
+      "line": 479,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        54
+      ],
+      "description": "replaced return value with Stream.empty for io/github/describeadmin/codegen/generator/VueGenerator::lambda$searchFormScript$10",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "page",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 159,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        15
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "page",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 190,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        97
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "page",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 193,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        112
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "page",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 196,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        127
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "page",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 197,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        141
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "page",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 417,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        242
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "page",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 419,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        261
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "page",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 203,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        425
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::page",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#controlsMatchFieldTypes",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#importsAreMinimal",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#longUsesTextInput",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#textFieldNotInTable"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "searchFormScript",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Ljava/util/List;)Ljava/lang/String;",
+      "line": 486,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        36
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::searchFormScript",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "searchSchemaItem",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+      "line": 508,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        30
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::searchSchemaItem",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "testId",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Ljava/lang/String;)Ljava/lang/String;",
+      "line": 30,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::testId",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming"
+      ]
+    },
+    {
+      "source_file": "VueGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+      "mutated_method": "tsType",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldType;)Ljava/lang/String;",
+      "line": 624,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        26
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::tsType",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#longMapsToString"
+      ]
+    },
+    {
+      "source_file": "JavaGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+      "mutated_method": "condition",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+      "line": 260,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        22
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::condition",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#controllerActuallyFilters",
+        "io.github.describeadmin.codegen.GeneratorTest#parsersAreDelegatedToBaseController"
+      ]
+    },
+    {
+      "source_file": "JavaGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+      "mutated_method": "controller",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 131,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        10
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "JavaGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+      "mutated_method": "controller",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 149,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        78
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "JavaGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+      "mutated_method": "controller",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 208,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        193
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#controllerActuallyFilters",
+        "io.github.describeadmin.codegen.GeneratorTest#parsersAreDelegatedToBaseController"
+      ]
+    },
+    {
+      "source_file": "JavaGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+      "mutated_method": "controller",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 156,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        209
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::controller",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#controller",
+        "io.github.describeadmin.codegen.GeneratorTest#controllerActuallyFilters",
+        "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+        "io.github.describeadmin.codegen.GeneratorTest#generatedJavaHasAllImports",
+        "io.github.describeadmin.codegen.GeneratorTest#parsersAreDelegatedToBaseController"
+      ]
+    },
+    {
+      "source_file": "JavaGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+      "mutated_method": "entity",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 39,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        51
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#entityImports",
+        "io.github.describeadmin.codegen.GeneratorTest#generatedJavaHasAllImports"
+      ]
+    },
+    {
+      "source_file": "JavaGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+      "mutated_method": "entity",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 51,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        136
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::entity",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#entityImports",
+        "io.github.describeadmin.codegen.GeneratorTest#entityIsThin",
+        "io.github.describeadmin.codegen.GeneratorTest#entityUsesLombokAccessors",
+        "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+        "io.github.describeadmin.codegen.GeneratorTest#generatedJavaHasAllImports",
+        "io.github.describeadmin.codegen.GeneratorTest#nestedLayoutKeepsModuleSegment"
+      ]
+    },
+    {
+      "source_file": "JavaGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+      "mutated_method": "lambda$controller$2",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+      "line": 134,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        16
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::lambda$controller$2",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#javadocWellFormed"
+      ]
+    },
+    {
+      "source_file": "JavaGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+      "mutated_method": "lambda$controller$3",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 201,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::lambda$controller$3",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#controller",
+        "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment"
+      ]
+    },
+    {
+      "source_file": "JavaGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+      "mutated_method": "lambda$entity$0",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+      "line": 45,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        27
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::lambda$entity$0",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#entityIsThin"
+      ]
+    },
+    {
+      "source_file": "JavaGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+      "mutated_method": "lambda$entity$1",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 72,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::lambda$entity$1",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#entityImports",
+        "io.github.describeadmin.codegen.GeneratorTest#entityUsesLombokAccessors",
+        "io.github.describeadmin.codegen.GeneratorTest#generatedJavaHasAllImports"
+      ]
+    },
+    {
+      "source_file": "JavaGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+      "mutated_method": "listMethod",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Ljava/util/List;)Ljava/lang/String;",
+      "line": 226,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        26
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#controllerActuallyFilters",
+        "io.github.describeadmin.codegen.GeneratorTest#parsersAreDelegatedToBaseController"
+      ]
+    },
+    {
+      "source_file": "JavaGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+      "mutated_method": "listMethod",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Ljava/util/List;)Ljava/lang/String;",
+      "line": 231,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        62
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#controllerActuallyFilters"
+      ]
+    },
+    {
+      "source_file": "JavaGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+      "mutated_method": "listMethod",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Ljava/util/List;)Ljava/lang/String;",
+      "line": 235,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        103
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::listMethod",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#controllerActuallyFilters",
+        "io.github.describeadmin.codegen.GeneratorTest#parsersAreDelegatedToBaseController"
+      ]
+    },
+    {
+      "source_file": "JavaGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+      "mutated_method": "mapper",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 80,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        51
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::mapper",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+        "io.github.describeadmin.codegen.GeneratorTest#generatedJavaHasAllImports"
+      ]
+    },
+    {
+      "source_file": "JavaGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+      "mutated_method": "parserName",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldType;)Ljava/lang/String;",
+      "line": 265,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        46
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::parserName",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#controllerActuallyFilters",
+        "io.github.describeadmin.codegen.GeneratorTest#parsersAreDelegatedToBaseController"
+      ]
+    },
+    {
+      "source_file": "JavaGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+      "mutated_method": "service",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 102,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        69
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::service",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#generatedJavaHasAllImports"
+      ]
+    },
+    {
+      "source_file": "FieldType.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+      "mutated_method": "allKeys",
+      "method_description": "()Ljava/util/List;",
+      "line": 54,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        8
+      ],
+      "description": "replaced return value with Collections.emptyList for io/github/describeadmin/codegen/model/FieldType::allKeys",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "FieldType.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+      "mutated_method": "importName",
+      "method_description": "()Ljava/lang/String;",
+      "line": 69,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#entityImports",
+        "io.github.describeadmin.codegen.GeneratorTest#generatedJavaHasAllImports"
+      ]
+    },
+    {
+      "source_file": "FieldType.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+      "mutated_method": "importName",
+      "method_description": "()Ljava/lang/String;",
+      "line": 69,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        16
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldType::importName",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#entityImports",
+        "io.github.describeadmin.codegen.GeneratorTest#generatedJavaHasAllImports"
+      ]
+    },
+    {
+      "source_file": "FieldType.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+      "mutated_method": "javaSimpleType",
+      "method_description": "()Ljava/lang/String;",
+      "line": 64,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+      "indexes": [
+        11
+      ],
+      "description": "changed conditional boundary",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "FieldType.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+      "mutated_method": "javaSimpleType",
+      "method_description": "()Ljava/lang/String;",
+      "line": 64,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+      "indexes": [
+        21
+      ],
+      "description": "Replaced integer addition with subtraction",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#entityIsThin",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping"
+      ]
+    },
+    {
+      "source_file": "FieldType.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+      "mutated_method": "javaSimpleType",
+      "method_description": "()Ljava/lang/String;",
+      "line": 64,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        11
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#entityIsThin",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping"
+      ]
+    },
+    {
+      "source_file": "FieldType.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+      "mutated_method": "javaSimpleType",
+      "method_description": "()Ljava/lang/String;",
+      "line": 64,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        25
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldType::javaSimpleType",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#entityIsThin",
+        "io.github.describeadmin.codegen.GeneratorTest#generatedJavaHasAllImports",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping"
+      ]
+    },
+    {
+      "source_file": "FieldType.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+      "mutated_method": "key",
+      "method_description": "()Ljava/lang/String;",
+      "line": 58,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldType::key",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "FieldType.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+      "mutated_method": "lambda$of$0",
+      "method_description": "(Ljava/lang/String;Lio/github/describeadmin/codegen/model/FieldType;)Z",
+      "line": 50,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "replaced boolean return with false for io/github/describeadmin/codegen/model/FieldType::lambda$of$0",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "FieldType.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+      "mutated_method": "lambda$of$0",
+      "method_description": "(Ljava/lang/String;Lio/github/describeadmin/codegen/model/FieldType;)Z",
+      "line": 50,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "replaced boolean return with true for io/github/describeadmin/codegen/model/FieldType::lambda$of$0",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#booleanRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#doubleRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#jsonRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#likeOnNonStringRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#timestampRejectedWithHint",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping"
+      ]
+    },
+    {
+      "source_file": "FieldType.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+      "mutated_method": "needsLength",
+      "method_description": "()Z",
+      "line": 77,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced boolean return with false for io/github/describeadmin/codegen/model/FieldType::needsLength",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "FieldType.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+      "mutated_method": "needsLength",
+      "method_description": "()Z",
+      "line": 77,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced boolean return with true for io/github/describeadmin/codegen/model/FieldType::needsLength",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping"
+      ]
+    },
+    {
+      "source_file": "FieldType.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+      "mutated_method": "needsPrecision",
+      "method_description": "()Z",
+      "line": 81,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced boolean return with false for io/github/describeadmin/codegen/model/FieldType::needsPrecision",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping"
+      ]
+    },
+    {
+      "source_file": "FieldType.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+      "mutated_method": "needsPrecision",
+      "method_description": "()Z",
+      "line": 81,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced boolean return with true for io/github/describeadmin/codegen/model/FieldType::needsPrecision",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "FieldType.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+      "mutated_method": "of",
+      "method_description": "(Ljava/lang/String;)Ljava/util/Optional;",
+      "line": 50,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced return value with Optional.empty for io/github/describeadmin/codegen/model/FieldType::of",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest",
+        "io.github.describeadmin.codegen.GeneratorTest",
+        "io.github.describeadmin.codegen.SpecLoaderTest#exampleIsValid",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedTextRejected",
+        "io.github.describeadmin.codegen.SpecLoaderTest#indexedVarcharTooLong",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "FieldType.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+      "mutated_method": "sqlType",
+      "method_description": "()Ljava/lang/String;",
+      "line": 73,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldType::sqlType",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping"
+      ]
+    },
+    {
+      "source_file": "ModuleSpec.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.ModuleSpec",
+      "mutated_method": "<init>",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lio/github/describeadmin/codegen/model/Layout;Ljava/lang/String;Ljava/util/List;)V",
+      "line": 41,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        8
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "ModuleSpec.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.ModuleSpec",
+      "mutated_method": "controllerClass",
+      "method_description": "()Ljava/lang/String;",
+      "line": 60,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/ModuleSpec::controllerClass",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal"
+      ]
+    },
+    {
+      "source_file": "ModuleSpec.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.ModuleSpec",
+      "mutated_method": "entityClass",
+      "method_description": "()Ljava/lang/String;",
+      "line": 48,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/ModuleSpec::entityClass",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#controller",
+        "io.github.describeadmin.codegen.GeneratorTest#controllerActuallyFilters",
+        "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal"
+      ]
+    },
+    {
+      "source_file": "ModuleSpec.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.ModuleSpec",
+      "mutated_method": "entityVar",
+      "method_description": "()Ljava/lang/String;",
+      "line": 72,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        13
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/ModuleSpec::entityVar",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#controller"
+      ]
+    },
+    {
+      "source_file": "ModuleSpec.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.ModuleSpec",
+      "mutated_method": "lambda$queryFields$0",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Z",
+      "line": 77,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+        "io.github.describeadmin.codegen.GeneratorTest#controllerActuallyFilters",
+        "io.github.describeadmin.codegen.GeneratorTest#parsersAreDelegatedToBaseController"
+      ]
+    },
+    {
+      "source_file": "ModuleSpec.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.ModuleSpec",
+      "mutated_method": "lambda$queryFields$0",
+      "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Z",
+      "line": 77,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        14
+      ],
+      "description": "replaced boolean return with true for io/github/describeadmin/codegen/model/ModuleSpec::lambda$queryFields$0",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "ModuleSpec.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.ModuleSpec",
+      "mutated_method": "mapperClass",
+      "method_description": "()Ljava/lang/String;",
+      "line": 52,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/ModuleSpec::mapperClass",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#controller"
+      ]
+    },
+    {
+      "source_file": "ModuleSpec.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.ModuleSpec",
+      "mutated_method": "packageOf",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 64,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        35
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/ModuleSpec::packageOf",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+        "io.github.describeadmin.codegen.GeneratorTest#nestedLayoutKeepsModuleSegment",
+        "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "ModuleSpec.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.ModuleSpec",
+      "mutated_method": "queryFields",
+      "method_description": "()Ljava/util/List;",
+      "line": 77,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced return value with Collections.emptyList for io/github/describeadmin/codegen/model/ModuleSpec::queryFields",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+        "io.github.describeadmin.codegen.GeneratorTest#controllerActuallyFilters",
+        "io.github.describeadmin.codegen.GeneratorTest#parsersAreDelegatedToBaseController"
+      ]
+    },
+    {
+      "source_file": "ModuleSpec.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.ModuleSpec",
+      "mutated_method": "serviceClass",
+      "method_description": "()Ljava/lang/String;",
+      "line": 56,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/ModuleSpec::serviceClass",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#controller",
+        "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment"
+      ]
+    },
+    {
+      "source_file": "FieldSpec.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+      "mutated_method": "sqlColumnType",
+      "method_description": "()Ljava/lang/String;",
+      "line": 43,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping"
+      ]
+    },
+    {
+      "source_file": "FieldSpec.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+      "mutated_method": "sqlColumnType",
+      "method_description": "()Ljava/lang/String;",
+      "line": 44,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        14
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "FieldSpec.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+      "mutated_method": "sqlColumnType",
+      "method_description": "()Ljava/lang/String;",
+      "line": 46,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        32
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping"
+      ]
+    },
+    {
+      "source_file": "FieldSpec.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+      "mutated_method": "sqlColumnType",
+      "method_description": "()Ljava/lang/String;",
+      "line": 47,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        40
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "FieldSpec.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+      "mutated_method": "sqlColumnType",
+      "method_description": "()Ljava/lang/String;",
+      "line": 48,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        53
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "FieldSpec.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+      "mutated_method": "sqlColumnType",
+      "method_description": "()Ljava/lang/String;",
+      "line": 44,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        25
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "FieldSpec.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+      "mutated_method": "sqlColumnType",
+      "method_description": "()Ljava/lang/String;",
+      "line": 47,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        66
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping"
+      ]
+    },
+    {
+      "source_file": "FieldSpec.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+      "mutated_method": "sqlColumnType",
+      "method_description": "()Ljava/lang/String;",
+      "line": 50,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        73
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "DdlGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+      "mutated_method": "escape",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 83,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        4
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "DdlGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+      "mutated_method": "escape",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 83,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        15
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/DdlGenerator::escape",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "DdlGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+      "mutated_method": "generate",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 36,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        58
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "DdlGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+      "mutated_method": "generate",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 51,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        163
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#ddlIndexes"
+      ]
+    },
+    {
+      "source_file": "DdlGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+      "mutated_method": "generate",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 59,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        237
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/DdlGenerator::generate",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#ddlHasAuditColumns",
+        "io.github.describeadmin.codegen.GeneratorTest#ddlIndexes",
+        "io.github.describeadmin.codegen.GeneratorTest#ddlRespectsRedLines"
+      ]
+    },
+    {
+      "source_file": "DdlGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+      "mutated_method": "pad",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 74,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        11
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/DdlGenerator::pad",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#ddlHasAuditColumns"
+      ]
+    },
+    {
+      "source_file": "DdlGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+      "mutated_method": "padType",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 78,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        11
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/DdlGenerator::padType",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuSqlGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+      "mutated_method": "buttonRow",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+      "line": 100,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        38
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::buttonRow",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#buttonPermissionsMatchPage"
+      ]
+    },
+    {
+      "source_file": "MenuSqlGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+      "mutated_method": "generate",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 45,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        153
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::generate",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#buttonPermissionsMatchPage",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#menuComponentMatchesGeneratedFile",
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#menuSqlRespectsRedLines"
+      ]
+    },
+    {
+      "source_file": "MenuSqlGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+      "mutated_method": "grantToAdmin",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 112,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        20
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::grantToAdmin",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuSqlGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+      "mutated_method": "header",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+      "line": 49,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        27
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::header",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuSqlGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+      "mutated_method": "menuRow",
+      "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+      "line": 84,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        36
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::menuRow",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#menuComponentMatchesGeneratedFile"
+      ]
+    },
+    {
+      "source_file": "MenuSqlGenerator.java",
+      "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+      "mutated_method": "rootDir",
+      "method_description": "()Ljava/lang/String;",
+      "line": 68,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        23
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::rootDir",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.FrontendGeneratorTest#menuComponentMatchesGeneratedFile"
+      ]
+    },
+    {
+      "source_file": "Layout.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.Layout",
+      "mutated_method": "key",
+      "method_description": "()Ljava/lang/String;",
+      "line": 27,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/Layout::key",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Layout.java",
+      "mutated_class": "io.github.describeadmin.codegen.model.Layout",
+      "mutated_method": "of",
+      "method_description": "(Ljava/lang/String;)Ljava/util/Optional;",
+      "line": 32,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        4
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#precedence",
+        "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat"
+      ]
+    },
+    {
+      "source_file": "SpecException.java",
+      "mutated_class": "io.github.describeadmin.codegen.parser.SpecException",
+      "mutated_method": "errors",
+      "method_description": "()Ljava/util/List;",
+      "line": 21,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with Collections.emptyList for io/github/describeadmin/codegen/parser/SpecException::errors",
+      "status": "KILLED",
+      "killing_tests": [
+        "io.github.describeadmin.codegen.SpecLoaderTest#reportsAllErrorsAtOnce"
+      ]
+    }
+  ]
+}

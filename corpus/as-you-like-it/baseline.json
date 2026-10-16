@@ -1,0 +1,3466 @@
+{
+  "repo_commit": "bc1ade7198a0cd9fc9266c5ef8b89aeb75857429",
+  "date": "2026-10-16",
+  "java": "21.0.12.1",
+  "maven": "3.9.16",
+  "pitest_maven": "1.30.0",
+  "pitest_junit5_plugin": "1.2.3",
+  "mutants": [
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "announceAssignment",
+      "method_description": "()Lsubmission/domain/Assignment;",
+      "line": 136,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        17
+      ],
+      "description": "removed call to submission/domain/AssignmentRepository::save",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "announceAssignment",
+      "method_description": "()Lsubmission/domain/Assignment;",
+      "line": 138,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        32
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "announceAssignment",
+      "method_description": "()Lsubmission/domain/Assignment;",
+      "line": 139,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        36
+      ],
+      "description": "replaced return value with null for submission/scenario/AsYouLikeItScenario::announceAssignment",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "castCharacters",
+      "method_description": "()V",
+      "line": 127,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        61
+      ],
+      "description": "removed call to submission/domain/SubmitterRepository::save",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "castCharacters",
+      "method_description": "()V",
+      "line": 129,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        75
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "checkVisibilityFiltering",
+      "method_description": "()V",
+      "line": 357,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        96
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "deleteSubmissions",
+      "method_description": "()V",
+      "line": 336,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        129
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "deleteSubmissions",
+      "method_description": "()V",
+      "line": 319,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        25
+      ],
+      "description": "removed call to submission/domain/SubmissionService::delete",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "deleteSubmissions",
+      "method_description": "()V",
+      "line": 320,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        30
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "deleteSubmissions",
+      "method_description": "()V",
+      "line": 323,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        49
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "deleteSubmissions",
+      "method_description": "()V",
+      "line": 330,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        83
+      ],
+      "description": "removed call to submission/domain/SubmissionService::delete",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "deleteSubmissions",
+      "method_description": "()V",
+      "line": 332,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        93
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "deleteSubmissions",
+      "method_description": "()V",
+      "line": 337,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        143
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "deleteSubmissions",
+      "method_description": "()V",
+      "line": 340,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        157
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "editSubmissions",
+      "method_description": "()V",
+      "line": 296,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        42
+      ],
+      "description": "removed call to submission/domain/SubmissionService::edit",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "editSubmissions",
+      "method_description": "()V",
+      "line": 300,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        52
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "editSubmissions",
+      "method_description": "()V",
+      "line": 302,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        66
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "editSubmissions",
+      "method_description": "()V",
+      "line": 307,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        88
+      ],
+      "description": "removed call to submission/domain/SubmissionService::edit",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "editSubmissions",
+      "method_description": "()V",
+      "line": 308,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        93
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "editSubmissions",
+      "method_description": "()V",
+      "line": 311,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        112
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "exchangeLikes",
+      "method_description": "()V",
+      "line": 216,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        105
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "exchangeLikes",
+      "method_description": "()V",
+      "line": 225,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        138
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "findNameById",
+      "method_description": "(Lsubmission/domain/SubmitterId;)Ljava/lang/String;",
+      "line": 375,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        26
+      ],
+      "description": "replaced return value with \"\" for submission/scenario/AsYouLikeItScenario::findNameById",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "giveLike",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;)Lsubmission/domain/Like;",
+      "line": 235,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        57
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "giveLike",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;)Lsubmission/domain/Like;",
+      "line": 237,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        61
+      ],
+      "description": "replaced return value with null for submission/scenario/AsYouLikeItScenario::giveLike",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "lambda$checkVisibilityFiltering$0",
+      "method_description": "(Lsubmission/domain/Submission;Lsubmission/domain/Submission;)Z",
+      "line": 352,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indexes": [
+        8
+      ],
+      "description": "replaced boolean return with false for submission/scenario/AsYouLikeItScenario::lambda$checkVisibilityFiltering$0",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "lambda$checkVisibilityFiltering$0",
+      "method_description": "(Lsubmission/domain/Submission;Lsubmission/domain/Submission;)Z",
+      "line": 352,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        8
+      ],
+      "description": "replaced boolean return with true for submission/scenario/AsYouLikeItScenario::lambda$checkVisibilityFiltering$0",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "lambda$checkVisibilityFiltering$1",
+      "method_description": "(Lsubmission/domain/Submission;Lsubmission/domain/Submission;)Z",
+      "line": 354,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indexes": [
+        8
+      ],
+      "description": "replaced boolean return with false for submission/scenario/AsYouLikeItScenario::lambda$checkVisibilityFiltering$1",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "lambda$checkVisibilityFiltering$1",
+      "method_description": "(Lsubmission/domain/Submission;Lsubmission/domain/Submission;)Z",
+      "line": 354,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        8
+      ],
+      "description": "replaced boolean return with true for submission/scenario/AsYouLikeItScenario::lambda$checkVisibilityFiltering$1",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "lambda$checkVisibilityFiltering$2",
+      "method_description": "(Lsubmission/domain/Submission;Lsubmission/domain/Submission;)Z",
+      "line": 356,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indexes": [
+        8
+      ],
+      "description": "replaced boolean return with false for submission/scenario/AsYouLikeItScenario::lambda$checkVisibilityFiltering$2",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "lambda$checkVisibilityFiltering$2",
+      "method_description": "(Lsubmission/domain/Submission;Lsubmission/domain/Submission;)Z",
+      "line": 356,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        8
+      ],
+      "description": "replaced boolean return with true for submission/scenario/AsYouLikeItScenario::lambda$checkVisibilityFiltering$2",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "lambda$findNameById$3",
+      "method_description": "(Lsubmission/domain/SubmitterId;Ljava/util/Map$Entry;)Z",
+      "line": 376,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced boolean return with false for submission/scenario/AsYouLikeItScenario::lambda$findNameById$3",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "lambda$findNameById$3",
+      "method_description": "(Lsubmission/domain/SubmitterId;Ljava/util/Map$Entry;)Z",
+      "line": 376,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced boolean return with true for submission/scenario/AsYouLikeItScenario::lambda$findNameById$3",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "manageVisibility",
+      "method_description": "()V",
+      "line": 278,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        23
+      ],
+      "description": "removed call to submission/domain/Submission::changeVisibility",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "manageVisibility",
+      "method_description": "()V",
+      "line": 279,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        29
+      ],
+      "description": "removed call to submission/domain/SubmissionRepository::save",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "manageVisibility",
+      "method_description": "()V",
+      "line": 280,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        34
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "manageVisibility",
+      "method_description": "()V",
+      "line": 284,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        49
+      ],
+      "description": "removed call to submission/domain/Submission::changeVisibility",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "manageVisibility",
+      "method_description": "()V",
+      "line": 288,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        72
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "oliverReformsAndSubmits",
+      "method_description": "(Lsubmission/domain/Assignment;)V",
+      "line": 183,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        13
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "oliverReformsAndSubmits",
+      "method_description": "(Lsubmission/domain/Assignment;)V",
+      "line": 184,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        19
+      ],
+      "description": "removed call to submission/domain/Assignment::enter",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "oliverReformsAndSubmits",
+      "method_description": "(Lsubmission/domain/Assignment;)V",
+      "line": 185,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        24
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "oliverReformsAndSubmits",
+      "method_description": "(Lsubmission/domain/Assignment;)V",
+      "line": 186,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        33
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::submitOne",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "oliverTriesToSubmitTooSoon",
+      "method_description": "(Lsubmission/domain/Assignment;)V",
+      "line": 159,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        57
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "openEntries",
+      "method_description": "(Lsubmission/domain/Assignment;)V",
+      "line": 144,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        49
+      ],
+      "description": "removed call to submission/domain/Assignment::enter",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "openEntries",
+      "method_description": "(Lsubmission/domain/Assignment;)V",
+      "line": 145,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        55
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "openEntries",
+      "method_description": "(Lsubmission/domain/Assignment;)V",
+      "line": 147,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        65
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "printSummary",
+      "method_description": "(Lsubmission/domain/Assignment;)V",
+      "line": 364,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        32
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "printSummary",
+      "method_description": "(Lsubmission/domain/Assignment;)V",
+      "line": 365,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        85
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "revokeAndReLike",
+      "method_description": "()V",
+      "line": 244,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        26
+      ],
+      "description": "removed call to submission/domain/LikeService::revokeLike",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "revokeAndReLike",
+      "method_description": "()V",
+      "line": 248,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        57
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "revokeAndReLike",
+      "method_description": "()V",
+      "line": 251,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        67
+      ],
+      "description": "removed call to submission/domain/LikeService::revokeLike",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "revokeAndReLike",
+      "method_description": "()V",
+      "line": 255,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        90
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "revokeAndReLike",
+      "method_description": "()V",
+      "line": 259,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        100
+      ],
+      "description": "removed call to submission/domain/LikeService::revokeLike",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "revokeAndReLike",
+      "method_description": "()V",
+      "line": 263,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        127
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "revokeAndReLike",
+      "method_description": "()V",
+      "line": 271,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        168
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 74,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        10
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 75,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        15
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 76,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        20
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 78,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        24
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::castCharacters",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 80,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        34
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::openEntries",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 82,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        39
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 83,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        44
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 84,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        49
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::oliverTriesToSubmitTooSoon",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 86,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        54
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 87,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        59
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 88,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        64
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::submitSongs",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 90,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        69
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 91,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        74
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 92,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        79
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::oliverReformsAndSubmits",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 94,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        84
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 95,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        89
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 96,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        93
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::exchangeLikes",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 98,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        98
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 99,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        103
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 100,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        107
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::revokeAndReLike",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 102,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        112
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 103,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        117
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 104,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        121
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::manageVisibility",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 106,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        126
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 107,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        131
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 108,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        135
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::editSubmissions",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 110,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        140
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 111,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        145
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 112,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        149
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::deleteSubmissions",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 114,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        154
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 115,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        159
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 116,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        163
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::checkVisibilityFiltering",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 118,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        168
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 119,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        173
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "run",
+      "method_description": "(Z)V",
+      "line": 120,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        178
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::printSummary",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "say",
+      "method_description": "(Ljava/lang/String;)V",
+      "line": 383,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "say",
+      "method_description": "(Ljava/lang/String;)V",
+      "line": 384,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        10
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "submitOne",
+      "method_description": "(Lsubmission/domain/Assignment;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
+      "line": 197,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        54
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::say",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "submitSongs",
+      "method_description": "(Lsubmission/domain/Assignment;)V",
+      "line": 164,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        9
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::submitOne",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "submitSongs",
+      "method_description": "(Lsubmission/domain/Assignment;)V",
+      "line": 167,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        18
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::submitOne",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "submitSongs",
+      "method_description": "(Lsubmission/domain/Assignment;)V",
+      "line": 170,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        27
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::submitOne",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "submitSongs",
+      "method_description": "(Lsubmission/domain/Assignment;)V",
+      "line": 173,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        36
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::submitOne",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AsYouLikeItScenario.java",
+      "mutated_class": "submission.scenario.AsYouLikeItScenario",
+      "mutated_method": "submitSongs",
+      "method_description": "(Lsubmission/domain/Assignment;)V",
+      "line": 176,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        45
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::submitOne",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "delete",
+      "method_description": "(Lsubmission/domain/SubmissionId;Lsubmission/domain/SubmitterId;)V",
+      "line": 74,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        18
+      ],
+      "description": "removed call to submission/domain/Submission::delete",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionServiceTest#ownerCanDelete",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "delete",
+      "method_description": "(Lsubmission/domain/SubmissionId;Lsubmission/domain/SubmitterId;)V",
+      "line": 81,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        53
+      ],
+      "description": "removed call to submission/domain/Like::forceRevoke",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "delete",
+      "method_description": "(Lsubmission/domain/SubmissionId;Lsubmission/domain/SubmitterId;)V",
+      "line": 86,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        70
+      ],
+      "description": "removed call to submission/domain/Entry::restoreLike",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "delete",
+      "method_description": "(Lsubmission/domain/SubmissionId;Lsubmission/domain/SubmitterId;)V",
+      "line": 87,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        76
+      ],
+      "description": "removed call to submission/domain/LikeRepository::save",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "delete",
+      "method_description": "(Lsubmission/domain/SubmissionId;Lsubmission/domain/SubmitterId;)V",
+      "line": 90,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        86
+      ],
+      "description": "removed call to submission/domain/AssignmentRepository::save",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "delete",
+      "method_description": "(Lsubmission/domain/SubmissionId;Lsubmission/domain/SubmitterId;)V",
+      "line": 91,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        92
+      ],
+      "description": "removed call to submission/domain/SubmissionRepository::save",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "edit",
+      "method_description": "(Lsubmission/domain/SubmissionId;Lsubmission/domain/SubmitterId;Ljava/lang/String;Ljava/lang/String;Lsubmission/domain/Comment;Ljava/util/List;)V",
+      "line": 58,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        22
+      ],
+      "description": "removed call to submission/domain/Submission::edit",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotEdit",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "edit",
+      "method_description": "(Lsubmission/domain/SubmissionId;Lsubmission/domain/SubmitterId;Ljava/lang/String;Ljava/lang/String;Lsubmission/domain/Comment;Ljava/util/List;)V",
+      "line": 60,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        28
+      ],
+      "description": "removed call to submission/domain/SubmissionRepository::save",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "lambda$delete$2",
+      "method_description": "(Lsubmission/domain/SubmissionId;)Ljava/util/NoSuchElementException;",
+      "line": 72,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced return value with null for submission/domain/SubmissionService::lambda$delete$2",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "lambda$delete$3",
+      "method_description": "(Lsubmission/domain/Submission;)Ljava/util/NoSuchElementException;",
+      "line": 77,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        14
+      ],
+      "description": "replaced return value with null for submission/domain/SubmissionService::lambda$delete$3",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "lambda$delete$4",
+      "method_description": "(Lsubmission/domain/Like;)Ljava/lang/IllegalStateException;",
+      "line": 83,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        14
+      ],
+      "description": "replaced return value with null for submission/domain/SubmissionService::lambda$delete$4",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "lambda$edit$1",
+      "method_description": "(Lsubmission/domain/SubmissionId;)Ljava/util/NoSuchElementException;",
+      "line": 56,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced return value with null for submission/domain/SubmissionService::lambda$edit$1",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "lambda$submit$0",
+      "method_description": "(Lsubmission/domain/AssignmentId;)Ljava/util/NoSuchElementException;",
+      "line": 27,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced return value with null for submission/domain/SubmissionService::lambda$submit$0",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "submit",
+      "method_description": "(Lsubmission/domain/AssignmentId;Lsubmission/domain/SubmitterId;Lsubmission/domain/SubmittedWork;Lsubmission/domain/Comment;Lsubmission/domain/Visibility;)Lsubmission/domain/Submission;",
+      "line": 29,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        19
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#enteredSubmitterCanSubmit",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotEdit",
+        "submission.domain.SubmissionServiceTest#notEnteredSubmitterCannotSubmit",
+        "submission.domain.SubmissionServiceTest#ownerCanDelete",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "submit",
+      "method_description": "(Lsubmission/domain/AssignmentId;Lsubmission/domain/SubmitterId;Lsubmission/domain/SubmittedWork;Lsubmission/domain/Comment;Lsubmission/domain/Visibility;)Lsubmission/domain/Submission;",
+      "line": 43,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        49
+      ],
+      "description": "removed call to submission/domain/SubmissionRepository::save",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotEdit",
+        "submission.domain.SubmissionServiceTest#ownerCanDelete",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "submit",
+      "method_description": "(Lsubmission/domain/AssignmentId;Lsubmission/domain/SubmitterId;Lsubmission/domain/SubmittedWork;Lsubmission/domain/Comment;Lsubmission/domain/Visibility;)Lsubmission/domain/Submission;",
+      "line": 44,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        53
+      ],
+      "description": "replaced return value with null for submission/domain/SubmissionService::submit",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#enteredSubmitterCanSubmit",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotEdit",
+        "submission.domain.SubmissionServiceTest#ownerCanDelete",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "visibleSubmissions",
+      "method_description": "(Lsubmission/domain/AssignmentId;Lsubmission/domain/SubmitterId;)Ljava/util/List;",
+      "line": 101,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        30
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "visibleSubmissions",
+      "method_description": "(Lsubmission/domain/AssignmentId;Lsubmission/domain/SubmitterId;)Ljava/util/List;",
+      "line": 102,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        36
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "visibleSubmissions",
+      "method_description": "(Lsubmission/domain/AssignmentId;Lsubmission/domain/SubmitterId;)Ljava/util/List;",
+      "line": 103,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        51
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "visibleSubmissions",
+      "method_description": "(Lsubmission/domain/AssignmentId;Lsubmission/domain/SubmitterId;)Ljava/util/List;",
+      "line": 103,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        53
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "SubmissionService.java",
+      "mutated_class": "submission.domain.SubmissionService",
+      "mutated_method": "visibleSubmissions",
+      "method_description": "(Lsubmission/domain/AssignmentId;Lsubmission/domain/SubmitterId;)Ljava/util/List;",
+      "line": 107,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        68
+      ],
+      "description": "replaced return value with Collections.emptyList for submission/domain/SubmissionService::visibleSubmissions",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "giveLike",
+      "method_description": "(Lsubmission/domain/SubmitterId;Lsubmission/domain/SubmissionId;)Lsubmission/domain/Like;",
+      "line": 25,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        34
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "giveLike",
+      "method_description": "(Lsubmission/domain/SubmitterId;Lsubmission/domain/SubmissionId;)Lsubmission/domain/Like;",
+      "line": 30,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        59
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "giveLike",
+      "method_description": "(Lsubmission/domain/SubmitterId;Lsubmission/domain/SubmissionId;)Lsubmission/domain/Like;",
+      "line": 36,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        86
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "giveLike",
+      "method_description": "(Lsubmission/domain/SubmitterId;Lsubmission/domain/SubmissionId;)Lsubmission/domain/Like;",
+      "line": 40,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        100
+      ],
+      "description": "removed call to submission/domain/Entry::consumeLike",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "giveLike",
+      "method_description": "(Lsubmission/domain/SubmitterId;Lsubmission/domain/SubmissionId;)Lsubmission/domain/Like;",
+      "line": 43,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        115
+      ],
+      "description": "removed call to submission/domain/LikeRepository::save",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "giveLike",
+      "method_description": "(Lsubmission/domain/SubmitterId;Lsubmission/domain/SubmissionId;)Lsubmission/domain/Like;",
+      "line": 44,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        121
+      ],
+      "description": "removed call to submission/domain/AssignmentRepository::save",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "giveLike",
+      "method_description": "(Lsubmission/domain/SubmitterId;Lsubmission/domain/SubmissionId;)Lsubmission/domain/Like;",
+      "line": 45,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        125
+      ],
+      "description": "replaced return value with null for submission/domain/LikeService::giveLike",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "lambda$giveLike$0",
+      "method_description": "(Lsubmission/domain/SubmissionId;)Ljava/util/NoSuchElementException;",
+      "line": 21,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced return value with null for submission/domain/LikeService::lambda$giveLike$0",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#cannotLikeANonexistentSubmission"
+      ]
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "lambda$giveLike$1",
+      "method_description": "(Lsubmission/domain/Submission;)Ljava/util/NoSuchElementException;",
+      "line": 23,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        10
+      ],
+      "description": "replaced return value with null for submission/domain/LikeService::lambda$giveLike$1",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "lambda$giveLike$2",
+      "method_description": "(Lsubmission/domain/SubmitterId;Lsubmission/domain/Like;)Z",
+      "line": 29,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "replaced boolean return with false for submission/domain/LikeService::lambda$giveLike$2",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "lambda$giveLike$2",
+      "method_description": "(Lsubmission/domain/SubmitterId;Lsubmission/domain/Like;)Z",
+      "line": 29,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "replaced boolean return with true for submission/domain/LikeService::lambda$giveLike$2",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "lambda$giveLike$3",
+      "method_description": "(Lsubmission/domain/SubmitterId;)Ljava/lang/IllegalStateException;",
+      "line": 34,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced return value with null for submission/domain/LikeService::lambda$giveLike$3",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#submitterNotEnteredInThisAssignmentCannotLike"
+      ]
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "lambda$revokeLike$4",
+      "method_description": "(Lsubmission/domain/LikeId;)Ljava/util/NoSuchElementException;",
+      "line": 54,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced return value with null for submission/domain/LikeService::lambda$revokeLike$4",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#cannotRevokeANonexistentLike"
+      ]
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "lambda$revokeLike$5",
+      "method_description": "(Lsubmission/domain/Like;)Ljava/util/NoSuchElementException;",
+      "line": 56,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        10
+      ],
+      "description": "replaced return value with null for submission/domain/LikeService::lambda$revokeLike$5",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "lambda$revokeLike$6",
+      "method_description": "(Lsubmission/domain/Submission;)Ljava/util/NoSuchElementException;",
+      "line": 58,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        10
+      ],
+      "description": "replaced return value with null for submission/domain/LikeService::lambda$revokeLike$6",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "lambda$revokeLike$7",
+      "method_description": "(Lsubmission/domain/Like;)Ljava/lang/IllegalStateException;",
+      "line": 60,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        14
+      ],
+      "description": "replaced return value with null for submission/domain/LikeService::lambda$revokeLike$7",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "revokeLike",
+      "method_description": "(Lsubmission/domain/LikeId;Lsubmission/domain/SubmitterId;)V",
+      "line": 64,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        59
+      ],
+      "description": "removed call to submission/domain/Like::revoke",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "revokeLike",
+      "method_description": "(Lsubmission/domain/LikeId;Lsubmission/domain/SubmitterId;)V",
+      "line": 65,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        63
+      ],
+      "description": "removed call to submission/domain/Entry::restoreLike",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "revokeLike",
+      "method_description": "(Lsubmission/domain/LikeId;Lsubmission/domain/SubmitterId;)V",
+      "line": 67,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        69
+      ],
+      "description": "removed call to submission/domain/LikeRepository::save",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "LikeService.java",
+      "mutated_class": "submission.domain.LikeService",
+      "mutated_method": "revokeLike",
+      "method_description": "(Lsubmission/domain/LikeId;Lsubmission/domain/SubmitterId;)V",
+      "line": 68,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        75
+      ],
+      "description": "removed call to submission/domain/AssignmentRepository::save",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Submission.java",
+      "mutated_class": "submission.domain.Submission",
+      "mutated_method": "<init>",
+      "method_description": "(Lsubmission/domain/SubmissionId;Lsubmission/domain/AssignmentId;Lsubmission/domain/SubmitterId;Lsubmission/domain/SubmittedWork;Lsubmission/domain/Comment;Lsubmission/domain/Visibility;)V",
+      "line": 29,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        16
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotGiveLikeWhenCountIsExhausted",
+        "submission.domain.LikeServiceTest#cannotLikeOwnSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.LikeServiceTest#submitterNotEnteredInThisAssignmentCannotLike",
+        "submission.domain.SubmissionServiceTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#enteredSubmitterCanSubmit",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotEdit",
+        "submission.domain.SubmissionServiceTest#ownerCanDelete",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.domain.SubmissionTest#cannotBeCreatedIfSubmittedWorkOwnerDoesNotMatchSubmitter",
+        "submission.domain.SubmissionTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionTest#newSubmissionIsActive",
+        "submission.domain.SubmissionTest#nonOwnerCannotChangeVisibility",
+        "submission.domain.SubmissionTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionTest#nonOwnerCannotEditContent",
+        "submission.domain.SubmissionTest#ownerCanChangeVisibility",
+        "submission.domain.SubmissionTest#ownerCanDelete",
+        "submission.domain.SubmissionTest#ownerCanEditContent",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Submission.java",
+      "mutated_class": "submission.domain.Submission",
+      "mutated_method": "assignmentId",
+      "method_description": "()Lsubmission/domain/AssignmentId;",
+      "line": 41,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with null for submission/domain/Submission::assignmentId",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotGiveLikeWhenCountIsExhausted",
+        "submission.domain.LikeServiceTest#cannotLikeOwnSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.LikeServiceTest#submitterNotEnteredInThisAssignmentCannotLike",
+        "submission.domain.SubmissionServiceTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#enteredSubmitterCanSubmit",
+        "submission.domain.SubmissionServiceTest#ownerCanDelete",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Submission.java",
+      "mutated_class": "submission.domain.Submission",
+      "mutated_method": "changeVisibility",
+      "method_description": "(Lsubmission/domain/SubmitterId;Lsubmission/domain/Visibility;)V",
+      "line": 50,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionTest#nonOwnerCannotChangeVisibility",
+        "submission.domain.SubmissionTest#ownerCanChangeVisibility",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Submission.java",
+      "mutated_class": "submission.domain.Submission",
+      "mutated_method": "comment",
+      "method_description": "()Ljava/util/Optional;",
+      "line": 44,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "replaced return value with Optional.empty for submission/domain/Submission::comment",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.domain.SubmissionTest#ownerCanEditContent"
+      ]
+    },
+    {
+      "source_file": "Submission.java",
+      "mutated_class": "submission.domain.Submission",
+      "mutated_method": "delete",
+      "method_description": "(Lsubmission/domain/SubmitterId;)V",
+      "line": 74,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionServiceTest#ownerCanDelete",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.domain.SubmissionTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionTest#ownerCanDelete",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Submission.java",
+      "mutated_class": "submission.domain.Submission",
+      "mutated_method": "delete",
+      "method_description": "(Lsubmission/domain/SubmitterId;)V",
+      "line": 77,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        21
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#ownerCanDelete",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.domain.SubmissionTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionTest#ownerCanDelete",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Submission.java",
+      "mutated_class": "submission.domain.Submission",
+      "mutated_method": "edit",
+      "method_description": "(Lsubmission/domain/SubmitterId;Ljava/lang/String;Ljava/lang/String;Lsubmission/domain/Comment;Ljava/util/List;)V",
+      "line": 61,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotEdit",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.domain.SubmissionTest#nonOwnerCannotEditContent",
+        "submission.domain.SubmissionTest#ownerCanEditContent",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Submission.java",
+      "mutated_class": "submission.domain.Submission",
+      "mutated_method": "id",
+      "method_description": "()Lsubmission/domain/SubmissionId;",
+      "line": 40,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with null for submission/domain/Submission::id",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Submission.java",
+      "mutated_class": "submission.domain.Submission",
+      "mutated_method": "isActive",
+      "method_description": "()Z",
+      "line": 47,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#ownerCanDelete",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.domain.SubmissionTest#newSubmissionIsActive",
+        "submission.domain.SubmissionTest#ownerCanDelete",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Submission.java",
+      "mutated_class": "submission.domain.Submission",
+      "mutated_method": "isActive",
+      "method_description": "()Z",
+      "line": 47,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        14
+      ],
+      "description": "replaced boolean return with true for submission/domain/Submission::isActive",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#ownerCanDelete",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.domain.SubmissionTest#ownerCanDelete",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Submission.java",
+      "mutated_class": "submission.domain.Submission",
+      "mutated_method": "status",
+      "method_description": "()Lsubmission/domain/Submission$Status;",
+      "line": 46,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with null for submission/domain/Submission::status",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionTest#ownerCanDelete"
+      ]
+    },
+    {
+      "source_file": "Submission.java",
+      "mutated_class": "submission.domain.Submission",
+      "mutated_method": "submittedWork",
+      "method_description": "()Lsubmission/domain/SubmittedWork;",
+      "line": 43,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with null for submission/domain/Submission::submittedWork",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.domain.SubmissionTest#ownerCanEditContent",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Submission.java",
+      "mutated_class": "submission.domain.Submission",
+      "mutated_method": "submitterId",
+      "method_description": "()Lsubmission/domain/SubmitterId;",
+      "line": 42,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with null for submission/domain/Submission::submitterId",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotGiveLikeWhenCountIsExhausted",
+        "submission.domain.LikeServiceTest#cannotLikeOwnSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.LikeServiceTest#submitterNotEnteredInThisAssignmentCannotLike",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#enteredSubmitterCanSubmit",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Submission.java",
+      "mutated_class": "submission.domain.Submission",
+      "mutated_method": "visibility",
+      "method_description": "()Lsubmission/domain/Visibility;",
+      "line": 45,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with null for submission/domain/Submission::visibility",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionTest#ownerCanChangeVisibility",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Like.java",
+      "mutated_class": "submission.domain.Like",
+      "mutated_method": "forceRevoke",
+      "method_description": "()V",
+      "line": 61,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Like.java",
+      "mutated_class": "submission.domain.Like",
+      "mutated_method": "granterId",
+      "method_description": "()Lsubmission/domain/SubmitterId;",
+      "line": 32,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with null for submission/domain/Like::granterId",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Like.java",
+      "mutated_class": "submission.domain.Like",
+      "mutated_method": "id",
+      "method_description": "()Lsubmission/domain/LikeId;",
+      "line": 31,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with null for submission/domain/Like::id",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Like.java",
+      "mutated_class": "submission.domain.Like",
+      "mutated_method": "isActive",
+      "method_description": "()Z",
+      "line": 37,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Like.java",
+      "mutated_class": "submission.domain.Like",
+      "mutated_method": "isActive",
+      "method_description": "()Z",
+      "line": 37,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        14
+      ],
+      "description": "replaced boolean return with true for submission/domain/Like::isActive",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Like.java",
+      "mutated_class": "submission.domain.Like",
+      "mutated_method": "revoke",
+      "method_description": "(Lsubmission/domain/SubmitterId;)V",
+      "line": 44,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Like.java",
+      "mutated_class": "submission.domain.Like",
+      "mutated_method": "revoke",
+      "method_description": "(Lsubmission/domain/SubmitterId;)V",
+      "line": 47,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        23
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Like.java",
+      "mutated_class": "submission.domain.Like",
+      "mutated_method": "status",
+      "method_description": "()Lsubmission/domain/Like$Status;",
+      "line": 34,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with null for submission/domain/Like::status",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Like.java",
+      "mutated_class": "submission.domain.Like",
+      "mutated_method": "submissionId",
+      "method_description": "()Lsubmission/domain/SubmissionId;",
+      "line": 33,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with null for submission/domain/Like::submissionId",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Entry.java",
+      "mutated_class": "submission.domain.Entry",
+      "mutated_method": "canGiveLike",
+      "method_description": "()Z",
+      "line": 31,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+      "indexes": [
+        5
+      ],
+      "description": "changed conditional boundary",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.EntryTest#cannotGiveLikeWhenCountIsZero"
+      ]
+    },
+    {
+      "source_file": "Entry.java",
+      "mutated_class": "submission.domain.Entry",
+      "mutated_method": "canGiveLike",
+      "method_description": "()Z",
+      "line": 31,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.EntryTest#cannotGiveLikeWhenCountIsZero",
+        "submission.domain.EntryTest#countDecreasesEachTimeALikeIsConsumed",
+        "submission.domain.EntryTest#newEntryStartsWithFiveLikes",
+        "submission.domain.EntryTest#revokingRestoresOneToTheCount",
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Entry.java",
+      "mutated_class": "submission.domain.Entry",
+      "mutated_method": "canGiveLike",
+      "method_description": "()Z",
+      "line": 31,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        13
+      ],
+      "description": "replaced boolean return with true for submission/domain/Entry::canGiveLike",
+      "status": "TIMED_OUT",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Entry.java",
+      "mutated_class": "submission.domain.Entry",
+      "mutated_method": "consumeLike",
+      "method_description": "()V",
+      "line": 39,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+      "indexes": [
+        23
+      ],
+      "description": "Replaced integer subtraction with addition",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.EntryTest#countDecreasesEachTimeALikeIsConsumed",
+        "submission.domain.EntryTest#revokingRestoresOneToTheCount",
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Entry.java",
+      "mutated_class": "submission.domain.Entry",
+      "mutated_method": "consumeLike",
+      "method_description": "()V",
+      "line": 36,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.EntryTest#cannotGiveLikeWhenCountIsZero",
+        "submission.domain.EntryTest#countDecreasesEachTimeALikeIsConsumed",
+        "submission.domain.EntryTest#revokingRestoresOneToTheCount",
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotGiveLikeWhenCountIsExhausted",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Entry.java",
+      "mutated_class": "submission.domain.Entry",
+      "mutated_method": "likeCount",
+      "method_description": "()I",
+      "line": 28,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced int return with 0 for submission/domain/Entry::likeCount",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.EntryTest#countDecreasesEachTimeALikeIsConsumed",
+        "submission.domain.EntryTest#newEntryStartsWithFiveLikes",
+        "submission.domain.EntryTest#revokingRestoresOneToTheCount",
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Entry.java",
+      "mutated_class": "submission.domain.Entry",
+      "mutated_method": "restoreLike",
+      "method_description": "()V",
+      "line": 47,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+      "indexes": [
+        7
+      ],
+      "description": "Replaced integer addition with subtraction",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.EntryTest#revokingRestoresOneToTheCount",
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Entry.java",
+      "mutated_class": "submission.domain.Entry",
+      "mutated_method": "submitterId",
+      "method_description": "()Lsubmission/domain/SubmitterId;",
+      "line": 27,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with null for submission/domain/Entry::submitterId",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "InMemoryLikeRepository.java",
+      "mutated_class": "submission.infra.InMemoryLikeRepository",
+      "mutated_method": "findByGranterId",
+      "method_description": "(Lsubmission/domain/SubmitterId;)Ljava/util/List;",
+      "line": 39,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        29
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "InMemoryLikeRepository.java",
+      "mutated_class": "submission.infra.InMemoryLikeRepository",
+      "mutated_method": "findByGranterId",
+      "method_description": "(Lsubmission/domain/SubmitterId;)Ljava/util/List;",
+      "line": 39,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        32
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "InMemoryLikeRepository.java",
+      "mutated_class": "submission.infra.InMemoryLikeRepository",
+      "mutated_method": "findByGranterId",
+      "method_description": "(Lsubmission/domain/SubmitterId;)Ljava/util/List;",
+      "line": 43,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        47
+      ],
+      "description": "replaced return value with Collections.emptyList for submission/infra/InMemoryLikeRepository::findByGranterId",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "InMemoryLikeRepository.java",
+      "mutated_class": "submission.infra.InMemoryLikeRepository",
+      "mutated_method": "findById",
+      "method_description": "(Lsubmission/domain/LikeId;)Ljava/util/Optional;",
+      "line": 21,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced return value with Optional.empty for submission/infra/InMemoryLikeRepository::findById",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "InMemoryLikeRepository.java",
+      "mutated_class": "submission.infra.InMemoryLikeRepository",
+      "mutated_method": "findBySubmissionId",
+      "method_description": "(Lsubmission/domain/SubmissionId;)Ljava/util/List;",
+      "line": 28,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        29
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "InMemoryLikeRepository.java",
+      "mutated_class": "submission.infra.InMemoryLikeRepository",
+      "mutated_method": "findBySubmissionId",
+      "method_description": "(Lsubmission/domain/SubmissionId;)Ljava/util/List;",
+      "line": 28,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        32
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "InMemoryLikeRepository.java",
+      "mutated_class": "submission.infra.InMemoryLikeRepository",
+      "mutated_method": "findBySubmissionId",
+      "method_description": "(Lsubmission/domain/SubmissionId;)Ljava/util/List;",
+      "line": 32,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        47
+      ],
+      "description": "replaced return value with Collections.emptyList for submission/infra/InMemoryLikeRepository::findBySubmissionId",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Assignment.java",
+      "mutated_class": "submission.domain.Assignment",
+      "mutated_method": "description",
+      "method_description": "()Ljava/lang/String;",
+      "line": 23,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with \"\" for submission/domain/Assignment::description",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Assignment.java",
+      "mutated_class": "submission.domain.Assignment",
+      "mutated_method": "entryFor",
+      "method_description": "(Lsubmission/domain/SubmitterId;)Ljava/util/Optional;",
+      "line": 26,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced return value with Optional.empty for submission/domain/Assignment::entryFor",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotGiveLikeWhenCountIsExhausted",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Assignment.java",
+      "mutated_class": "submission.domain.Assignment",
+      "mutated_method": "id",
+      "method_description": "()Lsubmission/domain/AssignmentId;",
+      "line": 21,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with null for submission/domain/Assignment::id",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotGiveLikeWhenCountIsExhausted",
+        "submission.domain.LikeServiceTest#cannotLikeOwnSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.LikeServiceTest#submitterNotEnteredInThisAssignmentCannotLike",
+        "submission.domain.SubmissionServiceTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#enteredSubmitterCanSubmit",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotEdit",
+        "submission.domain.SubmissionServiceTest#ownerCanDelete",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Assignment.java",
+      "mutated_class": "submission.domain.Assignment",
+      "mutated_method": "isEnteredBy",
+      "method_description": "(Lsubmission/domain/SubmitterId;)Z",
+      "line": 30,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "replaced boolean return with false for submission/domain/Assignment::isEnteredBy",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.AssignmentTest#enteredSubmitterMakesIsEnteredByTrue",
+        "submission.domain.AssignmentTest#multipleSubmittersCanEnter",
+        "submission.domain.SubmissionServiceTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#enteredSubmitterCanSubmit",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotEdit",
+        "submission.domain.SubmissionServiceTest#ownerCanDelete",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Assignment.java",
+      "mutated_class": "submission.domain.Assignment",
+      "mutated_method": "isEnteredBy",
+      "method_description": "(Lsubmission/domain/SubmitterId;)Z",
+      "line": 30,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "replaced boolean return with true for submission/domain/Assignment::isEnteredBy",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.AssignmentTest#enteredSubmitterMakesIsEnteredByTrue",
+        "submission.domain.SubmissionServiceTest#notEnteredSubmitterCannotSubmit",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Assignment.java",
+      "mutated_class": "submission.domain.Assignment",
+      "mutated_method": "title",
+      "method_description": "()Ljava/lang/String;",
+      "line": 22,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with \"\" for submission/domain/Assignment::title",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "InMemorySubmissionRepository.java",
+      "mutated_class": "submission.infra.InMemorySubmissionRepository",
+      "mutated_method": "findByAssignmentId",
+      "method_description": "(Lsubmission/domain/AssignmentId;)Ljava/util/List;",
+      "line": 27,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        29
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "InMemorySubmissionRepository.java",
+      "mutated_class": "submission.infra.InMemorySubmissionRepository",
+      "mutated_method": "findByAssignmentId",
+      "method_description": "(Lsubmission/domain/AssignmentId;)Ljava/util/List;",
+      "line": 31,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        44
+      ],
+      "description": "replaced return value with Collections.emptyList for submission/infra/InMemorySubmissionRepository::findByAssignmentId",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "InMemorySubmissionRepository.java",
+      "mutated_class": "submission.infra.InMemorySubmissionRepository",
+      "mutated_method": "findById",
+      "method_description": "(Lsubmission/domain/SubmissionId;)Ljava/util/Optional;",
+      "line": 20,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced return value with Optional.empty for submission/infra/InMemorySubmissionRepository::findById",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotGiveLikeWhenCountIsExhausted",
+        "submission.domain.LikeServiceTest#cannotLikeOwnSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.LikeServiceTest#submitterNotEnteredInThisAssignmentCannotLike",
+        "submission.domain.SubmissionServiceTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotEdit",
+        "submission.domain.SubmissionServiceTest#ownerCanDelete",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Submitter.java",
+      "mutated_class": "submission.domain.Submitter",
+      "mutated_method": "id",
+      "method_description": "()Lsubmission/domain/SubmitterId;",
+      "line": 19,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with null for submission/domain/Submitter::id",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmitterTest#submitterHasIdAndName",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "Submitter.java",
+      "mutated_class": "submission.domain.Submitter",
+      "mutated_method": "name",
+      "method_description": "()Ljava/lang/String;",
+      "line": 20,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with \"\" for submission/domain/Submitter::name",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.SubmitterTest#submitterHasIdAndName"
+      ]
+    },
+    {
+      "source_file": "LikeId.java",
+      "mutated_class": "submission.domain.LikeId",
+      "mutated_method": "newId",
+      "method_description": "()Lsubmission/domain/LikeId;",
+      "line": 7,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "replaced return value with null for submission/domain/LikeId::newId",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "SubmissionId.java",
+      "mutated_class": "submission.domain.SubmissionId",
+      "mutated_method": "newId",
+      "method_description": "()Lsubmission/domain/SubmissionId;",
+      "line": 7,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "replaced return value with null for submission/domain/SubmissionId::newId",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotGiveLikeWhenCountIsExhausted",
+        "submission.domain.LikeServiceTest#cannotLikeOwnSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.LikeServiceTest#submitterNotEnteredInThisAssignmentCannotLike",
+        "submission.domain.SubmissionServiceTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#enteredSubmitterCanSubmit",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotEdit",
+        "submission.domain.SubmissionServiceTest#ownerCanDelete",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.domain.SubmissionTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionTest#newSubmissionIsActive",
+        "submission.domain.SubmissionTest#nonOwnerCannotChangeVisibility",
+        "submission.domain.SubmissionTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionTest#nonOwnerCannotEditContent",
+        "submission.domain.SubmissionTest#ownerCanChangeVisibility",
+        "submission.domain.SubmissionTest#ownerCanDelete",
+        "submission.domain.SubmissionTest#ownerCanEditContent",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "SubmittedWorkId.java",
+      "mutated_class": "submission.domain.SubmittedWorkId",
+      "mutated_method": "newId",
+      "method_description": "()Lsubmission/domain/SubmittedWorkId;",
+      "line": 7,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "replaced return value with null for submission/domain/SubmittedWorkId::newId",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotGiveLikeWhenCountIsExhausted",
+        "submission.domain.LikeServiceTest#cannotLikeOwnSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.LikeServiceTest#submitterNotEnteredInThisAssignmentCannotLike",
+        "submission.domain.SubmissionServiceTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#enteredSubmitterCanSubmit",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotEdit",
+        "submission.domain.SubmissionServiceTest#notEnteredSubmitterCannotSubmit",
+        "submission.domain.SubmissionServiceTest#ownerCanDelete",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.domain.SubmissionTest#cannotBeCreatedIfSubmittedWorkOwnerDoesNotMatchSubmitter",
+        "submission.domain.SubmissionTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionTest#newSubmissionIsActive",
+        "submission.domain.SubmissionTest#nonOwnerCannotChangeVisibility",
+        "submission.domain.SubmissionTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionTest#nonOwnerCannotEditContent",
+        "submission.domain.SubmissionTest#ownerCanChangeVisibility",
+        "submission.domain.SubmissionTest#ownerCanDelete",
+        "submission.domain.SubmissionTest#ownerCanEditContent",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "InMemorySubmitterRepository.java",
+      "mutated_class": "submission.infra.InMemorySubmitterRepository",
+      "mutated_method": "findById",
+      "method_description": "(Lsubmission/domain/SubmitterId;)Ljava/util/Optional;",
+      "line": 17,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced return value with Optional.empty for submission/infra/InMemorySubmitterRepository::findById",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "AssignmentId.java",
+      "mutated_class": "submission.domain.AssignmentId",
+      "mutated_method": "newId",
+      "method_description": "()Lsubmission/domain/AssignmentId;",
+      "line": 7,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "replaced return value with null for submission/domain/AssignmentId::newId",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.AssignmentTest#enteredSubmitterMakesIsEnteredByTrue",
+        "submission.domain.AssignmentTest#multipleSubmittersCanEnter",
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotGiveLikeWhenCountIsExhausted",
+        "submission.domain.LikeServiceTest#cannotLikeOwnSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.LikeServiceTest#submitterNotEnteredInThisAssignmentCannotLike",
+        "submission.domain.SubmissionServiceTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#enteredSubmitterCanSubmit",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotEdit",
+        "submission.domain.SubmissionServiceTest#notEnteredSubmitterCannotSubmit",
+        "submission.domain.SubmissionServiceTest#ownerCanDelete",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.domain.SubmissionTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionTest#newSubmissionIsActive",
+        "submission.domain.SubmissionTest#nonOwnerCannotChangeVisibility",
+        "submission.domain.SubmissionTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionTest#nonOwnerCannotEditContent",
+        "submission.domain.SubmissionTest#ownerCanChangeVisibility",
+        "submission.domain.SubmissionTest#ownerCanDelete",
+        "submission.domain.SubmissionTest#ownerCanEditContent",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "InMemoryAssignmentRepository.java",
+      "mutated_class": "submission.infra.InMemoryAssignmentRepository",
+      "mutated_method": "findById",
+      "method_description": "(Lsubmission/domain/AssignmentId;)Ljava/util/Optional;",
+      "line": 17,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced return value with Optional.empty for submission/infra/InMemoryAssignmentRepository::findById",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotGiveLikeWhenCountIsExhausted",
+        "submission.domain.LikeServiceTest#cannotLikeOwnSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.LikeServiceTest#submitterNotEnteredInThisAssignmentCannotLike",
+        "submission.domain.SubmissionServiceTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#enteredSubmitterCanSubmit",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotEdit",
+        "submission.domain.SubmissionServiceTest#notEnteredSubmitterCannotSubmit",
+        "submission.domain.SubmissionServiceTest#ownerCanDelete",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "SubmitterId.java",
+      "mutated_class": "submission.domain.SubmitterId",
+      "mutated_method": "newId",
+      "method_description": "()Lsubmission/domain/SubmitterId;",
+      "line": 7,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "replaced return value with null for submission/domain/SubmitterId::newId",
+      "status": "KILLED",
+      "killing_tests": [
+        "submission.domain.AssignmentTest#enteredSubmitterMakesIsEnteredByTrue",
+        "submission.domain.AssignmentTest#multipleSubmittersCanEnter",
+        "submission.domain.EntryTest#cannotGiveLikeWhenCountIsZero",
+        "submission.domain.EntryTest#countDecreasesEachTimeALikeIsConsumed",
+        "submission.domain.EntryTest#newEntryStartsWithFiveLikes",
+        "submission.domain.EntryTest#revokingRestoresOneToTheCount",
+        "submission.domain.LikeServiceTest#canLikeAgainAfterRevoking",
+        "submission.domain.LikeServiceTest#canLikeSomeoneElsesSubmission",
+        "submission.domain.LikeServiceTest#cannotGiveLikeWhenCountIsExhausted",
+        "submission.domain.LikeServiceTest#cannotLikeOwnSubmission",
+        "submission.domain.LikeServiceTest#cannotLikeTheSameSubmissionTwice",
+        "submission.domain.LikeServiceTest#cannotRevokeTheSameLikeTwice",
+        "submission.domain.LikeServiceTest#granterCanRevokeLikeAndCountIsRestored",
+        "submission.domain.LikeServiceTest#nonGranterCannotRevokeLike",
+        "submission.domain.LikeServiceTest#submitterNotEnteredInThisAssignmentCannotLike",
+        "submission.domain.SubmissionServiceTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionServiceTest#deletingCascadesToRevokeActiveLikesAndRestoreGranterCount",
+        "submission.domain.SubmissionServiceTest#enteredSubmitterCanSubmit",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionServiceTest#nonOwnerCannotEdit",
+        "submission.domain.SubmissionServiceTest#notEnteredSubmitterCannotSubmit",
+        "submission.domain.SubmissionServiceTest#ownerCanDelete",
+        "submission.domain.SubmissionServiceTest#ownerCanEditContentEvenWithAnExistingLike",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsHidesDeletedSubmissionsFromEveryone",
+        "submission.domain.SubmissionServiceTest#visibleSubmissionsIncludesOwnPrivateButHidesOthersPrivate",
+        "submission.domain.SubmissionTest#cannotBeCreatedIfSubmittedWorkOwnerDoesNotMatchSubmitter",
+        "submission.domain.SubmissionTest#cannotDeleteTheSameSubmissionTwice",
+        "submission.domain.SubmissionTest#newSubmissionIsActive",
+        "submission.domain.SubmissionTest#nonOwnerCannotChangeVisibility",
+        "submission.domain.SubmissionTest#nonOwnerCannotDelete",
+        "submission.domain.SubmissionTest#nonOwnerCannotEditContent",
+        "submission.domain.SubmissionTest#ownerCanChangeVisibility",
+        "submission.domain.SubmissionTest#ownerCanDelete",
+        "submission.domain.SubmissionTest#ownerCanEditContent",
+        "submission.domain.SubmitterTest#submitterHasIdAndName",
+        "submission.scenario.AsYouLikeItScenarioTest#theArdenForestSongwritingContestProceedsAsScripted"
+      ]
+    },
+    {
+      "source_file": "AttachmentId.java",
+      "mutated_class": "submission.domain.AttachmentId",
+      "mutated_method": "newId",
+      "method_description": "()Lsubmission/domain/AttachmentId;",
+      "line": 7,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "replaced return value with null for submission/domain/AttachmentId::newId",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Main.java",
+      "mutated_class": "submission.Main",
+      "mutated_method": "main",
+      "method_description": "([Ljava/lang/String;)V",
+      "line": 7,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        7
+      ],
+      "description": "removed call to submission/scenario/AsYouLikeItScenario::run",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    }
+  ]
+}
