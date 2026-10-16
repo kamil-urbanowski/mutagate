@@ -14,7 +14,7 @@ Reviewed 2026-10-16 on JDK 21.0.12.1 and Maven 3.9.16.
 
 ## Class exclusions
 
-None.
+None (`exclusions.json` is empty).
 
 Selection rule: exclude any class that needs a Spring context, a database, or
 another live external service to run in a unit test. None of the 25 main classes
@@ -27,8 +27,24 @@ classes read archive files and in-memory bytes only.
 None. `mvn -B test` on an unmodified copy: 53 tests, 0 failures, 0 errors,
 0 skipped (24 in `TarFileSystemProviderTest`, 15 in
 `GzipFileSystemProviderTest`, 14 in `Bzip2FileSystemProviderTest`). There are
-no disabled or conditional tests. Nothing is left out of PIT runs.
+no disabled or conditional tests. Nothing is left out of PIT runs
+(`failing-tests.json` is empty).
 
 ## Baseline ledger
 
-Not yet recorded. It will come from `pit.py`'s whole-module run.
+`baseline.json`, from `mutagate baseline --repo work/tarballfs` on 2026-10-16.
+It records the repo commit and tool versions it was measured on, then every
+mutant.
+
+| Measure | Value |
+|---|---|
+| Mutants | 722 |
+| KILLED | 288 |
+| SURVIVED | 66 |
+| NO_COVERAGE | 368 |
+| Baseline mutation score | 288 / 722 = 39.9% |
+| Classes selected | 24 of 25 |
+| Targets (undetected mutants in selected classes) | 434 |
+
+The one class not selected, `CompressorFormatVerifier`, has every mutant
+killed. The counts match the hand run of 2026-10-02 mutant for mutant.
