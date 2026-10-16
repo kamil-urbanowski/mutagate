@@ -265,9 +265,14 @@ _PACKAGE = re.compile(r"^\s*package\s+([\w.]+)\s*;", re.MULTILINE)
 
 # How the JUnit 5 plugin names a test in PIT's report, e.g.
 # pkg.FooTest.[engine:junit-jupiter]/[class:pkg.FooTest]/[method:name()]
+# with any number of [nested-class:Inner] segments before the method, and no
+# method at all when the kill is credited to the class as a whole.
 _TEST_NAME = re.compile(
-    r"[\w.$]+\.\[engine:junit-jupiter\]/\[class:(?P<cls>[\w.$]+)\]/\[method:(?P<method>[\w$]+)\([^)]*\)\]"
+    r"[\w.$]+\.\[engine:junit-jupiter\]/\[class:(?P<cls>[\w.$]+)\]"
+    r"(?P<nested>(?:/\[nested-class:[\w$]+\])*)"
+    r"(?:/\[method:(?P<method>[\w$]+)\([^)]*\)\])?"
 )
+_NESTED_CLASS = re.compile(r"\[nested-class:([\w$]+)\]")
 
 
 def _run(command: list[str], cwd: Path) -> tuple[bool, str]:
@@ -310,17 +315,22 @@ def _mutant(element: ET.Element) -> Mutant:
         indexes=tuple(int(i.text) for i in element.iterfind("indexes/index")),
         description=text("description"),
         status=Status(element.get("status")),
-        killing_tests=tuple(sorted(_test_name(name) for name in killing.split("|") if name)),
+        killing_tests=tuple(sorted({_test_name(name) for name in killing.split("|") if name})),
     )
 
 
 def _test_name(name: str) -> str:
     """PIT's name for a test, as `fully.qualified.TestClass#method`.
 
-    Only plain test methods are recognized. Parameterized and nested tests have
-    other name forms, not yet seen in a report; they raise rather than guess.
+    A nested test class is named as Java names it: `pkg.FooTest$Inner#method`.
+    A kill credited to a whole test class, because its setup failed under the
+    mutant, is the class name alone: `pkg.FooTest`. Parameterized tests and any
+    other form have not been seen in a report yet; they raise rather than guess.
     """
     match = _TEST_NAME.fullmatch(name)
     if match is None:
         raise ValueError(f"unrecognized test name in PIT report: {name}")
-    return f"{match['cls']}#{match['method']}"
+    test_class = match["cls"] + "".join(
+        f"${inner}" for inner in _NESTED_CLASS.findall(match["nested"])
+    )
+    return f"{test_class}#{match['method']}" if match["method"] else test_class

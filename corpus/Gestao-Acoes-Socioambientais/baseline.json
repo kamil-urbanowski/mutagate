@@ -1,0 +1,3823 @@
+{
+  "repo_commit": "b551781a532ba4f85bacb58ab1edaac02e386e77",
+  "date": "2026-10-16",
+  "java": "21.0.12.1",
+  "maven": "3.9.16",
+  "pitest_maven": "1.30.0",
+  "pitest_junit5_plugin": "1.2.3",
+  "mutants": [
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 167,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        34
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#dataInvalidaDeveInformarFormatoEsperadoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#tipoDeAcaoInvalidoDeveSerInformadoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 171,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        49
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#dataInvalidaDeveInformarFormatoEsperadoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#tipoDeAcaoInvalidoDeveSerInformadoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 171,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        53
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#tipoDeAcaoInvalidoDeveSerInformadoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 171,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        57
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#tipoDeAcaoInvalidoDeveSerInformadoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 177,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        76
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#dataInvalidaDeveInformarFormatoEsperadoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 181,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        90
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#dataInvalidaDeveInformarFormatoEsperadoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 185,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        104
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 189,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        118
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 196,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        172
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 206,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        201
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 216,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        230
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 220,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        244
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 160,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        4
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 161,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        9
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 162,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        14
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 163,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        19
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 164,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        24
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 172,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        62
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#tipoDeAcaoInvalidoDeveSerInformadoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 199,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        187
+      ],
+      "description": "removed call to gestaodeacoes/ui/MenuConsole::comTratamentoDeErro",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 209,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        216
+      ],
+      "description": "removed call to gestaodeacoes/ui/MenuConsole::comTratamentoDeErro",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarAcao",
+      "method_description": "()V",
+      "line": 223,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        260
+      ],
+      "description": "removed call to gestaodeacoes/ui/MenuConsole::comTratamentoDeErro",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarVoluntario",
+      "method_description": "()V",
+      "line": 117,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        10
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarVoluntario",
+      "method_description": "()V",
+      "line": 121,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        24
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarVoluntario",
+      "method_description": "()V",
+      "line": 125,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        38
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "cadastrarVoluntario",
+      "method_description": "()V",
+      "line": 129,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        51
+      ],
+      "description": "removed call to gestaodeacoes/ui/MenuConsole::comTratamentoDeErro",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "comTratamentoDeErro",
+      "method_description": "(Ljava/lang/Runnable;)V",
+      "line": 282,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        4
+      ],
+      "description": "removed call to java/lang/Runnable::run",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "comTratamentoDeErro",
+      "method_description": "(Ljava/lang/Runnable;)V",
+      "line": 285,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        18
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "executar",
+      "method_description": "()V",
+      "line": 62,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        29
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#campoObrigatorioVazioDeveExigirPreenchimentoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#dataInvalidaDeveInformarFormatoEsperadoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#entradaNumericaInvalidaDeveRepetirOPromptTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#listagensVaziasDeveMensagemInformativaTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#opcaoInvalidaDevePedirParaTentarNovamenteTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#tipoDeAcaoInvalidoDeveSerInformadoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "executar",
+      "method_description": "()V",
+      "line": 65,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        43
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#campoObrigatorioVazioDeveExigirPreenchimentoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#dataInvalidaDeveInformarFormatoEsperadoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#entradaNumericaInvalidaDeveRepetirOPromptTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#listagensVaziasDeveMensagemInformativaTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#opcaoInvalidaDevePedirParaTentarNovamenteTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#tipoDeAcaoInvalidoDeveSerInformadoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "executar",
+      "method_description": "()V",
+      "line": 56,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        5
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "executar",
+      "method_description": "()V",
+      "line": 57,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        10
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "executar",
+      "method_description": "()V",
+      "line": 58,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        15
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "executar",
+      "method_description": "()V",
+      "line": 59,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        20
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "executar",
+      "method_description": "()V",
+      "line": 63,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        33
+      ],
+      "description": "removed call to gestaodeacoes/ui/MenuConsole::mostrarMenu",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "executar",
+      "method_description": "()V",
+      "line": 71,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        63
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fimDeEntradaDeveEncerrarOSistemaSemErroTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#opcaoInvalidaDevePedirParaTentarNovamenteTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "exibirAcao",
+      "method_description": "()V",
+      "line": 248,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        10
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "exibirAcao",
+      "method_description": "()V",
+      "line": 251,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        21
+      ],
+      "description": "removed call to gestaodeacoes/ui/MenuConsole::comTratamentoDeErro",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "exibirVoluntario",
+      "method_description": "()V",
+      "line": 149,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        10
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "exibirVoluntario",
+      "method_description": "()V",
+      "line": 152,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        21
+      ],
+      "description": "removed call to gestaodeacoes/ui/MenuConsole::comTratamentoDeErro",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "inscreverVoluntario",
+      "method_description": "()V",
+      "line": 256,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        10
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "inscreverVoluntario",
+      "method_description": "()V",
+      "line": 260,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        24
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "inscreverVoluntario",
+      "method_description": "()V",
+      "line": 264,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        36
+      ],
+      "description": "removed call to gestaodeacoes/ui/MenuConsole::comTratamentoDeErro",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lambda$cadastrarAcao$2",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;Ljava/time/LocalDateTime;Ljava/lang/Integer;Ljava/lang/Integer;)V",
+      "line": 201,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        19
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lambda$cadastrarAcao$3",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;Ljava/time/LocalDateTime;Ljava/lang/Integer;Ljava/lang/Integer;)V",
+      "line": 211,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        19
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lambda$cadastrarAcao$4",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;Ljava/time/LocalDateTime;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Boolean;)V",
+      "line": 225,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        21
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lambda$cadastrarVoluntario$0",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
+      "line": 131,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        14
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lambda$exibirAcao$5",
+      "method_description": "(Ljava/lang/Integer;)V",
+      "line": 251,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        10
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lambda$exibirVoluntario$1",
+      "method_description": "(Ljava/lang/String;)V",
+      "line": 152,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        9
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lambda$inscreverVoluntario$6",
+      "method_description": "(Ljava/lang/String;Ljava/lang/Integer;)V",
+      "line": 266,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        14
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerData",
+      "method_description": "(Ljava/lang/String;)Ljava/time/LocalDateTime;",
+      "line": 337,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        12
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#dataInvalidaDeveInformarFormatoEsperadoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerData",
+      "method_description": "(Ljava/lang/String;)Ljava/time/LocalDateTime;",
+      "line": 343,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        34
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#dataInvalidaDeveInformarFormatoEsperadoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerData",
+      "method_description": "(Ljava/lang/String;)Ljava/time/LocalDateTime;",
+      "line": 341,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        25
+      ],
+      "description": "replaced return value with null for gestaodeacoes/ui/MenuConsole::lerData",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerInteiro",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/Integer;",
+      "line": 323,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        11
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#entradaNumericaInvalidaDeveRepetirOPromptTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerInteiro",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/Integer;",
+      "line": 329,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        32
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#entradaNumericaInvalidaDeveRepetirOPromptTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerInteiro",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/Integer;",
+      "line": 324,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        15
+      ],
+      "description": "replaced Integer return value with 0 for gestaodeacoes/ui/MenuConsole::lerInteiro",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerInteiro",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/Integer;",
+      "line": 327,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        23
+      ],
+      "description": "replaced Integer return value with 0 for gestaodeacoes/ui/MenuConsole::lerInteiro",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerLinha",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 301,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        11
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#campoObrigatorioVazioDeveExigirPreenchimentoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#dataInvalidaDeveInformarFormatoEsperadoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#entradaNumericaInvalidaDeveRepetirOPromptTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#listagensVaziasDeveMensagemInformativaTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#opcaoInvalidaDevePedirParaTentarNovamenteTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#tipoDeAcaoInvalidoDeveSerInformadoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerLinha",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 300,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        5
+      ],
+      "description": "removed call to java/io/PrintStream::print",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerLinha",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 302,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        15
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/ui/MenuConsole::lerLinha",
+      "status": "TIMED_OUT",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerLinha",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 304,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        22
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/ui/MenuConsole::lerLinha",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#campoObrigatorioVazioDeveExigirPreenchimentoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#dataInvalidaDeveInformarFormatoEsperadoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#entradaNumericaInvalidaDeveRepetirOPromptTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#listagensVaziasDeveMensagemInformativaTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#tipoDeAcaoInvalidoDeveSerInformadoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerSimNao",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/Boolean;",
+      "line": 351,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        12
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerSimNao",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/Boolean;",
+      "line": 355,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        29
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerSimNao",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/Boolean;",
+      "line": 355,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        33
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerSimNao",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/Boolean;",
+      "line": 358,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        45
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerSimNao",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/Boolean;",
+      "line": 358,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        49
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerSimNao",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/Boolean;",
+      "line": 358,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        53
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerSimNao",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/Boolean;",
+      "line": 361,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        64
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerSimNao",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/Boolean;",
+      "line": 352,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indexes": [
+        16
+      ],
+      "description": "replaced Boolean return with False for gestaodeacoes/ui/MenuConsole::lerSimNao",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerSimNao",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/Boolean;",
+      "line": 356,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indexes": [
+        38
+      ],
+      "description": "replaced Boolean return with False for gestaodeacoes/ui/MenuConsole::lerSimNao",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerSimNao",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/Boolean;",
+      "line": 352,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        16
+      ],
+      "description": "replaced Boolean return with True for gestaodeacoes/ui/MenuConsole::lerSimNao",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerSimNao",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/Boolean;",
+      "line": 359,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        58
+      ],
+      "description": "replaced Boolean return with True for gestaodeacoes/ui/MenuConsole::lerSimNao",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerTextoObrigatorio",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 310,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        11
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#campoObrigatorioVazioDeveExigirPreenchimentoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#dataInvalidaDeveInformarFormatoEsperadoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerTextoObrigatorio",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 313,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        22
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#dataInvalidaDeveInformarFormatoEsperadoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerTextoObrigatorio",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 316,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        33
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#campoObrigatorioVazioDeveExigirPreenchimentoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerTextoObrigatorio",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 311,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        15
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/ui/MenuConsole::lerTextoObrigatorio",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "lerTextoObrigatorio",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 314,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        27
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/ui/MenuConsole::lerTextoObrigatorio",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "listarAcoes",
+      "method_description": "()V",
+      "line": 233,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        11
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#listagensVaziasDeveMensagemInformativaTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "listarAcoes",
+      "method_description": "()V",
+      "line": 234,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        16
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#listagensVaziasDeveMensagemInformativaTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "listarAcoes",
+      "method_description": "()V",
+      "line": 237,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        25
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "listarAcoes",
+      "method_description": "()V",
+      "line": 239,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        66
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "listarVoluntarios",
+      "method_description": "()V",
+      "line": 137,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        11
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#listagensVaziasDeveMensagemInformativaTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "listarVoluntarios",
+      "method_description": "()V",
+      "line": 138,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        16
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#listagensVaziasDeveMensagemInformativaTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "listarVoluntarios",
+      "method_description": "()V",
+      "line": 141,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        25
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "listarVoluntarios",
+      "method_description": "()V",
+      "line": 143,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        49
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "mostrarMenu",
+      "method_description": "()V",
+      "line": 75,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        4
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "mostrarMenu",
+      "method_description": "()V",
+      "line": 76,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        9
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "mostrarMenu",
+      "method_description": "()V",
+      "line": 77,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        14
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "mostrarMenu",
+      "method_description": "()V",
+      "line": 78,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        19
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "mostrarMenu",
+      "method_description": "()V",
+      "line": 79,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        24
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "mostrarMenu",
+      "method_description": "()V",
+      "line": 80,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        29
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "mostrarMenu",
+      "method_description": "()V",
+      "line": 81,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        34
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "mostrarMenu",
+      "method_description": "()V",
+      "line": 82,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        39
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "mostrarMenu",
+      "method_description": "()V",
+      "line": 83,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        44
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "mostrarMenu",
+      "method_description": "()V",
+      "line": 84,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        49
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "mostrarMenu",
+      "method_description": "()V",
+      "line": 85,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        54
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "processar",
+      "method_description": "(Ljava/lang/String;)Z",
+      "line": 96,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        89
+      ],
+      "description": "removed call to gestaodeacoes/ui/MenuConsole::cadastrarVoluntario",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#campoObrigatorioVazioDeveExigirPreenchimentoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "processar",
+      "method_description": "(Ljava/lang/String;)Z",
+      "line": 97,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        95
+      ],
+      "description": "removed call to gestaodeacoes/ui/MenuConsole::listarVoluntarios",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#listagensVaziasDeveMensagemInformativaTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "processar",
+      "method_description": "(Ljava/lang/String;)Z",
+      "line": 98,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        101
+      ],
+      "description": "removed call to gestaodeacoes/ui/MenuConsole::exibirVoluntario",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "processar",
+      "method_description": "(Ljava/lang/String;)Z",
+      "line": 99,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        107
+      ],
+      "description": "removed call to gestaodeacoes/ui/MenuConsole::cadastrarAcao",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#dataInvalidaDeveInformarFormatoEsperadoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#tipoDeAcaoInvalidoDeveSerInformadoTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "processar",
+      "method_description": "(Ljava/lang/String;)Z",
+      "line": 100,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        113
+      ],
+      "description": "removed call to gestaodeacoes/ui/MenuConsole::listarAcoes",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#listagensVaziasDeveMensagemInformativaTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "processar",
+      "method_description": "(Ljava/lang/String;)Z",
+      "line": 101,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        119
+      ],
+      "description": "removed call to gestaodeacoes/ui/MenuConsole::exibirAcao",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#entradaNumericaInvalidaDeveRepetirOPromptTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "processar",
+      "method_description": "(Ljava/lang/String;)Z",
+      "line": 102,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        125
+      ],
+      "description": "removed call to gestaodeacoes/ui/MenuConsole::inscreverVoluntario",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "processar",
+      "method_description": "(Ljava/lang/String;)Z",
+      "line": 106,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        137
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#opcaoInvalidaDevePedirParaTentarNovamenteTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "processar",
+      "method_description": "(Ljava/lang/String;)Z",
+      "line": 108,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indexes": [
+        142
+      ],
+      "description": "replaced boolean return with false for gestaodeacoes/ui/MenuConsole::processar",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#listagensVaziasDeveMensagemInformativaTeste"
+      ]
+    },
+    {
+      "source_file": "MenuConsole.java",
+      "mutated_class": "gestaodeacoes.ui.MenuConsole",
+      "mutated_method": "processar",
+      "method_description": "(Ljava/lang/String;)Z",
+      "line": 104,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        131
+      ],
+      "description": "replaced boolean return with true for gestaodeacoes/ui/MenuConsole::processar",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "buscarAcao",
+      "method_description": "(I)Lgestaodeacoes/modelo/Acao;",
+      "line": 322,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        13
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverEmAcaoInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#entradaNumericaInvalidaDeveRepetirOPromptTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "buscarAcao",
+      "method_description": "(I)Lgestaodeacoes/modelo/Acao;",
+      "line": 325,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        26
+      ],
+      "description": "replaced return value with null for gestaodeacoes/fachada/Impacta::buscarAcao",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "buscarVoluntario",
+      "method_description": "(Ljava/lang/String;)Lgestaodeacoes/modelo/Voluntario;",
+      "line": 314,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        17
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#exibirVoluntarioDeveAceitarEmailComCaixaDiferenteTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverEmAcaoInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "buscarVoluntario",
+      "method_description": "(Ljava/lang/String;)Lgestaodeacoes/modelo/Voluntario;",
+      "line": 317,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        30
+      ],
+      "description": "replaced return value with null for gestaodeacoes/fachada/Impacta::buscarVoluntario",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#exibirVoluntarioDeveAceitarEmailComCaixaDiferenteTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "cadastrarMutirao",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;Ljava/time/LocalDateTime;II)I",
+      "line": 174,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indexes": [
+        15
+      ],
+      "description": "replaced int return with 0 for gestaodeacoes/fachada/Impacta::cadastrarMutirao",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoSucessoTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "cadastrarOficina",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;Ljava/time/LocalDateTime;IIZ)I",
+      "line": 192,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indexes": [
+        16
+      ],
+      "description": "replaced int return with 0 for gestaodeacoes/fachada/Impacta::cadastrarOficina",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarOficinaSucessoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "cadastrarPlantio",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;Ljava/time/LocalDateTime;II)I",
+      "line": 157,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indexes": [
+        15
+      ],
+      "description": "replaced int return with 0 for gestaodeacoes/fachada/Impacta::cadastrarPlantio",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarPlantioSucessoTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "cadastrarVoluntario",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z",
+      "line": 72,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        24
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarEmailDuplicadoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMatriculaDuplicadaTeste",
+        "gestaodeacoes.ImpactTest#colecoesExpostasDevemSerCopiasImutaveisTeste",
+        "gestaodeacoes.ImpactTest#emailDiferentePorCaixaOuEspacoNaoDeveCriarContaDuplicadaTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioDeveAceitarEmailComCaixaDiferenteTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverEmAcaoInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "cadastrarVoluntario",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z",
+      "line": 77,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        56
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarMatriculaDuplicadaTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "cadastrarVoluntario",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z",
+      "line": 86,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indexes": [
+        90
+      ],
+      "description": "replaced boolean return with false for gestaodeacoes/fachada/Impacta::cadastrarVoluntario",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "descreverInscritos",
+      "method_description": "(Lgestaodeacoes/modelo/Acao;)Ljava/lang/String;",
+      "line": 262,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+      "indexes": [
+        40
+      ],
+      "description": "changed conditional boundary",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "descreverInscritos",
+      "method_description": "(Lgestaodeacoes/modelo/Acao;)Ljava/lang/String;",
+      "line": 257,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        10
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "descreverInscritos",
+      "method_description": "(Lgestaodeacoes/modelo/Acao;)Ljava/lang/String;",
+      "line": 262,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        40
+      ],
+      "description": "negated conditional",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "descreverInscritos",
+      "method_description": "(Lgestaodeacoes/modelo/Acao;)Ljava/lang/String;",
+      "line": 258,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        14
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/fachada/Impacta::descreverInscritos",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "descreverInscritos",
+      "method_description": "(Lgestaodeacoes/modelo/Acao;)Ljava/lang/String;",
+      "line": 267,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        63
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/fachada/Impacta::descreverInscritos",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "exibirAcao",
+      "method_description": "(I)Ljava/lang/String;",
+      "line": 246,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        40
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/fachada/Impacta::exibirAcao",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "exibirVoluntario",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 101,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        26
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/fachada/Impacta::exibirVoluntario",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#exibirVoluntarioDeveAceitarEmailComCaixaDiferenteTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "getAcoes",
+      "method_description": "()Ljava/util/List;",
+      "line": 274,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "replaced return value with Collections.emptyList for gestaodeacoes/fachada/Impacta::getAcoes",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#colecoesExpostasDevemSerCopiasImutaveisTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "getVoluntarios",
+      "method_description": "()Ljava/util/List;",
+      "line": 138,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "replaced return value with Collections.emptyList for gestaodeacoes/fachada/Impacta::getVoluntarios",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#colecoesExpostasDevemSerCopiasImutaveisTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "inscreverVoluntario",
+      "method_description": "(Ljava/lang/String;I)Z",
+      "line": 301,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        17
+      ],
+      "description": "removed call to gestaodeacoes/modelo/Acao::adicionarInscrito",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "inscreverVoluntario",
+      "method_description": "(Ljava/lang/String;I)Z",
+      "line": 302,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        23
+      ],
+      "description": "removed call to gestaodeacoes/modelo/Voluntario::creditar",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "inscreverVoluntario",
+      "method_description": "(Ljava/lang/String;I)Z",
+      "line": 304,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indexes": [
+        27
+      ],
+      "description": "replaced boolean return with false for gestaodeacoes/fachada/Impacta::inscreverVoluntario",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "lambda$cadastrarMutirao$1",
+      "method_description": "(ILjava/time/LocalDateTime;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Integer;)Lgestaodeacoes/modelo/Acao;",
+      "line": 175,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        13
+      ],
+      "description": "replaced return value with null for gestaodeacoes/fachada/Impacta::lambda$cadastrarMutirao$1",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoSucessoTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "lambda$cadastrarOficina$2",
+      "method_description": "(ILjava/time/LocalDateTime;Ljava/lang/String;Ljava/lang/String;IZLjava/lang/Integer;)Lgestaodeacoes/modelo/Acao;",
+      "line": 193,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        14
+      ],
+      "description": "replaced return value with null for gestaodeacoes/fachada/Impacta::lambda$cadastrarOficina$2",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarOficinaSucessoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "lambda$cadastrarPlantio$0",
+      "method_description": "(ILjava/time/LocalDateTime;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Integer;)Lgestaodeacoes/modelo/Acao;",
+      "line": 158,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        13
+      ],
+      "description": "replaced return value with null for gestaodeacoes/fachada/Impacta::lambda$cadastrarPlantio$0",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarAcaoComTituloDuplicadoDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioSucessoTeste",
+        "gestaodeacoes.ImpactTest#colecoesExpostasDevemSerCopiasImutaveisTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "listarVoluntarios",
+      "method_description": "()[Ljava/lang/String;",
+      "line": 124,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+      "indexes": [
+        44
+      ],
+      "description": "changed conditional boundary",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosSemCadastroDeveRetornarArrayVazioTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#listagensVaziasDeveMensagemInformativaTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "listarVoluntarios",
+      "method_description": "()[Ljava/lang/String;",
+      "line": 126,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+      "indexes": [
+        58
+      ],
+      "description": "Replaced integer addition with subtraction",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "listarVoluntarios",
+      "method_description": "()[Ljava/lang/String;",
+      "line": 124,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        44
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosSemCadastroDeveRetornarArrayVazioTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#listagensVaziasDeveMensagemInformativaTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "listarVoluntarios",
+      "method_description": "()[Ljava/lang/String;",
+      "line": 121,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        28
+      ],
+      "description": "removed call to java/util/List::sort",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "listarVoluntarios",
+      "method_description": "()[Ljava/lang/String;",
+      "line": 131,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        77
+      ],
+      "description": "replaced return value with null for gestaodeacoes/fachada/Impacta::listarVoluntarios",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosSemCadastroDeveRetornarArrayVazioTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#listagensVaziasDeveMensagemInformativaTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "registrar",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;Ljava/time/LocalDateTime;ILjava/util/function/Function;)I",
+      "line": 217,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+      "indexes": [
+        28
+      ],
+      "description": "changed conditional boundary",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "registrar",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;Ljava/time/LocalDateTime;ILjava/util/function/Function;)I",
+      "line": 225,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+      "indexes": [
+        58
+      ],
+      "description": "Replaced integer addition with subtraction",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarAcaoComTituloDuplicadoDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioSucessoTeste",
+        "gestaodeacoes.ImpactTest#colecoesExpostasDevemSerCopiasImutaveisTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "registrar",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;Ljava/time/LocalDateTime;ILjava/util/function/Function;)I",
+      "line": 214,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        16
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarAcaoComTituloDuplicadoDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioSucessoTeste",
+        "gestaodeacoes.ImpactTest#colecoesExpostasDevemSerCopiasImutaveisTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "registrar",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;Ljava/time/LocalDateTime;ILjava/util/function/Function;)I",
+      "line": 217,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        28
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarAcaoComTituloDuplicadoDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioSucessoTeste",
+        "gestaodeacoes.ImpactTest#colecoesExpostasDevemSerCopiasImutaveisTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "registrar",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;Ljava/time/LocalDateTime;ILjava/util/function/Function;)I",
+      "line": 220,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        43
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarAcaoComTituloDuplicadoDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioSucessoTeste",
+        "gestaodeacoes.ImpactTest#colecoesExpostasDevemSerCopiasImutaveisTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "Impacta.java",
+      "mutated_class": "gestaodeacoes.fachada.Impacta",
+      "mutated_method": "registrar",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;Ljava/time/LocalDateTime;ILjava/util/function/Function;)I",
+      "line": 232,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indexes": [
+        94
+      ],
+      "description": "replaced int return with 0 for gestaodeacoes/fachada/Impacta::registrar",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioSucessoTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Voluntario.java",
+      "mutated_class": "gestaodeacoes.modelo.Voluntario",
+      "mutated_method": "creditar",
+      "method_description": "(I)V",
+      "line": 53,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+      "indexes": [
+        4
+      ],
+      "description": "changed conditional boundary",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Voluntario.java",
+      "mutated_class": "gestaodeacoes.modelo.Voluntario",
+      "mutated_method": "creditar",
+      "method_description": "(I)V",
+      "line": 56,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+      "indexes": [
+        19
+      ],
+      "description": "Replaced integer addition with subtraction",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Voluntario.java",
+      "mutated_class": "gestaodeacoes.modelo.Voluntario",
+      "mutated_method": "creditar",
+      "method_description": "(I)V",
+      "line": 57,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+      "indexes": [
+        27
+      ],
+      "description": "Replaced integer addition with subtraction",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Voluntario.java",
+      "mutated_class": "gestaodeacoes.modelo.Voluntario",
+      "mutated_method": "creditar",
+      "method_description": "(I)V",
+      "line": 53,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        4
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Voluntario.java",
+      "mutated_class": "gestaodeacoes.modelo.Voluntario",
+      "mutated_method": "equals",
+      "method_description": "(Ljava/lang/Object;)Z",
+      "line": 97,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste"
+      ]
+    },
+    {
+      "source_file": "Voluntario.java",
+      "mutated_class": "gestaodeacoes.modelo.Voluntario",
+      "mutated_method": "equals",
+      "method_description": "(Ljava/lang/Object;)Z",
+      "line": 100,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        15
+      ],
+      "description": "negated conditional",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Voluntario.java",
+      "mutated_class": "gestaodeacoes.modelo.Voluntario",
+      "mutated_method": "equals",
+      "method_description": "(Ljava/lang/Object;)Z",
+      "line": 98,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced boolean return with false for gestaodeacoes/modelo/Voluntario::equals",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste"
+      ]
+    },
+    {
+      "source_file": "Voluntario.java",
+      "mutated_class": "gestaodeacoes.modelo.Voluntario",
+      "mutated_method": "equals",
+      "method_description": "(Ljava/lang/Object;)Z",
+      "line": 103,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indexes": [
+        34
+      ],
+      "description": "replaced boolean return with false for gestaodeacoes/modelo/Voluntario::equals",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Voluntario.java",
+      "mutated_class": "gestaodeacoes.modelo.Voluntario",
+      "mutated_method": "equals",
+      "method_description": "(Ljava/lang/Object;)Z",
+      "line": 101,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        25
+      ],
+      "description": "replaced boolean return with true for gestaodeacoes/modelo/Voluntario::equals",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Voluntario.java",
+      "mutated_class": "gestaodeacoes.modelo.Voluntario",
+      "mutated_method": "equals",
+      "method_description": "(Ljava/lang/Object;)Z",
+      "line": 103,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        34
+      ],
+      "description": "replaced boolean return with true for gestaodeacoes/modelo/Voluntario::equals",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste"
+      ]
+    },
+    {
+      "source_file": "Voluntario.java",
+      "mutated_class": "gestaodeacoes.modelo.Voluntario",
+      "mutated_method": "getEmail",
+      "method_description": "()Ljava/lang/String;",
+      "line": 71,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/modelo/Voluntario::getEmail",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#exibirVoluntarioDeveAceitarEmailComCaixaDiferenteTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioTeste"
+      ]
+    },
+    {
+      "source_file": "Voluntario.java",
+      "mutated_class": "gestaodeacoes.modelo.Voluntario",
+      "mutated_method": "getMatricula",
+      "method_description": "()Ljava/lang/String;",
+      "line": 78,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/modelo/Voluntario::getMatricula",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarMatriculaDuplicadaTeste"
+      ]
+    },
+    {
+      "source_file": "Voluntario.java",
+      "mutated_class": "gestaodeacoes.modelo.Voluntario",
+      "mutated_method": "getNome",
+      "method_description": "()Ljava/lang/String;",
+      "line": 64,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/modelo/Voluntario::getNome",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#exibirVoluntarioDeveAceitarEmailComCaixaDiferenteTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Voluntario.java",
+      "mutated_class": "gestaodeacoes.modelo.Voluntario",
+      "mutated_method": "getPontuacaoAcumulada",
+      "method_description": "()I",
+      "line": 92,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced int return with 0 for gestaodeacoes/modelo/Voluntario::getPontuacaoAcumulada",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Voluntario.java",
+      "mutated_class": "gestaodeacoes.modelo.Voluntario",
+      "mutated_method": "getQuantidadeDeAcoes",
+      "method_description": "()I",
+      "line": 85,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced int return with 0 for gestaodeacoes/modelo/Voluntario::getQuantidadeDeAcoes",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Voluntario.java",
+      "mutated_class": "gestaodeacoes.modelo.Voluntario",
+      "mutated_method": "hashCode",
+      "method_description": "()I",
+      "line": 108,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indexes": [
+        11
+      ],
+      "description": "replaced int return with 0 for gestaodeacoes/modelo/Voluntario::hashCode",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Voluntario.java",
+      "mutated_class": "gestaodeacoes.modelo.Voluntario",
+      "mutated_method": "toString",
+      "method_description": "()Ljava/lang/String;",
+      "line": 113,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        14
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/modelo/Voluntario::toString",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Acao.java",
+      "mutated_class": "gestaodeacoes.modelo.Acao",
+      "mutated_method": "<init>",
+      "method_description": "(IILjava/time/LocalDateTime;Ljava/lang/String;Ljava/lang/String;)V",
+      "line": 47,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+      "indexes": [
+        15
+      ],
+      "description": "changed conditional boundary",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Acao.java",
+      "mutated_class": "gestaodeacoes.modelo.Acao",
+      "mutated_method": "<init>",
+      "method_description": "(IILjava/time/LocalDateTime;Ljava/lang/String;Ljava/lang/String;)V",
+      "line": 50,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+      "indexes": [
+        27
+      ],
+      "description": "changed conditional boundary",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Acao.java",
+      "mutated_class": "gestaodeacoes.modelo.Acao",
+      "mutated_method": "<init>",
+      "method_description": "(IILjava/time/LocalDateTime;Ljava/lang/String;Ljava/lang/String;)V",
+      "line": 47,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        15
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarAcaoComTituloDuplicadoDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoComKitTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoSemKitTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioSucessoTeste",
+        "gestaodeacoes.ImpactTest#calculoDePontuacaoDeveSerPolimorficoTeste",
+        "gestaodeacoes.ImpactTest#colecoesExpostasDevemSerCopiasImutaveisTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "Acao.java",
+      "mutated_class": "gestaodeacoes.modelo.Acao",
+      "mutated_method": "<init>",
+      "method_description": "(IILjava/time/LocalDateTime;Ljava/lang/String;Ljava/lang/String;)V",
+      "line": 50,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        27
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarAcaoComTituloDuplicadoDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoComKitTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoSemKitTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioSucessoTeste",
+        "gestaodeacoes.ImpactTest#calculoDePontuacaoDeveSerPolimorficoTeste",
+        "gestaodeacoes.ImpactTest#colecoesExpostasDevemSerCopiasImutaveisTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "Acao.java",
+      "mutated_class": "gestaodeacoes.modelo.Acao",
+      "mutated_method": "<init>",
+      "method_description": "(IILjava/time/LocalDateTime;Ljava/lang/String;Ljava/lang/String;)V",
+      "line": 53,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        39
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarAcaoComTituloDuplicadoDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoComKitTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoSemKitTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioSucessoTeste",
+        "gestaodeacoes.ImpactTest#calculoDePontuacaoDeveSerPolimorficoTeste",
+        "gestaodeacoes.ImpactTest#colecoesExpostasDevemSerCopiasImutaveisTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "Acao.java",
+      "mutated_class": "gestaodeacoes.modelo.Acao",
+      "mutated_method": "adicionarInscrito",
+      "method_description": "(Lgestaodeacoes/modelo/Voluntario;)V",
+      "line": 132,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+      "indexes": [
+        20
+      ],
+      "description": "changed conditional boundary",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste"
+      ]
+    },
+    {
+      "source_file": "Acao.java",
+      "mutated_class": "gestaodeacoes.modelo.Acao",
+      "mutated_method": "adicionarInscrito",
+      "method_description": "(Lgestaodeacoes/modelo/Voluntario;)V",
+      "line": 129,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        4
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Acao.java",
+      "mutated_class": "gestaodeacoes.modelo.Acao",
+      "mutated_method": "adicionarInscrito",
+      "method_description": "(Lgestaodeacoes/modelo/Voluntario;)V",
+      "line": 132,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        20
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Acao.java",
+      "mutated_class": "gestaodeacoes.modelo.Acao",
+      "mutated_method": "adicionarInscrito",
+      "method_description": "(Lgestaodeacoes/modelo/Voluntario;)V",
+      "line": 136,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        39
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Acao.java",
+      "mutated_class": "gestaodeacoes.modelo.Acao",
+      "mutated_method": "getData",
+      "method_description": "()Ljava/time/LocalDateTime;",
+      "line": 81,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with null for gestaodeacoes/modelo/Acao::getData",
+      "status": "SURVIVED",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Acao.java",
+      "mutated_class": "gestaodeacoes.modelo.Acao",
+      "mutated_method": "getDescricao",
+      "method_description": "()Ljava/lang/String;",
+      "line": 88,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/modelo/Acao::getDescricao",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste"
+      ]
+    },
+    {
+      "source_file": "Acao.java",
+      "mutated_class": "gestaodeacoes.modelo.Acao",
+      "mutated_method": "getId",
+      "method_description": "()I",
+      "line": 67,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced int return with 0 for gestaodeacoes/modelo/Acao::getId",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Acao.java",
+      "mutated_class": "gestaodeacoes.modelo.Acao",
+      "mutated_method": "getInscritos",
+      "method_description": "()Ljava/util/List;",
+      "line": 102,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "replaced return value with Collections.emptyList for gestaodeacoes/modelo/Acao::getInscritos",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Acao.java",
+      "mutated_class": "gestaodeacoes.modelo.Acao",
+      "mutated_method": "getMaxCapacidade",
+      "method_description": "()I",
+      "line": 74,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced int return with 0 for gestaodeacoes/modelo/Acao::getMaxCapacidade",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste"
+      ]
+    },
+    {
+      "source_file": "Acao.java",
+      "mutated_class": "gestaodeacoes.modelo.Acao",
+      "mutated_method": "getTitulo",
+      "method_description": "()Ljava/lang/String;",
+      "line": 95,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/modelo/Acao::getTitulo",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarAcaoComTituloDuplicadoDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoComKitTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoSemKitTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Acao.java",
+      "mutated_class": "gestaodeacoes.modelo.Acao",
+      "mutated_method": "toString",
+      "method_description": "()Ljava/lang/String;",
+      "line": 145,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        20
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/modelo/Acao::toString",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "OficinaEcologica.java",
+      "mutated_class": "gestaodeacoes.modelo.OficinaEcologica",
+      "mutated_method": "<init>",
+      "method_description": "(IILjava/time/LocalDateTime;Ljava/lang/String;Ljava/lang/String;IZ)V",
+      "line": 31,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+      "indexes": [
+        13
+      ],
+      "description": "changed conditional boundary",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarAcaoComDadosInvalidosDeveLancarExcecaoTeste"
+      ]
+    },
+    {
+      "source_file": "OficinaEcologica.java",
+      "mutated_class": "gestaodeacoes.modelo.OficinaEcologica",
+      "mutated_method": "<init>",
+      "method_description": "(IILjava/time/LocalDateTime;Ljava/lang/String;Ljava/lang/String;IZ)V",
+      "line": 31,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        13
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarAcaoComDadosInvalidosDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoComKitTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoSemKitTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaSucessoTeste",
+        "gestaodeacoes.ImpactTest#calculoDePontuacaoDeveSerPolimorficoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "OficinaEcologica.java",
+      "mutated_class": "gestaodeacoes.modelo.OficinaEcologica",
+      "mutated_method": "calcularPontuacao",
+      "method_description": "()I",
+      "line": 55,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+      "indexes": [
+        11
+      ],
+      "description": "Replaced integer multiplication with division",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoComKitTeste",
+        "gestaodeacoes.ImpactTest#calculoDePontuacaoDeveSerPolimorficoTeste"
+      ]
+    },
+    {
+      "source_file": "OficinaEcologica.java",
+      "mutated_class": "gestaodeacoes.modelo.OficinaEcologica",
+      "mutated_method": "calcularPontuacao",
+      "method_description": "()I",
+      "line": 55,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+      "indexes": [
+        13
+      ],
+      "description": "Replaced integer addition with subtraction",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoComKitTeste",
+        "gestaodeacoes.ImpactTest#calculoDePontuacaoDeveSerPolimorficoTeste"
+      ]
+    },
+    {
+      "source_file": "OficinaEcologica.java",
+      "mutated_class": "gestaodeacoes.modelo.OficinaEcologica",
+      "mutated_method": "calcularPontuacao",
+      "method_description": "()I",
+      "line": 57,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+      "indexes": [
+        21
+      ],
+      "description": "Replaced integer multiplication with division",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoSemKitTeste"
+      ]
+    },
+    {
+      "source_file": "OficinaEcologica.java",
+      "mutated_class": "gestaodeacoes.modelo.OficinaEcologica",
+      "mutated_method": "calcularPontuacao",
+      "method_description": "()I",
+      "line": 54,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoComKitTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoSemKitTeste",
+        "gestaodeacoes.ImpactTest#calculoDePontuacaoDeveSerPolimorficoTeste"
+      ]
+    },
+    {
+      "source_file": "OficinaEcologica.java",
+      "mutated_class": "gestaodeacoes.modelo.OficinaEcologica",
+      "mutated_method": "calcularPontuacao",
+      "method_description": "()I",
+      "line": 55,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indexes": [
+        14
+      ],
+      "description": "replaced int return with 0 for gestaodeacoes/modelo/OficinaEcologica::calcularPontuacao",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoComKitTeste",
+        "gestaodeacoes.ImpactTest#calculoDePontuacaoDeveSerPolimorficoTeste"
+      ]
+    },
+    {
+      "source_file": "OficinaEcologica.java",
+      "mutated_class": "gestaodeacoes.modelo.OficinaEcologica",
+      "mutated_method": "calcularPontuacao",
+      "method_description": "()I",
+      "line": 57,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indexes": [
+        22
+      ],
+      "description": "replaced int return with 0 for gestaodeacoes/modelo/OficinaEcologica::calcularPontuacao",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoSemKitTeste"
+      ]
+    },
+    {
+      "source_file": "OficinaEcologica.java",
+      "mutated_class": "gestaodeacoes.modelo.OficinaEcologica",
+      "mutated_method": "descreverEspecificos",
+      "method_description": "()Ljava/lang/String;",
+      "line": 62,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoComKitTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoSemKitTeste"
+      ]
+    },
+    {
+      "source_file": "OficinaEcologica.java",
+      "mutated_class": "gestaodeacoes.modelo.OficinaEcologica",
+      "mutated_method": "descreverEspecificos",
+      "method_description": "()Ljava/lang/String;",
+      "line": 62,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        16
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/modelo/OficinaEcologica::descreverEspecificos",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoComKitTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoSemKitTeste"
+      ]
+    },
+    {
+      "source_file": "OficinaEcologica.java",
+      "mutated_class": "gestaodeacoes.modelo.OficinaEcologica",
+      "mutated_method": "getDuracao",
+      "method_description": "()I",
+      "line": 42,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced int return with 0 for gestaodeacoes/modelo/OficinaEcologica::getDuracao",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "OficinaEcologica.java",
+      "mutated_class": "gestaodeacoes.modelo.OficinaEcologica",
+      "mutated_method": "isTemKitMaterial",
+      "method_description": "()Z",
+      "line": 49,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced boolean return with false for gestaodeacoes/modelo/OficinaEcologica::isTemKitMaterial",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "OficinaEcologica.java",
+      "mutated_class": "gestaodeacoes.modelo.OficinaEcologica",
+      "mutated_method": "isTemKitMaterial",
+      "method_description": "()Z",
+      "line": 49,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced boolean return with true for gestaodeacoes/modelo/OficinaEcologica::isTemKitMaterial",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Plantio.java",
+      "mutated_class": "gestaodeacoes.modelo.Plantio",
+      "mutated_method": "<init>",
+      "method_description": "(IILjava/time/LocalDateTime;Ljava/lang/String;Ljava/lang/String;I)V",
+      "line": 27,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+      "indexes": [
+        13
+      ],
+      "description": "changed conditional boundary",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarAcaoComDadosInvalidosDeveLancarExcecaoTeste"
+      ]
+    },
+    {
+      "source_file": "Plantio.java",
+      "mutated_class": "gestaodeacoes.modelo.Plantio",
+      "mutated_method": "<init>",
+      "method_description": "(IILjava/time/LocalDateTime;Ljava/lang/String;Ljava/lang/String;I)V",
+      "line": 27,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        13
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarAcaoComDadosInvalidosDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarAcaoComTituloDuplicadoDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioSucessoTeste",
+        "gestaodeacoes.ImpactTest#calculoDePontuacaoDeveSerPolimorficoTeste",
+        "gestaodeacoes.ImpactTest#colecoesExpostasDevemSerCopiasImutaveisTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Plantio.java",
+      "mutated_class": "gestaodeacoes.modelo.Plantio",
+      "mutated_method": "calcularPontuacao",
+      "method_description": "()I",
+      "line": 42,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+      "indexes": [
+        7
+      ],
+      "description": "Replaced integer multiplication with division",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarPlantioComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#calculoDePontuacaoDeveSerPolimorficoTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Plantio.java",
+      "mutated_class": "gestaodeacoes.modelo.Plantio",
+      "mutated_method": "calcularPontuacao",
+      "method_description": "()I",
+      "line": 42,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+      "indexes": [
+        8
+      ],
+      "description": "Replaced integer addition with subtraction",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarPlantioComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#calculoDePontuacaoDeveSerPolimorficoTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Plantio.java",
+      "mutated_class": "gestaodeacoes.modelo.Plantio",
+      "mutated_method": "calcularPontuacao",
+      "method_description": "()I",
+      "line": 42,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indexes": [
+        9
+      ],
+      "description": "replaced int return with 0 for gestaodeacoes/modelo/Plantio::calcularPontuacao",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarPlantioComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#calculoDePontuacaoDeveSerPolimorficoTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Plantio.java",
+      "mutated_class": "gestaodeacoes.modelo.Plantio",
+      "mutated_method": "descreverEspecificos",
+      "method_description": "()Ljava/lang/String;",
+      "line": 47,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/modelo/Plantio::descreverEspecificos",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarPlantioComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste"
+      ]
+    },
+    {
+      "source_file": "Plantio.java",
+      "mutated_class": "gestaodeacoes.modelo.Plantio",
+      "mutated_method": "getQtdMudas",
+      "method_description": "()I",
+      "line": 37,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced int return with 0 for gestaodeacoes/modelo/Plantio::getQtdMudas",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarPlantioComResultadoCorretoTeste"
+      ]
+    },
+    {
+      "source_file": "Validacao.java",
+      "mutated_class": "gestaodeacoes.util.Validacao",
+      "mutated_method": "exigirTexto",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+      "line": 35,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        4
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarAcaoComTituloDuplicadoDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarEmailDuplicadoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMatriculaDuplicadaTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoComKitTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoSemKitTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarVoluntarioComCampoNuloDeveLancarIllegalArgumentTeste",
+        "gestaodeacoes.ImpactTest#calculoDePontuacaoDeveSerPolimorficoTeste",
+        "gestaodeacoes.ImpactTest#colecoesExpostasDevemSerCopiasImutaveisTeste",
+        "gestaodeacoes.ImpactTest#emailDiferentePorCaixaOuEspacoNaoDeveCriarContaDuplicadaTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioDeveAceitarEmailComCaixaDiferenteTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverEmAcaoInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "Validacao.java",
+      "mutated_class": "gestaodeacoes.util.Validacao",
+      "mutated_method": "exigirTexto",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+      "line": 35,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        8
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarAcaoComTituloDuplicadoDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarEmailDuplicadoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMatriculaDuplicadaTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoComKitTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoSemKitTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioSucessoTeste",
+        "gestaodeacoes.ImpactTest#calculoDePontuacaoDeveSerPolimorficoTeste",
+        "gestaodeacoes.ImpactTest#colecoesExpostasDevemSerCopiasImutaveisTeste",
+        "gestaodeacoes.ImpactTest#emailDiferentePorCaixaOuEspacoNaoDeveCriarContaDuplicadaTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioDeveAceitarEmailComCaixaDiferenteTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverEmAcaoInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#respostaSimNaoInvalidaDevePedirDeNovoTeste"
+      ]
+    },
+    {
+      "source_file": "Validacao.java",
+      "mutated_class": "gestaodeacoes.util.Validacao",
+      "mutated_method": "exigirTexto",
+      "method_description": "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+      "line": 38,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        23
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/util/Validacao::exigirTexto",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarEmailDuplicadoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMatriculaDuplicadaTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoSucessoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoComKitTeste",
+        "gestaodeacoes.ImpactTest#cadastrarOficinaComResultadoCorretoSemKitTeste",
+        "gestaodeacoes.ImpactTest#cadastrarPlantioComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#colecoesExpostasDevemSerCopiasImutaveisTeste",
+        "gestaodeacoes.ImpactTest#emailDiferentePorCaixaOuEspacoNaoDeveCriarContaDuplicadaTeste",
+        "gestaodeacoes.ImpactTest#exibirAcaoDeveMostrarDetalhesESemInscritosTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioDeveAceitarEmailComCaixaDiferenteTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverEmAcaoInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Validacao.java",
+      "mutated_class": "gestaodeacoes.util.Validacao",
+      "mutated_method": "normalizarEmail",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 53,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        4
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarEmailDuplicadoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMatriculaDuplicadaTeste",
+        "gestaodeacoes.ImpactTest#cadastrarVoluntarioComCampoNuloDeveLancarIllegalArgumentTeste",
+        "gestaodeacoes.ImpactTest#colecoesExpostasDevemSerCopiasImutaveisTeste",
+        "gestaodeacoes.ImpactTest#emailDiferentePorCaixaOuEspacoNaoDeveCriarContaDuplicadaTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioDeveAceitarEmailComCaixaDiferenteTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverEmAcaoInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Validacao.java",
+      "mutated_class": "gestaodeacoes.util.Validacao",
+      "mutated_method": "normalizarEmail",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 53,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        8
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarEmailDuplicadoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMatriculaDuplicadaTeste",
+        "gestaodeacoes.ImpactTest#colecoesExpostasDevemSerCopiasImutaveisTeste",
+        "gestaodeacoes.ImpactTest#emailDiferentePorCaixaOuEspacoNaoDeveCriarContaDuplicadaTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioDeveAceitarEmailComCaixaDiferenteTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverEmAcaoInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Validacao.java",
+      "mutated_class": "gestaodeacoes.util.Validacao",
+      "mutated_method": "normalizarEmail",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 57,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        31
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarEmailDuplicadoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMatriculaDuplicadaTeste",
+        "gestaodeacoes.ImpactTest#cadastrarVoluntarioComEmailMalformadoDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#colecoesExpostasDevemSerCopiasImutaveisTeste",
+        "gestaodeacoes.ImpactTest#emailDiferentePorCaixaOuEspacoNaoDeveCriarContaDuplicadaTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioDeveAceitarEmailComCaixaDiferenteTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverEmAcaoInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "Validacao.java",
+      "mutated_class": "gestaodeacoes.util.Validacao",
+      "mutated_method": "normalizarEmail",
+      "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+      "line": 60,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        44
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/util/Validacao::normalizarEmail",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarEmailDuplicadoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMatriculaDuplicadaTeste",
+        "gestaodeacoes.ImpactTest#colecoesExpostasDevemSerCopiasImutaveisTeste",
+        "gestaodeacoes.ImpactTest#emailDiferentePorCaixaOuEspacoNaoDeveCriarContaDuplicadaTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioDeveAceitarEmailComCaixaDiferenteTeste",
+        "gestaodeacoes.ImpactTest#exibirVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ImpactTest#inscreverEmAcaoInexistenteDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverMesmoVoluntarioDuasVezesDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioEmAcaoLotadaDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#inscreverVoluntarioTeste",
+        "gestaodeacoes.ImpactTest#inscricaoFalhaNaoDeveCreditarPontosTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosComEmpateDeveDesempatarPorNomeTeste",
+        "gestaodeacoes.ImpactTest#listarVoluntariosOrdenadoPorPontuacaoTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#erroDeNegocioDeveVirarMensagemAmigavelSemStackTraceTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MutiraoReciclagem.java",
+      "mutated_class": "gestaodeacoes.modelo.MutiraoReciclagem",
+      "mutated_method": "<init>",
+      "method_description": "(IILjava/time/LocalDateTime;Ljava/lang/String;Ljava/lang/String;I)V",
+      "line": 28,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+      "indexes": [
+        13
+      ],
+      "description": "changed conditional boundary",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarAcaoComDadosInvalidosDeveLancarExcecaoTeste"
+      ]
+    },
+    {
+      "source_file": "MutiraoReciclagem.java",
+      "mutated_class": "gestaodeacoes.modelo.MutiraoReciclagem",
+      "mutated_method": "<init>",
+      "method_description": "(IILjava/time/LocalDateTime;Ljava/lang/String;Ljava/lang/String;I)V",
+      "line": 28,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+      "indexes": [
+        13
+      ],
+      "description": "negated conditional",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarAcaoComDadosInvalidosDeveLancarExcecaoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoSucessoTeste",
+        "gestaodeacoes.ImpactTest#calculoDePontuacaoDeveSerPolimorficoTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste",
+        "gestaodeacoes.ui.MenuConsoleTest#fluxoCompletoDeveExecutarTodasAsOperacoesTeste"
+      ]
+    },
+    {
+      "source_file": "MutiraoReciclagem.java",
+      "mutated_class": "gestaodeacoes.modelo.MutiraoReciclagem",
+      "mutated_method": "calcularPontuacao",
+      "method_description": "()I",
+      "line": 43,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+      "indexes": [
+        6
+      ],
+      "description": "Replaced integer multiplication with division",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#calculoDePontuacaoDeveSerPolimorficoTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste"
+      ]
+    },
+    {
+      "source_file": "MutiraoReciclagem.java",
+      "mutated_class": "gestaodeacoes.modelo.MutiraoReciclagem",
+      "mutated_method": "calcularPontuacao",
+      "method_description": "()I",
+      "line": 43,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indexes": [
+        7
+      ],
+      "description": "replaced int return with 0 for gestaodeacoes/modelo/MutiraoReciclagem::calcularPontuacao",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoComResultadoCorretoTeste",
+        "gestaodeacoes.ImpactTest#calculoDePontuacaoDeveSerPolimorficoTeste",
+        "gestaodeacoes.ImpactTest#inscreverDeveAtualizarPontuacaoEQuantidadeDeAcoesTeste"
+      ]
+    },
+    {
+      "source_file": "MutiraoReciclagem.java",
+      "mutated_class": "gestaodeacoes.modelo.MutiraoReciclagem",
+      "mutated_method": "descreverEspecificos",
+      "method_description": "()Ljava/lang/String;",
+      "line": 48,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+      "indexes": [
+        6
+      ],
+      "description": "replaced return value with \"\" for gestaodeacoes/modelo/MutiraoReciclagem::descreverEspecificos",
+      "status": "KILLED",
+      "killing_tests": [
+        "gestaodeacoes.ImpactTest#cadastrarMutiraoComResultadoCorretoTeste"
+      ]
+    },
+    {
+      "source_file": "MutiraoReciclagem.java",
+      "mutated_class": "gestaodeacoes.modelo.MutiraoReciclagem",
+      "mutated_method": "getDuracaoEmHoras",
+      "method_description": "()I",
+      "line": 38,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+      "indexes": [
+        5
+      ],
+      "description": "replaced int return with 0 for gestaodeacoes/modelo/MutiraoReciclagem::getDuracaoEmHoras",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Main.java",
+      "mutated_class": "gestaodeacoes.Main",
+      "mutated_method": "main",
+      "method_description": "([Ljava/lang/String;)V",
+      "line": 24,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        9
+      ],
+      "description": "removed call to gestaodeacoes/ui/MenuConsole::executar",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    },
+    {
+      "source_file": "Main.java",
+      "mutated_class": "gestaodeacoes.Main",
+      "mutated_method": "main",
+      "method_description": "([Ljava/lang/String;)V",
+      "line": 25,
+      "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+      "indexes": [
+        14
+      ],
+      "description": "removed call to java/io/PrintStream::println",
+      "status": "NO_COVERAGE",
+      "killing_tests": []
+    }
+  ]
+}

@@ -45,7 +45,9 @@ class Mutant:
     comparison, so the same mutant matches across the baseline and
     verification runs.
 
-    Killing tests are normalized by `pit.py` to `fully.qualified.TestClass#method`.
+    Killing tests are normalized by `pit.py` to `fully.qualified.TestClass#method`
+    (`Outer$Inner#method` for a nested test class), or to the class name alone
+    when PIT credits the kill to the whole class.
     The fields follow PIT's XML report, confirmed against a real one.
     """
 
