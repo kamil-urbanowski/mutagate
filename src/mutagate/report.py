@@ -3,16 +3,17 @@
 The only module that reads or writes `results/` and `corpus/`. Each repository
 is keyed by its directory name.
 
-    corpus/<repo>/   baseline ledger, class exclusions, excluded failing tests
+    corpus/<repo>/   baseline.json, exclusions.json, failing-tests.json
     results/<repo>/  one file per run, the kept tests, and the headline summary
 """
 
-from dataclasses import dataclass, field
+import json
+from dataclasses import asdict, dataclass, field
 from enum import Enum
 from pathlib import Path
 
 from .gate import GateResult, Verdict
-from .mutants import Mutant
+from .mutants import Mutant, Status
 
 CORPUS_DIR = Path("corpus")
 RESULTS_DIR = Path("results")
@@ -78,24 +79,45 @@ def kept_after_repair(runs: list[RunMetrics]) -> int:
 # --------------------------------------------------------------------------
 
 
-def write_baseline(repo: str, mutants: list[Mutant], root: Path = CORPUS_DIR) -> Path:
-    """Save a repository's baseline ledger."""
-    raise NotImplementedError
+def write_baseline(
+    repo: str, mutants: list[Mutant], setup: dict[str, str], root: Path = CORPUS_DIR
+) -> Path:
+    """Save a repository's baseline ledger, with the setup it was measured on."""
+    path = root / repo / "baseline.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    ledger = {**setup, "mutants": [asdict(m) for m in mutants]}
+    path.write_text(json.dumps(ledger, indent=2) + "\n", encoding="utf-8")
+    return path
 
 
 def read_baseline(repo: str, root: Path = CORPUS_DIR) -> list[Mutant]:
     """Load a repository's baseline ledger."""
-    raise NotImplementedError
+    ledger = _read_json(root / repo / "baseline.json")
+    return [
+        Mutant(
+            **{
+                **m,
+                "indexes": tuple(m["indexes"]),
+                "status": Status(m["status"]),
+                "killing_tests": tuple(m["killing_tests"]),
+            }
+        )
+        for m in ledger["mutants"]
+    ]
 
 
 def read_exclusions(repo: str, root: Path = CORPUS_DIR) -> dict[str, str]:
     """Classes excluded by the selection rule, each with its one-line reason."""
-    raise NotImplementedError
+    return dict(_read_json(root / repo / "exclusions.json"))
 
 
 def read_failing_tests(repo: str, root: Path = CORPUS_DIR) -> set[str]:
     """Existing test classes that fail on unmodified code, left out of every PIT run."""
-    raise NotImplementedError
+    return set(_read_json(root / repo / "failing-tests.json"))
+
+
+def _read_json(path: Path):
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 # --------------------------------------------------------------------------

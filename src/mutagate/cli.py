@@ -4,6 +4,7 @@ from pathlib import Path
 
 import click
 
+from . import mutants, pit, report
 from .context import MutantContext
 from .gate import Candidate, GateResult
 from .providers.base import Provider
@@ -24,7 +25,39 @@ def baseline(repo: Path) -> None:
 
     Prints the baseline score and the classes the selection rule picks.
     """
-    raise click.ClickException("not implemented")
+    name = repo.resolve().name
+    excluded = report.read_exclusions(name)
+    failing = report.read_failing_tests(name)
+    setup = pit.describe_setup(repo)
+
+    workspace = pit.make_workspace(repo)
+    try:
+        ledger = pit.parse_report(pit.run_pit(workspace, None, failing))
+    except pit.PitError as e:
+        raise click.ClickException(f"{e}\n{e.output[-5000:]}") from e
+    finally:
+        pit.remove_workspace(workspace)
+    path = report.write_baseline(name, ledger, setup)
+
+    detected = sum(mutants.is_detected(m) for m in ledger)
+    click.echo(f"Saved {path}")
+    click.echo(
+        f"Measured on Java {setup['java']}, Maven {setup['maven']}, "
+        f"pitest-maven {setup['pitest_maven']}, commit {setup['repo_commit'][:7]}"
+    )
+    click.echo(
+        f"Baseline mutation score: {detected}/{len(ledger)} = {mutants.mutation_score(ledger):.1%}"
+    )
+    for status in mutants.Status:
+        count = sum(m.status is status for m in ledger)
+        if count:
+            click.echo(f"  {status.value}: {count}")
+
+    selected = mutants.select_classes(ledger, excluded)
+    targets = {c: len(mutants.select_targets(ledger, c)) for c in selected}
+    click.echo(f"Selected classes: {len(selected)}, targets: {sum(targets.values())}")
+    for class_name, count in targets.items():
+        click.echo(f"  {class_name}: {count}")
 
 
 @main.command()
