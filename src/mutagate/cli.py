@@ -28,15 +28,15 @@ def baseline(repo: Path) -> None:
     name = repo.resolve().name
     excluded = report.read_exclusions(name)
     failing = report.read_failing_tests(name)
-    setup = pit.describe_setup(repo)
-
-    workspace = pit.make_workspace(repo)
     try:
-        ledger = pit.parse_report(pit.run_pit(workspace, None, failing))
+        setup = pit.describe_setup(repo)
+        workspace = pit.make_workspace(repo)
+        try:
+            ledger = pit.parse_report(pit.run_pit(workspace, None, failing))
+        finally:
+            pit.remove_workspace(workspace)
     except pit.PitError as e:
         raise click.ClickException(f"{e}\n{e.output[-5000:]}") from e
-    finally:
-        pit.remove_workspace(workspace)
     path = report.write_baseline(name, ledger, setup)
 
     detected = sum(mutants.is_detected(m) for m in ledger)
