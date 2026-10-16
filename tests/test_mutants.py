@@ -5,7 +5,9 @@ from mutagate.mutants import (
     Status,
     for_class,
     is_detected,
+    killed_by,
     mutation_score,
+    newly_detected,
     select_classes,
     select_targets,
 )
@@ -72,3 +74,32 @@ def test_select_classes_and_targets():
     assert select_classes(ms, {"pkg.D"}) == ["pkg.B", "pkg.C"]
     assert select_targets(ms, "pkg.B") == [ms[1]]
     assert select_targets(ms, "pkg.A") == []
+
+
+def killed(line, *tests, status=Status.KILLED):
+    return Mutant("Foo.java", "pkg.Foo", "m", "()V", line, "M", (0,), "d", status, tests)
+
+
+def test_killed_by_forms():
+    m = killed(1, "pkg.ATest#x", "pkg.BTest$Inner#y", "pkg.CTest")
+    assert killed_by(m, "pkg.ATest")
+    assert killed_by(m, "pkg.BTest")
+    assert killed_by(m, "pkg.CTest")
+    assert not killed_by(m, "pkg.A")
+    assert not killed_by(killed(1, "pkg.ATest2#x"), "pkg.ATest")
+
+
+def test_newly_detected_counts_only_kept_kills_of_undetected_mutants():
+    baseline = [
+        mutant(line=1, status=Status.SURVIVED),
+        mutant(line=2, status=Status.NO_COVERAGE),
+        mutant(line=3, status=Status.SURVIVED),
+        mutant(line=4, status=Status.KILLED),
+    ]
+    verification = [
+        killed(1, "pkg.KeptTest#x"),
+        killed(2, "pkg.RejectedTest#x"),
+        mutant(line=3, status=Status.SURVIVED),
+        killed(4, "pkg.FooTest#old", "pkg.KeptTest#x"),
+    ]
+    assert newly_detected(baseline, verification, {"pkg.KeptTest"}) == [verification[0]]

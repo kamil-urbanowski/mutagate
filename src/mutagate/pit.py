@@ -65,7 +65,8 @@ def make_workspace(repo: Path) -> Path:
     """
     repo = repo.resolve()
     check_toolchain(repo)
-    workspace = Path(tempfile.mkdtemp(prefix="mutagate-")) / repo.name
+    # The real path (on macOS, /private/var rather than /var), as Maven prints it.
+    workspace = Path(tempfile.mkdtemp(prefix="mutagate-")).resolve() / repo.name
     shutil.copytree(repo, workspace, ignore=lambda d, names: ["target"] if Path(d) == repo else [])
     add_pit_plugin(workspace / "pom.xml")
     return workspace
@@ -283,7 +284,15 @@ def _run(command: list[str], cwd: Path) -> tuple[bool, str]:
 
 
 def _mvn(workspace: Path, args: list[str]) -> tuple[bool, str]:
-    return _run(["mvn", "-B", *args], workspace)
+    """Run Maven in the copy. File paths in the output start at the repo root.
+
+    The copy's location is random and machine-specific, so it is removed:
+    errors read `src/test/java/...`, the same in every run.
+    """
+    ok, output = _run(["mvn", "-B", *args], workspace)
+    for root in sorted({str(workspace.resolve()), str(workspace)}, key=len, reverse=True):
+        output = output.replace(f"{root}/", "").replace(root, ".")
+    return ok, output
 
 
 def _packages(source_root: Path) -> list[str]:
