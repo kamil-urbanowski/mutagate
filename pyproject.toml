@@ -7,6 +7,9 @@ requires-python = ">=3.12"
 dependencies = [
     "click>=8.1",
     "rich>=13.0",
+    # Pinned: the parser decides what code the model is shown.
+    "tree-sitter==0.26.0",
+    "tree-sitter-java==0.23.5",
 ]
 
 [project.optional-dependencies]
