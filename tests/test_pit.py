@@ -1,3 +1,4 @@
+import tempfile
 import xml.etree.ElementTree as ET
 
 import pytest
@@ -126,6 +127,26 @@ def test_workspace_is_a_copy_without_build_output(tmp_path, monkeypatch):
     assert not workspace.exists()
 
 
+def test_failed_workspace_leaves_nothing_behind(tmp_path, monkeypatch):
+    monkeypatch.setattr(pit, "check_toolchain", lambda cwd: ("3.9.16", "21.0.12.1"))
+    scratch = tmp_path / "tmp"
+    scratch.mkdir()
+    monkeypatch.setattr(tempfile, "tempdir", str(scratch))
+    repo = tmp_path / "demo"
+    repo.mkdir()
+    (repo / "pom.xml").write_text(
+        POM.format(
+            build="""<build><plugins><plugin>
+      <groupId>org.pitest</groupId><artifactId>pitest-maven</artifactId>
+      </plugin></plugins></build>"""
+        )
+    )
+
+    with pytest.raises(pit.PitError):
+        pit.make_workspace(repo)
+    assert list(scratch.iterdir()) == []
+
+
 def test_parse_report(tmp_path):
     (tmp_path / pit.REPORT_FILE).write_text(REPORT)
     killed, uncovered = pit.parse_report(tmp_path)
@@ -190,6 +211,13 @@ def test_unrecognized_test_name_raises(tmp_path):
         )
     )
     with pytest.raises(ValueError, match="unrecognized test name"):
+        pit.parse_report(tmp_path)
+
+
+@pytest.mark.parametrize("missing", ["<killingTests/>", "<indexes><index>5</index></indexes>"])
+def test_missing_element_raises(tmp_path, missing):
+    (tmp_path / pit.REPORT_FILE).write_text(REPORT.replace(missing, ""))
+    with pytest.raises(ValueError, match="has no <"):
         pit.parse_report(tmp_path)
 
 

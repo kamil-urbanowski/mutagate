@@ -61,14 +61,21 @@ def make_workspace(repo: Path) -> Path:
 
     The repo's own build output (`target/`) is not copied. The pinned PIT plugin
     is added to the copy's `pom.xml`. Refuses to start unless Maven runs on the
-    pinned JDK, so no build or PIT run can use another.
+    pinned JDK, so no build or PIT run can use another. If making the copy fails
+    partway, the copy is removed before the error is raised.
     """
     repo = repo.resolve()
     check_toolchain(repo)
     # The real path (on macOS, /private/var rather than /var), as Maven prints it.
     workspace = Path(tempfile.mkdtemp(prefix="mutagate-")).resolve() / repo.name
-    shutil.copytree(repo, workspace, ignore=lambda d, names: ["target"] if Path(d) == repo else [])
-    add_pit_plugin(workspace / "pom.xml")
+    try:
+        shutil.copytree(
+            repo, workspace, ignore=lambda d, names: ["target"] if Path(d) == repo else []
+        )
+        add_pit_plugin(workspace / "pom.xml")
+    except BaseException:
+        remove_workspace(workspace)
+        raise
     return workspace
 
 
@@ -307,13 +314,16 @@ def _packages(source_root: Path) -> list[str]:
 
 
 def _mutant(element: ET.Element) -> Mutant:
-    def text(tag: str) -> str:
-        value = element.findtext(tag)
-        if value is None:
+    def child(tag: str) -> ET.Element:
+        found = element.find(tag)
+        if found is None:
             raise ValueError(f"PIT report entry has no <{tag}>")
-        return value
+        return found
 
-    killing = element.findtext("killingTests") or ""
+    def text(tag: str) -> str:
+        return child(tag).text or ""
+
+    killing = text("killingTests")
     return Mutant(
         source_file=text("sourceFile"),
         mutated_class=text("mutatedClass"),
@@ -321,7 +331,7 @@ def _mutant(element: ET.Element) -> Mutant:
         method_description=text("methodDescription"),
         line=int(text("lineNumber")),
         mutator=text("mutator"),
-        indexes=tuple(int(i.text) for i in element.iterfind("indexes/index")),
+        indexes=tuple(int(i.text) for i in child("indexes").iterfind("index")),
         description=text("description"),
         status=Status(element.get("status")),
         killing_tests=tuple(sorted({_test_name(name) for name in killing.split("|") if name})),
