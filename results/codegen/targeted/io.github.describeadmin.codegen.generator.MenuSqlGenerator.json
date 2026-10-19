@@ -1,0 +1,189 @@
+{
+  "repo": "codegen",
+  "class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+  "kind": "TARGETED",
+  "setup": {
+    "repo_commit": "7697931d89755fe35b6cd149d774babd85af9bd5",
+    "date": "2026-10-19",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "14080bbb70481ed55cb5f5b1d26eb80eb9360491",
+    "provider": "claude-code",
+    "provider_version": "2.1.301",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "You write JUnit 5 tests for existing Java code."
+  },
+  "score_before": 0.6666666666666666,
+  "score_after": 1.0,
+  "mutants_total": 6,
+  "undetected_before": 2,
+  "newly_detected": 2,
+  "candidates": 2,
+  "kept": 2,
+  "acceptance_rate": 1.0,
+  "attempts_per_kept_test": 1.0,
+  "tokens": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 17141,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1402,
+    "thinking_tokens": 502
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/MenuSqlGeneratorMutaGate1Test.java",
+      "target": {
+        "source_file": "MenuSqlGenerator.java",
+        "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+        "mutated_method": "grantToAdmin",
+        "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+        "line": 112,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+        "indexes": [
+          20
+        ],
+        "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::grantToAdmin",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "MenuSqlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+          "mutated_method": "generate",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 45,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            153
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::generate",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#buttonPermissionsMatchPage",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#menuComponentMatchesGeneratedFile",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#menuSqlRespectsRedLines",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test#generatedSqlGrantsMenusToAdminRole",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#generatedSqlStartsWithHeaderContainingCommentAndComponentPath"
+          ]
+        },
+        {
+          "source_file": "MenuSqlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+          "mutated_method": "grantToAdmin",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 112,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            20
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::grantToAdmin",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test#generatedSqlGrantsMenusToAdminRole"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass MenuSqlGeneratorMutaGate1Test {\n\n    @Test\n    void generatedSqlGrantsMenusToAdminRole() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String sql = MenuSqlGenerator.generate(spec);\n\n        assertTrue(sql.contains(\"INSERT INTO sys_role_menu (role_id, menu_id)\"), sql);\n        assertTrue(sql.contains(\"WHERE r.role_code = 'ADMIN' AND r.deleted = 0\"), sql);\n        assertTrue(sql.contains(\"(m.perm_code LIKE '\" + spec.module() + \":%' OR m.path = '/biz')\"), sql);\n        assertTrue(sql.contains(\"SELECT 1 FROM sys_role_menu rm WHERE rm.role_id = r.id AND rm.menu_id = m.id\"), sql);\n        assertTrue(sql.trim().endsWith(\");\"), sql);\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/MenuSqlGeneratorMutaGate2Test.java",
+      "target": {
+        "source_file": "MenuSqlGenerator.java",
+        "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+        "mutated_method": "header",
+        "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+        "line": 49,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+        "indexes": [
+          27
+        ],
+        "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::header",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "MenuSqlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+          "mutated_method": "generate",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 45,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            153
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::generate",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#buttonPermissionsMatchPage",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#menuComponentMatchesGeneratedFile",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#menuSqlRespectsRedLines",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test#generatedSqlGrantsMenusToAdminRole",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#generatedSqlStartsWithHeaderContainingCommentAndComponentPath"
+          ]
+        },
+        {
+          "source_file": "MenuSqlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+          "mutated_method": "header",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 49,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            27
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::header",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#generatedSqlStartsWithHeaderContainingCommentAndComponentPath"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass MenuSqlGeneratorMutaGate2Test {\n\n    @Test\n    void generatedSqlStartsWithHeaderContainingCommentAndComponentPath() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n\n        String sql = MenuSqlGenerator.generate(spec);\n\n        assertTrue(sql.startsWith(\"-- ====\"), \"SQL should start with the header banner\");\n        assertTrue(sql.contains(\"-- \" + spec.comment() + \" \u83dc\u5355\u4e0e\u6743\u9650\u70b9\"),\n                \"header should contain the module comment title\");\n        assertTrue(sql.contains(\"'\" + spec.module() + \"/index' \u5bf9\u5e94 frontend \u7684 src/views/\"\n                        + spec.module() + \"/index.vue\"),\n                \"header should document the component path\");\n    }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass MenuSqlGeneratorMutaGate1Test {\n\n    @Test\n    void generatedSqlGrantsMenusToAdminRole() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String sql = MenuSqlGenerator.generate(spec);\n\n        assertTrue(sql.contains(\"INSERT INTO sys_role_menu (role_id, menu_id)\"), sql);\n        assertTrue(sql.contains(\"WHERE r.role_code = 'ADMIN' AND r.deleted = 0\"), sql);\n        assertTrue(sql.contains(\"(m.perm_code LIKE '\" + spec.module() + \":%' OR m.path = '/biz')\"), sql);\n        assertTrue(sql.contains(\"SELECT 1 FROM sys_role_menu rm WHERE rm.role_id = r.id AND rm.menu_id = m.id\"), sql);\n        assertTrue(sql.trim().endsWith(\");\"), sql);\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 8577,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 731,
+        "thinking_tokens": 245
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass MenuSqlGeneratorMutaGate2Test {\n\n    @Test\n    void generatedSqlStartsWithHeaderContainingCommentAndComponentPath() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n\n        String sql = MenuSqlGenerator.generate(spec);\n\n        assertTrue(sql.startsWith(\"-- ====\"), \"SQL should start with the header banner\");\n        assertTrue(sql.contains(\"-- \" + spec.comment() + \" \u83dc\u5355\u4e0e\u6743\u9650\u70b9\"),\n                \"header should contain the module comment title\");\n        assertTrue(sql.contains(\"'\" + spec.module() + \"/index' \u5bf9\u5e94 frontend \u7684 src/views/\"\n                        + spec.module() + \"/index.vue\"),\n                \"header should document the component path\");\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 8564,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 671,
+        "thinking_tokens": 257
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

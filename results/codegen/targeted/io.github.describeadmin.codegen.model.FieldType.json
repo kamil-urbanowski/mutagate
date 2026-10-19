@@ -1,0 +1,439 @@
+{
+  "repo": "codegen",
+  "class": "io.github.describeadmin.codegen.model.FieldType",
+  "kind": "TARGETED",
+  "setup": {
+    "repo_commit": "7697931d89755fe35b6cd149d774babd85af9bd5",
+    "date": "2026-10-19",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "14080bbb70481ed55cb5f5b1d26eb80eb9360491",
+    "provider": "claude-code",
+    "provider_version": "2.1.301",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "You write JUnit 5 tests for existing Java code."
+  },
+  "score_before": 0.6875,
+  "score_after": 1.0,
+  "mutants_total": 16,
+  "undetected_before": 5,
+  "newly_detected": 5,
+  "candidates": 5,
+  "kept": 5,
+  "acceptance_rate": 1.0,
+  "attempts_per_kept_test": 1.0,
+  "tokens": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 55742,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1811,
+    "thinking_tokens": 450
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldTypeMutaGate1Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/model/FieldTypeMutaGate1Test.java",
+      "target": {
+        "source_file": "FieldType.java",
+        "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+        "mutated_method": "allKeys",
+        "method_description": "()Ljava/util/List;",
+        "line": 54,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+        "indexes": [
+          8
+        ],
+        "description": "replaced return value with Collections.emptyList for io/github/describeadmin/codegen/model/FieldType::allKeys",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "FieldType.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+          "mutated_method": "allKeys",
+          "method_description": "()Ljava/util/List;",
+          "line": 54,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            8
+          ],
+          "description": "replaced return value with Collections.emptyList for io/github/describeadmin/codegen/model/FieldType::allKeys",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate1Test#allKeysReturnsKeysInDeclarationOrder",
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate3Test#keyAndAllKeysReturnYamlIdentifiers"
+          ]
+        },
+        {
+          "source_file": "FieldType.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+          "mutated_method": "key",
+          "method_description": "()Ljava/lang/String;",
+          "line": 58,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldType::key",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate1Test#allKeysReturnsKeysInDeclarationOrder",
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate3Test#keyAndAllKeysReturnYamlIdentifiers"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldTypeMutaGate1Test {\n\n    @Test\n    void allKeysReturnsKeysInDeclarationOrder() {\n        List<String> expected = List.of(\n                \"string\", \"text\", \"int\", \"long\", \"decimal\", \"flag\", \"date\", \"datetime\");\n        assertEquals(expected, FieldType.allKeys());\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldTypeMutaGate2Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/model/FieldTypeMutaGate2Test.java",
+      "target": {
+        "source_file": "FieldType.java",
+        "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+        "mutated_method": "javaSimpleType",
+        "method_description": "()Ljava/lang/String;",
+        "line": 64,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+        "indexes": [
+          11
+        ],
+        "description": "changed conditional boundary",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "FieldType.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+          "mutated_method": "javaSimpleType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 64,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "indexes": [
+            11
+          ],
+          "description": "changed conditional boundary",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate2Test#javaSimpleTypeStripsLeadingDotAtIndexZero"
+          ]
+        },
+        {
+          "source_file": "FieldType.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+          "mutated_method": "javaSimpleType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 64,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "indexes": [
+            21
+          ],
+          "description": "Replaced integer addition with subtraction",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#entityIsThin",
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate2Test#javaSimpleTypeStripsLeadingDotAtIndexZero"
+          ]
+        },
+        {
+          "source_file": "FieldType.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+          "mutated_method": "javaSimpleType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 64,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            11
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#entityIsThin",
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate2Test#javaSimpleTypeStripsLeadingDotAtIndexZero"
+          ]
+        },
+        {
+          "source_file": "FieldType.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+          "mutated_method": "javaSimpleType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 64,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            25
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldType::javaSimpleType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#entityIsThin",
+            "io.github.describeadmin.codegen.GeneratorTest#generatedJavaHasAllImports",
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate2Test#javaSimpleTypeStripsLeadingDotAtIndexZero"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.lang.reflect.Field;\nimport org.junit.jupiter.api.Test;\n\nclass FieldTypeMutaGate2Test {\n\n    @Test\n    void javaSimpleTypeStripsLeadingDotAtIndexZero() throws Exception {\n        Field f = FieldType.class.getDeclaredField(\"javaType\");\n        f.setAccessible(true);\n        FieldType type = FieldType.DATE;\n        Object original = f.get(type);\n        try {\n            f.set(type, \".Foo\");\n            assertEquals(\"Foo\", type.javaSimpleType());\n        } finally {\n            f.set(type, original);\n        }\n        assertEquals(\"LocalDate\", type.javaSimpleType());\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldTypeMutaGate3Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/model/FieldTypeMutaGate3Test.java",
+      "target": {
+        "source_file": "FieldType.java",
+        "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+        "mutated_method": "key",
+        "method_description": "()Ljava/lang/String;",
+        "line": 58,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+        "indexes": [
+          5
+        ],
+        "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldType::key",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "FieldType.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+          "mutated_method": "allKeys",
+          "method_description": "()Ljava/util/List;",
+          "line": 54,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            8
+          ],
+          "description": "replaced return value with Collections.emptyList for io/github/describeadmin/codegen/model/FieldType::allKeys",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate1Test#allKeysReturnsKeysInDeclarationOrder",
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate3Test#keyAndAllKeysReturnYamlIdentifiers"
+          ]
+        },
+        {
+          "source_file": "FieldType.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+          "mutated_method": "key",
+          "method_description": "()Ljava/lang/String;",
+          "line": 58,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldType::key",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate1Test#allKeysReturnsKeysInDeclarationOrder",
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate3Test#keyAndAllKeysReturnYamlIdentifiers"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.util.List;\nimport org.junit.jupiter.api.Test;\n\nclass FieldTypeMutaGate3Test {\n\n    @Test\n    void keyAndAllKeysReturnYamlIdentifiers() {\n        assertEquals(\"string\", FieldType.STRING.key());\n        assertEquals(\"text\", FieldType.TEXT.key());\n        assertEquals(\"int\", FieldType.INT.key());\n        assertEquals(\"long\", FieldType.LONG.key());\n        assertEquals(\"decimal\", FieldType.DECIMAL.key());\n        assertEquals(\"flag\", FieldType.FLAG.key());\n        assertEquals(\"date\", FieldType.DATE.key());\n        assertEquals(\"datetime\", FieldType.DATETIME.key());\n        assertEquals(\n                List.of(\"string\", \"text\", \"int\", \"long\", \"decimal\", \"flag\", \"date\", \"datetime\"),\n                FieldType.allKeys());\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldTypeMutaGate4Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/model/FieldTypeMutaGate4Test.java",
+      "target": {
+        "source_file": "FieldType.java",
+        "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+        "mutated_method": "needsLength",
+        "method_description": "()Z",
+        "line": 77,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+        "indexes": [
+          5
+        ],
+        "description": "replaced boolean return with false for io/github/describeadmin/codegen/model/FieldType::needsLength",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "FieldType.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+          "mutated_method": "needsLength",
+          "method_description": "()Z",
+          "line": 77,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/describeadmin/codegen/model/FieldType::needsLength",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate4Test#needsLengthIsTrueOnlyForString"
+          ]
+        },
+        {
+          "source_file": "FieldType.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+          "mutated_method": "needsLength",
+          "method_description": "()Z",
+          "line": 77,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/describeadmin/codegen/model/FieldType::needsLength",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate4Test#needsLengthIsTrueOnlyForString"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass FieldTypeMutaGate4Test {\n\n    @Test\n    void needsLengthIsTrueOnlyForString() {\n        assertTrue(FieldType.STRING.needsLength());\n        for (FieldType type : FieldType.values()) {\n            if (type != FieldType.STRING) {\n                assertFalse(type.needsLength(), type.name());\n            }\n        }\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldTypeMutaGate5Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/model/FieldTypeMutaGate5Test.java",
+      "target": {
+        "source_file": "FieldType.java",
+        "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+        "mutated_method": "needsPrecision",
+        "method_description": "()Z",
+        "line": 81,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+        "indexes": [
+          5
+        ],
+        "description": "replaced boolean return with true for io/github/describeadmin/codegen/model/FieldType::needsPrecision",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "FieldType.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+          "mutated_method": "needsPrecision",
+          "method_description": "()Z",
+          "line": 81,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/describeadmin/codegen/model/FieldType::needsPrecision",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate5Test#needsPrecisionOnlyForDecimal"
+          ]
+        },
+        {
+          "source_file": "FieldType.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldType",
+          "mutated_method": "needsPrecision",
+          "method_description": "()Z",
+          "line": 81,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/describeadmin/codegen/model/FieldType::needsPrecision",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate5Test#needsPrecisionOnlyForDecimal"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass FieldTypeMutaGate5Test {\n\n    @Test\n    void needsPrecisionOnlyForDecimal() {\n        assertTrue(FieldType.DECIMAL.needsPrecision());\n        for (FieldType type : FieldType.values()) {\n            if (type != FieldType.DECIMAL) {\n                assertFalse(type.needsPrecision(), type + \" should not need precision\");\n            }\n        }\n        assertEquals(false, FieldType.STRING.needsPrecision());\n    }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldTypeMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldTypeMutaGate1Test {\n\n    @Test\n    void allKeysReturnsKeysInDeclarationOrder() {\n        List<String> expected = List.of(\n                \"string\", \"text\", \"int\", \"long\", \"decimal\", \"flag\", \"date\", \"datetime\");\n        assertEquals(expected, FieldType.allKeys());\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 11154,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 192,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldTypeMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.lang.reflect.Field;\nimport org.junit.jupiter.api.Test;\n\nclass FieldTypeMutaGate2Test {\n\n    @Test\n    void javaSimpleTypeStripsLeadingDotAtIndexZero() throws Exception {\n        Field f = FieldType.class.getDeclaredField(\"javaType\");\n        f.setAccessible(true);\n        FieldType type = FieldType.DATE;\n        Object original = f.get(type);\n        try {\n            f.set(type, \".Foo\");\n            assertEquals(\"Foo\", type.javaSimpleType());\n        } finally {\n            f.set(type, original);\n        }\n        assertEquals(\"LocalDate\", type.javaSimpleType());\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 11231,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 742,
+        "thinking_tokens": 450
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldTypeMutaGate3Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.util.List;\nimport org.junit.jupiter.api.Test;\n\nclass FieldTypeMutaGate3Test {\n\n    @Test\n    void keyAndAllKeysReturnYamlIdentifiers() {\n        assertEquals(\"string\", FieldType.STRING.key());\n        assertEquals(\"text\", FieldType.TEXT.key());\n        assertEquals(\"int\", FieldType.INT.key());\n        assertEquals(\"long\", FieldType.LONG.key());\n        assertEquals(\"decimal\", FieldType.DECIMAL.key());\n        assertEquals(\"flag\", FieldType.FLAG.key());\n        assertEquals(\"date\", FieldType.DATE.key());\n        assertEquals(\"datetime\", FieldType.DATETIME.key());\n        assertEquals(\n                List.of(\"string\", \"text\", \"int\", \"long\", \"decimal\", \"flag\", \"date\", \"datetime\"),\n                FieldType.allKeys());\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 11126,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 362,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldTypeMutaGate4Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass FieldTypeMutaGate4Test {\n\n    @Test\n    void needsLengthIsTrueOnlyForString() {\n        assertTrue(FieldType.STRING.needsLength());\n        for (FieldType type : FieldType.values()) {\n            if (type != FieldType.STRING) {\n                assertFalse(type.needsLength(), type.name());\n            }\n        }\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 11117,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 224,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldTypeMutaGate5Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass FieldTypeMutaGate5Test {\n\n    @Test\n    void needsPrecisionOnlyForDecimal() {\n        assertTrue(FieldType.DECIMAL.needsPrecision());\n        for (FieldType type : FieldType.values()) {\n            if (type != FieldType.DECIMAL) {\n                assertFalse(type.needsPrecision(), type + \" should not need precision\");\n            }\n        }\n        assertEquals(false, FieldType.STRING.needsPrecision());\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 11114,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 291,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}
