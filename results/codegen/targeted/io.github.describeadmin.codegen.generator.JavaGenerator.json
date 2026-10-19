@@ -1,0 +1,228 @@
+{
+  "repo": "codegen",
+  "class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+  "kind": "TARGETED",
+  "setup": {
+    "repo_commit": "7697931d89755fe35b6cd149d774babd85af9bd5",
+    "date": "2026-10-19",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "14080bbb70481ed55cb5f5b1d26eb80eb9360491",
+    "provider": "claude-code",
+    "provider_version": "2.1.301",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "You write JUnit 5 tests for existing Java code."
+  },
+  "score_before": 0.8823529411764706,
+  "score_after": 1.0,
+  "mutants_total": 17,
+  "undetected_before": 2,
+  "newly_detected": 2,
+  "candidates": 2,
+  "kept": 2,
+  "acceptance_rate": 1.0,
+  "attempts_per_kept_test": 1.0,
+  "tokens": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 23873,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1511,
+    "thinking_tokens": 693
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate1Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/JavaGeneratorMutaGate1Test.java",
+      "target": {
+        "source_file": "JavaGenerator.java",
+        "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+        "mutated_method": "controller",
+        "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+        "line": 131,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+        "indexes": [
+          10
+        ],
+        "description": "negated conditional",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "JavaGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+          "mutated_method": "controller",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 131,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            10
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate1Test#controllerJavadocListsQueryConditionsWhenQueryFieldsExist"
+          ]
+        },
+        {
+          "source_file": "JavaGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+          "mutated_method": "controller",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 156,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            209
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::controller",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#controller",
+            "io.github.describeadmin.codegen.GeneratorTest#controllerActuallyFilters",
+            "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+            "io.github.describeadmin.codegen.GeneratorTest#generatedJavaHasAllImports",
+            "io.github.describeadmin.codegen.GeneratorTest#parsersAreDelegatedToBaseController",
+            "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate1Test#controllerJavadocListsQueryConditionsWhenQueryFieldsExist",
+            "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate2Test#controllerWithQueryFieldsImportsWrapperTypes"
+          ]
+        },
+        {
+          "source_file": "JavaGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+          "mutated_method": "lambda$controller$2",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+          "line": 134,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            16
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::lambda$controller$2",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#javadocWellFormed",
+            "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate1Test#controllerJavadocListsQueryConditionsWhenQueryFieldsExist"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass JavaGeneratorMutaGate1Test {\n\n    @Test\n    void controllerJavadocListsQueryConditionsWhenQueryFieldsExist() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        assertTrue(!spec.queryFields().isEmpty());\n\n        String src = JavaGenerator.controller(spec);\n\n        assertTrue(src.contains(\"<p>\u5217\u8868\u67e5\u8be2\u652f\u6301\u7684\u6761\u4ef6\uff1a\"), src);\n        assertTrue(src.contains(\" * <ul>\\n\"), src);\n        assertTrue(src.contains(\" *   <li>{@code projectName} \u2014\u2014 \"), src);\n        assertTrue(src.contains(\"\uff08like\uff09</li>\"), src);\n        assertTrue(src.contains(\" * </ul>\\n\"), src);\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate2Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/JavaGeneratorMutaGate2Test.java",
+      "target": {
+        "source_file": "JavaGenerator.java",
+        "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+        "mutated_method": "controller",
+        "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+        "line": 149,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+        "indexes": [
+          78
+        ],
+        "description": "negated conditional",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "JavaGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+          "mutated_method": "controller",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 149,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            78
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate2Test#controllerWithQueryFieldsImportsWrapperTypes"
+          ]
+        },
+        {
+          "source_file": "JavaGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+          "mutated_method": "controller",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 156,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            209
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::controller",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#controller",
+            "io.github.describeadmin.codegen.GeneratorTest#controllerActuallyFilters",
+            "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+            "io.github.describeadmin.codegen.GeneratorTest#generatedJavaHasAllImports",
+            "io.github.describeadmin.codegen.GeneratorTest#parsersAreDelegatedToBaseController",
+            "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate1Test#controllerJavadocListsQueryConditionsWhenQueryFieldsExist",
+            "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate2Test#controllerWithQueryFieldsImportsWrapperTypes"
+          ]
+        },
+        {
+          "source_file": "JavaGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+          "mutated_method": "lambda$controller$3",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 201,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::lambda$controller$3",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#controller",
+            "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+            "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate2Test#controllerWithQueryFieldsImportsWrapperTypes"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass JavaGeneratorMutaGate2Test {\n\n    @Test\n    void controllerWithQueryFieldsImportsWrapperTypes() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        assertFalse(spec.queryFields().isEmpty());\n\n        String src = JavaGenerator.controller(spec);\n\n        assertTrue(src.contains(\"import com.baomidou.mybatisplus.core.conditions.Wrapper;\"));\n        assertTrue(src.contains(\"import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;\"));\n        assertTrue(src.contains(\"import java.util.Map;\"));\n    }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass JavaGeneratorMutaGate1Test {\n\n    @Test\n    void controllerJavadocListsQueryConditionsWhenQueryFieldsExist() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        assertTrue(!spec.queryFields().isEmpty());\n\n        String src = JavaGenerator.controller(spec);\n\n        assertTrue(src.contains(\"<p>\u5217\u8868\u67e5\u8be2\u652f\u6301\u7684\u6761\u4ef6\uff1a\"), src);\n        assertTrue(src.contains(\" * <ul>\\n\"), src);\n        assertTrue(src.contains(\" *   <li>{@code projectName} \u2014\u2014 \"), src);\n        assertTrue(src.contains(\"\uff08like\uff09</li>\"), src);\n        assertTrue(src.contains(\" * </ul>\\n\"), src);\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 11914,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 765,
+        "thinking_tokens": 354
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass JavaGeneratorMutaGate2Test {\n\n    @Test\n    void controllerWithQueryFieldsImportsWrapperTypes() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        assertFalse(spec.queryFields().isEmpty());\n\n        String src = JavaGenerator.controller(spec);\n\n        assertTrue(src.contains(\"import com.baomidou.mybatisplus.core.conditions.Wrapper;\"));\n        assertTrue(src.contains(\"import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;\"));\n        assertTrue(src.contains(\"import java.util.Map;\"));\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 11959,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 746,
+        "thinking_tokens": 339
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}
