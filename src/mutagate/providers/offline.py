@@ -21,10 +21,13 @@ RESPONSE_FILE = "response.txt"
 
 class OfflineProvider:
     name = "offline"
+    version = ""
+    last_usage = None  # a person passing files reports no tokens
 
     def __init__(self, exchange_dir: Path, poll_seconds: float = 1.0):
         self.exchange_dir = exchange_dir
         self.poll_seconds = poll_seconds
+        self.settings: dict[str, str] = {}  # the model and settings are the person's choice
 
     def complete(self, prompt: str) -> str:
         """Write prompt.txt, wait for response.txt, return its contents.

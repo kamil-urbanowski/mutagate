@@ -265,6 +265,17 @@ def describe_setup(repo: Path) -> dict[str, str]:
     }
 
 
+def describe_tool() -> dict[str, str]:
+    """The MutaGate commit a run is made with, ending in `-dirty` when the tool's
+    code has uncommitted changes, so the run cannot be traced to a commit."""
+    root = Path(__file__).resolve().parents[2]
+    ok, commit = _run(["git", "rev-parse", "HEAD"], root)
+    if not ok:
+        return {"mutagate_commit": "unknown"}
+    _, changes = _run(["git", "status", "--porcelain", "--", "src", "pyproject.toml"], root)
+    return {"mutagate_commit": commit.strip() + ("-dirty" if changes.strip() else "")}
+
+
 # --------------------------------------------------------------------------
 # Helpers
 # --------------------------------------------------------------------------
