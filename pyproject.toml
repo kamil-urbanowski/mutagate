@@ -24,5 +24,10 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.pytest.ini_options]
+markers = [
+    "integration: real builds and PIT runs; skipped unless MUTAGATE_INTEGRATION=1",
+]
+
 [tool.ruff]
 line-length = 100

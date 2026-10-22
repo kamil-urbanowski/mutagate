@@ -8,20 +8,17 @@ reply is reused and nothing is sent twice. Needs git, Maven, and JDK 21; about
 two minutes. Opt in with MUTAGATE_INTEGRATION=1.
 """
 
-import json
-import os
 import re
 
 import pytest
-from test_gate_integration import CLASS, FIXTURES, REPO, REPO_URL, ROOT, fetch
 
 from mutagate import cli, generate, mutants, report
 from mutagate.gate import Verdict
 from mutagate.providers.base import SavedReplies
 
-pytestmark = pytest.mark.skipif(
-    os.environ.get("MUTAGATE_INTEGRATION") != "1", reason="opt in with MUTAGATE_INTEGRATION=1"
-)
+CLASS = "com.gamezone.model.CategoryDiscount"
+
+pytestmark = pytest.mark.integration
 
 
 class CannedProvider:
@@ -42,20 +39,18 @@ class CannedProvider:
         return self.replies.get(simple, "Sorry, I cannot write that test.")
 
 
-def test_targeted_run_and_rerun(tmp_path):
-    ledger = json.loads((ROOT / "corpus" / "GameZoneUnicesar" / "baseline.json").read_text())
-    repo = fetch(REPO, REPO_URL, ledger["repo_commit"])
-    baseline = report.read_baseline("GameZoneUnicesar", root=ROOT / "corpus")
+def test_targeted_run_and_rerun(tmp_path, gamezone_repo, corpus, gate_fixtures):
+    baseline = report.read_baseline("GameZoneUnicesar", root=corpus)
     targets = mutants.select_targets(baseline, CLASS)
     line_81 = next(i for i, t in enumerate(targets, start=1) if t.line == 81)
     name = generate.test_class_name(CLASS, line_81)
     simple = name.rpartition(".")[2]
-    fixture = (FIXTURES / "CategoryDiscountGate1Test.java").read_text()
+    fixture = (gate_fixtures / "CategoryDiscountGate1Test.java").read_text()
     good = f"```java\n{fixture.replace('CategoryDiscountGate1Test', simple)}```\n"
 
     canned = CannedProvider({simple: good})
     metrics = cli.run_targeted(
-        repo, CLASS, SavedReplies(canned, tmp_path / "replies"), corpus=ROOT / "corpus"
+        gamezone_repo, CLASS, SavedReplies(canned, tmp_path / "replies"), corpus=corpus
     )
 
     verdicts = {r.candidate.test_class: r.verdict for r in metrics.ledger}
@@ -69,7 +64,7 @@ def test_targeted_run_and_rerun(tmp_path):
     # The same run again: every reply is reused, nothing is asked, same verdicts.
     again = CannedProvider({})
     rerun = cli.run_targeted(
-        repo, CLASS, SavedReplies(again, tmp_path / "replies"), corpus=ROOT / "corpus"
+        gamezone_repo, CLASS, SavedReplies(again, tmp_path / "replies"), corpus=corpus
     )
     assert again.asked == []
     assert all(q.reused for q in rerun.requests)
