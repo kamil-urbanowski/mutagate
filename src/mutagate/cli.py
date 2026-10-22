@@ -1,6 +1,5 @@
 """Commands and orchestration; the logic lives in the modules. Design: `docs/design/cli.md`."""
 
-import json
 from pathlib import Path
 
 import click
@@ -119,8 +118,7 @@ def summarize(repo_name: str) -> None:
     runs = report.read_runs(repo_name)
     if not runs:
         raise click.ClickException(f"no saved runs for {repo_name}")
-    path = report.write_summary(repo_name, baseline, runs, selected)
-    summary = json.loads(path.read_text(encoding="utf-8"))
+    path, summary = report.write_summary(repo_name, baseline, runs, selected)
 
     click.echo(f"Saved {path}")
     total, before = summary["mutants_total"], summary["detected_before"]
