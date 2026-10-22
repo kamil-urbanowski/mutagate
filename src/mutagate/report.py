@@ -1,12 +1,6 @@
-"""Metrics, the run ledger, and every file in `results/` and `corpus/`.
+"""Metrics and the run ledger. Design: `docs/design/report.md`.
 
-The only module that reads or writes `results/` and `corpus/`. Each repository
-is keyed by its directory name.
-
-    corpus/<repo>/   baseline.json, exclusions.json, failing-tests.json
-    results/<repo>/  summary.json, and a folder per run kind (targeted/, control/)
-                     holding one <class>.json per class run and kept/, the kept
-                     tests at their paths in the repository
+The only module that reads or writes `results/` and `corpus/`.
 """
 
 import json
@@ -167,12 +161,18 @@ def read_baseline(repo: str, root: Path = CORPUS_DIR) -> list[Mutant]:
 
 
 def read_exclusions(repo: str, root: Path = CORPUS_DIR) -> dict[str, str]:
-    """Classes excluded by the selection rule, each with its one-line reason."""
+    """Classes excluded by the selection rule, each with its one-line reason.
+
+    A missing file raises on purpose: a repo is reviewed before any run on it.
+    """
     return dict(_read_json(root / repo / "exclusions.json"))
 
 
 def read_failing_tests(repo: str, root: Path = CORPUS_DIR) -> set[str]:
-    """Existing test classes that fail on unmodified code, left out of every PIT run."""
+    """Existing test classes that fail on unmodified code, left out of every PIT run.
+
+    A missing file raises on purpose: a repo is reviewed before any run on it.
+    """
     return set(_read_json(root / repo / "failing-tests.json"))
 
 

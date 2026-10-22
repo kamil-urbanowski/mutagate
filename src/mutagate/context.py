@@ -1,18 +1,6 @@
-"""Assemble the source a model needs to target one mutant.
+"""Assemble the source a model needs to target one mutant. Design: `docs/design/context.md`.
 
-Pure logic over source supplied by `pit.py`. Java is read with tree-sitter,
-pinned in `pyproject.toml`, because the parser decides what code the model is
-shown.
-
-For one class, the model sees:
-
-- the class's full source, and the method the mutant is in;
-- the signatures of the repo classes the class names (its collaborators), one
-  level deep: declarations without bodies, private members left out;
-- every existing test file that mentions the class, in full;
-- where the new test goes: the class's own package, under `src/test/java`.
-
-A control request has no mutant and no method; the rest is the same.
+Pure logic over source supplied by `pit.py`: it reads no files and runs nothing.
 """
 
 import re
@@ -65,7 +53,7 @@ def build_context(
     sources: dict[Path, str], class_name: str, mutant: Mutant | None = None
 ) -> MutantContext:
     """Gather the enclosing method and class, the signatures of its
-    collaborators, and the existing tests that mention the class.
+    collaborators (one level deep), and the existing tests that mention the class.
 
     `sources` are the copy's Java files from `pit.read_sources`, read before
     any candidate is added, so every request sees the repo's own tests only.
@@ -92,7 +80,7 @@ def build_context(
         for p in sources
         if p != path
         and p.is_relative_to(MAIN_SOURCES)
-        and p.stem.isidentifier()
+        and p.stem.isidentifier()  # leaves out package-info.java
         and _mentions(class_source, p.stem)
     ]
     tests = [p for p in sources if p.is_relative_to(TEST_SOURCES) and _mentions(sources[p], simple)]

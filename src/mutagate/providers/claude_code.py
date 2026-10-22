@@ -1,25 +1,9 @@
-"""Claude Code provider: each request is one call to Claude Code's scripted mode.
+"""Claude Code provider: one call to `claude -p` per request. Design: `docs/design/providers.md`.
 
-`claude -p` sends one prompt to the model, prints the reply, and exits. It runs
-on the account Claude Code is logged in to. A failed call, a hit usage limit
-included, stops the run.
-
-Cost guards, for Kamil's own development, testing, and measured runs: they
-keep every request on his Claude Pro plan, which his runs must never exceed.
-They are not a rule for everyone who uses MutaGate. Someone else may have a
-larger or smaller plan, an API key, or a company account; relaxing the guards
-for them needs a switch that is not built yet. The guards:
-
-- refuse to send anything unless Claude Code is logged in with a claude.ai
-  account, which is a subscription, never an API key;
-- remove every API key, auth token, and cloud-provider switch from the
-  environment `claude` runs in, so it cannot fall back on one.
-
-Each call has tools off, our own system prompt, an empty working directory,
-and no saved session, and leaves out the user's settings, CLAUDE.md files,
-auto-memory, skills, and side calls such as a session title. Claude Code still
-adds about 600 tokens of its own to each request: a line on what it is, the
-account's email, machine details, the date, and the model's name.
+The cost guards keep Kamil's own runs on his Claude Pro plan, which they must
+never exceed: a claude.ai login only, and no API key or cloud-provider switch
+passed on. They are not a rule for every user; relaxing them for another plan,
+an API key, or a company account needs a switch that is not built yet.
 """
 
 import json
@@ -29,6 +13,8 @@ import tempfile
 
 from .base import ProviderError
 
+# The measured runs' settings. Changing any of them after measured runs have
+# started must be reported, not made quietly.
 MODEL = "claude-sonnet-5-5"
 EFFORT = "medium"
 SYSTEM_PROMPT = "You write JUnit 5 tests for existing Java code."
@@ -81,6 +67,8 @@ class ClaudeCodeProvider:
     def complete(self, prompt: str) -> str:
         """One call to `claude -p`; the reply text. Raises ProviderError on any failure."""
         self._check_login()
+        # Only our prompt reaches the model: no tools, user settings, CLAUDE.md files,
+        # memory, skills, or saved session (hence also the empty working directory).
         args = [
             "-p",
             "--model", self.settings["model"],

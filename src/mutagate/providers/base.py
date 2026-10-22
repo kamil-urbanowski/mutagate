@@ -1,4 +1,4 @@
-"""Every model call goes through here, so swapping providers is one class."""
+"""Every model call goes through here. Design: `docs/design/providers.md`."""
 
 import hashlib
 import json
@@ -95,6 +95,7 @@ class SavedReplies:
                 reply = self.provider.complete(prompt)
                 exchange = Exchange(reply, self.provider.last_usage, reused=False)
                 self.directory.mkdir(parents=True, exist_ok=True)
+                # Written whole or not at all, so a crash cannot leave half a reply.
                 partial = path.with_suffix(".partial")
                 partial.write_text(
                     json.dumps({"reply": reply, "tokens": exchange.tokens}), encoding="utf-8"
@@ -106,5 +107,6 @@ class SavedReplies:
         return exchange.reply
 
     def _key(self, prompt: str) -> str:
+        # Not the provider's version: an update between a stop and a re-run must not resend.
         request = {"provider": self.name, "settings": self.settings, "prompt": prompt}
         return hashlib.sha256(json.dumps(request, sort_keys=True).encode("utf-8")).hexdigest()
