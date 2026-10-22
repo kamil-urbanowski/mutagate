@@ -1,26 +1,6 @@
-"""The gate. A generated test is kept only if a program says it earned its place.
+"""Accept or reject candidate tests. Design: `docs/design/gate.md`.
 
-Pure judgment: the gate runs nothing and holds no provider. `cli.py` runs the
-build and PIT through `pit.py` and hands the outcomes here for a verdict.
-
-Two stages, for cost reasons:
-
-1. **Screen** — per candidate, no PIT. The reply must hold a usable test, which
-   must compile, pass against unmodified code, and pass deterministically. This
-   stage protects the batch: one test that fails to compile breaks compilation
-   for every other candidate, and a test that fails on unmodified code is simply
-   wrong. A screen failure gets exactly one repair attempt.
-
-2. **Verify** — per class, one scoped PIT run for the whole batch. PIT records
-   which test killed each mutant, so per-test attribution survives batching. A
-   targeted candidate is kept only if it killed the specific mutant it was
-   written for; killing some other mutant does not count. A control candidate
-   is kept if it killed at least one mutant the existing suite did not detect.
-   A verification failure is final. If the run itself fails, the whole batch is
-   rejected.
-
-Build and verify this module before wiring in any model. Feed it tests you
-wrote by hand and confirm it accepts and rejects correctly.
+Judges the outcomes `cli.py` hands it; it runs nothing and holds no provider.
 """
 
 from dataclasses import dataclass
@@ -110,11 +90,8 @@ def check_compiled(candidate: Candidate, build: tuple[bool, str]) -> GateResult 
 
 
 def check_runs(candidate: Candidate, runs: list[tuple[bool, str]]) -> GateResult | None:
-    """Judge `SCREEN_RUNS` runs against unmodified code.
-
-    Every run passes: None. Every run fails: FAILED_ON_UNMODIFIED_CODE.
-    Anything in between: NONDETERMINISTIC.
-    """
+    """Judge the runs against unmodified code. Exactly `SCREEN_RUNS` are required,
+    so "deterministic" means the same thing in every run of the tool."""
     if len(runs) != SCREEN_RUNS:
         raise ValueError(f"expected {SCREEN_RUNS} runs, got {len(runs)}")
     failures = [output for ok, output in runs if not ok]
@@ -202,11 +179,7 @@ _BOILERPLATE = (
 
 
 def _failure_lines(output: str) -> str:
-    """The `[ERROR]` lines of a build's output: compiler errors or test failures.
-
-    Maven's help boilerplate and repeats are dropped, and at most DETAIL_LINES
-    are kept. Without any `[ERROR]` line, the last DETAIL_LINES of output.
-    """
+    """The `[ERROR]` lines of a build's output: compiler errors or test failures."""
     lines: list[str] = []
     for line in output.splitlines():
         if not line.startswith("[ERROR]"):

@@ -1,12 +1,7 @@
-"""Offline provider: writes the prompt to a file and waits for a response file.
+"""Offline provider: prompts and replies pass through files. Design: `docs/design/providers.md`.
 
-For environments where no model API is reachable. The human is the network
-connection. Slower and manual, but it means no policy has to change for
-someone to run the tool. The first real calls are made this way.
-
-One exchange per request: MutaGate writes `prompt.txt`, the person pastes it
-into a chat app and saves the model's reply as `response.txt`, and MutaGate
-reads it and goes on.
+For environments where no model API is reachable: a person carries each prompt
+to a model and saves its reply.
 """
 
 import sys

@@ -1,16 +1,7 @@
-"""Ask a model for a test aimed at one specific mutant.
+"""Ask a model for a test aimed at one specific mutant. Design: `docs/design/generate.md`.
 
 Reaches the model only through a Provider. A ProviderError is not caught here;
 it stops the run.
-
-Each request asks for one JUnit 5 test class holding exactly one test method.
-The prompt puts what is the same for every request first (the rules, then the
-class and its context) and the target last. A reply is usable only if it holds
-exactly one code block that declares the requested package and class, with no
-other top-level type, and exactly one `@Test` method and no parameterized,
-repeated, or dynamic tests. Nothing in a reply is fixed or renamed: a reply
-that breaks a rule is rejected, and gets the one repair attempt like any other
-screen failure.
 """
 
 import re
@@ -105,8 +96,8 @@ def test_class_name(class_name: str, index: int) -> str:
 def build_prompt(context: MutantContext, test_class: str) -> str:
     """The request for one JUnit 5 test class holding exactly one test method.
 
-    Without a mutant in the context, this is the untargeted control request,
-    which is designed with the control (build order step 5).
+    What is the same for every request comes first and the target last, so a
+    provider that caches a repeated prefix can reuse it.
     """
     if context.mutant is None:
         raise NotImplementedError("the control request is designed at build order step 5")
@@ -119,9 +110,11 @@ def extract_test(reply: str, test_class: str) -> str | None:
     """Pull the test file out of a model reply.
 
     None when the reply holds no usable test: not exactly one code block, not
-    the requested package and class, another top-level type, or not exactly
-    one `@Test` method. Parameterized, repeated, and dynamic tests are not
-    usable either. Windows line endings are read the same as Unix ones.
+    the requested package and class, another top-level type (it could clash
+    with another candidate's and break the batch's build), or not exactly one
+    `@Test` method. Parameterized, repeated, and dynamic tests are not usable
+    either. Nothing in a reply is fixed or renamed: a reply that breaks a rule
+    is rejected, and gets the one repair attempt like any screen failure.
     """
     blocks = _FENCE.findall(reply.replace("\r\n", "\n").replace("\r", "\n"))
     if len(blocks) != 1:
@@ -156,9 +149,6 @@ def repair(
     """The single repair attempt, given the screen verdict that rejected it.
 
     Returns a new Candidate with the same name and target, and `attempts` of 2.
-    The request is the original one, followed by the failed test and the
-    verdict's detail; after NO_USABLE_TEST, only a note that the reply held no
-    usable test and the rules again.
     """
     if failure.verdict not in SCREEN_VERDICTS:
         raise ValueError(f"only a screen failure gets a repair, not {failure.verdict.value}")

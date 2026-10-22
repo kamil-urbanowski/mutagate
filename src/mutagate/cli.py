@@ -1,4 +1,4 @@
-"""MutaGate command line. Orchestration only; the logic lives in the modules."""
+"""Commands and orchestration; the logic lives in the modules. Design: `docs/design/cli.md`."""
 
 import json
 from pathlib import Path
@@ -192,6 +192,8 @@ def run_targeted(
                 raise click.ClickException(
                     f"{path} exists in the repo; MutaGate never replaces a file"
                 )
+        # Compile before any candidate is added, so a later build failure is the
+        # candidate's own.
         ok, output = pit.compile_tests(workspace)
         if not ok:
             raise pit.PitError("the copy does not compile before any candidate is added", output)

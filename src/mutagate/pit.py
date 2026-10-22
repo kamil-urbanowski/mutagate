@@ -1,23 +1,6 @@
-"""Everything touching the target repository and its build.
+"""Everything touching the target repository and its build. Design: `docs/design/pit.md`.
 
-The only module that touches the target repository or runs external processes.
-All work happens on a temporary copy; the original is never written to.
-
-PIT runs through Maven with `-D` properties. The copy's build configuration is
-left unchanged with one exception: PIT cannot run JUnit 5 tests without its
-JUnit 5 plugin, so the pinned `pitest-maven` (1.30.0) is added to the copy's
-`pom.xml`, with `pitest-junit5-plugin` (1.2.3) as its dependency.
-
-    mvn -B test-compile org.pitest:pitest-maven:mutationCoverage \
-        -DtargetClasses=... -DoutputFormats=XML -DfullMutationMatrix=true \
-        -DtimestampedReports=false
-
-`fullMutationMatrix` makes the report list every test that killed each mutant,
-not just the first. Batched verification depends on it.
-
-A class-scoped run sets `targetClasses=pkg.Outer,pkg.Outer$*` so nested and
-anonymous classes are included. A bare `pkg.Outer*` would also match other
-classes that share the prefix.
+All work happens on a temporary copy; the original repository is never written to.
 """
 
 import re
@@ -59,16 +42,16 @@ class PitError(Exception):
 def make_workspace(repo: Path) -> Path:
     """Copy `repo` to a fresh temporary directory and return the copy's root.
 
-    The repo's own build output (`target/`) is not copied. The pinned PIT plugin
-    is added to the copy's `pom.xml`. Refuses to start unless Maven runs on the
-    pinned JDK, so no build or PIT run can use another. If making the copy fails
-    partway, the copy is removed before the error is raised.
+    Refuses to start unless Maven runs on the pinned JDK, so no build or PIT run
+    can use another.
     """
     repo = repo.resolve()
     check_toolchain(repo)
     # The real path (on macOS, /private/var rather than /var), as Maven prints it.
     workspace = Path(tempfile.mkdtemp(prefix="mutagate-")).resolve() / repo.name
     try:
+        # Leaves out the repo's build output: the top-level target/ only, so a
+        # source package named `target` is still copied.
         shutil.copytree(
             repo, workspace, ignore=lambda d, names: ["target"] if Path(d) == repo else []
         )
@@ -85,7 +68,9 @@ def remove_workspace(workspace: Path) -> None:
 
 
 def add_pit_plugin(pom: Path) -> None:
-    """Add the pinned `pitest-maven` plugin and its JUnit 5 plugin to `pom`.
+    """Add the pinned `pitest-maven` plugin and its JUnit 5 plugin to `pom`: the one
+    change made to the copy's build configuration, as PIT cannot run JUnit 5 tests
+    without that plugin.
 
     Raises PitError if the pom already declares `pitest-maven`: its own settings
     would mix with the pinned ones, and that case is not handled yet.
@@ -187,6 +172,7 @@ def run_pit(workspace: Path, target_class: str | None, excluded_tests: set[str])
     if target_class is None:
         target_classes = [f"{p}.*" for p in _packages(workspace / MAIN_SOURCES)]
     else:
+        # With its nested and anonymous classes. A bare `Outer*` would also match `OuterFoo`.
         target_classes = [target_class, f"{target_class}$*"]
     target_tests = [f"{p}.*" for p in _packages(workspace / TEST_SOURCES)]
 
@@ -196,6 +182,7 @@ def run_pit(workspace: Path, target_class: str | None, excluded_tests: set[str])
         f"-DtargetClasses={','.join(target_classes)}",
         f"-DtargetTests={','.join(target_tests)}",
         "-DoutputFormats=XML",
+        # Every killing test, not just the first: batched verification depends on it.
         "-DfullMutationMatrix=true",
         "-DtimestampedReports=false",
     ]
@@ -345,6 +332,7 @@ def _mutant(element: ET.Element) -> Mutant:
         indexes=tuple(int(i.text) for i in child("indexes").iterfind("index")),
         description=text("description"),
         status=Status(element.get("status")),
+        # Sorted: PIT lists killing tests in a different order each run.
         killing_tests=tuple(sorted({_test_name(name) for name in killing.split("|") if name})),
     )
 

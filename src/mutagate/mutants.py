@@ -1,6 +1,6 @@
-"""Mutant model, mutation score, and selection of classes and targets.
+"""The Mutant model, scoring, and class and target selection. Design: `docs/design/mutants.md`.
 
-Pure logic over data. Nothing here touches the filesystem or runs anything.
+Pure logic over data: nothing here touches the filesystem or runs anything.
 """
 
 from collections.abc import Collection
@@ -48,7 +48,6 @@ class Mutant:
     Killing tests are normalized by `pit.py` to `fully.qualified.TestClass#method`
     (`Outer$Inner#method` for a nested test class), or to the class name alone
     when PIT credits the kill to the whole class.
-    The fields follow PIT's XML report, confirmed against a real one.
     """
 
     source_file: str
@@ -67,10 +66,7 @@ def is_detected(mutant: Mutant) -> bool:
     """Whether the suite counts as having caught this mutant.
 
     Every score and every target selection goes through this function. The
-    rule follows PIT's own split (decided 10/16/26): KILLED, TIMED_OUT,
-    MEMORY_ERROR, RUN_ERROR, NON_VIABLE, and EQUIVALENT are detected; SURVIVED
-    and NO_COVERAGE are not. NOT_STARTED and STARTED mean PIT never finished
-    the mutant, so the run is incomplete and they raise.
+    split follows PIT's own, so scores match the ones PIT prints.
     """
     if mutant.status in DETECTED:
         return True
@@ -99,11 +95,8 @@ def outer_class(mutant: Mutant) -> str:
 
 
 def select_classes(baseline: list[Mutant], excluded: Collection[str]) -> list[str]:
-    """Apply the selection rule to a baseline ledger.
-
-    Every class with at least one undetected mutant, minus the classes recorded
-    as excluded in `corpus/`. No other filtering.
-    """
+    """The selection rule: every class with an undetected mutant, minus those
+    recorded as excluded in `corpus/`. No other filtering."""
     excluded = set(excluded)
     return sorted({outer_class(m) for m in baseline if not is_detected(m)} - excluded)
 
@@ -117,7 +110,8 @@ def killed_by(mutant: Mutant, test_class: str) -> bool:
     """Whether a test class is among the mutant's killing tests.
 
     Counts a kill by one of its methods (`Class#method`), a method of a nested
-    class (`Class$Inner#method`), or the class as a whole (`Class`).
+    class (`Class$Inner#method`), or the class as a whole (`Class`), but never
+    one by a class whose name only starts the same: `ATest` is not `ATest2`.
     """
     return any(
         test == test_class or test.startswith((f"{test_class}#", f"{test_class}$"))
