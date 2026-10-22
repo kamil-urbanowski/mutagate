@@ -1,77 +1,29 @@
 """The gate on a real corpus class, with hand-written candidate tests.
 
 Every build and PIT run is real, so this needs git, Maven, and JDK 21, and
-takes about a minute. Opt in with MUTAGATE_INTEGRATION=1. On first use it
-clones GameZoneUnicesar into `work/` at the commit its baseline was measured on,
-which needs internet. The candidates are in `tests/fixtures/gate/`; each file
-says which verdict it should get.
+takes about a minute. Opt in with MUTAGATE_INTEGRATION=1. On first use
+`conftest.py` clones GameZoneUnicesar into `work/`, which needs internet. The
+candidates are in `tests/fixtures/gate/`; each file says which verdict it
+should get.
 """
 
-import json
-import os
-import subprocess
 from pathlib import Path
 
 import pytest
 
-from mutagate import gate, mutants, pit, report
-from mutagate.gate import Candidate, GateResult, Verdict
+from mutagate import cli, gate, mutants, pit, report
+from mutagate.gate import Candidate, Verdict
 
-ROOT = Path(__file__).resolve().parents[1]
-REPO = ROOT / "work" / "GameZoneUnicesar"
-REPO_URL = "https://github.com/adbautistar/GameZoneUnicesar.git"
-FIXTURES = Path(__file__).parent / "fixtures" / "gate"
 CLASS = "com.gamezone.model.CategoryDiscount"
 PACKAGE = "com.gamezone.model"
 
-pytestmark = pytest.mark.skipif(
-    os.environ.get("MUTAGATE_INTEGRATION") != "1", reason="opt in with MUTAGATE_INTEGRATION=1"
-)
-
-
-def git(*args: str) -> str:
-    return subprocess.run(["git", *args], capture_output=True, text=True, check=True).stdout
-
-
-def fetch(repo: Path, url: str, commit: str) -> Path:
-    """The repo at `commit`, cloned on first use.
-
-    An existing clone is used only if it is at that commit with no local
-    changes, so the check always runs on the code the baseline measured.
-    """
-    if not repo.is_dir():
-        repo.parent.mkdir(parents=True, exist_ok=True)
-        git("clone", "--quiet", url, str(repo))
-        git("-C", str(repo), "checkout", "--quiet", commit)
-    head = git("-C", str(repo), "rev-parse", "HEAD").strip()
-    assert head == commit, f"{repo} is at {head[:7]}; its baseline was measured at {commit[:7]}"
-    assert not git("-C", str(repo), "status", "--porcelain"), f"{repo} has local changes"
-    return repo
-
-
-@pytest.fixture(scope="module")
-def repo() -> Path:
-    ledger = json.loads((ROOT / "corpus" / "GameZoneUnicesar" / "baseline.json").read_text())
-    return fetch(REPO, REPO_URL, ledger["repo_commit"])
-
-
-def screen(workspace: Path, candidate: Candidate) -> GateResult | None:
-    """The screen as cli.py will run it, without the repair attempt."""
-    rejected = gate.check_usable(candidate)
-    if rejected:
-        return rejected
-    pit.add_candidate(workspace, candidate)
-    rejected = gate.check_compiled(candidate, pit.compile_tests(workspace)) or gate.check_runs(
-        candidate, pit.run_test(workspace, candidate.test_class, gate.SCREEN_RUNS)
-    )
-    if rejected:
-        pit.remove_candidate(workspace, candidate)
-    return rejected
+pytestmark = pytest.mark.integration
 
 
 def judge(workspace: Path, batch: list[Candidate], targets: list) -> tuple[dict, list]:
     """Screen each candidate, verify the survivors together; verdicts by name."""
-    results = {c.test_class: screen(workspace, c) for c in batch}
+    # cli's own screen, so this checks the code `mutagate run` uses. No repair here.
+    results = {c.test_class: cli._screen(workspace, c) for c in batch}
     passed = [c for c in batch if results[c.test_class] is None]
     verification = pit.parse_report(pit.run_pit(workspace, CLASS, set()))
     for result in gate.verify(passed, verification, targets):
@@ -81,18 +33,18 @@ def judge(workspace: Path, batch: list[Candidate], targets: list) -> tuple[dict,
     return results, verification
 
 
-def test_gate_on_category_discount(repo):
-    baseline = report.read_baseline("GameZoneUnicesar", root=ROOT / "corpus")
+def test_gate_on_category_discount(gamezone_repo, corpus, gate_fixtures):
+    baseline = report.read_baseline("GameZoneUnicesar", root=corpus)
     targets = mutants.select_targets(baseline, CLASS)
     by_line = {m.line: m for m in targets}
     assert sorted(by_line) == [37, 55, 81]
 
     def candidate(name, line=None, source=True):
-        text = (FIXTURES / f"{name}.java").read_text() if source else None
+        text = (gate_fixtures / f"{name}.java").read_text() if source else None
         path = Path("src/test/java", *PACKAGE.split("."), f"{name}.java")
         return Candidate(f"{PACKAGE}.{name}", path, text, by_line.get(line))
 
-    workspace = pit.make_workspace(repo)
+    workspace = pit.make_workspace(gamezone_repo)
     try:
         assert pit.compile_tests(workspace)[0]
 
