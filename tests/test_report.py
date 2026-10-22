@@ -157,9 +157,11 @@ def test_headline_scores():
 def test_summary(tmp_path):
     baseline = [mutant(i, Status.KILLED) for i in range(6)] + [mutant(i) for i in range(6, 10)]
     runs = [run(newly_detected=2), run(newly_detected=1, target_class="pkg.Bar")]
-    path = report.write_summary("demo", baseline, runs, ["pkg.Foo", "pkg.Bar", "pkg.Baz"], tmp_path)
+    path, summary = report.write_summary(
+        "demo", baseline, runs, ["pkg.Foo", "pkg.Bar", "pkg.Baz"], tmp_path
+    )
 
-    summary = json.loads(path.read_text())
+    assert json.loads(path.read_text()) == summary  # what is printed is what is saved
     targeted = summary["targeted"]
     assert (summary["detected_before"], targeted["detected_after"]) == (6, 9)
     assert targeted["kept"] == 2 and targeted["candidates"] == 6

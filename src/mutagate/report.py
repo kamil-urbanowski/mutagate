@@ -252,10 +252,10 @@ def write_summary(
     runs: list[RunMetrics],
     selected: Collection[str] = (),
     root: Path = RESULTS_DIR,
-) -> Path:
+) -> tuple[Path, dict]:
     """Save the repository's headline scores for each run kind, and the derived
     metrics. `selected` are the classes the selection rule picks; any without a
-    run are listed as not run."""
+    run are listed as not run. Returns the file's path and what it holds."""
     detected = sum(is_detected(m) for m in baseline)
     summary = {
         "repo": repo,
@@ -311,7 +311,7 @@ def write_summary(
     path = root / repo / "summary.json"
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
-    return path
+    return path, summary
 
 
 def _result_json(r: GateResult) -> dict:
