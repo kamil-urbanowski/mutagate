@@ -15,5 +15,5 @@ attempts per kept test, the run ledger (one verdict per candidate test, with
 its source), and every request to the model with its reply and the tokens it
 used. Only tests that passed the gate are written to `kept/`.
 
-Control runs, once built, go in `<repo>/control/` the same way, and the
-summary reports them separately.
+Control runs go in `<repo>/control/` the same way. The summary reports each
+run kind separately and, for classes run both ways, compares them.
