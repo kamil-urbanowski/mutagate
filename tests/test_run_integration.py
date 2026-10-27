@@ -33,13 +33,13 @@ class CannedProvider:
     def __init__(self, replies):
         self.replies = {simple: list(texts) for simple, texts in replies.items()}
         self.asked = []
-        self.prompts = []
+        self.requests = []
         self.settings = {"model": "canned"}
 
-    def complete(self, prompt):
-        simple = re.search(r"^Class name: (\w+)$", prompt, re.MULTILINE).group(1)
+    def complete(self, shared, task):
+        simple = re.search(r"^Class name: (\w+)$", task, re.MULTILINE).group(1)
         self.asked.append(simple)
-        self.prompts.append(prompt)
+        self.requests.append((shared, task))
         queued = self.replies.get(simple)
         return queued.pop(0) if queued else NO_TEST
 
@@ -66,6 +66,7 @@ def test_targeted_run_and_rerun(tmp_path, gamezone_repo, corpus, gate_fixtures):
     assert verdicts.pop(name) is Verdict.KEPT
     assert set(verdicts.values()) == {Verdict.NO_USABLE_TEST}  # after their repairs
     assert len(metrics.requests) == 1 + 2 * (len(targets) - 1)
+    assert len({shared for shared, _ in canned.requests}) == 1  # one cached part for the class
     assert metrics.newly_detected >= 1
     assert metrics.score_after > metrics.score_before
     assert metrics.setup["provider"] == "canned" and metrics.setup["model"] == "canned"
@@ -112,12 +113,12 @@ def test_control_run(tmp_path, gamezone_repo, corpus, gate_fixtures, capsys):
 
     # Methods longest first: calculateDiscount (12 lines with @Override), the
     # constructor (6), then the first of four 3-line methods. Nothing from PIT.
-    first, second, third, repair = canned.prompts
-    tasks = [p.split("## Your task")[1] for p in (first, second, third)]
-    assert "public double calculateDiscount(Sale sale) {" in tasks[0]
-    assert "public CategoryDiscount(String id, String name," in tasks[1]
-    assert "public double getPercentage() {" in tasks[2]
-    assert not any("PIT" in task for task in tasks)
+    assert len({shared for shared, _ in canned.requests}) == 1  # one cached part for the class
+    first, second, third, repair = [task for _, task in canned.requests]
+    assert "public double calculateDiscount(Sale sale) {" in first
+    assert "public CategoryDiscount(String id, String name," in second
+    assert "public double getPercentage() {" in third
+    assert not any("PIT" in task for task in (first, second, third))
     assert repair.startswith(third) and "held no usable test" in repair
     output = capsys.readouterr().out
     assert "[1/3] public double calculateDiscount(Sale sale): passed the screen" in output

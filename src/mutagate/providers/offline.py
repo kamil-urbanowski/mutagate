@@ -24,9 +24,10 @@ class OfflineProvider:
         self.poll_seconds = poll_seconds
         self.settings: dict[str, str] = {}  # the model and settings are the person's choice
 
-    def complete(self, prompt: str) -> str:
+    def complete(self, shared: str, task: str) -> str:
         """Write prompt.txt, wait for response.txt, return its contents.
 
+        prompt.txt is the whole request: `shared`, a blank line, then `task`.
         A leftover response.txt is removed before the prompt is written, and
         the response is removed once read, so every reply answers the prompt
         just written. An empty response.txt counts as not saved yet. There is
@@ -37,7 +38,7 @@ class OfflineProvider:
         try:
             self.exchange_dir.mkdir(parents=True, exist_ok=True)
             response_file.unlink(missing_ok=True)
-            prompt_file.write_text(prompt, encoding="utf-8")
+            prompt_file.write_text(f"{shared}\n\n{task}", encoding="utf-8")
             print(
                 f"Prompt written to {prompt_file}. Save the model's reply to {response_file}.",
                 file=sys.stderr,

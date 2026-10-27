@@ -17,7 +17,10 @@ from .base import ProviderError
 # started must be reported, not made quietly.
 MODEL = "claude-sonnet-5-5"
 EFFORT = "medium"
-SYSTEM_PROMPT = "You write JUnit 5 tests for existing Java code."
+# Recorded in place of the system prompt, which is each request's shared part:
+# that text differs per class, so recording it would make every class's
+# settings differ.
+SYSTEM_PROMPT_LABEL = "the shared part of each request"
 
 # How long one request may take before the run stops.
 TIMEOUT_SECONDS = 600
@@ -33,6 +36,10 @@ EXECUTABLE_VARIABLE = "MUTAGATE_CLAUDE"
 # location of Claude Code's own configuration, and so of its login, is kept.
 _REMOVED_PREFIXES = ("ANTHROPIC_", "CLAUDE")
 _KEPT = frozenset({"CLAUDE_CONFIG_DIR"})
+# Also never passed: Claude Code's prompt-caching switches, such as
+# DISABLE_PROMPT_CACHING, which would turn caching off unnoticed. They share no
+# prefix, so they go by this part of their names.
+_REMOVED_PART = "PROMPT_CACHING"
 
 _SETTINGS = json.dumps({"autoMemoryEnabled": False})
 
@@ -49,7 +56,7 @@ class ClaudeCodeProvider:
     ):
         self.executable = executable or os.environ.get(EXECUTABLE_VARIABLE) or "claude"
         self.timeout = timeout
-        self.settings = {"model": model, "effort": effort, "system_prompt": SYSTEM_PROMPT}
+        self.settings = {"model": model, "effort": effort, "system_prompt": SYSTEM_PROMPT_LABEL}
         self.last_usage: dict[str, int] | None = None
         self._version: str | None = None
         self._logged_in = False
@@ -64,16 +71,22 @@ class ClaudeCodeProvider:
             self._version = out.split()[0]
         return self._version
 
-    def complete(self, prompt: str) -> str:
-        """One call to `claude -p`; the reply text. Raises ProviderError on any failure."""
+    def complete(self, shared: str, task: str) -> str:
+        """One call to `claude -p`; the reply text. Raises ProviderError on any failure.
+
+        `shared` is the system prompt, so later requests about the class read
+        it from Claude's prompt cache; `task` is the message, on stdin.
+        """
         self._check_login()
-        # Only our prompt reaches the model: no tools, user settings, CLAUDE.md files,
+        # Only our request reaches the model: no tools, user settings, CLAUDE.md files,
         # memory, skills, or saved session (hence also the empty working directory).
+        # `shared` is an argument, not a file, as the caching was measured; one too
+        # long for the system raises OSError, which `_run` makes a ProviderError.
         args = [
             "-p",
             "--model", self.settings["model"],
             "--effort", self.settings["effort"],
-            "--system-prompt", self.settings["system_prompt"],
+            "--system-prompt", shared,
             "--tools", "",
             "--settings", _SETTINGS,
             "--safe-mode",
@@ -82,7 +95,7 @@ class ClaudeCodeProvider:
             "--output-format", "json",
         ]  # fmt: skip
         with tempfile.TemporaryDirectory(prefix="mutagate-claude-") as cwd:
-            _, out, err = self._run(args, prompt, cwd)
+            _, out, err = self._run(args, task, cwd)
         reply, self.last_usage = _reply(out or err, self.settings["model"])
         return reply
 
@@ -133,7 +146,11 @@ class ClaudeCodeProvider:
 
 
 def _environment() -> dict[str, str]:
-    env = {k: v for k, v in os.environ.items() if k in _KEPT or not k.startswith(_REMOVED_PREFIXES)}
+    env = {
+        k: v
+        for k, v in os.environ.items()
+        if k in _KEPT or not (k.startswith(_REMOVED_PREFIXES) or _REMOVED_PART in k)
+    }
     env["CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC"] = "1"  # no side calls, such as a title
     return env
 

@@ -91,13 +91,15 @@ def test_class_name(class_name: str, index: int) -> str:
     return f"{class_name}MutaGate{index}Test"
 
 
-def build_prompt(context: MutantContext, test_class: str) -> str:
+def build_prompt(context: MutantContext, test_class: str) -> tuple[str, str]:
     """The request for one JUnit 5 test class holding exactly one test method:
     targeted, or control for a context with no mutant.
 
-    What is the same for every request comes first and the target last, so a
-    provider that caches a repeated prefix can reuse it. A control request
-    differs only in its task, so both run kinds see the same class.
+    Returns `(shared, task)`. `shared`, the rules and the class, must be
+    identical for every request about the class, repairs and control requests
+    included, so that Claude reads it from its prompt cache: nothing in it may
+    depend on the target, the test class, or the attempt. `task` is the rest;
+    a control request differs only in it, so both run kinds see the same class.
     """
     if test_class.rpartition(".")[0] != context.test_package:
         raise ValueError(f"{test_class} is not in the class's package, {context.test_package}")
@@ -105,7 +107,7 @@ def build_prompt(context: MutantContext, test_class: str) -> str:
         task = _control_section(context, test_class)
     else:
         task = _target_section(context, test_class)
-    return "\n\n".join([RULES, _class_sections(context), task])
+    return "\n\n".join([RULES, _class_sections(context)]), task
 
 
 def extract_test(reply: str, test_class: str) -> str | None:
@@ -141,8 +143,8 @@ def extract_test(reply: str, test_class: str) -> str | None:
 
 def generate_test(context: MutantContext, provider: Provider, test_class: str) -> Candidate:
     """Ask for one test and wrap the reply as a Candidate."""
-    reply = provider.complete(build_prompt(context, test_class))
-    return _candidate(context, test_class, reply, attempts=1)
+    shared, task = build_prompt(context, test_class)
+    return _candidate(context, test_class, provider.complete(shared, task), attempts=1)
 
 
 def repair(
@@ -160,8 +162,10 @@ def repair(
         )
     if candidate.attempts != 1:
         raise ValueError(f"{candidate.test_class} already had its repair attempt")
-    prompt = build_prompt(context, candidate.test_class) + "\n\n" + _previous(candidate, failure)
-    return _candidate(context, candidate.test_class, provider.complete(prompt), attempts=2)
+    # The original `shared`, unchanged, so the repair reads the class from the cache too.
+    shared, task = build_prompt(context, candidate.test_class)
+    reply = provider.complete(shared, task + "\n\n" + _previous(candidate, failure))
+    return _candidate(context, candidate.test_class, reply, attempts=2)
 
 
 # --------------------------------------------------------------------------

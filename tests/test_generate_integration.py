@@ -24,10 +24,10 @@ class CannedProvider:
 
     def __init__(self, *replies):
         self.replies = list(replies)
-        self.prompts = []
+        self.requests = []
 
-    def complete(self, prompt):
-        self.prompts.append(prompt)
+    def complete(self, shared, task):
+        self.requests.append((shared, task))
         return self.replies.pop(0)
 
 
@@ -54,8 +54,10 @@ def test_generated_candidate_survives_real_builds_and_pit(gamezone_repo, corpus,
         candidate = generate.repair(ctx, provider, first, rejected)
         assert candidate.attempts == 2
         assert candidate.path == Path("src/test/java/com/gamezone/model", f"{simple}.java")
-        assert ">   81 |" in provider.prompts[0]
-        assert "held no usable test" in provider.prompts[1]
+        (shared, task), (repair_shared, repair_task) = provider.requests
+        assert ">   81 |" in task
+        assert "held no usable test" in repair_task
+        assert repair_shared == shared  # read from the cache
 
         # The repaired candidate passes the screen with real builds...
         pit.add_candidate(workspace, candidate)

@@ -19,8 +19,9 @@ def test_round_trip(tmp_path, monkeypatch, capsys):
     exchange = tmp_path / "exchange"
     answer_on_wait(monkeypatch, exchange, "the reply")
 
-    assert OfflineProvider(exchange).complete("the prompt") == "the reply"
-    assert (exchange / PROMPT_FILE).read_text(encoding="utf-8") == "the prompt"
+    assert OfflineProvider(exchange).complete("the shared part", "the task") == "the reply"
+    # The whole request as one text: the shared part, a blank line, then the task.
+    assert (exchange / PROMPT_FILE).read_text(encoding="utf-8") == "the shared part\n\nthe task"
     assert not (exchange / RESPONSE_FILE).exists()
     assert str(exchange / RESPONSE_FILE) in capsys.readouterr().err
 
@@ -31,18 +32,18 @@ def test_leftover_response_is_not_taken_as_the_reply(tmp_path, monkeypatch):
     (exchange / RESPONSE_FILE).write_text("stale", encoding="utf-8")
     answer_on_wait(monkeypatch, exchange, "fresh")
 
-    assert OfflineProvider(exchange).complete("the prompt") == "fresh"
+    assert OfflineProvider(exchange).complete("the shared part", "the task") == "fresh"
 
 
 def test_empty_response_counts_as_not_saved_yet(tmp_path, monkeypatch):
     exchange = tmp_path / "exchange"
     answer_on_wait(monkeypatch, exchange, "", "the reply")
 
-    assert OfflineProvider(exchange).complete("the prompt") == "the reply"
+    assert OfflineProvider(exchange).complete("the shared part", "the task") == "the reply"
 
 
 def test_exchange_failure_is_a_provider_error(tmp_path):
     blocked = tmp_path / "file"
     blocked.write_text("not a directory")
     with pytest.raises(ProviderError, match="offline exchange"):
-        OfflineProvider(blocked / "exchange").complete("the prompt")
+        OfflineProvider(blocked / "exchange").complete("the shared part", "the task")
