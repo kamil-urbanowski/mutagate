@@ -6,7 +6,7 @@ import pytest
 
 from mutagate import report
 from mutagate.gate import Candidate, GateResult, Verdict
-from mutagate.mutants import Mutant, Status
+from mutagate.mutants import Mutant, Status, for_class, select_targets
 
 
 def test_baseline_round_trip(tmp_path):
@@ -54,8 +54,9 @@ def test_exclusions_and_failing_tests(tmp_path):
 # --------------------------------------------------------------------------
 
 
-def mutant(line, status=Status.SURVIVED):
-    return Mutant("Foo.java", "pkg.Foo", "get", "()I", line, "M", (1,), "d", status)
+def mutant(line, status=Status.SURVIVED, cls="pkg.Foo"):
+    simple = cls.rpartition(".")[2]
+    return Mutant(f"{simple}.java", cls, "get", "()I", line, "M", (1,), "d", status)
 
 
 def candidate(index, target, attempts=1, source="class T {}\n"):
@@ -170,3 +171,181 @@ def test_summary(tmp_path):
     assert targeted["requests"] == 10 and targeted["requests_reused"] == 2
     assert len(targeted["settings"]) == 1
     assert "control" not in summary
+
+
+# --------------------------------------------------------------------------
+# The status split, the gate's value, redundant kept tests, the comparison
+# --------------------------------------------------------------------------
+
+# A module of two classes. F4 and B2 were detected before any run.
+F1, F2, F3, F4 = mutant(10), mutant(20, Status.NO_COVERAGE), mutant(30), mutant(40, Status.KILLED)
+B1, B2 = mutant(10, cls="pkg.Bar"), mutant(20, Status.KILLED, cls="pkg.Bar")
+MODULE = [F1, F2, F3, F4, B1, B2]
+TARGETED, CONTROL = report.RunKind.TARGETED, report.RunKind.CONTROL
+
+
+def entry(index, verdict, killed=(), target=None, attempts=1):
+    """One candidate's ledger entry; `killed` are the mutants it killed in verification."""
+    in_verification = tuple(
+        Mutant(**{**asdict(m), "status": Status.KILLED, "killing_tests": (f"t{index}",)})
+        for m in killed
+    )
+    return GateResult(candidate(index, target, attempts), verdict, "", in_verification)
+
+
+def class_run(kind, class_name, newly_detected, *ledger):
+    return report.RunMetrics(
+        repo="demo",
+        target_class=class_name,
+        kind=kind,
+        setup={"provider": "fake", "model": "m"},
+        mutants_total=len(for_class(MODULE, class_name)),
+        undetected_before=len(select_targets(MODULE, class_name)),
+        newly_detected=newly_detected,
+        ledger=list(ledger),
+    )
+
+
+def paired_runs():
+    """Both run kinds on Foo; Bar has only a targeted run."""
+    targeted_foo = class_run(
+        TARGETED,
+        "pkg.Foo",
+        2,
+        entry(1, Verdict.KEPT, (F1, F2), target=F1),
+        entry(2, Verdict.KEPT, (F2,), target=F2),  # adds nothing to 1
+        entry(3, Verdict.MISSED_TARGET, target=F3, attempts=2),
+    )
+    targeted_bar = class_run(TARGETED, "pkg.Bar", 1, entry(1, Verdict.KEPT, (B1,), target=B1))
+    control_foo = class_run(
+        CONTROL,
+        "pkg.Foo",
+        2,
+        entry(1, Verdict.KEPT, (F2, F3, F4)),
+        entry(2, Verdict.NO_NEW_KILL, (F4,)),
+        entry(3, Verdict.NO_USABLE_TEST, attempts=2),
+    )
+    return targeted_foo, targeted_bar, control_foo
+
+
+def test_newly_detected_by_status():
+    # Kills of mutants detected before, and kills by rejected candidates, do not count.
+    targeted = class_run(
+        TARGETED,
+        "pkg.Foo",
+        2,
+        entry(1, Verdict.KEPT, (F1, F2, F4), target=F1),
+        entry(2, Verdict.MISSED_TARGET, (F3,), target=F2),
+        entry(3, Verdict.MISSED_TARGET, target=F3),
+    )
+    assert report.newly_detected_by_status(MODULE, [targeted]) == {
+        Status.SURVIVED: (2, 1),
+        Status.NO_COVERAGE: (1, 1),
+    }
+    control = class_run(
+        CONTROL,
+        "pkg.Foo",
+        1,
+        entry(1, Verdict.KEPT, (F3, F4)),
+        entry(2, Verdict.NO_NEW_KILL, (F4,)),
+    )
+    bar = class_run(CONTROL, "pkg.Bar", 1, entry(1, Verdict.KEPT, (B1,)))
+    assert report.newly_detected_by_status(MODULE, [control, bar]) == {
+        Status.SURVIVED: (3, 2),
+        Status.NO_COVERAGE: (1, 0),
+    }
+
+
+def test_gate_rejections():
+    control = class_run(
+        CONTROL,
+        "pkg.Foo",
+        0,
+        entry(1, Verdict.NO_NEW_KILL, (F4,)),
+        entry(2, Verdict.DID_NOT_COMPILE, attempts=2),
+        entry(3, Verdict.BATCH_FAILED),
+    )
+    # run(): KEPT, MISSED_TARGET, and NO_USABLE_TEST.
+    assert report.gate_rejections([run(), control]) == {
+        "rejected_at_screen": 2,
+        "rejected_at_verification": 2,
+        "batch_failed": 1,
+    }
+
+
+def test_redundant_kept():
+    control = class_run(
+        CONTROL,
+        "pkg.Foo",
+        3,
+        entry(1, Verdict.KEPT, (F1, F4)),
+        entry(2, Verdict.KEPT, (F1,)),  # repeats 1
+        entry(3, Verdict.NO_NEW_KILL, (F4,)),
+        entry(4, Verdict.KEPT, (F1, F2)),
+        entry(5, Verdict.KEPT, (F2, F4)),  # F4 was detected before the run
+        entry(6, Verdict.KEPT, (F3,)),
+    )
+    assert report.redundant_kept(MODULE, [control]) == 2
+    assert report.redundant_kept(MODULE, [control, control]) == 4  # each run from its own start
+    assert report.redundant_kept(MODULE, [run()]) == 0
+
+
+def test_compare():
+    targeted_foo, targeted_bar, control_foo = paired_runs()
+    assert report.compare(MODULE, [targeted_foo, targeted_bar]) is None
+
+    assert report.compare(MODULE, [targeted_foo, targeted_bar, control_foo]) == {
+        "classes": ["pkg.Foo"],
+        "targeted": {"score_after": 4 / 6, "candidates": 3, "kept": 2, "attempts_per_kept_test": 2},
+        "control": {"score_after": 4 / 6, "candidates": 3, "kept": 1, "attempts_per_kept_test": 4},
+        "newly_detected": {"targeted_only": 1, "control_only": 1, "both": 1},  # F1, F3, F2
+    }
+
+    # Once every class has both runs, each side's after-score is its kind's headline.
+    control_bar = class_run(CONTROL, "pkg.Bar", 0, entry(1, Verdict.NO_NEW_KILL, (B2,)))
+    runs = [targeted_foo, targeted_bar, control_foo, control_bar]
+    comparison = report.compare(MODULE, runs)
+    for kind in report.RunKind:
+        headline = report.headline_scores(MODULE, [r for r in runs if r.kind is kind])
+        assert comparison[kind.value.lower()]["score_after"] == headline[1]
+
+
+def test_summary_with_control_runs_and_the_comparison(tmp_path):
+    path, summary = report.write_summary(
+        "demo", MODULE, list(paired_runs()), ["pkg.Bar", "pkg.Foo"], tmp_path
+    )
+
+    assert json.loads(path.read_text()) == summary
+    targeted, control = summary["targeted"], summary["control"]
+    assert targeted["newly_detected_by_status"] == {
+        "NO_COVERAGE": {"undetected": 1, "newly_detected": 1},
+        "SURVIVED": {"undetected": 3, "newly_detected": 2},
+    }
+    assert targeted["redundant_kept"] == 1
+    assert targeted["gate"] == {
+        "rejected_at_screen": {"count": 0, "share": 0},
+        "rejected_at_verification": {"count": 1, "share": 1 / 4},
+        "batch_failed": {"count": 0, "share": 0},
+    }
+    assert control["gate"]["rejected_at_screen"] == {"count": 1, "share": 1 / 3}
+    assert "by_target_status" in targeted and "by_target_status" not in control
+    assert control["classes_not_run"] == ["pkg.Bar"]
+    assert summary["comparison"]["classes"] == ["pkg.Foo"]
+
+
+def test_control_run_round_trip(tmp_path):
+    control = class_run(
+        CONTROL,
+        "pkg.Foo",
+        2,
+        entry(1, Verdict.KEPT, (F2, F3)),
+        entry(2, Verdict.NO_NEW_KILL, (F4,)),
+    )
+    path = report.write_run(control, root=tmp_path)
+
+    assert path == tmp_path / "demo" / "control" / "pkg.Foo.json"
+    kept = tmp_path / "demo" / "control" / "kept" / "src/test/java/pkg/FooMutaGate1Test.java"
+    assert kept.is_file()
+    assert json.loads(path.read_text())["ledger"][0]["target"] is None
+    report.write_run(run(), root=tmp_path)
+    assert report.read_runs("demo", root=tmp_path) == [run(), control]  # targeted first

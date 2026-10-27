@@ -2,7 +2,13 @@ from pathlib import Path
 
 import pytest
 
-from mutagate.context import build_context, enclosing_method, signatures
+from mutagate.context import (
+    build_context,
+    control_methods,
+    declaration_line,
+    enclosing_method,
+    signatures,
+)
 from mutagate.mutants import Mutant, Status
 
 SHOP = """\
@@ -132,6 +138,128 @@ def test_line_in_no_method_raises():
 
 
 # --------------------------------------------------------------------------
+# The methods a control request can name
+# --------------------------------------------------------------------------
+
+KINDS = """\
+package pkg;
+
+public abstract class Kinds {
+    abstract void plan();
+
+    private Kinds() {
+    }
+
+    private void hidden() {
+        int a = 1;
+        int b = 2;
+    }
+
+    @Deprecated
+    @SuppressWarnings("unused")
+    void annotated() {
+    }
+
+    void local() {
+        class Helper {
+            void inLocal() {
+            }
+        }
+    }
+
+    private static class Secret {
+        void inSecret() {
+        }
+    }
+
+    interface Shape {
+        double area();
+
+        default String name() {
+            return "shape";
+        }
+    }
+
+    enum Op {
+        ADD {
+            int apply(int a, int b) {
+                return a + b;
+            }
+        },
+        NEG;
+
+        int apply(int a, int b) {
+            return 0;
+        }
+    }
+
+    record Range(int low, int high) {
+        Range {
+            if (low > high) throw new IllegalArgumentException();
+        }
+    }
+}
+"""
+
+
+def test_control_methods_longest_first_ties_in_source_order():
+    # The anonymous class's run() and the lambda in total() are inside other
+    # methods; the constructor and Ledger's balance() tie at 3 lines.
+    assert control_methods(SHOP) == [
+        enclosing_method(SHOP, 25),  # counter(), 8 lines
+        enclosing_method(SHOP, 16),  # total(), 6 lines
+        enclosing_method(SHOP, 11),  # the constructor
+        enclosing_method(SHOP, 32),  # Ledger.balance()
+    ]
+
+
+def test_control_methods_a_test_can_call():
+    # Left out: abstract and interface methods without a body; private methods
+    # and constructors; methods of a private nested class; a local class's.
+    # Annotations count toward a method's length.
+    assert control_methods(KINDS) == [
+        "void local() {\n    class Helper {\n        void inLocal() {\n        }\n    }\n}",
+        '@Deprecated\n@SuppressWarnings("unused")\nvoid annotated() {\n}',
+        'default String name() {\n    return "shape";\n}',
+        "int apply(int a, int b) {\n    return a + b;\n}",  # in the constant ADD's body
+        "int apply(int a, int b) {\n    return 0;\n}",
+        "Range {\n    if (low > high) throw new IllegalArgumentException();\n}",
+    ]
+
+
+@pytest.mark.parametrize(
+    "source, message",
+    [
+        ("package pkg;\n\npublic interface Api {\n    void call();\n}\n", "no method"),
+        ("package pkg;\n\nclass A {\n    void a() {}\n}\n\nclass B {}\n", "more than one"),
+    ],
+)
+def test_control_methods_refuse(source, message):
+    with pytest.raises(ValueError, match=message):
+        control_methods(source)
+
+
+@pytest.mark.parametrize(
+    "method, line",
+    [
+        ('@Deprecated\n@SuppressWarnings("unused")\nvoid annotated() {\n}', "void annotated()"),
+        (
+            "public Shop(List<Item> items) {\n    this.items = items;\n}",
+            "public Shop(List<Item> items)",
+        ),
+        ("Range {\n    check();\n}", "Range"),
+        (
+            '@Override public String toString() { return "s"; }',
+            '@Override public String toString() { return "s"; }',
+        ),
+    ],
+    ids=["annotations above", "constructor", "compact constructor", "one line"],
+)
+def test_declaration_line(method, line):
+    assert declaration_line(method) == line
+
+
+# --------------------------------------------------------------------------
 # Signatures
 # --------------------------------------------------------------------------
 
@@ -201,17 +329,18 @@ def test_mutant_in_an_anonymous_class_belongs_to_the_outer_class():
     assert context.method_source.startswith("Runnable counter() {")
 
 
-def test_control_context_has_no_mutant_or_method():
+def test_control_context_is_the_targeted_one_with_the_named_method():
     targeted = build_context(SOURCES, "pkg.Shop", mutant(16))
-    control = build_context(SOURCES, "pkg.Shop")
+    method = control_methods(SHOP)[0]
+    control = build_context(SOURCES, "pkg.Shop", method=method)
     assert control.mutant is None
-    assert control.method_source is None
+    assert control.method_source == method
     assert control.collaborator_signatures == targeted.collaborator_signatures
     assert control.existing_tests == targeted.existing_tests
 
 
 def test_test_dir_follows_a_nested_package():
-    context = build_context(SOURCES, "pkg.util.Money")
+    context = build_context(SOURCES, "pkg.util.Money", method=control_methods(MONEY)[0])
     assert context.test_package == "pkg.util"
     assert context.test_dir == Path("src/test/java/pkg/util")
     assert context.collaborator_signatures == []
@@ -219,14 +348,16 @@ def test_test_dir_follows_a_nested_package():
 
 
 @pytest.mark.parametrize(
-    "class_name, m, message",
+    "class_name, m, method, message",
     [
-        ("pkg.Missing", None, "not found"),
-        ("Shop", None, "not in a package"),
-        ("pkg.Shop", mutant(16, cls="pkg.Item"), "not part of pkg.Shop"),
-        ("pkg.Shop", mutant(16, source_file="Other.java"), "not Shop.java"),
+        ("pkg.Missing", None, "void m() {}", "not found"),
+        ("Shop", None, "void m() {}", "not in a package"),
+        ("pkg.Shop", mutant(16, cls="pkg.Item"), None, "not part of pkg.Shop"),
+        ("pkg.Shop", mutant(16, source_file="Other.java"), None, "not Shop.java"),
+        ("pkg.Shop", None, None, "names a method"),
+        ("pkg.Shop", mutant(16), "void m() {}", "targeted request's method"),
     ],
 )
-def test_bad_requests_raise(class_name, m, message):
+def test_bad_requests_raise(class_name, m, method, message):
     with pytest.raises(ValueError, match=message):
-        build_context(SOURCES, class_name, m)
+        build_context(SOURCES, class_name, m, method)

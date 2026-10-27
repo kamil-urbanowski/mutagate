@@ -29,7 +29,7 @@ Anything else is discarded. A program makes that call, not a person.
 Targeted runs work end to end: MutaGate finds the mutants a class's tests
 miss, asks a model for one test per mutant, and keeps only the tests that
 kill their own mutant. The untargeted control run, the comparison that shows
-what targeting adds, is not built yet.
+what targeting adds, is built but not yet measured.
 
 ## Results
 

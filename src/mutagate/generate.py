@@ -1,4 +1,5 @@
-"""Ask a model for a test aimed at one specific mutant. Design: `docs/design/generate.md`.
+"""Ask a model for a test aimed at one specific mutant, or, in a control run, at
+one method of the class. Design: `docs/design/generate.md`.
 
 Reaches the model only through a Provider. A ProviderError is not caught here;
 it stops the run.
@@ -10,7 +11,7 @@ import textwrap
 from tree_sitter import Node
 
 from .context import TYPE_DECLARATIONS, MutantContext, declared_package, parse_java
-from .gate import Candidate, GateResult, Verdict
+from .gate import SCREEN_VERDICTS, Candidate, GateResult, Verdict
 from .mutants import Status
 from .providers.base import Provider
 
@@ -20,16 +21,6 @@ BANNED_ANNOTATIONS = frozenset({"ParameterizedTest", "RepeatedTest", "TestFactor
 
 # How many lines on each side of the target line the prompt shows, numbered.
 EXCERPT_LINES = 3
-
-# Only a screen failure gets the repair attempt.
-SCREEN_VERDICTS = frozenset(
-    {
-        Verdict.NO_USABLE_TEST,
-        Verdict.DID_NOT_COMPILE,
-        Verdict.FAILED_ON_UNMODIFIED_CODE,
-        Verdict.NONDETERMINISTIC,
-    }
-)
 
 RULES = """\
 Write one JUnit 5 test for a Java class in an existing Maven project.
@@ -56,6 +47,13 @@ _TASK = (
     "Write a test that passes against the code as it is now, and would fail if this change "
     "were made."
 )
+
+# The control's task uses nothing from PIT. Asking for behavior the existing
+# tests do not check keeps it a fair baseline for improving a suite: without
+# that, it tends to repeat the existing checks.
+_CONTROL_TASK = """\
+Test behavior of this method that the existing tests above do not already
+check. The test must pass against the code as it is now."""
 
 # The repair request after NO_USABLE_TEST: a note, and the rules again.
 _NO_USABLE_TEST = """\
@@ -94,16 +92,20 @@ def test_class_name(class_name: str, index: int) -> str:
 
 
 def build_prompt(context: MutantContext, test_class: str) -> str:
-    """The request for one JUnit 5 test class holding exactly one test method.
+    """The request for one JUnit 5 test class holding exactly one test method:
+    targeted, or control for a context with no mutant.
 
     What is the same for every request comes first and the target last, so a
-    provider that caches a repeated prefix can reuse it.
+    provider that caches a repeated prefix can reuse it. A control request
+    differs only in its task, so both run kinds see the same class.
     """
-    if context.mutant is None:
-        raise NotImplementedError("the control request is designed at build order step 5")
     if test_class.rpartition(".")[0] != context.test_package:
         raise ValueError(f"{test_class} is not in the class's package, {context.test_package}")
-    return "\n\n".join([RULES, _class_sections(context), _target_section(context, test_class)])
+    if context.mutant is None:
+        task = _control_section(context, test_class)
+    else:
+        task = _target_section(context, test_class)
+    return "\n\n".join([RULES, _class_sections(context), task])
 
 
 def extract_test(reply: str, test_class: str) -> str | None:
@@ -209,6 +211,21 @@ def _target_section(context: MutantContext, test_class: str) -> str:
             "The line is in this method:",
             _block(context.method_source),
             _TASK,
+            f"Package: {package}\nClass name: {simple}",
+        ]
+    )
+
+
+def _control_section(context: MutantContext, test_class: str) -> str:
+    if context.method_source is None:
+        raise ValueError("a control request names a method; this context has none")
+    package, _, simple = test_class.rpartition(".")
+    return "\n\n".join(
+        [
+            "## Your task",
+            f"Write a test for this method of {context.class_name.rpartition('.')[2]}:",
+            _block(context.method_source),
+            _CONTROL_TASK,
             f"Package: {package}\nClass name: {simple}",
         ]
     )
