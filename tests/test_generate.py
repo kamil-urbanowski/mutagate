@@ -78,10 +78,10 @@ class FakeProvider:
 
     def __init__(self, *replies):
         self.replies = list(replies)
-        self.prompts = []
+        self.requests = []
 
-    def complete(self, prompt):
-        self.prompts.append(prompt)
+    def complete(self, shared, task):
+        self.requests.append((shared, task))
         return self.replies.pop(0)
 
 
@@ -170,8 +170,10 @@ def test_unusable_replies(text):
 
 
 def test_prompt_puts_shared_parts_first_and_the_target_last():
-    prompt = generate.build_prompt(context(), NAME)
-    assert prompt.startswith(generate.RULES)
+    shared, task = generate.build_prompt(context(), NAME)
+    assert shared.startswith(generate.RULES)
+    assert task.startswith("## Your task")
+    prompt = f"{shared}\n\n{task}"
     order = [
         "## The class under test: pkg.Shop",
         CLASS_SOURCE.rstrip(),
@@ -193,7 +195,7 @@ def test_target_line_is_marked_among_repeats():
     ctx = context()
     ctx.class_source = "class A {\n  void f() {\n    x++;\n    x++;\n    x++;\n  }\n}\n"
     ctx.mutant = Mutant("A.java", "pkg.A", "f", "()V", 4, "M", (0,), "d", Status.SURVIVED)
-    prompt = generate.build_prompt(ctx, NAME)
+    _, task = generate.build_prompt(ctx, NAME)
     assert (
         "     1 | class A {\n"
         "     2 |   void f() {\n"
@@ -202,26 +204,27 @@ def test_target_line_is_marked_among_repeats():
         "     5 |     x++;\n"
         "     6 |   }\n"
         "     7 | }\n"
-    ) in prompt
+    ) in task
 
 
 def test_prompt_explains_an_uncovered_target():
-    prompt = generate.build_prompt(context(target(Status.NO_COVERAGE)), NAME)
-    assert "and no existing test runs this code." in prompt
+    _, task = generate.build_prompt(context(target(Status.NO_COVERAGE)), NAME)
+    assert "and no existing test runs this code." in task
 
 
 def test_prompt_without_collaborators_or_tests_says_so():
     ctx = context()
     ctx.collaborator_signatures, ctx.existing_tests = [], []
-    prompt = generate.build_prompt(ctx, NAME)
-    assert "None in this project." in prompt
-    assert "## Existing tests that mention Shop\n\nNone." in prompt
+    shared, _ = generate.build_prompt(ctx, NAME)
+    assert "None in this project." in shared
+    assert "## Existing tests that mention Shop\n\nNone." in shared
 
 
 def test_code_with_backticks_gets_a_longer_fence():
     ctx = context()
     ctx.class_source = CLASS_SOURCE.replace("public class", "/** ```x``` */\npublic class")
-    assert "````java\n" in generate.build_prompt(ctx, NAME)
+    shared, _ = generate.build_prompt(ctx, NAME)
+    assert "````java\n" in shared
 
 
 def test_bad_requests_raise():
@@ -245,10 +248,10 @@ def control(method=METHOD):
 
 
 def test_control_request_differs_only_in_its_task():
-    targeted = generate.build_prompt(context(), NAME)
-    shared = targeted[: targeted.index("## Your task")]
-    prompt = generate.build_prompt(control(), NAME)
-    assert prompt == shared + (
+    targeted_shared, _ = generate.build_prompt(context(), NAME)
+    shared, task = generate.build_prompt(control(), NAME)
+    assert shared == targeted_shared
+    assert task == (
         "## Your task\n\n"
         "Write a test for this method of Shop:\n\n"
         f"```java\n{METHOD}\n```\n\n"
@@ -256,7 +259,38 @@ def test_control_request_differs_only_in_its_task():
         "check. The test must pass against the code as it is now.\n\n"
         "Package: pkg\nClass name: ShopMutaGate1Test"
     )
-    assert "PIT" not in prompt  # nothing from PIT: no excerpt, line, or change
+    assert "PIT" not in shared + task  # nothing from PIT: no excerpt, line, or change
+
+
+def test_the_parts_joined_are_the_whole_request():
+    """`shared`, a blank line, then `task`: the one-part request, character for character."""
+    shared, task = generate.build_prompt(context(), NAME)
+    assert f"{shared}\n\n{task}" == generate.RULES + (
+        "\n\n## The class under test: pkg.Shop\n\n"
+        f"```java\n{CLASS_SOURCE}```\n\n"
+        "## Classes it uses, as signatures (declarations without bodies)\n\n"
+        "```java\npackage pkg;\nclass Item {\n  long price();\n}\n```\n\n"
+        "## Existing tests that mention Shop\n\n"
+        "```java\npackage pkg;\n\nclass ShopTest {}\n```\n\n"
+        "## Your task\n\n"
+        "PIT, a mutation testing tool, made one small change to Shop on line 5, and the "
+        "existing tests run this code, but none of them failed after the change.\n\n"
+        "PIT's description of the change: Replaced long addition with subtraction\n\n"
+        "Line 5, marked with >, and the lines around it:\n\n"
+        "```\n"
+        "     2 | \n"
+        "     3 | public class Shop {\n"
+        "     4 |     public long total(long a, long b) {\n"
+        ">    5 |         return a + b;\n"
+        "     6 |     }\n"
+        "     7 | }\n"
+        "```\n\n"
+        "The line is in this method:\n\n"
+        f"```java\n{METHOD}\n```\n\n"
+        "Write a test that passes against the code as it is now, and would fail if this "
+        "change were made.\n\n"
+        "Package: pkg\nClass name: ShopMutaGate1Test"
+    )
 
 
 # --------------------------------------------------------------------------
@@ -270,7 +304,7 @@ def test_generate_wraps_the_reply_as_a_candidate():
     assert candidate == Candidate(
         NAME, Path("src/test/java/pkg/ShopMutaGate1Test.java"), TEST, target(), 1
     )
-    assert provider.prompts == [generate.build_prompt(context(), NAME)]
+    assert provider.requests == [generate.build_prompt(context(), NAME)]
 
 
 def test_control_candidate_has_no_target():
@@ -290,7 +324,7 @@ def test_provider_error_is_not_caught():
     class Failing:
         name = "failing"
 
-        def complete(self, prompt):
+        def complete(self, shared, task):
             raise ProviderError("unreachable")
 
     with pytest.raises(ProviderError):
@@ -308,12 +342,13 @@ def test_repair_shows_the_failed_test_and_the_error():
     repaired = generate.repair(context(), provider, failed, failure)
 
     assert repaired == Candidate(NAME, failed.path, TEST, target(), 2)
-    (prompt,) = provider.prompts
-    assert prompt.startswith(generate.build_prompt(context(), NAME))
-    assert "## Your previous attempt" in prompt
-    assert "new Shop().sum(2, 3)" in prompt
-    assert "It did not compile." in prompt
-    assert "cannot find symbol: method sum" in prompt
+    ((shared, task),) = provider.requests
+    original_shared, original_task = generate.build_prompt(context(), NAME)
+    assert shared == original_shared
+    assert task.startswith(original_task + "\n\n## Your previous attempt")
+    assert "new Shop().sum(2, 3)" in task
+    assert "It did not compile." in task
+    assert "cannot find symbol: method sum" in task
 
 
 def test_control_repair_follows_the_control_request():
@@ -323,11 +358,11 @@ def test_control_repair_follows_the_control_request():
     repaired = generate.repair(control(), provider, failed, failure)
 
     assert repaired == Candidate(NAME, failed.path, TEST, None, 2)
-    (prompt,) = provider.prompts
-    assert prompt.startswith(
-        generate.build_prompt(control(), NAME) + "\n\n## Your previous attempt"
-    )
-    assert "It failed against the code as it is now." in prompt
+    ((shared, task),) = provider.requests
+    control_shared, control_task = generate.build_prompt(control(), NAME)
+    assert shared == control_shared
+    assert task.startswith(control_task + "\n\n## Your previous attempt")
+    assert "It failed against the code as it is now." in task
 
 
 def test_repair_after_no_usable_test_repeats_the_rules():
@@ -336,10 +371,10 @@ def test_repair_after_no_usable_test_repeats_the_rules():
     provider = FakeProvider(reply())
     generate.repair(context(), provider, failed, failure)
 
-    (prompt,) = provider.prompts
-    assert "Your previous reply held no usable test." in prompt
-    assert "exactly one method annotated with @Test" in prompt
-    assert "## Your previous attempt" not in prompt
+    ((_, task),) = provider.requests
+    assert "Your previous reply held no usable test." in task
+    assert "exactly one method annotated with @Test" in task
+    assert "## Your previous attempt" not in task
 
 
 @pytest.mark.parametrize(
@@ -361,3 +396,25 @@ def test_repair_refuses_a_verdict_on_another_candidate():
         generate.repair(
             context(), FakeProvider(reply()), first(), GateResult(other, Verdict.DID_NOT_COMPILE)
         )
+
+
+def test_shared_part_is_the_same_for_every_request_about_the_class():
+    """Every target, every repair, and every control request: what lets Claude
+    read it from the cache."""
+    second = "pkg.ShopMutaGate2Test"
+    uncovered = Mutant(
+        "Shop.java", "pkg.Shop", "total", "(JJ)J", 4, "N", (1,), "d", Status.NO_COVERAGE
+    )
+    requests = [
+        generate.build_prompt(context(), NAME),
+        generate.build_prompt(context(uncovered), second),
+        generate.build_prompt(control(), NAME),
+        generate.build_prompt(control("public Shop() {}"), second),
+    ]
+    provider = FakeProvider(reply(), reply())
+    no_test = first(None)
+    generate.repair(context(), provider, no_test, GateResult(no_test, Verdict.NO_USABLE_TEST))
+    failed = Candidate(second, Path("src/test/java/pkg/ShopMutaGate2Test.java"), TEST, None)
+    generate.repair(control(), provider, failed, GateResult(failed, Verdict.DID_NOT_COMPILE, "e"))
+
+    assert len({shared for shared, _ in requests + provider.requests}) == 1

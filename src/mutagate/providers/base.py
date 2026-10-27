@@ -27,8 +27,13 @@ class Provider(Protocol):
     version: str  # the provider's own version, recorded with each run; "" if none
     last_usage: dict[str, int] | None  # tokens the last request used, if the provider says
 
-    def complete(self, prompt: str) -> str:
-        """Send a prompt, return the response text. Raises ProviderError on failure."""
+    def complete(self, shared: str, task: str) -> str:
+        """Send a request, return the response text. Raises ProviderError on failure.
+
+        `shared` is identical for every request about a class, so a provider
+        may cache it; `task` is the rest. `shared`, a blank line, then `task`
+        is the whole request as one text.
+        """
         ...
 
 
@@ -60,7 +65,7 @@ class SavedReplies:
 
     A run stopped partway, by a usage limit for example, can then be re-run
     without spending the same requests twice. A request is the same only if
-    the prompt, the provider, and its settings are all the same. Every
+    both its parts, the provider, and its settings are all the same. Every
     request, sent or reused, is kept in `exchanges` for the run's record.
     """
 
@@ -85,14 +90,14 @@ class SavedReplies:
     def last_usage(self) -> dict[str, int] | None:
         return self.exchanges[-1].tokens if self.exchanges else None
 
-    def complete(self, prompt: str) -> str:
-        path = self.directory / f"{self._key(prompt)}.json"
+    def complete(self, shared: str, task: str) -> str:
+        path = self.directory / f"{self._key(shared, task)}.json"
         try:
             if path.is_file():
                 saved = json.loads(path.read_text(encoding="utf-8"))
                 exchange = Exchange(saved["reply"], saved["tokens"], reused=True)
             else:
-                reply = self.provider.complete(prompt)
+                reply = self.provider.complete(shared, task)
                 exchange = Exchange(reply, self.provider.last_usage, reused=False)
                 self.directory.mkdir(parents=True, exist_ok=True)
                 # Written whole or not at all, so a crash cannot leave half a reply.
@@ -106,7 +111,9 @@ class SavedReplies:
         self.exchanges.append(exchange)
         return exchange.reply
 
-    def _key(self, prompt: str) -> str:
+    def _key(self, shared: str, task: str) -> str:
         # Not the provider's version: an update between a stop and a re-run must not resend.
-        request = {"provider": self.name, "settings": self.settings, "prompt": prompt}
+        # Each part its own field: the same text split another way is another request,
+        # as Claude sees one part as the system prompt and the other as the message.
+        request = {"provider": self.name, "settings": self.settings, "shared": shared, "task": task}
         return hashlib.sha256(json.dumps(request, sort_keys=True).encode("utf-8")).hexdigest()

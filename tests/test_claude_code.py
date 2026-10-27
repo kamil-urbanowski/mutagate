@@ -75,7 +75,7 @@ def test_reply_tokens_and_call(claude, monkeypatch):
     monkeypatch.setenv("CLAUDE_EFFORT", "max")
     monkeypatch.setenv("CLAUDE_CONFIG_DIR", "/the/config")
 
-    assert provider.complete("the prompt") == "the reply"
+    assert provider.complete("the shared part", "the task") == "the reply"
     assert provider.last_usage == {
         "input_tokens": 2,
         "cache_creation_input_tokens": 900,
@@ -84,9 +84,10 @@ def test_reply_tokens_and_call(claude, monkeypatch):
         "thinking_tokens": 25,
     }
     (call,) = calls()
-    assert call["stdin"] == "the prompt"
+    assert call["stdin"] == "the task"
     args = call["args"]
     assert args[0] == "-p"
+    assert args[args.index("--system-prompt") + 1] == "the shared part"
     assert args[args.index("--model") + 1] == MODEL
     assert args[args.index("--effort") + 1] == "medium"
     assert args[args.index("--tools") + 1] == ""
@@ -100,11 +101,39 @@ def test_reply_tokens_and_call(claude, monkeypatch):
     assert call["env"]["CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC"] == "1"
 
 
+# Claude Code 2.1.311's prompt-caching switches: none starts with ANTHROPIC_ or CLAUDE.
+CACHING_SWITCHES = [
+    "DISABLE_PROMPT_CACHING",
+    "DISABLE_PROMPT_CACHING_FABLE",
+    "DISABLE_PROMPT_CACHING_HAIKU",
+    "DISABLE_PROMPT_CACHING_MYTHOS",
+    "DISABLE_PROMPT_CACHING_OPUS",
+    "DISABLE_PROMPT_CACHING_SONNET",
+    "ENABLE_PROMPT_CACHING_1H",
+    "ENABLE_PROMPT_CACHING_1H_BEDROCK",
+    "FORCE_PROMPT_CACHING_5M",
+]
+
+
+def test_caching_switches_are_removed(claude, monkeypatch):
+    provider, _, calls = claude
+    for name in CACHING_SWITCHES:
+        monkeypatch.setenv(name, "1")
+    monkeypatch.setenv("CLAUDE_CONFIG_DIR", "/the/config")
+
+    provider.complete("the shared part", "the task")
+    (call,) = calls()
+    assert not set(CACHING_SWITCHES) & set(call["env"])
+    assert call["env"]["CLAUDE_CONFIG_DIR"] == "/the/config"
+
+
 def test_version_and_settings(claude):
     provider, _, _ = claude
     assert provider.version == "9.9.9"
     assert provider.settings["model"] == MODEL
     assert provider.settings["effort"] == "medium"
+    # A label, not the text, which differs per class.
+    assert provider.settings["system_prompt"] == "the shared part of each request"
 
 
 @pytest.mark.parametrize(
@@ -119,7 +148,7 @@ def test_refuses_anything_but_a_claude_ai_login(claude, auth):
     provider, answer, calls = claude
     answer(auth=auth)
     with pytest.raises(ProviderError):
-        provider.complete("the prompt")
+        provider.complete("the shared part", "the task")
     assert calls() == []  # nothing was sent
 
 
@@ -140,17 +169,17 @@ def test_anything_but_a_whole_reply_stops_the_run(claude, result, message):
     provider, answer, _ = claude
     answer(result)
     with pytest.raises(ProviderError, match=message):
-        provider.complete("the prompt")
+        provider.complete("the shared part", "the task")
 
 
 def test_unreadable_output_stops_the_run(claude):
     provider, answer, _ = claude
     answer(result="not json")  # printed as a JSON string, not a result object
     with pytest.raises(ProviderError):
-        provider.complete("the prompt")
+        provider.complete("the shared part", "the task")
 
 
 def test_missing_command(tmp_path):
     provider = ClaudeCodeProvider(executable=str(tmp_path / "no-such-claude"))
     with pytest.raises(ProviderError, match="not found"):
-        provider.complete("the prompt")
+        provider.complete("the shared part", "the task")
