@@ -4,17 +4,17 @@
   "kind": "TARGETED",
   "setup": {
     "repo_commit": "7697931d89755fe35b6cd149d774babd85af9bd5",
-    "date": "2026-10-19",
+    "date": "2026-10-27",
     "java": "21.0.12.1",
     "maven": "3.9.16",
     "pitest_maven": "1.30.0",
     "pitest_junit5_plugin": "1.2.3",
-    "mutagate_commit": "14080bbb70481ed55cb5f5b1d26eb80eb9360491",
+    "mutagate_commit": "7ace97ecf4d0748ec3cfe5f795e099d49ae8da4b",
     "provider": "claude-code",
-    "provider_version": "2.1.301",
+    "provider_version": "2.1.311",
     "model": "claude-sonnet-5-5",
     "effort": "medium",
-    "system_prompt": "You write JUnit 5 tests for existing Java code."
+    "system_prompt": "the shared part of each request"
   },
   "score_before": 0.9,
   "score_after": 1.0,
@@ -27,9 +27,9 @@
   "attempts_per_kept_test": 1.0,
   "tokens": {
     "input_tokens": 2,
-    "cache_creation_input_tokens": 16340,
+    "cache_creation_input_tokens": 16321,
     "cache_read_input_tokens": 0,
-    "output_tokens": 502,
+    "output_tokens": 510,
     "thinking_tokens": 0
   },
   "ledger": [
@@ -71,7 +71,7 @@
             "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
             "io.github.describeadmin.codegen.GeneratorTest#controllerActuallyFilters",
             "io.github.describeadmin.codegen.GeneratorTest#parsersAreDelegatedToBaseController",
-            "io.github.describeadmin.codegen.model.ModuleSpecMutaGate1Test#queryFieldsExcludesNoneFields"
+            "io.github.describeadmin.codegen.model.ModuleSpecMutaGate1Test#queryFieldsExcludesFieldsWithoutQueryMode"
           ]
         },
         {
@@ -87,7 +87,7 @@
           "description": "replaced boolean return with true for io/github/describeadmin/codegen/model/ModuleSpec::lambda$queryFields$0",
           "status": "KILLED",
           "killing_tests": [
-            "io.github.describeadmin.codegen.model.ModuleSpecMutaGate1Test#queryFieldsExcludesNoneFields"
+            "io.github.describeadmin.codegen.model.ModuleSpecMutaGate1Test#queryFieldsExcludesFieldsWithoutQueryMode"
           ]
         },
         {
@@ -107,23 +107,23 @@
             "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
             "io.github.describeadmin.codegen.GeneratorTest#controllerActuallyFilters",
             "io.github.describeadmin.codegen.GeneratorTest#parsersAreDelegatedToBaseController",
-            "io.github.describeadmin.codegen.model.ModuleSpecMutaGate1Test#queryFieldsExcludesNoneFields"
+            "io.github.describeadmin.codegen.model.ModuleSpecMutaGate1Test#queryFieldsExcludesFieldsWithoutQueryMode"
           ]
         }
       ],
-      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nclass ModuleSpecMutaGate1Test {\n\n    private static FieldSpec field(String name, FieldSpec.QueryMode mode) {\n        return new FieldSpec(name, name, null, null, null, null, true, null, mode, false);\n    }\n\n    @Test\n    void queryFieldsExcludesNoneFields() {\n        FieldSpec none = field(\"a\", FieldSpec.QueryMode.NONE);\n        FieldSpec eq = field(\"b\", FieldSpec.QueryMode.EQ);\n        FieldSpec like = field(\"c\", FieldSpec.QueryMode.LIKE);\n        FieldSpec range = field(\"d\", FieldSpec.QueryMode.RANGE);\n\n        ModuleSpec spec = new ModuleSpec(\"com.example\", \"demo\", \"Demo\", \"biz_demo\", \"demo\",\n                \"/api/demo\", Layout.NESTED, \"\u9ed8\u8ba4\", List.of(none, eq, like, range));\n\n        List<FieldSpec> result = spec.queryFields();\n\n        assertEquals(3, result.size());\n        assertSame(eq, result.get(0));\n        assertSame(like, result.get(1));\n        assertSame(range, result.get(2));\n    }\n}\n"
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nclass ModuleSpecMutaGate1Test {\n\n    private static FieldSpec field(String name, FieldSpec.QueryMode mode) {\n        return new FieldSpec(name, name, null, null, null, null, true, name, mode, false);\n    }\n\n    @Test\n    void queryFieldsExcludesFieldsWithoutQueryMode() {\n        FieldSpec none = field(\"a\", FieldSpec.QueryMode.NONE);\n        FieldSpec eq = field(\"b\", FieldSpec.QueryMode.EQ);\n        FieldSpec like = field(\"c\", FieldSpec.QueryMode.LIKE);\n        FieldSpec range = field(\"d\", FieldSpec.QueryMode.RANGE);\n\n        ModuleSpec spec = new ModuleSpec(\"com.example\", \"demo\", \"Demo\", \"biz_demo\", \"\u6f14\u793a\",\n                \"/api/demo\", Layout.NESTED, \"\u9ed8\u8ba4\", List.of(none, eq, like, range));\n\n        List<FieldSpec> result = spec.queryFields();\n\n        assertEquals(3, result.size());\n        assertSame(eq, result.get(0));\n        assertSame(like, result.get(1));\n        assertSame(range, result.get(2));\n    }\n}\n"
     }
   ],
   "requests": [
     {
       "test_class": "io.github.describeadmin.codegen.model.ModuleSpecMutaGate1Test",
       "attempt": 1,
-      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nclass ModuleSpecMutaGate1Test {\n\n    private static FieldSpec field(String name, FieldSpec.QueryMode mode) {\n        return new FieldSpec(name, name, null, null, null, null, true, null, mode, false);\n    }\n\n    @Test\n    void queryFieldsExcludesNoneFields() {\n        FieldSpec none = field(\"a\", FieldSpec.QueryMode.NONE);\n        FieldSpec eq = field(\"b\", FieldSpec.QueryMode.EQ);\n        FieldSpec like = field(\"c\", FieldSpec.QueryMode.LIKE);\n        FieldSpec range = field(\"d\", FieldSpec.QueryMode.RANGE);\n\n        ModuleSpec spec = new ModuleSpec(\"com.example\", \"demo\", \"Demo\", \"biz_demo\", \"demo\",\n                \"/api/demo\", Layout.NESTED, \"\u9ed8\u8ba4\", List.of(none, eq, like, range));\n\n        List<FieldSpec> result = spec.queryFields();\n\n        assertEquals(3, result.size());\n        assertSame(eq, result.get(0));\n        assertSame(like, result.get(1));\n        assertSame(range, result.get(2));\n    }\n}\n```",
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nclass ModuleSpecMutaGate1Test {\n\n    private static FieldSpec field(String name, FieldSpec.QueryMode mode) {\n        return new FieldSpec(name, name, null, null, null, null, true, name, mode, false);\n    }\n\n    @Test\n    void queryFieldsExcludesFieldsWithoutQueryMode() {\n        FieldSpec none = field(\"a\", FieldSpec.QueryMode.NONE);\n        FieldSpec eq = field(\"b\", FieldSpec.QueryMode.EQ);\n        FieldSpec like = field(\"c\", FieldSpec.QueryMode.LIKE);\n        FieldSpec range = field(\"d\", FieldSpec.QueryMode.RANGE);\n\n        ModuleSpec spec = new ModuleSpec(\"com.example\", \"demo\", \"Demo\", \"biz_demo\", \"\u6f14\u793a\",\n                \"/api/demo\", Layout.NESTED, \"\u9ed8\u8ba4\", List.of(none, eq, like, range));\n\n        List<FieldSpec> result = spec.queryFields();\n\n        assertEquals(3, result.size());\n        assertSame(eq, result.get(0));\n        assertSame(like, result.get(1));\n        assertSame(range, result.get(2));\n    }\n}\n```",
       "tokens": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 16340,
+        "cache_creation_input_tokens": 16321,
         "cache_read_input_tokens": 0,
-        "output_tokens": 502,
+        "output_tokens": 510,
         "thinking_tokens": 0
       },
       "reused": false,

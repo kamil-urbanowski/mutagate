@@ -14,11 +14,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class VueGeneratorMutaGate5Test {
 
     @Test
-    void requiredRulesGeneratedOnlyForNonNullableFields() throws Exception {
+    void requiredRulesAreGeneratedExactlyForNonNullableFields() throws Exception {
         ModuleSpec spec = SpecLoader.load(Path.of("examples/project.yaml"));
         String page = VueGenerator.page(spec);
-
-        assertFalse(spec.fields().isEmpty());
 
         int requiredCount = 0;
         for (FieldSpec f : spec.fields()) {
@@ -27,13 +25,12 @@ class VueGeneratorMutaGate5Test {
             if (f.nullable()) {
                 assertFalse(page.contains(rule), "nullable field must have no rule: " + f.name());
             } else {
-                requiredCount++;
                 assertTrue(page.contains(rule), "non-nullable field must have rule: " + f.name());
+                requiredCount++;
             }
         }
 
-        int occurrences = page.split("required: true", -1).length - 1;
-        assertEquals(requiredCount, occurrences);
-        assertEquals(requiredCount == 0, page.contains("spec 中所有字段均可空，无必填校验"));
+        boolean placeholderPresent = page.contains("// spec 中所有字段均可空，无必填校验");
+        assertEquals(requiredCount == 0, placeholderPresent);
     }
 }

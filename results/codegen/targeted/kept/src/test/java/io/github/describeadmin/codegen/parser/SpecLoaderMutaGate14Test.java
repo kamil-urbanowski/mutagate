@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SpecLoaderMutaGate14Test {
 
     @Test
-    void fieldCommentUsesDeclaredValueOrFallsBackToName() {
+    void fieldCommentDefaultsToNameOnlyWhenAbsent() {
         String yaml = """
                 basePackage: com.example.demo
                 module: project
@@ -23,15 +23,16 @@ class SpecLoaderMutaGate14Test {
                     type: string
                     length: 64
                     comment: 项目名称
-                  - name: budget
-                    type: int
+                  - name: remark
+                    type: string
+                    length: 64
                 """;
 
-        ModuleSpec spec = SpecLoader.parse(new Yaml().load(yaml), "test.yaml");
+        ModuleSpec spec = SpecLoaderBridge.parse(new Yaml().load(yaml), "test.yaml");
         List<FieldSpec> fields = spec.fields();
 
         assertEquals(2, fields.size());
         assertEquals("项目名称", fields.get(0).comment());
-        assertEquals("budget", fields.get(1).comment());
+        assertEquals("remark", fields.get(1).comment());
     }
 }

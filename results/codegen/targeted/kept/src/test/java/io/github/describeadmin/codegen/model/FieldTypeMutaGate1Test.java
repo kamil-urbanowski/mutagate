@@ -1,15 +1,14 @@
 package io.github.describeadmin.codegen.model;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 class FieldTypeMutaGate1Test {
 
     @Test
-    void allKeysReturnsKeysInDeclarationOrder() {
+    void allKeysReturnsKeysOfAllTypesInDeclarationOrder() {
         List<String> expected = List.of(
                 "string", "text", "int", "long", "decimal", "flag", "date", "datetime");
         assertEquals(expected, FieldType.allKeys());

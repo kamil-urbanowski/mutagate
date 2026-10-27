@@ -9,8 +9,10 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CodegenCliMutaGate43Test {
@@ -18,44 +20,44 @@ class CodegenCliMutaGate43Test {
     @TempDir
     Path tmp;
 
-    @Test
-    void blankLineSeparatesFileListFromSummary() throws Exception {
-        String yaml = String.join("\n",
-                "package: com.example.demo",
-                "basePackage: com.example.demo",
-                "module: notice",
-                "entity: Notice",
-                "table: demo_notice",
-                "comment: 公告",
-                "apiPrefix: /demo/notice",
-                "fields:",
-                "  - name: title",
-                "    type: string",
-                "    comment: 标题",
-                "");
-        Path spec = tmp.resolve("spec.yaml");
-        Files.writeString(spec, yaml, StandardCharsets.UTF_8);
-        Path outDir = tmp.resolve("out");
-
-        ByteArrayOutputStream buf = new ByteArrayOutputStream();
-        PrintStream ps = new PrintStream(buf, true, StandardCharsets.UTF_8);
-
-        int code = CodegenCli.run(new String[] {
-                spec.toString(), "--out", outDir.toString(), "--dry-run"}, ps);
-        ps.flush();
-
-        assertEquals(0, code);
-
-        List<String> lines = buf.toString(StandardCharsets.UTF_8).lines().toList();
-        int summary = -1;
-        for (int i = 0; i < lines.size(); i++) {
-            if (lines.get(i).startsWith("完成：")) {
-                summary = i;
-                break;
+    private static Path findExampleSpec() throws Exception {
+        Path dir = Path.of("").toAbsolutePath();
+        for (int depth = 0; depth < 4 && dir != null; depth++, dir = dir.getParent()) {
+            Path examples = dir.resolve("examples");
+            if (Files.isDirectory(examples)) {
+                try (Stream<Path> s = Files.walk(examples)) {
+                    List<Path> found = s.filter(Files::isRegularFile)
+                            .filter(p -> {
+                                String n = p.getFileName().toString();
+                                return n.endsWith(".yaml") || n.endsWith(".yml");
+                            })
+                            .sorted()
+                            .toList();
+                    if (!found.isEmpty()) {
+                        return found.get(0);
+                    }
+                }
             }
         }
-        assertTrue(summary > 0, "summary line must be present");
-        assertEquals("", lines.get(summary - 1));
-        assertTrue(!lines.get(summary - 2).isEmpty(), "file list line precedes the blank line");
+        return null;
+    }
+
+    @Test
+    void blankLineSeparatesFileListFromSummary() throws Exception {
+        Path spec = findExampleSpec();
+        assertNotNull(spec, "no example spec found under examples/");
+
+        Path outDir = tmp.resolve("out");
+        ByteArrayOutputStream buf = new ByteArrayOutputStream();
+        int code;
+        try (PrintStream ps = new PrintStream(buf, true, StandardCharsets.UTF_8)) {
+            code = CodegenCli.run(new String[] {
+                    spec.toString(), "--out", outDir.toString(), "--dry-run"}, ps);
+        }
+        String output = buf.toString(StandardCharsets.UTF_8);
+        String sep = System.lineSeparator();
+
+        assertEquals(0, code, output);
+        assertTrue(output.contains(sep + sep + "完成：将写入 "), output);
     }
 }

@@ -1,7 +1,6 @@
 package io.github.describeadmin.codegen;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayOutputStream;
@@ -16,22 +15,23 @@ import org.junit.jupiter.api.io.TempDir;
 class CodegenCliMutaGate22Test {
 
     @TempDir
-    Path tempDir;
+    Path tmp;
 
     @Test
-    void missingSpecFileReturnsOneAndReportsPathWithoutGeneratingAnything() throws Exception {
-        Path missing = tempDir.resolve("does-not-exist.yaml");
-        Path outDir = tempDir.resolve("out");
+    void missingSpecFileReturnsOneAndReportsItWithoutWritingAnything() throws Exception {
+        Path missing = tmp.resolve("does-not-exist.yaml");
+        Path outDir = tmp.resolve("out");
 
-        ByteArrayOutputStream buf = new ByteArrayOutputStream();
-        PrintStream out = new PrintStream(buf, true, StandardCharsets.UTF_8);
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        PrintStream out = new PrintStream(buffer, true, StandardCharsets.UTF_8);
 
         int code = CodegenCli.run(new String[] {missing.toString(), "--out", outDir.toString()}, out);
         out.flush();
-        String text = buf.toString(StandardCharsets.UTF_8);
+        String text = buffer.toString(StandardCharsets.UTF_8);
 
         assertEquals(1, code);
+        assertTrue(text.contains("Spec 文件不存在"), text);
         assertTrue(text.contains(missing.toAbsolutePath().toString()), text);
-        assertFalse(Files.exists(outDir));
+        assertTrue(!Files.exists(outDir), "nothing should be generated");
     }
 }

@@ -4,17 +4,42 @@
   "detected_before": 139,
   "targeted": {
     "score_before": 0.6043478260869565,
-    "score_after": 0.9608695652173913,
-    "detected_after": 221,
+    "score_after": 0.9652173913043478,
+    "detected_after": 222,
+    "newly_detected_by_status": {
+      "NO_COVERAGE": {
+        "undetected": 48,
+        "newly_detected": 40
+      },
+      "SURVIVED": {
+        "undetected": 43,
+        "newly_detected": 43
+      }
+    },
     "candidates": 91,
     "kept": 80,
     "acceptance_rate": 0.8791208791208791,
-    "attempts_per_kept_test": 1.2,
-    "kept_after_repair": 2,
+    "attempts_per_kept_test": 1.25,
+    "kept_after_repair": 6,
+    "redundant_kept": 27,
     "verdicts": {
       "FAILED_ON_UNMODIFIED_CODE": 3,
       "KEPT": 80,
       "MISSED_TARGET": 8
+    },
+    "gate": {
+      "rejected_at_screen": {
+        "count": 3,
+        "share": 0.03296703296703297
+      },
+      "rejected_at_verification": {
+        "count": 8,
+        "share": 0.08791208791208792
+      },
+      "batch_failed": {
+        "count": 0,
+        "share": 0.0
+      }
     },
     "by_target_status": {
       "NO_COVERAGE": {
@@ -26,21 +51,21 @@
         "kept": 43
       }
     },
-    "requests": 96,
-    "requests_reused": 1,
+    "requests": 100,
+    "requests_reused": 0,
     "tokens": {
-      "input_tokens": 192,
-      "cache_creation_input_tokens": 1040192,
-      "cache_read_input_tokens": 0,
-      "output_tokens": 109423,
-      "thinking_tokens": 49333
+      "input_tokens": 200,
+      "cache_creation_input_tokens": 300605,
+      "cache_read_input_tokens": 762851,
+      "output_tokens": 114476,
+      "thinking_tokens": 51225
     },
     "settings": [
       {
         "provider": "claude-code",
         "model": "claude-sonnet-5-5",
         "effort": "medium",
-        "system_prompt": "You write JUnit 5 tests for existing Java code."
+        "system_prompt": "the shared part of each request"
       }
     ],
     "classes_not_run": [],
@@ -50,7 +75,7 @@
         "candidates": 46,
         "kept": 35,
         "score_before": 0.0,
-        "score_after": 0.8043478260869565
+        "score_after": 0.8260869565217391
       },
       {
         "class": "io.github.describeadmin.codegen.generator.DdlGenerator",

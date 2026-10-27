@@ -4,17 +4,17 @@
   "kind": "TARGETED",
   "setup": {
     "repo_commit": "7697931d89755fe35b6cd149d774babd85af9bd5",
-    "date": "2026-10-19",
+    "date": "2026-10-27",
     "java": "21.0.12.1",
     "maven": "3.9.16",
     "pitest_maven": "1.30.0",
     "pitest_junit5_plugin": "1.2.3",
-    "mutagate_commit": "14080bbb70481ed55cb5f5b1d26eb80eb9360491",
+    "mutagate_commit": "7ace97ecf4d0748ec3cfe5f795e099d49ae8da4b",
     "provider": "claude-code",
-    "provider_version": "2.1.301",
+    "provider_version": "2.1.311",
     "model": "claude-sonnet-5-5",
     "effort": "medium",
-    "system_prompt": "You write JUnit 5 tests for existing Java code."
+    "system_prompt": "the shared part of each request"
   },
   "score_before": 0.6875,
   "score_after": 1.0,
@@ -27,10 +27,10 @@
   "attempts_per_kept_test": 1.0,
   "tokens": {
     "input_tokens": 10,
-    "cache_creation_input_tokens": 55742,
-    "cache_read_input_tokens": 0,
-    "output_tokens": 1811,
-    "thinking_tokens": 450
+    "cache_creation_input_tokens": 14586,
+    "cache_read_input_tokens": 41064,
+    "output_tokens": 1883,
+    "thinking_tokens": 458
   },
   "ledger": [
     {
@@ -67,8 +67,8 @@
           "description": "replaced return value with Collections.emptyList for io/github/describeadmin/codegen/model/FieldType::allKeys",
           "status": "KILLED",
           "killing_tests": [
-            "io.github.describeadmin.codegen.model.FieldTypeMutaGate1Test#allKeysReturnsKeysInDeclarationOrder",
-            "io.github.describeadmin.codegen.model.FieldTypeMutaGate3Test#keyAndAllKeysReturnYamlIdentifiers"
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate1Test#allKeysReturnsKeysOfAllTypesInDeclarationOrder",
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate3Test#keyReturnsYamlIdentifierForEveryType"
           ]
         },
         {
@@ -84,12 +84,12 @@
           "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldType::key",
           "status": "KILLED",
           "killing_tests": [
-            "io.github.describeadmin.codegen.model.FieldTypeMutaGate1Test#allKeysReturnsKeysInDeclarationOrder",
-            "io.github.describeadmin.codegen.model.FieldTypeMutaGate3Test#keyAndAllKeysReturnYamlIdentifiers"
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate1Test#allKeysReturnsKeysOfAllTypesInDeclarationOrder",
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate3Test#keyReturnsYamlIdentifierForEveryType"
           ]
         }
       ],
-      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldTypeMutaGate1Test {\n\n    @Test\n    void allKeysReturnsKeysInDeclarationOrder() {\n        List<String> expected = List.of(\n                \"string\", \"text\", \"int\", \"long\", \"decimal\", \"flag\", \"date\", \"datetime\");\n        assertEquals(expected, FieldType.allKeys());\n    }\n}\n"
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.util.List;\nimport org.junit.jupiter.api.Test;\n\nclass FieldTypeMutaGate1Test {\n\n    @Test\n    void allKeysReturnsKeysOfAllTypesInDeclarationOrder() {\n        List<String> expected = List.of(\n                \"string\", \"text\", \"int\", \"long\", \"decimal\", \"flag\", \"date\", \"datetime\");\n        assertEquals(expected, FieldType.allKeys());\n    }\n}\n"
     },
     {
       "test_class": "io.github.describeadmin.codegen.model.FieldTypeMutaGate2Test",
@@ -125,7 +125,7 @@
           "description": "changed conditional boundary",
           "status": "KILLED",
           "killing_tests": [
-            "io.github.describeadmin.codegen.model.FieldTypeMutaGate2Test#javaSimpleTypeStripsLeadingDotAtIndexZero"
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate2Test#javaSimpleTypeHandlesDotAtIndexZero"
           ]
         },
         {
@@ -143,7 +143,7 @@
           "killing_tests": [
             "io.github.describeadmin.codegen.GeneratorTest#entityIsThin",
             "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
-            "io.github.describeadmin.codegen.model.FieldTypeMutaGate2Test#javaSimpleTypeStripsLeadingDotAtIndexZero"
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate2Test#javaSimpleTypeHandlesDotAtIndexZero"
           ]
         },
         {
@@ -161,7 +161,7 @@
           "killing_tests": [
             "io.github.describeadmin.codegen.GeneratorTest#entityIsThin",
             "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
-            "io.github.describeadmin.codegen.model.FieldTypeMutaGate2Test#javaSimpleTypeStripsLeadingDotAtIndexZero"
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate2Test#javaSimpleTypeHandlesDotAtIndexZero"
           ]
         },
         {
@@ -180,11 +180,11 @@
             "io.github.describeadmin.codegen.GeneratorTest#entityIsThin",
             "io.github.describeadmin.codegen.GeneratorTest#generatedJavaHasAllImports",
             "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
-            "io.github.describeadmin.codegen.model.FieldTypeMutaGate2Test#javaSimpleTypeStripsLeadingDotAtIndexZero"
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate2Test#javaSimpleTypeHandlesDotAtIndexZero"
           ]
         }
       ],
-      "source": "package io.github.describeadmin.codegen.model;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.lang.reflect.Field;\nimport org.junit.jupiter.api.Test;\n\nclass FieldTypeMutaGate2Test {\n\n    @Test\n    void javaSimpleTypeStripsLeadingDotAtIndexZero() throws Exception {\n        Field f = FieldType.class.getDeclaredField(\"javaType\");\n        f.setAccessible(true);\n        FieldType type = FieldType.DATE;\n        Object original = f.get(type);\n        try {\n            f.set(type, \".Foo\");\n            assertEquals(\"Foo\", type.javaSimpleType());\n        } finally {\n            f.set(type, original);\n        }\n        assertEquals(\"LocalDate\", type.javaSimpleType());\n    }\n}\n"
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport java.lang.reflect.Field;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldTypeMutaGate2Test {\n\n    @Test\n    void javaSimpleTypeHandlesDotAtIndexZero() throws Exception {\n        // Normal cases: no dot (index -1) and a fully qualified name\n        assertEquals(\"String\", FieldType.TEXT.javaSimpleType());\n        assertEquals(\"BigDecimal\", FieldType.DECIMAL.javaSimpleType());\n\n        // Boundary case: a dot at index 0 must still be stripped.\n        // The enum constants never hit this, so set the field via reflection temporarily.\n        Field f = FieldType.class.getDeclaredField(\"javaType\");\n        f.setAccessible(true);\n        String original = (String) f.get(FieldType.STRING);\n        try {\n            f.set(FieldType.STRING, \".Foo\");\n            assertEquals(\"Foo\", FieldType.STRING.javaSimpleType());\n        } finally {\n            f.set(FieldType.STRING, original);\n        }\n        assertEquals(\"String\", FieldType.STRING.javaSimpleType());\n    }\n}\n"
     },
     {
       "test_class": "io.github.describeadmin.codegen.model.FieldTypeMutaGate3Test",
@@ -220,8 +220,8 @@
           "description": "replaced return value with Collections.emptyList for io/github/describeadmin/codegen/model/FieldType::allKeys",
           "status": "KILLED",
           "killing_tests": [
-            "io.github.describeadmin.codegen.model.FieldTypeMutaGate1Test#allKeysReturnsKeysInDeclarationOrder",
-            "io.github.describeadmin.codegen.model.FieldTypeMutaGate3Test#keyAndAllKeysReturnYamlIdentifiers"
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate1Test#allKeysReturnsKeysOfAllTypesInDeclarationOrder",
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate3Test#keyReturnsYamlIdentifierForEveryType"
           ]
         },
         {
@@ -237,12 +237,12 @@
           "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldType::key",
           "status": "KILLED",
           "killing_tests": [
-            "io.github.describeadmin.codegen.model.FieldTypeMutaGate1Test#allKeysReturnsKeysInDeclarationOrder",
-            "io.github.describeadmin.codegen.model.FieldTypeMutaGate3Test#keyAndAllKeysReturnYamlIdentifiers"
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate1Test#allKeysReturnsKeysOfAllTypesInDeclarationOrder",
+            "io.github.describeadmin.codegen.model.FieldTypeMutaGate3Test#keyReturnsYamlIdentifierForEveryType"
           ]
         }
       ],
-      "source": "package io.github.describeadmin.codegen.model;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.util.List;\nimport org.junit.jupiter.api.Test;\n\nclass FieldTypeMutaGate3Test {\n\n    @Test\n    void keyAndAllKeysReturnYamlIdentifiers() {\n        assertEquals(\"string\", FieldType.STRING.key());\n        assertEquals(\"text\", FieldType.TEXT.key());\n        assertEquals(\"int\", FieldType.INT.key());\n        assertEquals(\"long\", FieldType.LONG.key());\n        assertEquals(\"decimal\", FieldType.DECIMAL.key());\n        assertEquals(\"flag\", FieldType.FLAG.key());\n        assertEquals(\"date\", FieldType.DATE.key());\n        assertEquals(\"datetime\", FieldType.DATETIME.key());\n        assertEquals(\n                List.of(\"string\", \"text\", \"int\", \"long\", \"decimal\", \"flag\", \"date\", \"datetime\"),\n                FieldType.allKeys());\n    }\n}\n"
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.util.List;\nimport org.junit.jupiter.api.Test;\n\nclass FieldTypeMutaGate3Test {\n\n    @Test\n    void keyReturnsYamlIdentifierForEveryType() {\n        assertEquals(\"string\", FieldType.STRING.key());\n        assertEquals(\"text\", FieldType.TEXT.key());\n        assertEquals(\"int\", FieldType.INT.key());\n        assertEquals(\"long\", FieldType.LONG.key());\n        assertEquals(\"decimal\", FieldType.DECIMAL.key());\n        assertEquals(\"flag\", FieldType.FLAG.key());\n        assertEquals(\"date\", FieldType.DATE.key());\n        assertEquals(\"datetime\", FieldType.DATETIME.key());\n        assertEquals(\n                List.of(\"string\", \"text\", \"int\", \"long\", \"decimal\", \"flag\", \"date\", \"datetime\"),\n                FieldType.allKeys());\n    }\n}\n"
     },
     {
       "test_class": "io.github.describeadmin.codegen.model.FieldTypeMutaGate4Test",
@@ -299,7 +299,7 @@
           ]
         }
       ],
-      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass FieldTypeMutaGate4Test {\n\n    @Test\n    void needsLengthIsTrueOnlyForString() {\n        assertTrue(FieldType.STRING.needsLength());\n        for (FieldType type : FieldType.values()) {\n            if (type != FieldType.STRING) {\n                assertFalse(type.needsLength(), type.name());\n            }\n        }\n    }\n}\n"
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass FieldTypeMutaGate4Test {\n\n    @Test\n    void needsLengthIsTrueOnlyForString() {\n        for (FieldType type : FieldType.values()) {\n            if (type == FieldType.STRING) {\n                assertTrue(type.needsLength(), \"STRING should need length\");\n            } else {\n                assertFalse(type.needsLength(), type + \" should not need length\");\n            }\n        }\n    }\n}\n"
     },
     {
       "test_class": "io.github.describeadmin.codegen.model.FieldTypeMutaGate5Test",
@@ -356,19 +356,19 @@
           ]
         }
       ],
-      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass FieldTypeMutaGate5Test {\n\n    @Test\n    void needsPrecisionOnlyForDecimal() {\n        assertTrue(FieldType.DECIMAL.needsPrecision());\n        for (FieldType type : FieldType.values()) {\n            if (type != FieldType.DECIMAL) {\n                assertFalse(type.needsPrecision(), type + \" should not need precision\");\n            }\n        }\n        assertEquals(false, FieldType.STRING.needsPrecision());\n    }\n}\n"
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldTypeMutaGate5Test {\n\n    @Test\n    void needsPrecisionOnlyForDecimal() {\n        for (FieldType type : FieldType.values()) {\n            assertEquals(type == FieldType.DECIMAL, type.needsPrecision(),\n                    \"needsPrecision mismatch for \" + type);\n        }\n    }\n}\n"
     }
   ],
   "requests": [
     {
       "test_class": "io.github.describeadmin.codegen.model.FieldTypeMutaGate1Test",
       "attempt": 1,
-      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldTypeMutaGate1Test {\n\n    @Test\n    void allKeysReturnsKeysInDeclarationOrder() {\n        List<String> expected = List.of(\n                \"string\", \"text\", \"int\", \"long\", \"decimal\", \"flag\", \"date\", \"datetime\");\n        assertEquals(expected, FieldType.allKeys());\n    }\n}\n```",
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.util.List;\nimport org.junit.jupiter.api.Test;\n\nclass FieldTypeMutaGate1Test {\n\n    @Test\n    void allKeysReturnsKeysOfAllTypesInDeclarationOrder() {\n        List<String> expected = List.of(\n                \"string\", \"text\", \"int\", \"long\", \"decimal\", \"flag\", \"date\", \"datetime\");\n        assertEquals(expected, FieldType.allKeys());\n    }\n}\n```",
       "tokens": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 11154,
+        "cache_creation_input_tokens": 11137,
         "cache_read_input_tokens": 0,
-        "output_tokens": 192,
+        "output_tokens": 199,
         "thinking_tokens": 0
       },
       "reused": false,
@@ -378,13 +378,13 @@
     {
       "test_class": "io.github.describeadmin.codegen.model.FieldTypeMutaGate2Test",
       "attempt": 1,
-      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.lang.reflect.Field;\nimport org.junit.jupiter.api.Test;\n\nclass FieldTypeMutaGate2Test {\n\n    @Test\n    void javaSimpleTypeStripsLeadingDotAtIndexZero() throws Exception {\n        Field f = FieldType.class.getDeclaredField(\"javaType\");\n        f.setAccessible(true);\n        FieldType type = FieldType.DATE;\n        Object original = f.get(type);\n        try {\n            f.set(type, \".Foo\");\n            assertEquals(\"Foo\", type.javaSimpleType());\n        } finally {\n            f.set(type, original);\n        }\n        assertEquals(\"LocalDate\", type.javaSimpleType());\n    }\n}\n```",
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport java.lang.reflect.Field;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldTypeMutaGate2Test {\n\n    @Test\n    void javaSimpleTypeHandlesDotAtIndexZero() throws Exception {\n        // Normal cases: no dot (index -1) and a fully qualified name\n        assertEquals(\"String\", FieldType.TEXT.javaSimpleType());\n        assertEquals(\"BigDecimal\", FieldType.DECIMAL.javaSimpleType());\n\n        // Boundary case: a dot at index 0 must still be stripped.\n        // The enum constants never hit this, so set the field via reflection temporarily.\n        Field f = FieldType.class.getDeclaredField(\"javaType\");\n        f.setAccessible(true);\n        String original = (String) f.get(FieldType.STRING);\n        try {\n            f.set(FieldType.STRING, \".Foo\");\n            assertEquals(\"Foo\", FieldType.STRING.javaSimpleType());\n        } finally {\n            f.set(FieldType.STRING, original);\n        }\n        assertEquals(\"String\", FieldType.STRING.javaSimpleType());\n    }\n}\n```",
       "tokens": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 11231,
-        "cache_read_input_tokens": 0,
-        "output_tokens": 742,
-        "thinking_tokens": 450
+        "cache_creation_input_tokens": 944,
+        "cache_read_input_tokens": 10266,
+        "output_tokens": 901,
+        "thinking_tokens": 458
       },
       "reused": false,
       "screen": null,
@@ -393,12 +393,12 @@
     {
       "test_class": "io.github.describeadmin.codegen.model.FieldTypeMutaGate3Test",
       "attempt": 1,
-      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.util.List;\nimport org.junit.jupiter.api.Test;\n\nclass FieldTypeMutaGate3Test {\n\n    @Test\n    void keyAndAllKeysReturnYamlIdentifiers() {\n        assertEquals(\"string\", FieldType.STRING.key());\n        assertEquals(\"text\", FieldType.TEXT.key());\n        assertEquals(\"int\", FieldType.INT.key());\n        assertEquals(\"long\", FieldType.LONG.key());\n        assertEquals(\"decimal\", FieldType.DECIMAL.key());\n        assertEquals(\"flag\", FieldType.FLAG.key());\n        assertEquals(\"date\", FieldType.DATE.key());\n        assertEquals(\"datetime\", FieldType.DATETIME.key());\n        assertEquals(\n                List.of(\"string\", \"text\", \"int\", \"long\", \"decimal\", \"flag\", \"date\", \"datetime\"),\n                FieldType.allKeys());\n    }\n}\n```",
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.util.List;\nimport org.junit.jupiter.api.Test;\n\nclass FieldTypeMutaGate3Test {\n\n    @Test\n    void keyReturnsYamlIdentifierForEveryType() {\n        assertEquals(\"string\", FieldType.STRING.key());\n        assertEquals(\"text\", FieldType.TEXT.key());\n        assertEquals(\"int\", FieldType.INT.key());\n        assertEquals(\"long\", FieldType.LONG.key());\n        assertEquals(\"decimal\", FieldType.DECIMAL.key());\n        assertEquals(\"flag\", FieldType.FLAG.key());\n        assertEquals(\"date\", FieldType.DATE.key());\n        assertEquals(\"datetime\", FieldType.DATETIME.key());\n        assertEquals(\n                List.of(\"string\", \"text\", \"int\", \"long\", \"decimal\", \"flag\", \"date\", \"datetime\"),\n                FieldType.allKeys());\n    }\n}\n```",
       "tokens": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 11126,
-        "cache_read_input_tokens": 0,
-        "output_tokens": 362,
+        "cache_creation_input_tokens": 841,
+        "cache_read_input_tokens": 10266,
+        "output_tokens": 360,
         "thinking_tokens": 0
       },
       "reused": false,
@@ -408,12 +408,12 @@
     {
       "test_class": "io.github.describeadmin.codegen.model.FieldTypeMutaGate4Test",
       "attempt": 1,
-      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass FieldTypeMutaGate4Test {\n\n    @Test\n    void needsLengthIsTrueOnlyForString() {\n        assertTrue(FieldType.STRING.needsLength());\n        for (FieldType type : FieldType.values()) {\n            if (type != FieldType.STRING) {\n                assertFalse(type.needsLength(), type.name());\n            }\n        }\n    }\n}\n```",
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass FieldTypeMutaGate4Test {\n\n    @Test\n    void needsLengthIsTrueOnlyForString() {\n        for (FieldType type : FieldType.values()) {\n            if (type == FieldType.STRING) {\n                assertTrue(type.needsLength(), \"STRING should need length\");\n            } else {\n                assertFalse(type.needsLength(), type + \" should not need length\");\n            }\n        }\n    }\n}\n```",
       "tokens": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 11117,
-        "cache_read_input_tokens": 0,
-        "output_tokens": 224,
+        "cache_creation_input_tokens": 834,
+        "cache_read_input_tokens": 10266,
+        "output_tokens": 235,
         "thinking_tokens": 0
       },
       "reused": false,
@@ -423,12 +423,12 @@
     {
       "test_class": "io.github.describeadmin.codegen.model.FieldTypeMutaGate5Test",
       "attempt": 1,
-      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass FieldTypeMutaGate5Test {\n\n    @Test\n    void needsPrecisionOnlyForDecimal() {\n        assertTrue(FieldType.DECIMAL.needsPrecision());\n        for (FieldType type : FieldType.values()) {\n            if (type != FieldType.DECIMAL) {\n                assertFalse(type.needsPrecision(), type + \" should not need precision\");\n            }\n        }\n        assertEquals(false, FieldType.STRING.needsPrecision());\n    }\n}\n```",
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldTypeMutaGate5Test {\n\n    @Test\n    void needsPrecisionOnlyForDecimal() {\n        for (FieldType type : FieldType.values()) {\n            assertEquals(type == FieldType.DECIMAL, type.needsPrecision(),\n                    \"needsPrecision mismatch for \" + type);\n        }\n    }\n}\n```",
       "tokens": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 11114,
-        "cache_read_input_tokens": 0,
-        "output_tokens": 291,
+        "cache_creation_input_tokens": 830,
+        "cache_read_input_tokens": 10266,
+        "output_tokens": 188,
         "thinking_tokens": 0
       },
       "reused": false,

@@ -4,17 +4,17 @@
   "kind": "TARGETED",
   "setup": {
     "repo_commit": "7697931d89755fe35b6cd149d774babd85af9bd5",
-    "date": "2026-10-19",
+    "date": "2026-10-27",
     "java": "21.0.12.1",
     "maven": "3.9.16",
     "pitest_maven": "1.30.0",
     "pitest_junit5_plugin": "1.2.3",
-    "mutagate_commit": "14080bbb70481ed55cb5f5b1d26eb80eb9360491",
+    "mutagate_commit": "7ace97ecf4d0748ec3cfe5f795e099d49ae8da4b",
     "provider": "claude-code",
-    "provider_version": "2.1.301",
+    "provider_version": "2.1.311",
     "model": "claude-sonnet-5-5",
     "effort": "medium",
-    "system_prompt": "You write JUnit 5 tests for existing Java code."
+    "system_prompt": "the shared part of each request"
   },
   "score_before": 0.375,
   "score_after": 1.0,
@@ -27,10 +27,10 @@
   "attempts_per_kept_test": 1.0,
   "tokens": {
     "input_tokens": 10,
-    "cache_creation_input_tokens": 33785,
-    "cache_read_input_tokens": 0,
-    "output_tokens": 2210,
-    "thinking_tokens": 567
+    "cache_creation_input_tokens": 10787,
+    "cache_read_input_tokens": 22896,
+    "output_tokens": 2332,
+    "thinking_tokens": 630
   },
   "ledger": [
     {
@@ -68,11 +68,11 @@
           "status": "KILLED",
           "killing_tests": [
             "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeUsesGivenLengthOrDefaultsTo255",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesGivenPrecisionOrDefault",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesExplicitScaleAndDefaultsWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeUsesGivenLengthOrDefault",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesPrecisionWhenGivenAndDefaultWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesGivenScaleAndDefaultsWhenNull",
             "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeForStringUsesLengthOrDefault",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeForPlainTypesReturnsBareSqlType"
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeForTypesWithoutLengthOrPrecisionIsPlainSqlType"
           ]
         },
         {
@@ -88,7 +88,7 @@
           "description": "negated conditional",
           "status": "KILLED",
           "killing_tests": [
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeUsesGivenLengthOrDefaultsTo255",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeUsesGivenLengthOrDefault",
             "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeForStringUsesLengthOrDefault"
           ]
         },
@@ -105,12 +105,12 @@
           "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
           "status": "KILLED",
           "killing_tests": [
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeUsesGivenLengthOrDefaultsTo255",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeUsesGivenLengthOrDefault",
             "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeForStringUsesLengthOrDefault"
           ]
         }
       ],
-      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate1Test {\n\n    private static FieldSpec stringField(Integer length) {\n        return new FieldSpec(\"name\", \"name\", FieldType.STRING, length, null, null,\n                true, \"comment\", FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeUsesGivenLengthOrDefaultsTo255() {\n        assertEquals(\"VARCHAR(128)\", stringField(128).sqlColumnType());\n        assertEquals(\"VARCHAR(255)\", stringField(null).sqlColumnType());\n    }\n}\n"
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate1Test {\n\n    private static FieldSpec string(Integer length) {\n        return new FieldSpec(\"projectName\", \"project_name\", FieldType.STRING,\n                length, null, null, true, \"name\", FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeUsesGivenLengthOrDefault() {\n        assertEquals(\"VARCHAR(128)\", string(128).sqlColumnType());\n        assertEquals(\"VARCHAR(255)\", string(null).sqlColumnType());\n    }\n}\n"
     },
     {
       "test_class": "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test",
@@ -147,11 +147,11 @@
           "status": "KILLED",
           "killing_tests": [
             "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeUsesGivenLengthOrDefaultsTo255",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesGivenPrecisionOrDefault",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesExplicitScaleAndDefaultsWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeUsesGivenLengthOrDefault",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesPrecisionWhenGivenAndDefaultWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesGivenScaleAndDefaultsWhenNull",
             "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeForStringUsesLengthOrDefault",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeForPlainTypesReturnsBareSqlType"
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeForTypesWithoutLengthOrPrecisionIsPlainSqlType"
           ]
         },
         {
@@ -168,9 +168,9 @@
           "status": "KILLED",
           "killing_tests": [
             "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesGivenPrecisionOrDefault",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesExplicitScaleAndDefaultsWhenNull",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeForPlainTypesReturnsBareSqlType"
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesPrecisionWhenGivenAndDefaultWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesGivenScaleAndDefaultsWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeForTypesWithoutLengthOrPrecisionIsPlainSqlType"
           ]
         },
         {
@@ -186,8 +186,8 @@
           "description": "negated conditional",
           "status": "KILLED",
           "killing_tests": [
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesGivenPrecisionOrDefault",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesExplicitScaleAndDefaultsWhenNull"
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesPrecisionWhenGivenAndDefaultWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesGivenScaleAndDefaultsWhenNull"
           ]
         },
         {
@@ -203,8 +203,8 @@
           "description": "negated conditional",
           "status": "KILLED",
           "killing_tests": [
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesGivenPrecisionOrDefault",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesExplicitScaleAndDefaultsWhenNull"
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesPrecisionWhenGivenAndDefaultWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesGivenScaleAndDefaultsWhenNull"
           ]
         },
         {
@@ -221,12 +221,12 @@
           "status": "KILLED",
           "killing_tests": [
             "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesGivenPrecisionOrDefault",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesExplicitScaleAndDefaultsWhenNull"
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesPrecisionWhenGivenAndDefaultWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesGivenScaleAndDefaultsWhenNull"
           ]
         }
       ],
-      "source": "package io.github.describeadmin.codegen.model;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass FieldSpecMutaGate2Test {\n\n    private static FieldSpec decimal(Integer precision, Integer scale) {\n        return new FieldSpec(\"amount\", \"amount\", FieldType.DECIMAL, null, precision, scale,\n                true, \"\u91d1\u989d\", FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeUsesGivenPrecisionOrDefault() {\n        assertEquals(\"DECIMAL(10,3)\", decimal(10, 3).sqlColumnType());\n        assertEquals(\"DECIMAL(18,3)\", decimal(null, 3).sqlColumnType());\n        assertEquals(\"DECIMAL(10,2)\", decimal(10, null).sqlColumnType());\n        assertEquals(\"DECIMAL(18,2)\", decimal(null, null).sqlColumnType());\n    }\n}\n"
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate2Test {\n\n    private static FieldSpec decimal(Integer precision, Integer scale) {\n        return new FieldSpec(\"amount\", \"amount\", FieldType.DECIMAL, null, precision, scale,\n                true, \"\u91d1\u989d\", FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeUsesPrecisionWhenGivenAndDefaultWhenNull() {\n        // precision null -> default 18\n        assertEquals(\"DECIMAL(18,2)\", decimal(null, null).sqlColumnType());\n        // precision given -> used as is\n        assertEquals(\"DECIMAL(10,2)\", decimal(10, null).sqlColumnType());\n        assertEquals(\"DECIMAL(10,4)\", decimal(10, 4).sqlColumnType());\n        // precision null, scale given\n        assertEquals(\"DECIMAL(18,5)\", decimal(null, 5).sqlColumnType());\n    }\n}\n"
     },
     {
       "test_class": "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test",
@@ -263,11 +263,11 @@
           "status": "KILLED",
           "killing_tests": [
             "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeUsesGivenLengthOrDefaultsTo255",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesGivenPrecisionOrDefault",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesExplicitScaleAndDefaultsWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeUsesGivenLengthOrDefault",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesPrecisionWhenGivenAndDefaultWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesGivenScaleAndDefaultsWhenNull",
             "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeForStringUsesLengthOrDefault",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeForPlainTypesReturnsBareSqlType"
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeForTypesWithoutLengthOrPrecisionIsPlainSqlType"
           ]
         },
         {
@@ -284,9 +284,9 @@
           "status": "KILLED",
           "killing_tests": [
             "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesGivenPrecisionOrDefault",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesExplicitScaleAndDefaultsWhenNull",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeForPlainTypesReturnsBareSqlType"
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesPrecisionWhenGivenAndDefaultWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesGivenScaleAndDefaultsWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeForTypesWithoutLengthOrPrecisionIsPlainSqlType"
           ]
         },
         {
@@ -302,8 +302,8 @@
           "description": "negated conditional",
           "status": "KILLED",
           "killing_tests": [
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesGivenPrecisionOrDefault",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesExplicitScaleAndDefaultsWhenNull"
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesPrecisionWhenGivenAndDefaultWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesGivenScaleAndDefaultsWhenNull"
           ]
         },
         {
@@ -319,8 +319,8 @@
           "description": "negated conditional",
           "status": "KILLED",
           "killing_tests": [
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesGivenPrecisionOrDefault",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesExplicitScaleAndDefaultsWhenNull"
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesPrecisionWhenGivenAndDefaultWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesGivenScaleAndDefaultsWhenNull"
           ]
         },
         {
@@ -337,12 +337,12 @@
           "status": "KILLED",
           "killing_tests": [
             "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesGivenPrecisionOrDefault",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesExplicitScaleAndDefaultsWhenNull"
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesPrecisionWhenGivenAndDefaultWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesGivenScaleAndDefaultsWhenNull"
           ]
         }
       ],
-      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate3Test {\n\n    private static FieldSpec decimal(Integer precision, Integer scale) {\n        return new FieldSpec(\"amount\", \"amount\", FieldType.DECIMAL, null, precision, scale,\n                true, \"\u91d1\u989d\", FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeUsesExplicitScaleAndDefaultsWhenNull() {\n        assertEquals(\"DECIMAL(10,4)\", decimal(10, 4).sqlColumnType());\n        assertEquals(\"DECIMAL(10,0)\", decimal(10, 0).sqlColumnType());\n        assertEquals(\"DECIMAL(10,2)\", decimal(10, null).sqlColumnType());\n        assertEquals(\"DECIMAL(18,2)\", decimal(null, null).sqlColumnType());\n    }\n}\n"
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass FieldSpecMutaGate3Test {\n\n    private static FieldSpec decimal(Integer precision, Integer scale) {\n        return new FieldSpec(\"amount\", \"amount\", FieldType.DECIMAL, null, precision, scale,\n                true, \"\u91d1\u989d\", FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeUsesGivenScaleAndDefaultsWhenNull() {\n        assertEquals(\"DECIMAL(10,5)\", decimal(10, 5).sqlColumnType());\n        assertEquals(\"DECIMAL(10,2)\", decimal(10, null).sqlColumnType());\n        assertEquals(\"DECIMAL(18,3)\", decimal(null, 3).sqlColumnType());\n        assertEquals(\"DECIMAL(18,2)\", decimal(null, null).sqlColumnType());\n    }\n}\n"
     },
     {
       "test_class": "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test",
@@ -379,11 +379,11 @@
           "status": "KILLED",
           "killing_tests": [
             "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeUsesGivenLengthOrDefaultsTo255",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesGivenPrecisionOrDefault",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesExplicitScaleAndDefaultsWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeUsesGivenLengthOrDefault",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesPrecisionWhenGivenAndDefaultWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesGivenScaleAndDefaultsWhenNull",
             "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeForStringUsesLengthOrDefault",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeForPlainTypesReturnsBareSqlType"
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeForTypesWithoutLengthOrPrecisionIsPlainSqlType"
           ]
         },
         {
@@ -399,7 +399,7 @@
           "description": "negated conditional",
           "status": "KILLED",
           "killing_tests": [
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeUsesGivenLengthOrDefaultsTo255",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeUsesGivenLengthOrDefault",
             "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeForStringUsesLengthOrDefault"
           ]
         },
@@ -416,12 +416,12 @@
           "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
           "status": "KILLED",
           "killing_tests": [
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeUsesGivenLengthOrDefaultsTo255",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeUsesGivenLengthOrDefault",
             "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeForStringUsesLengthOrDefault"
           ]
         }
       ],
-      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate4Test {\n\n    @Test\n    void sqlColumnTypeForStringUsesLengthOrDefault() {\n        FieldSpec withLength = new FieldSpec(\"name\", \"name\", FieldType.STRING, 128, null, null,\n                true, \"c\", FieldSpec.QueryMode.NONE, false);\n        FieldSpec withoutLength = new FieldSpec(\"name\", \"name\", FieldType.STRING, null, null, null,\n                true, \"c\", FieldSpec.QueryMode.NONE, false);\n\n        assertEquals(\"VARCHAR(128)\", withLength.sqlColumnType());\n        assertEquals(\"VARCHAR(255)\", withoutLength.sqlColumnType());\n    }\n}\n"
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate4Test {\n\n    @Test\n    void sqlColumnTypeForStringUsesLengthOrDefault() {\n        FieldSpec withLength = new FieldSpec(\"projectName\", \"project_name\", FieldType.STRING,\n                128, null, null, false, \"name\", FieldSpec.QueryMode.NONE, false);\n        FieldSpec withoutLength = new FieldSpec(\"projectName\", \"project_name\", FieldType.STRING,\n                null, null, null, false, \"name\", FieldSpec.QueryMode.NONE, false);\n\n        assertEquals(\"VARCHAR(128)\", withLength.sqlColumnType());\n        assertEquals(\"VARCHAR(255)\", withoutLength.sqlColumnType());\n    }\n}\n"
     },
     {
       "test_class": "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test",
@@ -458,11 +458,11 @@
           "status": "KILLED",
           "killing_tests": [
             "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeUsesGivenLengthOrDefaultsTo255",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesGivenPrecisionOrDefault",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesExplicitScaleAndDefaultsWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeUsesGivenLengthOrDefault",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesPrecisionWhenGivenAndDefaultWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesGivenScaleAndDefaultsWhenNull",
             "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeForStringUsesLengthOrDefault",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeForPlainTypesReturnsBareSqlType"
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeForTypesWithoutLengthOrPrecisionIsPlainSqlType"
           ]
         },
         {
@@ -479,9 +479,9 @@
           "status": "KILLED",
           "killing_tests": [
             "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesGivenPrecisionOrDefault",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesExplicitScaleAndDefaultsWhenNull",
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeForPlainTypesReturnsBareSqlType"
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeUsesPrecisionWhenGivenAndDefaultWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeUsesGivenScaleAndDefaultsWhenNull",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeForTypesWithoutLengthOrPrecisionIsPlainSqlType"
           ]
         },
         {
@@ -497,24 +497,24 @@
           "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
           "status": "KILLED",
           "killing_tests": [
-            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeForPlainTypesReturnsBareSqlType"
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeForTypesWithoutLengthOrPrecisionIsPlainSqlType"
           ]
         }
       ],
-      "source": "package io.github.describeadmin.codegen.model;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass FieldSpecMutaGate5Test {\n\n    @Test\n    void sqlColumnTypeForPlainTypesReturnsBareSqlType() {\n        FieldSpec intField = new FieldSpec(\"age\", \"age\", FieldType.INT, null, null, null,\n                true, \"age\", FieldSpec.QueryMode.NONE, false);\n        FieldSpec dateTimeField = new FieldSpec(\"createdAt\", \"created_at\", FieldType.DATETIME,\n                null, null, null, true, \"created\", FieldSpec.QueryMode.NONE, false);\n\n        assertEquals(\"INT\", intField.sqlColumnType());\n        assertEquals(\"DATETIME\", dateTimeField.sqlColumnType());\n    }\n}\n"
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate5Test {\n\n    @Test\n    void sqlColumnTypeForTypesWithoutLengthOrPrecisionIsPlainSqlType() {\n        FieldSpec intSpec = new FieldSpec(\"count\", \"count\", FieldType.INT, null, null, null,\n                true, \"\u6570\u91cf\", FieldSpec.QueryMode.NONE, false);\n        FieldSpec dateTimeSpec = new FieldSpec(\"createdAt\", \"created_at\", FieldType.DATETIME,\n                null, null, null, true, \"\u65f6\u95f4\", FieldSpec.QueryMode.NONE, false);\n\n        assertEquals(\"INT\", intSpec.sqlColumnType());\n        assertEquals(\"DATETIME\", dateTimeSpec.sqlColumnType());\n    }\n}\n"
     }
   ],
   "requests": [
     {
       "test_class": "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test",
       "attempt": 1,
-      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate1Test {\n\n    private static FieldSpec stringField(Integer length) {\n        return new FieldSpec(\"name\", \"name\", FieldType.STRING, length, null, null,\n                true, \"comment\", FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeUsesGivenLengthOrDefaultsTo255() {\n        assertEquals(\"VARCHAR(128)\", stringField(128).sqlColumnType());\n        assertEquals(\"VARCHAR(255)\", stringField(null).sqlColumnType());\n    }\n}\n```",
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate1Test {\n\n    private static FieldSpec string(Integer length) {\n        return new FieldSpec(\"projectName\", \"project_name\", FieldType.STRING,\n                length, null, null, true, \"name\", FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeUsesGivenLengthOrDefault() {\n        assertEquals(\"VARCHAR(128)\", string(128).sqlColumnType());\n        assertEquals(\"VARCHAR(255)\", string(null).sqlColumnType());\n    }\n}\n```",
       "tokens": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 6781,
+        "cache_creation_input_tokens": 6760,
         "cache_read_input_tokens": 0,
-        "output_tokens": 407,
-        "thinking_tokens": 135
+        "output_tokens": 490,
+        "thinking_tokens": 226
       },
       "reused": false,
       "screen": null,
@@ -523,13 +523,13 @@
     {
       "test_class": "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test",
       "attempt": 1,
-      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass FieldSpecMutaGate2Test {\n\n    private static FieldSpec decimal(Integer precision, Integer scale) {\n        return new FieldSpec(\"amount\", \"amount\", FieldType.DECIMAL, null, precision, scale,\n                true, \"\u91d1\u989d\", FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeUsesGivenPrecisionOrDefault() {\n        assertEquals(\"DECIMAL(10,3)\", decimal(10, 3).sqlColumnType());\n        assertEquals(\"DECIMAL(18,3)\", decimal(null, 3).sqlColumnType());\n        assertEquals(\"DECIMAL(10,2)\", decimal(10, null).sqlColumnType());\n        assertEquals(\"DECIMAL(18,2)\", decimal(null, null).sqlColumnType());\n    }\n}\n```",
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate2Test {\n\n    private static FieldSpec decimal(Integer precision, Integer scale) {\n        return new FieldSpec(\"amount\", \"amount\", FieldType.DECIMAL, null, precision, scale,\n                true, \"\u91d1\u989d\", FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeUsesPrecisionWhenGivenAndDefaultWhenNull() {\n        // precision null -> default 18\n        assertEquals(\"DECIMAL(18,2)\", decimal(null, null).sqlColumnType());\n        // precision given -> used as is\n        assertEquals(\"DECIMAL(10,2)\", decimal(10, null).sqlColumnType());\n        assertEquals(\"DECIMAL(10,4)\", decimal(10, 4).sqlColumnType());\n        // precision null, scale given\n        assertEquals(\"DECIMAL(18,5)\", decimal(null, 5).sqlColumnType());\n    }\n}\n```",
       "tokens": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 6741,
-        "cache_read_input_tokens": 0,
-        "output_tokens": 549,
-        "thinking_tokens": 184
+        "cache_creation_input_tokens": 995,
+        "cache_read_input_tokens": 5724,
+        "output_tokens": 647,
+        "thinking_tokens": 241
       },
       "reused": false,
       "screen": null,
@@ -538,13 +538,13 @@
     {
       "test_class": "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test",
       "attempt": 1,
-      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate3Test {\n\n    private static FieldSpec decimal(Integer precision, Integer scale) {\n        return new FieldSpec(\"amount\", \"amount\", FieldType.DECIMAL, null, precision, scale,\n                true, \"\u91d1\u989d\", FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeUsesExplicitScaleAndDefaultsWhenNull() {\n        assertEquals(\"DECIMAL(10,4)\", decimal(10, 4).sqlColumnType());\n        assertEquals(\"DECIMAL(10,0)\", decimal(10, 0).sqlColumnType());\n        assertEquals(\"DECIMAL(10,2)\", decimal(10, null).sqlColumnType());\n        assertEquals(\"DECIMAL(18,2)\", decimal(null, null).sqlColumnType());\n    }\n}\n```",
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass FieldSpecMutaGate3Test {\n\n    private static FieldSpec decimal(Integer precision, Integer scale) {\n        return new FieldSpec(\"amount\", \"amount\", FieldType.DECIMAL, null, precision, scale,\n                true, \"\u91d1\u989d\", FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeUsesGivenScaleAndDefaultsWhenNull() {\n        assertEquals(\"DECIMAL(10,5)\", decimal(10, 5).sqlColumnType());\n        assertEquals(\"DECIMAL(10,2)\", decimal(10, null).sqlColumnType());\n        assertEquals(\"DECIMAL(18,3)\", decimal(null, 3).sqlColumnType());\n        assertEquals(\"DECIMAL(18,2)\", decimal(null, null).sqlColumnType());\n    }\n}\n```",
       "tokens": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 6717,
-        "cache_read_input_tokens": 0,
-        "output_tokens": 619,
-        "thinking_tokens": 248
+        "cache_creation_input_tokens": 973,
+        "cache_read_input_tokens": 5724,
+        "output_tokens": 533,
+        "thinking_tokens": 163
       },
       "reused": false,
       "screen": null,
@@ -553,12 +553,12 @@
     {
       "test_class": "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test",
       "attempt": 1,
-      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate4Test {\n\n    @Test\n    void sqlColumnTypeForStringUsesLengthOrDefault() {\n        FieldSpec withLength = new FieldSpec(\"name\", \"name\", FieldType.STRING, 128, null, null,\n                true, \"c\", FieldSpec.QueryMode.NONE, false);\n        FieldSpec withoutLength = new FieldSpec(\"name\", \"name\", FieldType.STRING, null, null, null,\n                true, \"c\", FieldSpec.QueryMode.NONE, false);\n\n        assertEquals(\"VARCHAR(128)\", withLength.sqlColumnType());\n        assertEquals(\"VARCHAR(255)\", withoutLength.sqlColumnType());\n    }\n}\n```",
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate4Test {\n\n    @Test\n    void sqlColumnTypeForStringUsesLengthOrDefault() {\n        FieldSpec withLength = new FieldSpec(\"projectName\", \"project_name\", FieldType.STRING,\n                128, null, null, false, \"name\", FieldSpec.QueryMode.NONE, false);\n        FieldSpec withoutLength = new FieldSpec(\"projectName\", \"project_name\", FieldType.STRING,\n                null, null, null, false, \"name\", FieldSpec.QueryMode.NONE, false);\n\n        assertEquals(\"VARCHAR(128)\", withLength.sqlColumnType());\n        assertEquals(\"VARCHAR(255)\", withoutLength.sqlColumnType());\n    }\n}\n```",
       "tokens": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 6815,
-        "cache_read_input_tokens": 0,
-        "output_tokens": 319,
+        "cache_creation_input_tokens": 1072,
+        "cache_read_input_tokens": 5724,
+        "output_tokens": 326,
         "thinking_tokens": 0
       },
       "reused": false,
@@ -568,12 +568,12 @@
     {
       "test_class": "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test",
       "attempt": 1,
-      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass FieldSpecMutaGate5Test {\n\n    @Test\n    void sqlColumnTypeForPlainTypesReturnsBareSqlType() {\n        FieldSpec intField = new FieldSpec(\"age\", \"age\", FieldType.INT, null, null, null,\n                true, \"age\", FieldSpec.QueryMode.NONE, false);\n        FieldSpec dateTimeField = new FieldSpec(\"createdAt\", \"created_at\", FieldType.DATETIME,\n                null, null, null, true, \"created\", FieldSpec.QueryMode.NONE, false);\n\n        assertEquals(\"INT\", intField.sqlColumnType());\n        assertEquals(\"DATETIME\", dateTimeField.sqlColumnType());\n    }\n}\n```",
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate5Test {\n\n    @Test\n    void sqlColumnTypeForTypesWithoutLengthOrPrecisionIsPlainSqlType() {\n        FieldSpec intSpec = new FieldSpec(\"count\", \"count\", FieldType.INT, null, null, null,\n                true, \"\u6570\u91cf\", FieldSpec.QueryMode.NONE, false);\n        FieldSpec dateTimeSpec = new FieldSpec(\"createdAt\", \"created_at\", FieldType.DATETIME,\n                null, null, null, true, \"\u65f6\u95f4\", FieldSpec.QueryMode.NONE, false);\n\n        assertEquals(\"INT\", intSpec.sqlColumnType());\n        assertEquals(\"DATETIME\", dateTimeSpec.sqlColumnType());\n    }\n}\n```",
       "tokens": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 6731,
-        "cache_read_input_tokens": 0,
-        "output_tokens": 316,
+        "cache_creation_input_tokens": 987,
+        "cache_read_input_tokens": 5724,
+        "output_tokens": 336,
         "thinking_tokens": 0
       },
       "reused": false,

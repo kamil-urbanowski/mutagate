@@ -1,50 +1,52 @@
 package io.github.describeadmin.codegen;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CodegenCliMutaGate17Test {
 
-    @TempDir
-    Path tempDir;
+    private static final class Result {
+        final int code;
+        final String text;
 
-    private static String capture(String[] args, int[] codeHolder, int idx) throws Exception {
+        Result(int code, String text) {
+            this.code = code;
+            this.text = text;
+        }
+    }
+
+    private static Result invoke(String... args) throws Exception {
         ByteArrayOutputStream buf = new ByteArrayOutputStream();
         PrintStream ps = new PrintStream(buf, true, StandardCharsets.UTF_8);
-        codeHolder[idx] = CodegenCli.run(args, ps);
+        int code = CodegenCli.run(args, ps);
         ps.flush();
-        return buf.toString(StandardCharsets.UTF_8);
+        return new Result(code, buf.toString(StandardCharsets.UTF_8));
     }
 
     @Test
-    void helpAndEmptyArgsHandledBeforeSpecLoading() throws Exception {
-        int[] codes = new int[4];
+    void helpAndEmptyArgsHandledBeforeSpecLookup() throws Exception {
+        Result empty = invoke();
+        assertEquals(1, empty.code);
+        assertTrue(empty.text.contains("用法:"));
 
-        String noArgs = capture(new String[0], codes, 0);
-        String shortHelp = capture(new String[] {"-h"}, codes, 1);
-        String longHelp = capture(new String[] {"--help"}, codes, 2);
-        String missing = capture(new String[] {tempDir.resolve("missing.yaml").toString()}, codes, 3);
+        Result shortHelp = invoke("-h");
+        assertEquals(0, shortHelp.code);
+        assertTrue(shortHelp.text.contains("用法:"));
 
-        assertEquals(1, codes[0]);
-        assertTrue(noArgs.contains("用法:"));
+        Result longHelp = invoke("--help");
+        assertEquals(0, longHelp.code);
+        assertTrue(longHelp.text.contains("用法:"));
 
-        assertEquals(0, codes[1]);
-        assertTrue(shortHelp.contains("用法:"));
-
-        assertEquals(0, codes[2]);
-        assertTrue(longHelp.contains("用法:"));
-
-        assertEquals(1, codes[3]);
-        assertTrue(missing.contains("Spec 文件不存在"));
-        assertFalse(missing.contains("用法:"));
+        Result missing = invoke("definitely-not-existing-spec-file-17.yaml");
+        assertEquals(1, missing.code);
+        assertTrue(missing.text.contains("Spec 文件不存在"));
+        assertFalse(missing.text.contains("用法:"));
     }
 }

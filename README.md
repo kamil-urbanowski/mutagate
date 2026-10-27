@@ -33,16 +33,22 @@ what targeting adds, is built but not yet measured.
 
 ## Results
 
-First measured run: every selected class of
+Every selected class of
 [codegen](https://github.com/describeadmin/codegen) at `7697931`, with Claude
 Sonnet 5.5 at medium effort through Claude Code. One repository so far; the
 rest of the corpus follows.
 
 | Measure | Result |
 |---|---|
-| Mutation score, whole module | 60.4% → 96.1% (139 → 221 of 230 mutants) |
+| Mutation score, whole module | 60.4% → 96.5% (139 → 222 of 230 mutants) |
 | Tests kept | 80 of 91 generated (88%) |
-| Attempts per kept test | 1.20 |
+| Attempts per kept test | 1.25 |
+
+Each request sends what every request about the class shares (the rules, the
+class, its collaborators, its tests) as the system prompt, so later requests
+read it from Claude's prompt cache. Against a first run without caching, which
+kept the same 80 of 91 and reached 96.1%, input written to the cache fell 71%,
+from 1,040,192 to 300,605 tokens, with 762,851 read from it instead.
 
 Measured on Java 21, Maven 3.9.16, and PIT 1.30.0. Every run's details,
 including each model reply and every kept test, are in [`results/`](results/).
@@ -111,7 +117,7 @@ committed runs and prints it, with one line per class.
 
 Requests count against your Claude plan's usage limits: one per missed mutant,
 plus one retry when its test fails the gate's first two checks. The committed
-codegen run covered all 10 classes, 91 missed mutants, in 96 requests;
+codegen run covered all 10 classes, 91 missed mutants, in 100 requests;
 `mutagate summarize codegen` lists the class names. Every reply is saved in
 `.mutagate/replies/`, so if a run stops partway, at a usage limit for example,
 running the same command again sends only the requests not yet answered.

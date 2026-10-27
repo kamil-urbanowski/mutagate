@@ -8,10 +8,10 @@ class FieldSpecMutaGate4Test {
 
     @Test
     void sqlColumnTypeForStringUsesLengthOrDefault() {
-        FieldSpec withLength = new FieldSpec("name", "name", FieldType.STRING, 128, null, null,
-                true, "c", FieldSpec.QueryMode.NONE, false);
-        FieldSpec withoutLength = new FieldSpec("name", "name", FieldType.STRING, null, null, null,
-                true, "c", FieldSpec.QueryMode.NONE, false);
+        FieldSpec withLength = new FieldSpec("projectName", "project_name", FieldType.STRING,
+                128, null, null, false, "name", FieldSpec.QueryMode.NONE, false);
+        FieldSpec withoutLength = new FieldSpec("projectName", "project_name", FieldType.STRING,
+                null, null, null, false, "name", FieldSpec.QueryMode.NONE, false);
 
         assertEquals("VARCHAR(128)", withLength.sqlColumnType());
         assertEquals("VARCHAR(255)", withoutLength.sqlColumnType());

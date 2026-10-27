@@ -4,17 +4,17 @@
   "kind": "TARGETED",
   "setup": {
     "repo_commit": "7697931d89755fe35b6cd149d774babd85af9bd5",
-    "date": "2026-10-19",
+    "date": "2026-10-27",
     "java": "21.0.12.1",
     "maven": "3.9.16",
     "pitest_maven": "1.30.0",
     "pitest_junit5_plugin": "1.2.3",
-    "mutagate_commit": "14080bbb70481ed55cb5f5b1d26eb80eb9360491",
+    "mutagate_commit": "7ace97ecf4d0748ec3cfe5f795e099d49ae8da4b",
     "provider": "claude-code",
-    "provider_version": "2.1.301",
+    "provider_version": "2.1.311",
     "model": "claude-sonnet-5-5",
     "effort": "medium",
-    "system_prompt": "You write JUnit 5 tests for existing Java code."
+    "system_prompt": "the shared part of each request"
   },
   "score_before": 0.5,
   "score_after": 1.0,
@@ -27,7 +27,7 @@
   "attempts_per_kept_test": 1.0,
   "tokens": {
     "input_tokens": 2,
-    "cache_creation_input_tokens": 6206,
+    "cache_creation_input_tokens": 6186,
     "cache_read_input_tokens": 0,
     "output_tokens": 153,
     "thinking_tokens": 0
@@ -81,12 +81,12 @@
       "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass LayoutMutaGate1Test {\n\n    @Test\n    void keyReturnsLowercaseName() {\n        assertEquals(\"nested\", Layout.NESTED.key());\n        assertEquals(\"flat\", Layout.FLAT.key());\n    }\n}\n```",
       "tokens": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 6206,
+        "cache_creation_input_tokens": 6186,
         "cache_read_input_tokens": 0,
         "output_tokens": 153,
         "thinking_tokens": 0
       },
-      "reused": true,
+      "reused": false,
       "screen": null,
       "detail": ""
     }

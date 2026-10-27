@@ -1,38 +1,38 @@
 package io.github.describeadmin.codegen.parser;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import org.junit.jupiter.api.Test;
+
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.List;
-import java.util.Map;
-
-import org.junit.jupiter.api.Test;
-
 class SpecLoaderMutaGate4Test {
 
-    private static Map<String, Object> spec(String entity) {
-        return Map.of(
-                "basePackage", "com.example.demo",
-                "module", "project",
-                "entity", entity,
-                "table", "biz_project",
-                "layout", "nested",
-                "fields", List.of(Map.of("name", "projectName", "type", "string")));
-    }
-
     @Test
-    void entitySuffixIsRejectedAndPlainEntityIsAccepted() {
-        // A plain entity name must parse without error.
-        assertDoesNotThrow(() -> SpecLoader.parse(spec("Project"), "t.yaml", null));
+    void entityWithEntitySuffixIsRejectedWithSuffixMessage() {
+        Map<String, Object> field = new LinkedHashMap<>();
+        field.put("name", "projectName");
+        field.put("type", "string");
 
-        // An entity name ending in "Entity" is valid UpperCamel, so only the suffix check can reject it.
+        Map<String, Object> root = new LinkedHashMap<>();
+        root.put("basePackage", "com.example.demo");
+        root.put("module", "project");
+        root.put("entity", "ProjectEntity");
+        root.put("table", "biz_project");
+        root.put("fields", List.of(field));
+
         SpecException ex = assertThrows(SpecException.class,
-                () -> SpecLoader.parse(spec("ProjectEntity"), "t.yaml", null));
-        List<String> errors = ex.errors();
-        assertTrue(errors.stream().anyMatch(e -> e.contains("不要带 Entity 后缀")),
-                "expected suffix error but got: " + errors);
-        assertEquals(1, errors.stream().filter(e -> e.contains("entity \"ProjectEntity\"")).count());
+                () -> SpecLoader.parse(root, "test.yaml", "nested"));
+
+        List<String> suffixErrors = ex.errors().stream()
+                .filter(e -> e.contains("不要带 Entity 后缀"))
+                .toList();
+        assertEquals(1, suffixErrors.size());
+        assertTrue(suffixErrors.get(0).contains("ProjectEntity"));
+        assertTrue(suffixErrors.get(0).startsWith("test.yaml: "));
     }
 }
