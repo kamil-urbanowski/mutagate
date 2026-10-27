@@ -225,18 +225,38 @@ def test_code_with_backticks_gets_a_longer_fence():
 
 
 def test_bad_requests_raise():
-    with pytest.raises(NotImplementedError):
-        generate.build_prompt(_control(), NAME)
     with pytest.raises(ValueError, match="undetected"):
         generate.build_prompt(context(target(Status.KILLED)), NAME)
     with pytest.raises(ValueError, match="package"):
         generate.build_prompt(context(), "other.ShopMutaGate1Test")
+    with pytest.raises(ValueError, match="package"):
+        generate.build_prompt(control(), "other.ShopMutaGate1Test")
+    with pytest.raises(ValueError, match="names a method"):
+        generate.build_prompt(control(method=None), NAME)
 
 
-def _control():
+METHOD = "public long total(long a, long b) {\n    return a + b;\n}"
+
+
+def control(method=METHOD):
     ctx = context()
-    ctx.mutant, ctx.method_source = None, None
+    ctx.mutant, ctx.method_source = None, method
     return ctx
+
+
+def test_control_request_differs_only_in_its_task():
+    targeted = generate.build_prompt(context(), NAME)
+    shared = targeted[: targeted.index("## Your task")]
+    prompt = generate.build_prompt(control(), NAME)
+    assert prompt == shared + (
+        "## Your task\n\n"
+        "Write a test for this method of Shop:\n\n"
+        f"```java\n{METHOD}\n```\n\n"
+        "Test behavior of this method that the existing tests above do not already\n"
+        "check. The test must pass against the code as it is now.\n\n"
+        "Package: pkg\nClass name: ShopMutaGate1Test"
+    )
+    assert "PIT" not in prompt  # nothing from PIT: no excerpt, line, or change
 
 
 # --------------------------------------------------------------------------
@@ -251,6 +271,13 @@ def test_generate_wraps_the_reply_as_a_candidate():
         NAME, Path("src/test/java/pkg/ShopMutaGate1Test.java"), TEST, target(), 1
     )
     assert provider.prompts == [generate.build_prompt(context(), NAME)]
+
+
+def test_control_candidate_has_no_target():
+    candidate = generate.generate_test(control(), FakeProvider(reply()), NAME)
+    assert candidate == Candidate(
+        NAME, Path("src/test/java/pkg/ShopMutaGate1Test.java"), TEST, None, 1
+    )
 
 
 def test_unusable_reply_gives_a_candidate_without_source():
@@ -287,6 +314,20 @@ def test_repair_shows_the_failed_test_and_the_error():
     assert "new Shop().sum(2, 3)" in prompt
     assert "It did not compile." in prompt
     assert "cannot find symbol: method sum" in prompt
+
+
+def test_control_repair_follows_the_control_request():
+    failed = Candidate(NAME, Path("src/test/java/pkg/ShopMutaGate1Test.java"), TEST, None)
+    failure = GateResult(failed, Verdict.FAILED_ON_UNMODIFIED_CODE, "expected: <5> but was: <6>")
+    provider = FakeProvider(reply())
+    repaired = generate.repair(control(), provider, failed, failure)
+
+    assert repaired == Candidate(NAME, failed.path, TEST, None, 2)
+    (prompt,) = provider.prompts
+    assert prompt.startswith(
+        generate.build_prompt(control(), NAME) + "\n\n## Your previous attempt"
+    )
+    assert "It failed against the code as it is now." in prompt
 
 
 def test_repair_after_no_usable_test_repeats_the_rules():

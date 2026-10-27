@@ -35,6 +35,17 @@ class Verdict(str, Enum):
     BATCH_FAILED = "BATCH_FAILED"  # the verification run itself failed
 
 
+# The screen's rejections: only these can be followed by the repair attempt.
+SCREEN_VERDICTS = frozenset(
+    {
+        Verdict.NO_USABLE_TEST,
+        Verdict.DID_NOT_COMPILE,
+        Verdict.FAILED_ON_UNMODIFIED_CODE,
+        Verdict.NONDETERMINISTIC,
+    }
+)
+
+
 @dataclass
 class Candidate:
     """One generated test: a complete test file holding exactly one test method.

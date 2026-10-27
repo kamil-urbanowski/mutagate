@@ -73,12 +73,14 @@ def baseline(repo: Path) -> None:
 )
 def run(repo: Path, target: str, control: bool, provider: str) -> None:
     """Generate tests for one class's undetected mutants and keep the ones that
-    pass the gate."""
-    if control:
-        raise click.ClickException("control runs are not built yet (build order step 5)")
+    pass the gate.
+
+    With --control, an untargeted control run instead: as many requests, each
+    naming one of the class's methods rather than a mutant.
+    """
     replies = SavedReplies(load(provider), REPLIES_DIR / repo.resolve().name)
     try:
-        metrics = run_targeted(repo, target, replies)
+        metrics = (run_control if control else run_targeted)(repo, target, replies)
     except FileNotFoundError as e:
         raise click.ClickException(f"{e}: record the repo in corpus/ before any run") from e
     except pit.PitError as e:
@@ -112,7 +114,8 @@ def run(repo: Path, target: str, control: bool, provider: str) -> None:
 @main.command()
 @click.argument("repo_name")
 def summarize(repo_name: str) -> None:
-    """Compute the whole-module headline scores from every saved run."""
+    """Compute the whole-module headline scores from every saved run, and
+    compare targeted and control runs."""
     baseline = report.read_baseline(repo_name)
     selected = mutants.select_classes(baseline, report.read_exclusions(repo_name))
     runs = report.read_runs(repo_name)
@@ -140,6 +143,18 @@ def summarize(repo_name: str) -> None:
             f"{f'{per_kept:.2f}' if per_kept else 'none kept'}; "
             f"kept after a repair: {s['kept_after_repair']}"
         )
+        split = ", ".join(
+            f"{status} {n['newly_detected']} of {n['undetected']}"
+            for status, n in s["newly_detected_by_status"].items()
+        )
+        click.echo(f"  Newly detected, by baseline status: {split}")
+        g = {stage: f"{n['count']} ({n['share']:.1%})" for stage, n in s["gate"].items()}
+        click.echo(
+            f"  Rejected by the gate: {g['rejected_at_screen']} at the screen, "
+            f"{g['rejected_at_verification']} at verification, "
+            f"{g['batch_failed']} in failed verification runs"
+        )
+        click.echo(f"  Redundant kept tests: {s['redundant_kept']}")
         for c in s["classes"]:
             click.echo(
                 f"  {c['class']}: kept {c['kept']} of {c['candidates']}, "
@@ -147,6 +162,32 @@ def summarize(repo_name: str) -> None:
             )
         if len(s["settings"]) > 1:
             click.echo(f"  Warning: runs used different settings: {s['settings']}")
+
+    comparison = summary.get("comparison")
+    if comparison is None:
+        return
+    click.echo(
+        f"Targeted against control, over the {len(comparison['classes'])} classes run both ways:"
+    )
+    for kind in report.RunKind:
+        side = comparison[kind.value.lower()]
+        per_kept = side["attempts_per_kept_test"]
+        click.echo(
+            f"  {kind.value.capitalize()}: module score after {side['score_after']:.1%}; "
+            f"kept {side['kept']} of {side['candidates']}; attempts per kept test: "
+            f"{f'{per_kept:.2f}' if per_kept else 'none kept'}"
+        )
+    n = comparison["newly_detected"]
+    click.echo(
+        f"  Mutants newly detected by targeted only: {n['targeted_only']}, "
+        f"by control only: {n['control_only']}, by both: {n['both']}"
+    )
+    targeted, control = summary["targeted"]["settings"], summary["control"]["settings"]
+    if targeted != control:
+        click.echo(
+            "  Warning: targeted and control runs used different settings: "
+            f"targeted {targeted}, control {control}"
+        )
 
 
 def run_targeted(
@@ -157,6 +198,22 @@ def run_targeted(
     Every request goes through `provider`; its exchanges become the run's
     requests. Nothing is written to `results/`: the caller saves the run.
     """
+    return _run(repo, class_name, provider, corpus, report.RunKind.TARGETED)
+
+
+def run_control(
+    repo: Path, class_name: str, provider: SavedReplies, corpus: Path = report.CORPUS_DIR
+) -> report.RunMetrics:
+    """One untargeted control run of one class: as many requests as it has
+    targets, so both run kinds get the same budget, each naming one of its
+    methods and nothing from PIT. Otherwise the same as `run_targeted`."""
+    return _run(repo, class_name, provider, corpus, report.RunKind.CONTROL)
+
+
+def _run(
+    repo: Path, class_name: str, provider: SavedReplies, corpus: Path, kind: report.RunKind
+) -> report.RunMetrics:
+    """What both run kinds share; only their requests differ (`_requests`)."""
     name = repo.resolve().name
     baseline = report.read_baseline(name, corpus)
     excluded = report.read_exclusions(name, corpus)
@@ -175,15 +232,14 @@ def run_targeted(
         click.echo(
             "Warning: MutaGate's code has uncommitted changes; this run has no exact commit."
         )
-    click.echo(
-        f"{class_name}: {len(targets)} targets, provider {provider.name} {provider.settings}"
-    )
+    what = "targets" if kind is report.RunKind.TARGETED else "control requests"
+    click.echo(f"{class_name}: {len(targets)} {what}, provider {provider.name} {provider.settings}")
 
     workspace = pit.make_workspace(repo)
     try:
         sources = pit.read_sources(workspace)  # before any candidate is added
-        contexts = [context.build_context(sources, class_name, t) for t in targets]
-        names = [generate.test_class_name(class_name, i) for i in range(1, len(targets) + 1)]
+        contexts, labels = _requests(kind, sources, class_name, targets)
+        names = [generate.test_class_name(class_name, i) for i in range(1, len(contexts) + 1)]
         for ctx, test_class in zip(contexts, names):
             path = ctx.test_dir / f"{test_class.rpartition('.')[2]}.java"
             if path in sources:
@@ -198,7 +254,7 @@ def run_targeted(
 
         screened: list[tuple[Candidate, GateResult | None]] = []
         requests: list[report.Request] = []
-        for i, (ctx, test_class) in enumerate(zip(contexts, names), start=1):
+        for i, (ctx, label, test_class) in enumerate(zip(contexts, labels, names), start=1):
             sent = len(provider.exchanges)
             first = generate.generate_test(ctx, provider, test_class)
             candidate, result, failure = screen_with_repair(workspace, first, ctx, provider)
@@ -220,7 +276,7 @@ def run_targeted(
             screened.append((candidate, result))
             outcome = result.verdict.value if result else "passed the screen"
             repaired = ", after a repair" if candidate.attempts == 2 else ""
-            click.echo(f"  [{i}/{len(targets)}] line {ctx.mutant.line}: {outcome}{repaired}")
+            click.echo(f"  [{i}/{len(contexts)}] {label}: {outcome}{repaired}")
 
         batch = [c for c, r in screened if r is None]
         verification: list[Mutant] = []
@@ -243,7 +299,7 @@ def run_targeted(
     return report.RunMetrics(
         repo=name,
         target_class=class_name,
-        kind=report.RunKind.TARGETED,
+        kind=kind,
         setup=setup,
         mutants_total=len(mutants.for_class(baseline, class_name)),
         undetected_before=len(targets),
@@ -251,6 +307,24 @@ def run_targeted(
         ledger=ledger,
         requests=requests,
     )
+
+
+def _requests(
+    kind: report.RunKind, sources: dict[Path, str], class_name: str, targets: list[Mutant]
+) -> tuple[list[MutantContext], list[str]]:
+    """Each request's context, and how its progress line names it.
+
+    A control run makes as many requests as the class has targets. Request i
+    (from 1) names method (i - 1) mod n: longest first, repeating when there
+    are more requests than methods.
+    """
+    if kind is report.RunKind.TARGETED:
+        contexts = [context.build_context(sources, class_name, t) for t in targets]
+        return contexts, [f"line {t.line}" for t in targets]
+    methods = context.control_methods(context.class_source(sources, class_name))
+    named = [methods[i % len(methods)] for i in range(len(targets))]
+    contexts = [context.build_context(sources, class_name, method=m) for m in named]
+    return contexts, [context.declaration_line(m) for m in named]
 
 
 def screen_with_repair(

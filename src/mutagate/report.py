@@ -10,8 +10,8 @@ from dataclasses import asdict, dataclass, field
 from enum import Enum
 from pathlib import Path
 
-from .gate import Candidate, GateResult, Verdict
-from .mutants import Mutant, Status, is_detected
+from .gate import SCREEN_VERDICTS, Candidate, GateResult, Verdict
+from .mutants import Mutant, Status, is_detected, select_targets
 
 CORPUS_DIR = Path("corpus")
 RESULTS_DIR = Path("results")
@@ -139,6 +139,92 @@ def by_target_status(runs: list[RunMetrics]) -> dict[Status, tuple[int, int]]:
     return counts
 
 
+def newly_detected_by_status(
+    baseline: list[Mutant], runs: list[RunMetrics]
+) -> dict[Status, tuple[int, int]]:
+    """For runs of one kind, per baseline status, SURVIVED apart from
+    NO_COVERAGE: the runs' classes' undetected mutants, and how many of them
+    kept tests killed. Per run, those killed total its `newly_detected`."""
+    counts: dict[Status, tuple[int, int]] = {}
+    for run in runs:
+        newly = _newly_detected(baseline, run)
+        for m in select_targets(baseline, run.target_class):
+            undetected, detected = counts.get(m.status, (0, 0))
+            counts[m.status] = (undetected + 1, detected + (m in newly))
+    return counts
+
+
+def gate_rejections(runs: list[RunMetrics]) -> dict[str, int]:
+    """The gate's value: candidates rejected at the screen, and those that passed
+    it but were rejected at verification. A failed verification run judged no
+    test, so its candidates are counted on their own."""
+    counts = verdict_counts(runs)
+    return {
+        "rejected_at_screen": sum(n for v, n in counts.items() if v in SCREEN_VERDICTS),
+        "rejected_at_verification": (
+            counts.get(Verdict.MISSED_TARGET, 0) + counts.get(Verdict.NO_NEW_KILL, 0)
+        ),
+        "batch_failed": counts.get(Verdict.BATCH_FAILED, 0),
+    }
+
+
+def redundant_kept(baseline: list[Mutant], runs: list[RunMetrics]) -> int:
+    """Kept tests that killed no undetected mutant an earlier kept test in the
+    same class run had not already killed. In a control run that names a
+    method again, these are duplicates; in a targeted run, tests whose target
+    an earlier kept test had already killed. Reporting only; no verdict changes."""
+    redundant = 0
+    for run in runs:
+        undetected = set(select_targets(baseline, run.target_class))
+        killed: set[Mutant] = set()
+        for r in run.ledger:
+            if r.kept:
+                new = {m for m in r.mutants_killed if m in undetected}
+                redundant += new <= killed
+                killed |= new
+    return redundant
+
+
+def compare(baseline: list[Mutant], runs: list[RunMetrics]) -> dict | None:
+    """Targeted against control over the classes with a run of each kind, as
+    saved in the summary; None when no class has both.
+
+    Each side's after-score adds only its newly detected mutants in those
+    classes, so it equals the kind's headline once every class has both runs.
+    """
+    by_kind = {kind: {r.target_class: r for r in runs if r.kind is kind} for kind in RunKind}
+    classes = sorted(by_kind[RunKind.TARGETED].keys() & by_kind[RunKind.CONTROL].keys())
+    if not classes:
+        return None
+    detected = sum(is_detected(m) for m in baseline)
+    comparison: dict = {"classes": classes}
+    newly: dict[RunKind, set[Mutant]] = {}
+    for kind in RunKind:
+        paired = [by_kind[kind][c] for c in classes]
+        newly[kind] = {m for r in paired for m in _newly_detected(baseline, r)}
+        kept = sum(r.kept for r in paired)
+        attempts = sum(c.candidate.attempts for r in paired for c in r.ledger)
+        comparison[kind.value.lower()] = {
+            "score_after": (detected + sum(r.newly_detected for r in paired)) / len(baseline),
+            "candidates": sum(len(r.ledger) for r in paired),
+            "kept": kept,
+            "attempts_per_kept_test": attempts / kept if kept else None,
+        }
+    targeted, control = newly[RunKind.TARGETED], newly[RunKind.CONTROL]
+    comparison["newly_detected"] = {
+        "targeted_only": len(targeted - control),  # what targeting adds over the control
+        "control_only": len(control - targeted),
+        "both": len(targeted & control),
+    }
+    return comparison
+
+
+def _newly_detected(baseline: list[Mutant], run: RunMetrics) -> set[Mutant]:
+    """The class's undetected mutants that the run's kept tests killed."""
+    undetected = set(select_targets(baseline, run.target_class))
+    return {m for r in run.ledger if r.kept for m in r.mutants_killed if m in undetected}
+
+
 # --------------------------------------------------------------------------
 # corpus/
 # --------------------------------------------------------------------------
@@ -254,8 +340,9 @@ def write_summary(
     root: Path = RESULTS_DIR,
 ) -> tuple[Path, dict]:
     """Save the repository's headline scores for each run kind, and the derived
-    metrics. `selected` are the classes the selection rule picks; any without a
-    run are listed as not run. Returns the file's path and what it holds."""
+    metrics, with the comparison when a class has runs of both kinds.
+    `selected` are the classes the selection rule picks; any without a run are
+    listed as not run. Returns the file's path and what it holds."""
     detected = sum(is_detected(m) for m in baseline)
     summary = {
         "repo": repo,
@@ -273,16 +360,25 @@ def write_summary(
         tokens: Counter[str] = Counter()
         for run in of_kind:
             tokens.update(run.tokens)
-        summary[kind.value.lower()] = {
+        stats = {
             "score_before": before,
             "score_after": after,
             "detected_after": detected + sum(r.newly_detected for r in of_kind),
+            "newly_detected_by_status": {
+                s.value: {"undetected": u, "newly_detected": n}
+                for s, (u, n) in sorted(newly_detected_by_status(baseline, of_kind).items())
+            },
             "candidates": candidates,
             "kept": kept,
             "acceptance_rate": kept / candidates if candidates else None,
             "attempts_per_kept_test": attempts / kept if kept else None,
             "kept_after_repair": kept_after_repair(of_kind),
+            "redundant_kept": redundant_kept(baseline, of_kind),
             "verdicts": {v.value: n for v, n in sorted(verdict_counts(of_kind).items())},
+            "gate": {
+                stage: {"count": n, "share": n / candidates if candidates else None}
+                for stage, n in gate_rejections(of_kind).items()
+            },
             "by_target_status": {
                 s.value: {"candidates": c, "kept": k}
                 for s, (c, k) in sorted(by_target_status(of_kind).items())
@@ -308,6 +404,12 @@ def write_summary(
                 for r in of_kind
             ],
         }
+        if kind is RunKind.CONTROL:
+            del stats["by_target_status"]  # control candidates have no target
+        summary[kind.value.lower()] = stats
+    comparison = compare(baseline, runs)
+    if comparison is not None:
+        summary["comparison"] = comparison
     path = root / repo / "summary.json"
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
