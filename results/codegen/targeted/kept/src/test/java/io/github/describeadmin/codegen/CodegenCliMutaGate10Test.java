@@ -10,25 +10,41 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CodegenCliMutaGate10Test {
 
     @Test
-    void planReturnsAllEightFilesWithExpectedPaths() {
+    void planReturnsAllGeneratedFiles() {
         ModuleSpec spec = new ModuleSpec(
-                "com.example", "book", "Book", "book", "Book",
-                "/book", Layout.NESTED, "default", List.of());
-        Path out = Path.of("out");
-        Path fe = Path.of("fe");
+                "com.example.app",
+                "device",
+                "Device",
+                "device_info",
+                "设备",
+                "/device",
+                Layout.NESTED,
+                "default",
+                List.of());
 
-        Map<Path, String> files = CodegenCli.plan(spec, out, fe);
+        Path outDir = Path.of("out-dir");
+        Path frontendOut = Path.of("front-dir");
+
+        Map<Path, String> files = CodegenCli.plan(spec, outDir, frontendOut);
 
         assertFalse(files.isEmpty());
         assertEquals(8, files.size());
-        assertTrue(files.containsKey(out.resolve("src/main/resources/db").resolve("schema-book.sql")));
-        assertTrue(files.containsKey(out.resolve("src/main/resources/db").resolve("menu-book.sql")));
-        assertTrue(files.containsKey(fe.resolve("src/api").resolve("book.ts")));
-        assertTrue(files.containsKey(fe.resolve("src/views").resolve("book").resolve("index.vue")));
+
+        Path schema = outDir.resolve("src/main/resources/db/schema-device_info.sql");
+        Path menu = outDir.resolve("src/main/resources/db/menu-device_info.sql");
+        Path api = frontendOut.resolve("src/api/device.ts");
+        Path page = frontendOut.resolve("src/views/device/index.vue");
+
+        assertTrue(files.containsKey(schema));
+        assertTrue(files.containsKey(menu));
+        assertTrue(files.containsKey(api));
+        assertTrue(files.containsKey(page));
+        assertNotNull(files.get(schema));
     }
 }

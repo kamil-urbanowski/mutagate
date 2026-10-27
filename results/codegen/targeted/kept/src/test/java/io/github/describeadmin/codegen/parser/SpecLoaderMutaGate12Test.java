@@ -9,7 +9,6 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SpecLoaderMutaGate12Test {
 
@@ -31,14 +30,14 @@ class SpecLoaderMutaGate12Test {
 
     @Test
     void indexedVarcharBoundaryIs191Inclusive() {
-        // Exactly 191 is allowed: must not be rejected.
+        // Exactly at the limit (191) must be accepted.
         ModuleSpec ok = SpecLoader.parse(spec(191), "test.yaml", "nested");
         assertEquals(1, ok.fields().size());
         assertEquals(191, ok.fields().get(0).length());
 
-        // 192 is over the limit: must be rejected.
+        // One above the limit must be rejected.
         SpecException ex = assertThrows(SpecException.class,
                 () -> SpecLoader.parse(spec(192), "test.yaml", "nested"));
-        assertTrue(ex.getMessage().contains("767"));
+        assertEquals(1, ex.errors().size());
     }
 }

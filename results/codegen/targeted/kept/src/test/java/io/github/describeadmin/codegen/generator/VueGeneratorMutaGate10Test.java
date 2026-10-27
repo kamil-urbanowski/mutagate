@@ -1,42 +1,28 @@
 package io.github.describeadmin.codegen.generator;
 
-import io.github.describeadmin.codegen.model.FieldSpec;
 import io.github.describeadmin.codegen.model.ModuleSpec;
 import io.github.describeadmin.codegen.parser.SpecLoader;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Path;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class VueGeneratorMutaGate10Test {
 
-    private static final String PLACEHOLDER = "  // spec 中没有 query 字段，无查询条件";
-
     @Test
-    void searchModelPlaceholderOnlyWhenNoQueryFields() throws Exception {
-        ModuleSpec withQuery = SpecLoader.load(Path.of("examples/project.yaml"));
+    void searchModelIsRenderedWhenQueryFieldsExist() throws Exception {
+        ModuleSpec spec = SpecLoader.load(Path.of("examples/project.yaml"));
+        String page = VueGenerator.page(spec);
 
-        List<FieldSpec> noQueryFields = withQuery.fields().stream()
-                .map(f -> new FieldSpec(f.name(), f.column(), f.type(), f.length(),
-                        f.precision(), f.scale(), f.nullable(), f.comment(),
-                        FieldSpec.QueryMode.NONE, f.indexed()))
-                .toList();
-        ModuleSpec withoutQuery = new ModuleSpec(withQuery.basePackage(), withQuery.module(),
-                withQuery.entity(), withQuery.table(), withQuery.comment(),
-                withQuery.apiPrefix(), withQuery.layout(), withQuery.layoutOrigin(),
-                noQueryFields);
-
-        assertFalse(withQuery.queryFields().isEmpty());
-        assertTrue(withoutQuery.queryFields().isEmpty());
-
-        String pageWith = VueGenerator.page(withQuery);
-        assertFalse(pageWith.contains("无查询条件"));
-        assertTrue(pageWith.contains("  startDateStart: undefined as string | undefined,"));
-
-        String pageWithout = VueGenerator.page(withoutQuery);
-        assertTrue(pageWithout.contains("const search = reactive({\n" + PLACEHOLDER + "\n});"));
+        // The spec has a range query field (startDate): both bounds must appear in the reactive search model.
+        assertTrue(page.contains("  startDateStart: undefined as string | undefined,"),
+                "search model should contain the range start entry");
+        assertTrue(page.contains("  startDateEnd: undefined as string | undefined,"),
+                "search model should contain the range end entry");
+        // The placeholder comment is only for specs without query fields.
+        assertFalse(page.contains("无查询条件"),
+                "placeholder comment must not appear when query fields exist");
     }
 }

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 class FieldTypeMutaGate3Test {
 
     @Test
-    void keyAndAllKeysReturnYamlIdentifiers() {
+    void keyReturnsYamlIdentifierForEveryType() {
         assertEquals("string", FieldType.STRING.key());
         assertEquals("text", FieldType.TEXT.key());
         assertEquals("int", FieldType.INT.key());

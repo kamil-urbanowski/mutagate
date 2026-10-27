@@ -14,18 +14,19 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class CodegenCliMutaGate46Test {
 
     @Test
-    void missingSpecFileReturnsOne() throws Exception {
-        Path dir = Files.createTempDirectory("codegen-missing-spec");
-        Path spec = dir.resolve("does-not-exist.yaml");
+    void missingSpecFileReturnsOneAndReportsError() throws Exception {
+        Path dir = Files.createTempDirectory("codegen-cli-test");
+        Path missing = dir.resolve("does-not-exist.yaml");
 
         ByteArrayOutputStream buf = new ByteArrayOutputStream();
         PrintStream out = new PrintStream(buf, true, StandardCharsets.UTF_8);
 
-        int code = CodegenCli.run(new String[] {spec.toString()}, out);
+        int code = CodegenCli.run(new String[] {missing.toString()}, out);
 
-        assertEquals(1, code);
         String text = buf.toString(StandardCharsets.UTF_8);
-        assertTrue(text.contains("Spec 文件不存在"));
+        assertEquals(1, code);
+        assertTrue(text.contains("Spec 文件不存在"), text);
+
         Files.deleteIfExists(dir);
     }
 }

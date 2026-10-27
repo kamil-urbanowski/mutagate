@@ -12,14 +12,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class JavaGeneratorMutaGate2Test {
 
     @Test
-    void controllerWithQueryFieldsImportsWrapperTypes() throws Exception {
+    void controllerWithQueryFieldsImportsWrapperTypesAndMap() throws Exception {
         ModuleSpec spec = SpecLoader.load(Path.of("examples/project.yaml"));
-        assertFalse(spec.queryFields().isEmpty());
+        assertFalse(spec.queryFields().isEmpty(), "precondition: spec has query fields");
 
         String src = JavaGenerator.controller(spec);
 
         assertTrue(src.contains("import com.baomidou.mybatisplus.core.conditions.Wrapper;"));
         assertTrue(src.contains("import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;"));
         assertTrue(src.contains("import java.util.Map;"));
+        assertTrue(src.contains("buildListWrapper(Map<String, String> params)"));
     }
 }

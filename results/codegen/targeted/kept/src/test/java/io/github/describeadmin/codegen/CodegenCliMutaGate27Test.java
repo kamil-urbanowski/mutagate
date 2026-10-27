@@ -21,83 +21,85 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CodegenCliMutaGate27Test {
 
-    private static final String GUESSED_SPEC = """
-            basePackage: com.example
-            module: product
-            entity: Product
-            table: product
-            comment: 商品
-            apiPrefix: /api/product
-            fields:
-              - name: name
-                type: string
-                comment: 名称
-            """;
-
     @TempDir
     Path tmp;
 
+    private static String yaml(String pkgKey, String type, String apiPrefix) {
+        return pkgKey + ": com.example.demo\n"
+                + "module: user\n"
+                + "entity: User\n"
+                + "table: sys_user\n"
+                + "comment: 用户\n"
+                + "apiPrefix: " + apiPrefix + "\n"
+                + "fields:\n"
+                + "  - name: userName\n"
+                + "    type: " + type + "\n"
+                + "    comment: 用户名\n";
+    }
+
     private Path findLoadableSpec() throws Exception {
         List<Path> candidates = new ArrayList<>();
-        Path dir = Path.of("").toAbsolutePath();
-        while (dir != null) {
-            Path ex = dir.resolve("examples");
-            if (Files.isDirectory(ex)) {
-                try (Stream<Path> st = Files.list(ex)) {
-                    st.filter(p -> p.toString().endsWith(".yaml") || p.toString().endsWith(".yml"))
-                            .sorted().forEach(candidates::add);
+        int n = 0;
+        for (String pkgKey : new String[]{"basePackage", "package"}) {
+            for (String type : new String[]{"string", "String", "varchar"}) {
+                for (String api : new String[]{"/system/user", "/api/user"}) {
+                    Path p = tmp.resolve("cand" + (n++) + ".yaml");
+                    Files.writeString(p, yaml(pkgKey, type, api), StandardCharsets.UTF_8);
+                    candidates.add(p);
                 }
             }
-            dir = dir.getParent();
         }
-        Path guessed = tmp.resolve("guessed.yaml");
-        Files.writeString(guessed, GUESSED_SPEC, StandardCharsets.UTF_8);
-        candidates.add(guessed);
+        Path examples = Path.of("examples");
+        if (Files.isDirectory(examples)) {
+            try (Stream<Path> st = Files.list(examples)) {
+                st.filter(f -> f.toString().endsWith(".yaml") || f.toString().endsWith(".yml"))
+                        .sorted()
+                        .forEach(candidates::add);
+            }
+        }
         for (Path c : candidates) {
             try {
                 SpecLoader.load(c);
                 return c;
-            } catch (Exception | LinkageError e) {
-                // try next
+            } catch (Exception ignored) {
+                // try next candidate
             }
         }
         return null;
     }
 
     @Test
-    void dryRunMarksOverwriteOnlyForExistingFiles() throws Exception {
+    void dryRunWithForceMarksOnlyExistingFilesAsOverwrite() throws Exception {
         Path spec = findLoadableSpec();
         assertNotNull(spec, "no loadable spec found");
 
         Path outDir = tmp.resolve("out");
-        Path frontOut = outDir.resolve("frontend");
+        Files.createDirectories(outDir);
+
         ModuleSpec s = SpecLoader.load(spec);
-        Map<Path, String> planned = CodegenCli.plan(s, outDir, frontOut);
-
-        Path existing = planned.keySet().iterator().next();
+        Map<Path, String> plan = CodegenCli.plan(s, outDir, outDir.resolve("frontend"));
+        Path existing = plan.keySet().iterator().next();
         Files.createDirectories(existing.getParent());
-        Files.writeString(existing, "old", StandardCharsets.UTF_8);
+        Files.writeString(existing, "// hand-written", StandardCharsets.UTF_8);
 
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        PrintStream ps = new PrintStream(bos, true, StandardCharsets.UTF_8);
+        ByteArrayOutputStream buf = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(buf, true, StandardCharsets.UTF_8);
+
         int code = CodegenCli.run(new String[]{
                 spec.toString(), "--out", outDir.toString(), "--dry-run", "--force"}, ps);
         ps.flush();
-        assertEquals(0, code);
+        String output = buf.toString(StandardCharsets.UTF_8);
 
-        String text = bos.toString(StandardCharsets.UTF_8);
-        List<String> planLines = new ArrayList<>();
-        for (String line : text.split("\\R")) {
-            if (line.startsWith("  将写  ")) {
-                planLines.add(line);
-            }
-        }
-        assertEquals(planned.size(), planLines.size());
+        assertEquals(0, code, output);
 
-        List<String> overwrite = planLines.stream().filter(l -> l.endsWith("(覆盖)")).toList();
-        assertEquals(1, overwrite.size());
-        assertTrue(overwrite.get(0).contains(existing.getFileName().toString()));
-        // existing file untouched in dry-run
-        assertEquals("old", Files.readString(existing, StandardCharsets.UTF_8));
+        long overwriteMarks = output.lines().filter(l -> l.contains("(覆盖)")).count();
+        assertEquals(1, overwriteMarks, output);
+
+        String existingName = existing.getFileName().toString();
+        assertTrue(output.lines().anyMatch(l ->
+                l.startsWith("  将写  ") && l.contains(existingName) && l.endsWith("(覆盖)")), output);
+
+        // dry-run must not touch the existing file
+        assertEquals("// hand-written", Files.readString(existing, StandardCharsets.UTF_8));
     }
 }

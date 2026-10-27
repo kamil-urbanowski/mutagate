@@ -1,29 +1,47 @@
 package io.github.describeadmin.codegen.generator;
 
+import io.github.describeadmin.codegen.model.FieldSpec;
 import io.github.describeadmin.codegen.model.ModuleSpec;
 import io.github.describeadmin.codegen.parser.SpecLoader;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Path;
+import java.util.stream.Collectors;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class VueGeneratorMutaGate3Test {
 
     @Test
-    void formModelInitialValuesDependOnFieldType() throws Exception {
+    void formModelInitialValuesMatchFieldTypes() throws Exception {
         ModuleSpec spec = SpecLoader.load(Path.of("examples/project.yaml"));
         String page = VueGenerator.page(spec);
 
-        // STRING -> empty string literal
-        assertTrue(page.contains("projectName: '',"), page);
-        // LONG -> empty string literal
-        assertTrue(page.contains("ownerDeptId: '',"), page);
-        // DATE -> empty string literal
-        assertTrue(page.contains("startDate: '',"), page);
-        // DECIMAL -> undefined number
-        assertTrue(page.contains("budget: undefined as number | undefined,"), page);
-        // FLAG -> 1
-        assertTrue(page.contains("status: 1,"), page);
+        String startMarker = "const form = reactive({\n";
+        int start = page.indexOf(startMarker);
+        assertTrue(start >= 0, "form block should exist");
+        start += startMarker.length();
+        int end = page.indexOf("\n});", start);
+        assertTrue(end > start, "form block should end");
+        String actual = page.substring(start, end);
+
+        String expected = spec.fields().stream()
+                .map(f -> "  " + f.name() + ": " + expectedInitial(f) + ",")
+                .collect(Collectors.joining("\n"));
+
+        assertEquals(expected, actual);
+    }
+
+    private static String expectedInitial(FieldSpec f) {
+        switch (f.type()) {
+            case INT:
+            case DECIMAL:
+                return "undefined as number | undefined";
+            case FLAG:
+                return "1";
+            default:
+                return "''";
+        }
     }
 }

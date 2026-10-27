@@ -6,14 +6,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FieldSpecMutaGate1Test {
 
-    private static FieldSpec stringField(Integer length) {
-        return new FieldSpec("name", "name", FieldType.STRING, length, null, null,
-                true, "comment", FieldSpec.QueryMode.NONE, false);
+    private static FieldSpec string(Integer length) {
+        return new FieldSpec("projectName", "project_name", FieldType.STRING,
+                length, null, null, true, "name", FieldSpec.QueryMode.NONE, false);
     }
 
     @Test
-    void sqlColumnTypeUsesGivenLengthOrDefaultsTo255() {
-        assertEquals("VARCHAR(128)", stringField(128).sqlColumnType());
-        assertEquals("VARCHAR(255)", stringField(null).sqlColumnType());
+    void sqlColumnTypeUsesGivenLengthOrDefault() {
+        assertEquals("VARCHAR(128)", string(128).sqlColumnType());
+        assertEquals("VARCHAR(255)", string(null).sqlColumnType());
     }
 }

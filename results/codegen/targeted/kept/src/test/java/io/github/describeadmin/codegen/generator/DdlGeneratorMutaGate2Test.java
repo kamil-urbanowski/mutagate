@@ -5,6 +5,7 @@ import io.github.describeadmin.codegen.parser.SpecLoader;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Path;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -13,20 +14,19 @@ class DdlGeneratorMutaGate2Test {
     @Test
     void tableCommentSingleQuoteIsEscaped() throws Exception {
         ModuleSpec base = SpecLoader.load(Path.of("examples/project.yaml"));
-        ModuleSpec s = new ModuleSpec(
+        ModuleSpec spec = new ModuleSpec(
                 base.basePackage(),
                 base.module(),
                 base.entity(),
                 base.table(),
-                "it's a table",
+                "Bob's project",
                 base.apiPrefix(),
                 base.layout(),
                 base.layoutOrigin(),
-                base.fields());
+                List.of());
 
-        String ddl = DdlGenerator.generate(s);
+        String ddl = DdlGenerator.generate(spec);
 
-        assertTrue(ddl.contains("COMMENT='it''s a table';"), ddl);
-        assertTrue(ddl.contains("-- it's a table"), ddl);
+        assertTrue(ddl.contains("COMMENT='Bob''s project';"), ddl);
     }
 }

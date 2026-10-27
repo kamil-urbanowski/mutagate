@@ -1,13 +1,11 @@
 package io.github.describeadmin.codegen.parser;
 
-import io.github.describeadmin.codegen.model.ModuleSpec;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -30,17 +28,17 @@ class SpecLoaderMutaGate5Test {
     }
 
     @Test
-    void tableNameFormatIsValidatedExactlyWhenInvalid() {
-        // a valid snake_case table must not produce any error
-        ModuleSpec ok = assertDoesNotThrow(
-                () -> SpecLoader.parse(spec("biz_project"), "t.yaml", "nested"));
+    void tableNameMustBeLowerSnakeCase() {
+        // Valid table name: no error, parse succeeds (layout override avoids env dependence)
+        var ok = SpecLoader.parse(spec("biz_project"), "t.yaml", "nested");
         assertEquals("biz_project", ok.table());
 
-        // an invalid table name must be reported with the specific message
+        // Invalid table name: must be rejected with the snake-case message
         SpecException ex = assertThrows(SpecException.class,
                 () -> SpecLoader.parse(spec("BizProject"), "t.yaml", "nested"));
-        assertEquals(1, ex.errors().size());
-        assertTrue(ex.errors().get(0).contains(
-                "t.yaml: table \"BizProject\" 应为小写下划线形式，如 biz_project"));
+        assertTrue(ex.errors().stream()
+                        .anyMatch(e -> e.contains("table \"BizProject\" 应为小写下划线形式")),
+                "errors: " + ex.errors());
+        assertEquals(1, ex.errors().size(), "errors: " + ex.errors());
     }
 }

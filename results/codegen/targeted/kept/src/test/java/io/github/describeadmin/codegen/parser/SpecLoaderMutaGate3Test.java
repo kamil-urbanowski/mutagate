@@ -1,42 +1,45 @@
 package io.github.describeadmin.codegen.parser;
 
+import io.github.describeadmin.codegen.model.ModuleSpec;
+import org.junit.jupiter.api.Test;
+
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.junit.jupiter.api.Test;
-
 class SpecLoaderMutaGate3Test {
 
     private static Map<String, Object> spec(String entity) {
-        Map<String, Object> field = new HashMap<>();
+        Map<String, Object> field = new LinkedHashMap<>();
         field.put("name", "projectName");
         field.put("type", "string");
-        field.put("length", 64);
+        field.put("length", 128);
 
-        Map<String, Object> root = new HashMap<>();
+        Map<String, Object> root = new LinkedHashMap<>();
         root.put("basePackage", "com.example.demo");
         root.put("module", "project");
         root.put("entity", entity);
         root.put("table", "biz_project");
         root.put("fields", List.of(field));
-        root.put("layout", "nested");
         return root;
     }
 
     @Test
     void entityMustBeUpperCamel() {
-        // A valid entity name must not be reported by the UPPER_CAMEL check.
-        assertEquals("Project", SpecLoader.parse(spec("Project"), "t.yaml", "nested").entity());
+        // A valid UpperCamel entity must be accepted.
+        ModuleSpec ok = SpecLoader.parse(spec("Project"), "t.yaml", "nested");
+        assertEquals("Project", ok.entity());
 
-        // A lower-camel entity name must be reported.
+        // A lower-case-initial entity must be rejected with exactly the UpperCamel error.
         SpecException ex = assertThrows(SpecException.class,
                 () -> SpecLoader.parse(spec("project"), "t.yaml", "nested"));
-        assertTrue(ex.errors().stream()
-                        .anyMatch(e -> e.contains("entity \"project\"") && e.contains("应为大驼峰")),
-                "errors: " + ex.errors());
+        assertEquals(1, ex.errors().size());
+        String msg = ex.errors().get(0);
+        assertTrue(msg.contains("entity \"project\""), msg);
+        assertTrue(msg.contains("大驼峰"), msg);
     }
 }

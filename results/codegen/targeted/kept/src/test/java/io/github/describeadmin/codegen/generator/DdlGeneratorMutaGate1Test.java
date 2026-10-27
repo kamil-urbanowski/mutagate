@@ -1,31 +1,30 @@
 package io.github.describeadmin.codegen.generator;
 
+import io.github.describeadmin.codegen.model.Layout;
 import io.github.describeadmin.codegen.model.ModuleSpec;
-import io.github.describeadmin.codegen.parser.SpecLoader;
 import org.junit.jupiter.api.Test;
 
-import java.nio.file.Path;
+import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class DdlGeneratorMutaGate1Test {
 
     @Test
-    void tableCommentSingleQuoteIsEscaped() throws Exception {
-        ModuleSpec base = SpecLoader.load(Path.of("examples/project.yaml"));
+    void escapesSingleQuotesInTableComment() {
         ModuleSpec spec = new ModuleSpec(
-                base.basePackage(),
-                base.module(),
-                base.entity(),
-                base.table(),
-                "it's a table",
-                base.apiPrefix(),
-                base.layout(),
-                base.layoutOrigin(),
-                base.fields());
+                "com.example.demo",
+                "demo",
+                "Demo",
+                "biz_demo",
+                "it's a demo",
+                "/api/demo",
+                Layout.values()[0],
+                "default",
+                List.of());
 
         String ddl = DdlGenerator.generate(spec);
 
-        assertThat(ddl).contains("COMMENT='it''s a table';");
+        assertTrue(ddl.contains("COMMENT='it''s a demo';"), ddl);
     }
 }

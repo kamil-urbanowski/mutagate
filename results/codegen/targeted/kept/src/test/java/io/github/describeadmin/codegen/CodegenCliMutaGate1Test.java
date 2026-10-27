@@ -6,22 +6,25 @@ import java.lang.reflect.Method;
 import java.nio.file.Path;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 class CodegenCliMutaGate1Test {
 
+    @TempDir
+    Path tmp;
+
     @Test
-    void displayReturnsRelativeInsideOutDirAndTargetPathOutside() throws Exception {
+    void displayUsesRelativePathInsideOutDirAndFullPathOutside() throws Exception {
         Method display = CodegenCli.class.getDeclaredMethod("display", Path.class, Path.class);
         display.setAccessible(true);
 
-        Path base = Path.of("codegen-display-base").toAbsolutePath().normalize();
-        Path outDir = base.resolve("out");
+        Path outDir = tmp.resolve("out");
 
-        Path inside = outDir.resolve("src").resolve("main").resolve("A.java");
+        Path inside = outDir.resolve("src").resolve("a.txt");
         String insideResult = (String) display.invoke(null, outDir, inside);
-        assertEquals("src/main/A.java", insideResult);
+        assertEquals("src/a.txt", insideResult);
 
-        Path outside = base.resolve("other").resolve("f.ts");
+        Path outside = tmp.resolve("other").resolve("x.txt");
         String outsideResult = (String) display.invoke(null, outDir, outside);
         assertEquals(outside.toString().replace('\\', '/'), outsideResult);
     }

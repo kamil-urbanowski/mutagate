@@ -1,8 +1,8 @@
 package io.github.describeadmin.codegen.model;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 class FieldSpecMutaGate3Test {
 
@@ -12,10 +12,10 @@ class FieldSpecMutaGate3Test {
     }
 
     @Test
-    void sqlColumnTypeUsesExplicitScaleAndDefaultsWhenNull() {
-        assertEquals("DECIMAL(10,4)", decimal(10, 4).sqlColumnType());
-        assertEquals("DECIMAL(10,0)", decimal(10, 0).sqlColumnType());
+    void sqlColumnTypeUsesGivenScaleAndDefaultsWhenNull() {
+        assertEquals("DECIMAL(10,5)", decimal(10, 5).sqlColumnType());
         assertEquals("DECIMAL(10,2)", decimal(10, null).sqlColumnType());
+        assertEquals("DECIMAL(18,3)", decimal(null, 3).sqlColumnType());
         assertEquals("DECIMAL(18,2)", decimal(null, null).sqlColumnType());
     }
 }

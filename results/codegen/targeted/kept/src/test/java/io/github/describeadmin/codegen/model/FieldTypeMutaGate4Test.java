@@ -9,10 +9,11 @@ class FieldTypeMutaGate4Test {
 
     @Test
     void needsLengthIsTrueOnlyForString() {
-        assertTrue(FieldType.STRING.needsLength());
         for (FieldType type : FieldType.values()) {
-            if (type != FieldType.STRING) {
-                assertFalse(type.needsLength(), type.name());
+            if (type == FieldType.STRING) {
+                assertTrue(type.needsLength(), "STRING should need length");
+            } else {
+                assertFalse(type.needsLength(), type + " should not need length");
             }
         }
     }

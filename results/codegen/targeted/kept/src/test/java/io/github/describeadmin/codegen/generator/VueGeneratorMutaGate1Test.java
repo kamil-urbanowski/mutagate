@@ -7,38 +7,41 @@ import io.github.describeadmin.codegen.parser.SpecLoader;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class VueGeneratorMutaGate1Test {
 
     @Test
-    void decimalPrecisionUsesExplicitScale() throws Exception {
+    void decimalPrecisionUsesScaleOrDefaultsToTwo() throws Exception {
         ModuleSpec base = SpecLoader.load(Path.of("examples/project.yaml"));
 
-        List<FieldSpec> fields = new ArrayList<>();
-        for (FieldSpec f : base.fields()) {
-            if (f.type() == FieldType.DECIMAL) {
-                fields.add(new FieldSpec(
-                        f.name(), f.column(), f.type(), f.length(),
-                        10, 3,
-                        f.nullable(), f.comment(), f.query(), f.indexed()));
-            } else {
-                fields.add(f);
-            }
-        }
+        FieldSpec withScale = new FieldSpec(
+                "amountA", "amount_a", FieldType.DECIMAL, null, 10, 4,
+                true, "金额A", FieldSpec.QueryMode.NONE, false);
+        FieldSpec withoutScale = new FieldSpec(
+                "amountB", "amount_b", FieldType.DECIMAL, null, 10, null,
+                true, "金额B", FieldSpec.QueryMode.NONE, false);
 
         ModuleSpec spec = new ModuleSpec(
                 base.basePackage(), base.module(), base.entity(), base.table(),
                 base.comment(), base.apiPrefix(), base.layout(), base.layoutOrigin(),
-                fields);
+                List.of(withScale, withoutScale));
 
         String page = VueGenerator.page(spec);
 
-        assertTrue(page.contains(":precision=\"3\""), "explicit scale must be used");
-        assertFalse(page.contains(":precision=\"2\""), "default scale must not be used");
+        int idxA = page.indexOf("data-testid=\"" + spec.module() + "-amount-a-input\"");
+        int idxB = page.indexOf("data-testid=\"" + spec.module() + "-amount-b-input\"");
+        assertTrue(idxA > 0);
+        assertTrue(idxB > 0);
+
+        String beforeA = page.substring(Math.max(0, idxA - 120), idxA);
+        String beforeB = page.substring(Math.max(0, idxB - 120), idxB);
+
+        assertTrue(beforeA.contains(":precision=\"4\""), beforeA);
+        assertTrue(beforeB.contains(":precision=\"2\""), beforeB);
+        assertFalse(page.contains(":precision=\"null\""));
     }
 }

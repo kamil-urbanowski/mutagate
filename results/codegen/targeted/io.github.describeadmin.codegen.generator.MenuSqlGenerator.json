@@ -4,17 +4,17 @@
   "kind": "TARGETED",
   "setup": {
     "repo_commit": "7697931d89755fe35b6cd149d774babd85af9bd5",
-    "date": "2026-10-19",
+    "date": "2026-10-27",
     "java": "21.0.12.1",
     "maven": "3.9.16",
     "pitest_maven": "1.30.0",
     "pitest_junit5_plugin": "1.2.3",
-    "mutagate_commit": "14080bbb70481ed55cb5f5b1d26eb80eb9360491",
+    "mutagate_commit": "7ace97ecf4d0748ec3cfe5f795e099d49ae8da4b",
     "provider": "claude-code",
-    "provider_version": "2.1.301",
+    "provider_version": "2.1.311",
     "model": "claude-sonnet-5-5",
     "effort": "medium",
-    "system_prompt": "You write JUnit 5 tests for existing Java code."
+    "system_prompt": "the shared part of each request"
   },
   "score_before": 0.6666666666666666,
   "score_after": 1.0,
@@ -27,10 +27,10 @@
   "attempts_per_kept_test": 1.0,
   "tokens": {
     "input_tokens": 4,
-    "cache_creation_input_tokens": 17141,
-    "cache_read_input_tokens": 0,
-    "output_tokens": 1402,
-    "thinking_tokens": 502
+    "cache_creation_input_tokens": 9774,
+    "cache_read_input_tokens": 7330,
+    "output_tokens": 1722,
+    "thinking_tokens": 734
   },
   "ledger": [
     {
@@ -71,7 +71,7 @@
             "io.github.describeadmin.codegen.FrontendGeneratorTest#menuComponentMatchesGeneratedFile",
             "io.github.describeadmin.codegen.FrontendGeneratorTest#menuSqlRespectsRedLines",
             "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test#generatedSqlGrantsMenusToAdminRole",
-            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#generatedSqlStartsWithHeaderContainingCommentAndComponentPath"
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#headerIsEmittedAtStartWithCommentAndComponentHint"
           ]
         },
         {
@@ -91,7 +91,7 @@
           ]
         }
       ],
-      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass MenuSqlGeneratorMutaGate1Test {\n\n    @Test\n    void generatedSqlGrantsMenusToAdminRole() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String sql = MenuSqlGenerator.generate(spec);\n\n        assertTrue(sql.contains(\"INSERT INTO sys_role_menu (role_id, menu_id)\"), sql);\n        assertTrue(sql.contains(\"WHERE r.role_code = 'ADMIN' AND r.deleted = 0\"), sql);\n        assertTrue(sql.contains(\"(m.perm_code LIKE '\" + spec.module() + \":%' OR m.path = '/biz')\"), sql);\n        assertTrue(sql.contains(\"SELECT 1 FROM sys_role_menu rm WHERE rm.role_id = r.id AND rm.menu_id = m.id\"), sql);\n        assertTrue(sql.trim().endsWith(\");\"), sql);\n    }\n}\n"
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass MenuSqlGeneratorMutaGate1Test {\n\n    @Test\n    void generatedSqlGrantsMenusToAdminRole() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n\n        String sql = MenuSqlGenerator.generate(spec);\n\n        assertTrue(sql.contains(\"INSERT INTO sys_role_menu (role_id, menu_id)\"),\n                \"\u5e94\u5305\u542b\u6388\u6743\u63d2\u5165\u8bed\u53e5\");\n        assertTrue(sql.contains(\"WHERE r.role_code = 'ADMIN' AND r.deleted = 0\"),\n                \"\u5e94\u53ea\u6388\u4e88 ADMIN \u89d2\u8272\");\n        assertTrue(sql.contains(\"(m.perm_code LIKE '\" + spec.module() + \":%' OR m.path = '/biz')\"),\n                \"\u5e94\u6309\u6a21\u5757\u6743\u9650\u524d\u7f00\u548c\u6839\u76ee\u5f55\u8def\u5f84\u9009\u53d6\u83dc\u5355\");\n        assertTrue(sql.contains(\"SELECT 1 FROM sys_role_menu rm WHERE rm.role_id = r.id AND rm.menu_id = m.id\"),\n                \"\u6388\u6743\u5e94\u901a\u8fc7 NOT EXISTS \u4fdd\u6301\u5e42\u7b49\");\n        assertTrue(sql.trim().endsWith(\");\"), \"\u6388\u6743\u8bed\u53e5\u5e94\u4f4d\u4e8e\u811a\u672c\u672b\u5c3e\");\n    }\n}\n"
     },
     {
       "test_class": "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test",
@@ -131,7 +131,7 @@
             "io.github.describeadmin.codegen.FrontendGeneratorTest#menuComponentMatchesGeneratedFile",
             "io.github.describeadmin.codegen.FrontendGeneratorTest#menuSqlRespectsRedLines",
             "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test#generatedSqlGrantsMenusToAdminRole",
-            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#generatedSqlStartsWithHeaderContainingCommentAndComponentPath"
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#headerIsEmittedAtStartWithCommentAndComponentHint"
           ]
         },
         {
@@ -147,24 +147,24 @@
           "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::header",
           "status": "KILLED",
           "killing_tests": [
-            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#generatedSqlStartsWithHeaderContainingCommentAndComponentPath"
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#headerIsEmittedAtStartWithCommentAndComponentHint"
           ]
         }
       ],
-      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass MenuSqlGeneratorMutaGate2Test {\n\n    @Test\n    void generatedSqlStartsWithHeaderContainingCommentAndComponentPath() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n\n        String sql = MenuSqlGenerator.generate(spec);\n\n        assertTrue(sql.startsWith(\"-- ====\"), \"SQL should start with the header banner\");\n        assertTrue(sql.contains(\"-- \" + spec.comment() + \" \u83dc\u5355\u4e0e\u6743\u9650\u70b9\"),\n                \"header should contain the module comment title\");\n        assertTrue(sql.contains(\"'\" + spec.module() + \"/index' \u5bf9\u5e94 frontend \u7684 src/views/\"\n                        + spec.module() + \"/index.vue\"),\n                \"header should document the component path\");\n    }\n}\n"
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass MenuSqlGeneratorMutaGate2Test {\n\n    @Test\n    void headerIsEmittedAtStartWithCommentAndComponentHint() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n\n        String sql = MenuSqlGenerator.generate(spec);\n\n        assertTrue(sql.startsWith(\"-- =====\"), \"SQL \u5e94\u4ee5\u5934\u90e8\u6ce8\u91ca\u5206\u9694\u7ebf\u5f00\u5934\");\n        assertTrue(sql.contains(\"-- \" + spec.comment() + \" \u83dc\u5355\u4e0e\u6743\u9650\u70b9\"),\n                \"\u5934\u90e8\u5e94\u5305\u542b\u6a21\u5757\u6ce8\u91ca\u6807\u9898\");\n        assertTrue(sql.contains(\"'\" + spec.module() + \"/index' \u5bf9\u5e94 frontend \u7684 src/views/\"\n                        + spec.module() + \"/index.vue\"),\n                \"\u5934\u90e8\u5e94\u5305\u542b component \u8def\u5f84\u63d0\u793a\");\n    }\n}\n"
     }
   ],
   "requests": [
     {
       "test_class": "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test",
       "attempt": 1,
-      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass MenuSqlGeneratorMutaGate1Test {\n\n    @Test\n    void generatedSqlGrantsMenusToAdminRole() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String sql = MenuSqlGenerator.generate(spec);\n\n        assertTrue(sql.contains(\"INSERT INTO sys_role_menu (role_id, menu_id)\"), sql);\n        assertTrue(sql.contains(\"WHERE r.role_code = 'ADMIN' AND r.deleted = 0\"), sql);\n        assertTrue(sql.contains(\"(m.perm_code LIKE '\" + spec.module() + \":%' OR m.path = '/biz')\"), sql);\n        assertTrue(sql.contains(\"SELECT 1 FROM sys_role_menu rm WHERE rm.role_id = r.id AND rm.menu_id = m.id\"), sql);\n        assertTrue(sql.trim().endsWith(\");\"), sql);\n    }\n}\n```",
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass MenuSqlGeneratorMutaGate1Test {\n\n    @Test\n    void generatedSqlGrantsMenusToAdminRole() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n\n        String sql = MenuSqlGenerator.generate(spec);\n\n        assertTrue(sql.contains(\"INSERT INTO sys_role_menu (role_id, menu_id)\"),\n                \"\u5e94\u5305\u542b\u6388\u6743\u63d2\u5165\u8bed\u53e5\");\n        assertTrue(sql.contains(\"WHERE r.role_code = 'ADMIN' AND r.deleted = 0\"),\n                \"\u5e94\u53ea\u6388\u4e88 ADMIN \u89d2\u8272\");\n        assertTrue(sql.contains(\"(m.perm_code LIKE '\" + spec.module() + \":%' OR m.path = '/biz')\"),\n                \"\u5e94\u6309\u6a21\u5757\u6743\u9650\u524d\u7f00\u548c\u6839\u76ee\u5f55\u8def\u5f84\u9009\u53d6\u83dc\u5355\");\n        assertTrue(sql.contains(\"SELECT 1 FROM sys_role_menu rm WHERE rm.role_id = r.id AND rm.menu_id = m.id\"),\n                \"\u6388\u6743\u5e94\u901a\u8fc7 NOT EXISTS \u4fdd\u6301\u5e42\u7b49\");\n        assertTrue(sql.trim().endsWith(\");\"), \"\u6388\u6743\u8bed\u53e5\u5e94\u4f4d\u4e8e\u811a\u672c\u672b\u5c3e\");\n    }\n}\n```",
       "tokens": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 8577,
+        "cache_creation_input_tokens": 8558,
         "cache_read_input_tokens": 0,
-        "output_tokens": 731,
-        "thinking_tokens": 245
+        "output_tokens": 899,
+        "thinking_tokens": 335
       },
       "reused": false,
       "screen": null,
@@ -173,13 +173,13 @@
     {
       "test_class": "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test",
       "attempt": 1,
-      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass MenuSqlGeneratorMutaGate2Test {\n\n    @Test\n    void generatedSqlStartsWithHeaderContainingCommentAndComponentPath() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n\n        String sql = MenuSqlGenerator.generate(spec);\n\n        assertTrue(sql.startsWith(\"-- ====\"), \"SQL should start with the header banner\");\n        assertTrue(sql.contains(\"-- \" + spec.comment() + \" \u83dc\u5355\u4e0e\u6743\u9650\u70b9\"),\n                \"header should contain the module comment title\");\n        assertTrue(sql.contains(\"'\" + spec.module() + \"/index' \u5bf9\u5e94 frontend \u7684 src/views/\"\n                        + spec.module() + \"/index.vue\"),\n                \"header should document the component path\");\n    }\n}\n```",
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass MenuSqlGeneratorMutaGate2Test {\n\n    @Test\n    void headerIsEmittedAtStartWithCommentAndComponentHint() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n\n        String sql = MenuSqlGenerator.generate(spec);\n\n        assertTrue(sql.startsWith(\"-- =====\"), \"SQL \u5e94\u4ee5\u5934\u90e8\u6ce8\u91ca\u5206\u9694\u7ebf\u5f00\u5934\");\n        assertTrue(sql.contains(\"-- \" + spec.comment() + \" \u83dc\u5355\u4e0e\u6743\u9650\u70b9\"),\n                \"\u5934\u90e8\u5e94\u5305\u542b\u6a21\u5757\u6ce8\u91ca\u6807\u9898\");\n        assertTrue(sql.contains(\"'\" + spec.module() + \"/index' \u5bf9\u5e94 frontend \u7684 src/views/\"\n                        + spec.module() + \"/index.vue\"),\n                \"\u5934\u90e8\u5e94\u5305\u542b component \u8def\u5f84\u63d0\u793a\");\n    }\n}\n```",
       "tokens": {
         "input_tokens": 2,
-        "cache_creation_input_tokens": 8564,
-        "cache_read_input_tokens": 0,
-        "output_tokens": 671,
-        "thinking_tokens": 257
+        "cache_creation_input_tokens": 1216,
+        "cache_read_input_tokens": 7330,
+        "output_tokens": 823,
+        "thinking_tokens": 399
       },
       "reused": false,
       "screen": null,

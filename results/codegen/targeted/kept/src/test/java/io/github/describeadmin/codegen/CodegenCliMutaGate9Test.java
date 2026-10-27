@@ -13,26 +13,36 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class CodegenCliMutaGate9Test {
 
     @Test
-    void planPlacesJavaFilesInPackageDirectories() {
-        ModuleSpec s = new ModuleSpec(
-                "com.example.app", "user", "User", "t_user", "用户",
-                "/user", Layout.NESTED, "default", List.of());
+    void planPlacesJavaFilesUnderPackageDirectories() {
+        ModuleSpec spec = new ModuleSpec(
+                "com.example.demo",
+                "product",
+                "Product",
+                "product",
+                "Product",
+                "/api/product",
+                Layout.NESTED,
+                "test",
+                List.of());
 
-        Path outDir = Path.of("build-out");
-        Path frontendOut = Path.of("fe-out");
+        Path outDir = Path.of("out");
+        Path frontendOut = Path.of("out", "frontend");
 
-        Map<Path, String> files = CodegenCli.plan(s, outDir, frontendOut);
+        Map<Path, String> files = CodegenCli.plan(spec, outDir, frontendOut);
 
-        Path javaRoot = outDir.resolve("src/main/java");
-        String pkgDir = s.packageOf("entity").replace('.', '/');
-        assertTrue(pkgDir.contains("/"), "package dir should be nested: " + pkgDir);
+        String entityPkg = spec.packageOf("entity");
+        assertTrue(entityPkg.contains("."), "package should be dotted: " + entityPkg);
 
-        Path expectedEntity = javaRoot.resolve(pkgDir).resolve(s.entityClass() + ".java");
+        Path expectedEntity = outDir.resolve("src/main/java")
+                .resolve(entityPkg.replace('.', '/'))
+                .resolve(spec.entityClass() + ".java");
         assertTrue(files.containsKey(expectedEntity),
                 "expected " + expectedEntity + " in " + files.keySet());
 
-        String ctrlDir = s.packageOf("controller").replace('.', '/');
-        Path expectedController = javaRoot.resolve(ctrlDir).resolve(s.controllerClass() + ".java");
+        String controllerPkg = spec.packageOf("controller");
+        Path expectedController = outDir.resolve("src/main/java")
+                .resolve(controllerPkg.replace('.', '/'))
+                .resolve(spec.controllerClass() + ".java");
         assertTrue(files.containsKey(expectedController),
                 "expected " + expectedController + " in " + files.keySet());
     }

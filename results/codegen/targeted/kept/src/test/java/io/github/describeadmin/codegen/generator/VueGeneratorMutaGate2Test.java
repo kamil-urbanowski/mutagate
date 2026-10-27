@@ -15,11 +15,12 @@ class VueGeneratorMutaGate2Test {
         ModuleSpec spec = SpecLoader.load(Path.of("examples/project.yaml"));
         String page = VueGenerator.page(spec);
 
-        // top-level reactive form (indent of 2 spaces)
-        assertTrue(page.contains("\n  projectName: '',"), page);
-        assertTrue(page.contains("\n  budget: undefined as number | undefined,"), page);
-        // inside openCreate's Object.assign (indent of 4 spaces)
-        assertTrue(page.contains("\n    projectName: '',"), page);
-        assertTrue(page.contains("\n    budget: undefined as number | undefined,"), page);
+        // top-level reactive form (2-space indent)
+        assertTrue(page.contains("\n  projectName: '',\n"), page);
+        assertTrue(page.contains("\n  budget: undefined as number | undefined,\n"), page);
+
+        // Object.assign in openCreate (4-space indent)
+        assertTrue(page.contains("\n    projectName: '',\n"), page);
+        assertTrue(page.contains("\n    budget: undefined as number | undefined,\n"), page);
     }
 }

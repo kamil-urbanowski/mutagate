@@ -17,7 +17,7 @@ class SpecLoaderMutaGate10Test {
         Map<String, Object> field = new LinkedHashMap<>();
         field.put("name", "projectName");
         field.put("type", "string");
-        field.put("length", 64);
+        field.put("length", 128);
 
         Map<String, Object> root = new LinkedHashMap<>();
         root.put("basePackage", "com.example.demo");
@@ -29,10 +29,10 @@ class SpecLoaderMutaGate10Test {
                 () -> SpecLoader.parse(root, "test.yaml", "nested"));
 
         List<String> errors = ex.errors();
-        long entityErrors = errors.stream()
+        long entityRequired = errors.stream()
                 .filter(e -> e.contains("缺少必填项 entity"))
                 .count();
-        assertEquals(1, entityErrors, "errors: " + errors);
-        assertTrue(errors.stream().allMatch(e -> e.startsWith("test.yaml: ")));
+        assertEquals(1, entityRequired, "errors: " + errors);
+        assertTrue(errors.get(0).startsWith("test.yaml: "), "errors: " + errors);
     }
 }
