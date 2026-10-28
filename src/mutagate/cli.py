@@ -174,7 +174,8 @@ def summarize(repo_name: str) -> None:
         per_kept = side["attempts_per_kept_test"]
         click.echo(
             f"  {kind.value.capitalize()}: module score after {side['score_after']:.1%}; "
-            f"kept {side['kept']} of {side['candidates']}; attempts per kept test: "
+            f"kept {side['kept']} of {side['candidates']} "
+            f"({side['kept_with_new_kill']} added a new kill); attempts per kept test: "
             f"{f'{per_kept:.2f}' if per_kept else 'none kept'}"
         )
     n = comparison["newly_detected"]

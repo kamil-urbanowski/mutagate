@@ -208,6 +208,8 @@ def compare(baseline: list[Mutant], runs: list[RunMetrics]) -> dict | None:
             "score_after": (detected + sum(r.newly_detected for r in paired)) / len(baseline),
             "candidates": sum(len(r.ledger) for r in paired),
             "kept": kept,
+            # Repeated requests fill `kept` with copies; this is the count to compare.
+            "kept_with_new_kill": kept - redundant_kept(baseline, paired),
             "attempts_per_kept_test": attempts / kept if kept else None,
         }
     targeted, control = newly[RunKind.TARGETED], newly[RunKind.CONTROL]

@@ -296,8 +296,20 @@ def test_compare():
 
     assert report.compare(MODULE, [targeted_foo, targeted_bar, control_foo]) == {
         "classes": ["pkg.Foo"],
-        "targeted": {"score_after": 4 / 6, "candidates": 3, "kept": 2, "attempts_per_kept_test": 2},
-        "control": {"score_after": 4 / 6, "candidates": 3, "kept": 1, "attempts_per_kept_test": 4},
+        "targeted": {
+            "score_after": 4 / 6,
+            "candidates": 3,
+            "kept": 2,
+            "kept_with_new_kill": 1,  # 2 adds nothing to 1
+            "attempts_per_kept_test": 2,
+        },
+        "control": {
+            "score_after": 4 / 6,
+            "candidates": 3,
+            "kept": 1,
+            "kept_with_new_kill": 1,
+            "attempts_per_kept_test": 4,
+        },
         "newly_detected": {"targeted_only": 1, "control_only": 1, "both": 1},  # F1, F3, F2
     }
 
