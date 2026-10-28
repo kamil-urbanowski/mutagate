@@ -1,0 +1,630 @@
+{
+  "repo": "codegen",
+  "class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+  "kind": "CONTROL",
+  "setup": {
+    "repo_commit": "7697931d89755fe35b6cd149d774babd85af9bd5",
+    "date": "2026-10-28",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "db5009105cb4dfcea734e68a59d73ccd921853e2",
+    "provider": "claude-code",
+    "provider_version": "2.1.311",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.42857142857142855,
+  "score_after": 1.0,
+  "mutants_total": 7,
+  "undetected_before": 4,
+  "newly_detected": 4,
+  "candidates": 4,
+  "kept": 4,
+  "acceptance_rate": 1.0,
+  "attempts_per_kept_test": 1.0,
+  "tokens": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 12746,
+    "cache_read_input_tokens": 20082,
+    "output_tokens": 9431,
+    "thinking_tokens": 4006
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/DdlGeneratorMutaGate1Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 4 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "escape",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 83,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "escape",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 83,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            15
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/DdlGenerator::escape",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "generate",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 36,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            58
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "generate",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            163
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#ddlIndexes",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "generate",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 59,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            237
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/DdlGenerator::generate",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#ddlHasAuditColumns",
+            "io.github.describeadmin.codegen.GeneratorTest#ddlIndexes",
+            "io.github.describeadmin.codegen.GeneratorTest#ddlRespectsRedLines",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "pad",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 74,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            11
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/DdlGenerator::pad",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#ddlHasAuditColumns",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "padType",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 78,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            11
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/DdlGenerator::padType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\nimport java.util.List;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass DdlGeneratorMutaGate1Test {\n\n    @Test\n    void generatesExactColumnLinesEscapingOrderingAndKeys() throws Exception {\n        ModuleSpec loaded = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        FieldSpec base = loaded.fields().get(0);\n\n        FieldSpec a = new FieldSpec(\"alpha\", \"col_a\", base.type(), base.length(), base.precision(),\n                base.scale(), false, \"it's a\", base.query(), true);\n        FieldSpec b = new FieldSpec(\"beta\", \"col_b\", base.type(), base.length(), base.precision(),\n                base.scale(), true, \"plain\", base.query(), false);\n\n        ModuleSpec spec = new ModuleSpec(loaded.basePackage(), loaded.module(), loaded.entity(),\n                \"t_demo\", \"it's table\", loaded.apiPrefix(), loaded.layout(), loaded.layoutOrigin(),\n                List.of(a, b));\n\n        String ddl = DdlGenerator.generate(spec);\n\n        String type = String.format(\"%-11s\", a.sqlColumnType());\n        String lineA = String.format(\"%-14s\", \"col_a\") + \" \" + type + \" NOT NULL COMMENT 'it''s a'\";\n        String lineB = String.format(\"%-14s\", \"col_b\") + \" \"\n                + String.format(\"%-11s\", b.sqlColumnType()) + \"     NULL COMMENT 'plain'\";\n\n        // header comment is unescaped, table comment clause is escaped\n        assertThat(ddl).startsWith(\"-- it's table\\n--\\n\");\n        assertThat(ddl).contains(\"CREATE TABLE IF NOT EXISTS t_demo (\\n  \");\n        assertThat(ddl).contains(\"COMMENT='it''s table';\");\n\n        assertThat(ddl).contains(lineA).contains(lineB);\n\n        // fixed ordering: id, business fields, audit fields, primary key, secondary keys\n        int idPos = ddl.indexOf(\"COMMENT '\u4e3b\u952e'\");\n        int aPos = ddl.indexOf(lineA);\n        int bPos = ddl.indexOf(lineB);\n        int auditPos = ddl.indexOf(\"COMMENT '\u521b\u5efa\u4eba'\");\n        int pkPos = ddl.indexOf(\"PRIMARY KEY (id)\");\n        assertThat(idPos).isPositive();\n        assertThat(aPos).isGreaterThan(idPos);\n        assertThat(bPos).isGreaterThan(aPos);\n        assertThat(auditPos).isGreaterThan(bPos);\n        assertThat(pkPos).isGreaterThan(auditPos);\n\n        // only the indexed field gets a key; keys are last, joined by \",\\n  \"\n        assertThat(ddl).contains(\"COMMENT '\u4e50\u89c2\u9501\u7248\u672c\u53f7',\\n  PRIMARY KEY (id),\\n\"\n                + \"  KEY idx_t_demo_col_a (col_a)\\n) ENGINE=InnoDB\\n\"\n                + \"  DEFAULT CHARACTER SET utf8mb4\\n  COLLATE utf8mb4_general_ci\\n\");\n        assertThat(ddl).doesNotContain(\"idx_t_demo_col_b\");\n        assertThat(ddl).contains(lineA + \",\\n  \" + lineB + \",\\n  \");\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/DdlGeneratorMutaGate2Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 3 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "escape",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 83,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "escape",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 83,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            15
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/DdlGenerator::escape",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "generate",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 36,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            58
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "generate",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            163
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#ddlIndexes",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "generate",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 59,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            237
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/DdlGenerator::generate",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#ddlHasAuditColumns",
+            "io.github.describeadmin.codegen.GeneratorTest#ddlIndexes",
+            "io.github.describeadmin.codegen.GeneratorTest#ddlRespectsRedLines",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "pad",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 74,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            11
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/DdlGenerator::pad",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#ddlHasAuditColumns",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\nimport java.util.List;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass DdlGeneratorMutaGate2Test {\n\n    @Test\n    void escapesQuotesAndRendersNullabilityIndexAndOrdering() throws Exception {\n        ModuleSpec base = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        FieldSpec f = base.fields().get(0);\n\n        FieldSpec notNullIndexed = new FieldSpec(f.name(), \"first_col\", f.type(), f.length(),\n                f.precision(), f.scale(), false, \"it's\", f.query(), true);\n        FieldSpec nullablePlain = new FieldSpec(f.name(), \"other_col\", f.type(), f.length(),\n                f.precision(), f.scale(), true, \"plain\", f.query(), false);\n\n        ModuleSpec s = new ModuleSpec(base.basePackage(), base.module(), base.entity(),\n                base.table(), \"O'Brien's\", base.apiPrefix(), base.layout(),\n                base.layoutOrigin(), List.of(notNullIndexed, nullablePlain));\n\n        String ddl = DdlGenerator.generate(s);\n\n        // header comment is raw, table comment is escaped\n        assertThat(ddl).startsWith(\"-- O'Brien's\\n--\\n\");\n        assertThat(ddl).contains(\"COMMENT='O''Brien''s';\");\n\n        // column comment escaped, nullability rendered\n        assertThat(ddl).contains(\"NOT NULL COMMENT 'it''s'\");\n        assertThat(ddl).contains(\"    NULL COMMENT 'plain'\");\n\n        // only the indexed field gets a secondary key\n        String idx = \"KEY idx_\" + s.table() + \"_first_col (first_col)\";\n        assertThat(ddl).contains(idx);\n        assertThat(ddl).doesNotContain(\"idx_\" + s.table() + \"_other_col\");\n        assertThat(ddl.split(\"KEY idx_\", -1)).hasSize(2);\n\n        // secondary keys come last, directly before the table options\n        assertThat(ddl).contains(idx + \"\\n) ENGINE=InnoDB\\n  DEFAULT CHARACTER SET utf8mb4\");\n\n        // ordering: id, business columns, audit columns, primary key, secondary key\n        int id = ddl.indexOf(\"id \");\n        int first = ddl.indexOf(\"first_col \");\n        int other = ddl.indexOf(\"other_col \");\n        int createBy = ddl.indexOf(\"create_by\");\n        int createTime = ddl.indexOf(\"create_time\");\n        int updateBy = ddl.indexOf(\"update_by\");\n        int updateTime = ddl.indexOf(\"update_time\");\n        int deleted = ddl.indexOf(\"deleted \");\n        int version = ddl.indexOf(\"version \");\n        int pk = ddl.indexOf(\"PRIMARY KEY (id)\");\n        int key = ddl.indexOf(idx);\n        assertThat(List.of(id, first, other, createBy, createTime, updateBy, updateTime,\n                deleted, version, pk, key)).isSorted();\n        assertThat(id).isGreaterThanOrEqualTo(0);\n\n        // comma separators between items\n        assertThat(ddl).contains(\",\\n  PRIMARY KEY (id),\\n  \" + idx);\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/DdlGeneratorMutaGate3Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 3 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "escape",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 83,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "escape",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 83,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            15
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/DdlGenerator::escape",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "generate",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 36,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            58
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "generate",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            163
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#ddlIndexes",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "generate",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 59,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            237
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/DdlGenerator::generate",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#ddlHasAuditColumns",
+            "io.github.describeadmin.codegen.GeneratorTest#ddlIndexes",
+            "io.github.describeadmin.codegen.GeneratorTest#ddlRespectsRedLines",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "pad",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 74,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            11
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/DdlGenerator::pad",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#ddlHasAuditColumns",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.FieldType;\nimport io.github.describeadmin.codegen.model.Layout;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport org.junit.jupiter.api.Test;\n\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass DdlGeneratorMutaGate3Test {\n\n    private static FieldSpec field(String name, String column, boolean nullable,\n                                   String comment, boolean indexed) {\n        return new FieldSpec(name, column, FieldType.values()[0], 10, 10, 2,\n                nullable, comment, FieldSpec.QueryMode.NONE, indexed);\n    }\n\n    private static String lineStarting(String ddl, String prefix) {\n        for (String line : ddl.split(\"\\n\")) {\n            if (line.strip().startsWith(prefix)) {\n                return line;\n            }\n        }\n        throw new AssertionError(\"no line starting with \" + prefix + \" in:\\n\" + ddl);\n    }\n\n    @Test\n    void generatesOrderedColumnsEscapedCommentsAndKeys() {\n        ModuleSpec spec = new ModuleSpec(\"com.example\", \"demo\", \"Demo\", \"t_demo\",\n                \"Bob's table\", \"/api/demo\", Layout.values()[0], \"test\",\n                List.of(\n                        field(\"a\", \"col_a\", false, \"it's a\", true),\n                        field(\"b\", \"col_b\", true, null, false),\n                        field(\"c\", \"col_c\", false, \"plain\", true)));\n\n        String ddl = DdlGenerator.generate(spec);\n\n        // header comment is raw, table COMMENT is escaped\n        assertTrue(ddl.startsWith(\"-- Bob's table\\n\"));\n        assertTrue(ddl.contains(\"CREATE TABLE IF NOT EXISTS t_demo (\"));\n        assertTrue(ddl.contains(\"COMMENT='Bob''s table';\"));\n\n        // column comment escaping and null comment handling\n        String a = lineStarting(ddl, \"col_a\");\n        assertTrue(a.contains(\"NOT NULL\"));\n        assertTrue(a.endsWith(\"COMMENT 'it''s a',\"));\n        String b = lineStarting(ddl, \"col_b\");\n        assertFalse(b.contains(\"NOT NULL\"));\n        assertTrue(b.contains(\"    NULL\"));\n        assertTrue(b.endsWith(\"COMMENT '',\"));\n\n        // ordering: id, business columns, audit columns, primary key, indexes\n        int id = ddl.indexOf(\"id            \");\n        int ca = ddl.indexOf(\"col_a\");\n        int cb = ddl.indexOf(\"col_b\");\n        int cc = ddl.indexOf(\"col_c\");\n        int createBy = ddl.indexOf(\"create_by\");\n        int createTime = ddl.indexOf(\"create_time\");\n        int updateBy = ddl.indexOf(\"update_by\");\n        int updateTime = ddl.indexOf(\"update_time\");\n        int deleted = ddl.indexOf(\"deleted\");\n        int version = ddl.indexOf(\"version\");\n        int pk = ddl.indexOf(\"PRIMARY KEY (id)\");\n        int ka = ddl.indexOf(\"KEY idx_t_demo_col_a (col_a)\");\n        int kc = ddl.indexOf(\"KEY idx_t_demo_col_c (col_c)\");\n        assertTrue(id >= 0 && id < ca);\n        assertTrue(ca < cb && cb < cc && cc < createBy);\n        assertTrue(createBy < createTime && createTime < updateBy\n                && updateBy < updateTime && updateTime < deleted && deleted < version);\n        assertTrue(version < pk && pk < ka && ka < kc);\n        assertFalse(ddl.contains(\"idx_t_demo_col_b\"));\n\n        // comma separation: last column and primary key end with commas, last key does not\n        assertTrue(lineStarting(ddl, \"version\").endsWith(\",\"));\n        assertTrue(lineStarting(ddl, \"PRIMARY KEY\").endsWith(\",\"));\n        assertTrue(lineStarting(ddl, \"KEY idx_t_demo_col_a\").endsWith(\",\"));\n        assertEquals(\"  KEY idx_t_demo_col_c (col_c)\", lineStarting(ddl, \"KEY idx_t_demo_col_c\"));\n        assertTrue(ddl.contains(\"KEY idx_t_demo_col_c (col_c)\\n) ENGINE=InnoDB\"));\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/DdlGeneratorMutaGate4Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 4 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "escape",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 83,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "escape",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 83,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            15
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/DdlGenerator::escape",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "generate",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 36,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            58
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "generate",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 59,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            237
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/DdlGenerator::generate",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#ddlHasAuditColumns",
+            "io.github.describeadmin.codegen.GeneratorTest#ddlIndexes",
+            "io.github.describeadmin.codegen.GeneratorTest#ddlRespectsRedLines",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "pad",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 74,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            11
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/DdlGenerator::pad",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#ddlHasAuditColumns",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test#escapesQuotesAndRendersNullabilityIndexAndOrdering",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test#generatesOrderedColumnsEscapedCommentsAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        },
+        {
+          "source_file": "DdlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+          "mutated_method": "padType",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 78,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            11
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/DdlGenerator::padType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test#generatesExactColumnLinesEscapingOrderingAndKeys",
+            "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test#escapesQuotesAndKeepsColumnLayoutAndOrder"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\nimport java.util.ArrayList;\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass DdlGeneratorMutaGate4Test {\n\n    @Test\n    void escapesQuotesAndKeepsColumnLayoutAndOrder() throws Exception {\n        ModuleSpec base = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n\n        List<FieldSpec> fields = new ArrayList<>(base.fields());\n        FieldSpec orig = fields.get(0);\n        FieldSpec quoted = new FieldSpec(orig.name(), orig.column(), orig.type(), orig.length(),\n                orig.precision(), orig.scale(), orig.nullable(), \"it's\", orig.query(),\n                orig.indexed());\n        fields.set(0, quoted);\n\n        ModuleSpec s = new ModuleSpec(base.basePackage(), base.module(), base.entity(),\n                base.table(), \"O'Brien\", base.apiPrefix(), base.layout(), base.layoutOrigin(),\n                fields);\n\n        String ddl = DdlGenerator.generate(s);\n\n        // header comment is raw, table comment is escaped\n        assertTrue(ddl.startsWith(\"-- O'Brien\\n--\\n\"));\n        assertTrue(ddl.contains(\"COMMENT='O''Brien';\"));\n        assertTrue(ddl.endsWith(\";\\n\"));\n        assertTrue(ddl.contains(\"CREATE TABLE IF NOT EXISTS \" + base.table() + \" (\\n  id \"));\n\n        // exact id line and field line formatting\n        String idLine = String.format(\"%-14s\", \"id\") + \" BIGINT      NOT NULL AUTO_INCREMENT COMMENT '\u4e3b\u952e'\";\n        String fieldLine = String.format(\"%-14s\", quoted.column()) + \" \"\n                + String.format(\"%-11s\", quoted.sqlColumnType()) + \" \"\n                + (quoted.nullable() ? \"    NULL\" : \"NOT NULL\")\n                + \" COMMENT 'it''s'\";\n        assertTrue(ddl.contains(idLine + \",\\n  \" + fieldLine + \",\\n  \"));\n\n        // order: id, fields, audit columns, primary key, then indexes\n        int idPos = ddl.indexOf(idLine);\n        int fieldPos = ddl.indexOf(fieldLine);\n        int createBy = ddl.indexOf(String.format(\"%-14s\", \"create_by\"));\n        int version = ddl.indexOf(String.format(\"%-14s\", \"version\"));\n        int pk = ddl.indexOf(\"PRIMARY KEY (id)\");\n        assertTrue(idPos < fieldPos);\n        assertTrue(fieldPos < createBy);\n        assertTrue(createBy < version);\n        assertTrue(version < pk);\n\n        // primary key line is followed by index lines only; no trailing comma before \")\"\n        assertTrue(ddl.contains(\"\\n) ENGINE=InnoDB\\n\"));\n        assertEquals(-1, ddl.indexOf(\",\\n)\"));\n    }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\nimport java.util.List;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass DdlGeneratorMutaGate1Test {\n\n    @Test\n    void generatesExactColumnLinesEscapingOrderingAndKeys() throws Exception {\n        ModuleSpec loaded = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        FieldSpec base = loaded.fields().get(0);\n\n        FieldSpec a = new FieldSpec(\"alpha\", \"col_a\", base.type(), base.length(), base.precision(),\n                base.scale(), false, \"it's a\", base.query(), true);\n        FieldSpec b = new FieldSpec(\"beta\", \"col_b\", base.type(), base.length(), base.precision(),\n                base.scale(), true, \"plain\", base.query(), false);\n\n        ModuleSpec spec = new ModuleSpec(loaded.basePackage(), loaded.module(), loaded.entity(),\n                \"t_demo\", \"it's table\", loaded.apiPrefix(), loaded.layout(), loaded.layoutOrigin(),\n                List.of(a, b));\n\n        String ddl = DdlGenerator.generate(spec);\n\n        String type = String.format(\"%-11s\", a.sqlColumnType());\n        String lineA = String.format(\"%-14s\", \"col_a\") + \" \" + type + \" NOT NULL COMMENT 'it''s a'\";\n        String lineB = String.format(\"%-14s\", \"col_b\") + \" \"\n                + String.format(\"%-11s\", b.sqlColumnType()) + \"     NULL COMMENT 'plain'\";\n\n        // header comment is unescaped, table comment clause is escaped\n        assertThat(ddl).startsWith(\"-- it's table\\n--\\n\");\n        assertThat(ddl).contains(\"CREATE TABLE IF NOT EXISTS t_demo (\\n  \");\n        assertThat(ddl).contains(\"COMMENT='it''s table';\");\n\n        assertThat(ddl).contains(lineA).contains(lineB);\n\n        // fixed ordering: id, business fields, audit fields, primary key, secondary keys\n        int idPos = ddl.indexOf(\"COMMENT '\u4e3b\u952e'\");\n        int aPos = ddl.indexOf(lineA);\n        int bPos = ddl.indexOf(lineB);\n        int auditPos = ddl.indexOf(\"COMMENT '\u521b\u5efa\u4eba'\");\n        int pkPos = ddl.indexOf(\"PRIMARY KEY (id)\");\n        assertThat(idPos).isPositive();\n        assertThat(aPos).isGreaterThan(idPos);\n        assertThat(bPos).isGreaterThan(aPos);\n        assertThat(auditPos).isGreaterThan(bPos);\n        assertThat(pkPos).isGreaterThan(auditPos);\n\n        // only the indexed field gets a key; keys are last, joined by \",\\n  \"\n        assertThat(ddl).contains(\"COMMENT '\u4e50\u89c2\u9501\u7248\u672c\u53f7',\\n  PRIMARY KEY (id),\\n\"\n                + \"  KEY idx_t_demo_col_a (col_a)\\n) ENGINE=InnoDB\\n\"\n                + \"  DEFAULT CHARACTER SET utf8mb4\\n  COLLATE utf8mb4_general_ci\\n\");\n        assertThat(ddl).doesNotContain(\"idx_t_demo_col_b\");\n        assertThat(ddl).contains(lineA + \",\\n  \" + lineB + \",\\n  \");\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 8206,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 2503,
+        "thinking_tokens": 1199
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\nimport java.util.List;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass DdlGeneratorMutaGate2Test {\n\n    @Test\n    void escapesQuotesAndRendersNullabilityIndexAndOrdering() throws Exception {\n        ModuleSpec base = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        FieldSpec f = base.fields().get(0);\n\n        FieldSpec notNullIndexed = new FieldSpec(f.name(), \"first_col\", f.type(), f.length(),\n                f.precision(), f.scale(), false, \"it's\", f.query(), true);\n        FieldSpec nullablePlain = new FieldSpec(f.name(), \"other_col\", f.type(), f.length(),\n                f.precision(), f.scale(), true, \"plain\", f.query(), false);\n\n        ModuleSpec s = new ModuleSpec(base.basePackage(), base.module(), base.entity(),\n                base.table(), \"O'Brien's\", base.apiPrefix(), base.layout(),\n                base.layoutOrigin(), List.of(notNullIndexed, nullablePlain));\n\n        String ddl = DdlGenerator.generate(s);\n\n        // header comment is raw, table comment is escaped\n        assertThat(ddl).startsWith(\"-- O'Brien's\\n--\\n\");\n        assertThat(ddl).contains(\"COMMENT='O''Brien''s';\");\n\n        // column comment escaped, nullability rendered\n        assertThat(ddl).contains(\"NOT NULL COMMENT 'it''s'\");\n        assertThat(ddl).contains(\"    NULL COMMENT 'plain'\");\n\n        // only the indexed field gets a secondary key\n        String idx = \"KEY idx_\" + s.table() + \"_first_col (first_col)\";\n        assertThat(ddl).contains(idx);\n        assertThat(ddl).doesNotContain(\"idx_\" + s.table() + \"_other_col\");\n        assertThat(ddl.split(\"KEY idx_\", -1)).hasSize(2);\n\n        // secondary keys come last, directly before the table options\n        assertThat(ddl).contains(idx + \"\\n) ENGINE=InnoDB\\n  DEFAULT CHARACTER SET utf8mb4\");\n\n        // ordering: id, business columns, audit columns, primary key, secondary key\n        int id = ddl.indexOf(\"id \");\n        int first = ddl.indexOf(\"first_col \");\n        int other = ddl.indexOf(\"other_col \");\n        int createBy = ddl.indexOf(\"create_by\");\n        int createTime = ddl.indexOf(\"create_time\");\n        int updateBy = ddl.indexOf(\"update_by\");\n        int updateTime = ddl.indexOf(\"update_time\");\n        int deleted = ddl.indexOf(\"deleted \");\n        int version = ddl.indexOf(\"version \");\n        int pk = ddl.indexOf(\"PRIMARY KEY (id)\");\n        int key = ddl.indexOf(idx);\n        assertThat(List.of(id, first, other, createBy, createTime, updateBy, updateTime,\n                deleted, version, pk, key)).isSorted();\n        assertThat(id).isGreaterThanOrEqualTo(0);\n\n        // comma separators between items\n        assertThat(ddl).contains(\",\\n  PRIMARY KEY (id),\\n  \" + idx);\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1513,
+        "cache_read_input_tokens": 6694,
+        "output_tokens": 2310,
+        "thinking_tokens": 1038
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate3Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.FieldType;\nimport io.github.describeadmin.codegen.model.Layout;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport org.junit.jupiter.api.Test;\n\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass DdlGeneratorMutaGate3Test {\n\n    private static FieldSpec field(String name, String column, boolean nullable,\n                                   String comment, boolean indexed) {\n        return new FieldSpec(name, column, FieldType.values()[0], 10, 10, 2,\n                nullable, comment, FieldSpec.QueryMode.NONE, indexed);\n    }\n\n    private static String lineStarting(String ddl, String prefix) {\n        for (String line : ddl.split(\"\\n\")) {\n            if (line.strip().startsWith(prefix)) {\n                return line;\n            }\n        }\n        throw new AssertionError(\"no line starting with \" + prefix + \" in:\\n\" + ddl);\n    }\n\n    @Test\n    void generatesOrderedColumnsEscapedCommentsAndKeys() {\n        ModuleSpec spec = new ModuleSpec(\"com.example\", \"demo\", \"Demo\", \"t_demo\",\n                \"Bob's table\", \"/api/demo\", Layout.values()[0], \"test\",\n                List.of(\n                        field(\"a\", \"col_a\", false, \"it's a\", true),\n                        field(\"b\", \"col_b\", true, null, false),\n                        field(\"c\", \"col_c\", false, \"plain\", true)));\n\n        String ddl = DdlGenerator.generate(spec);\n\n        // header comment is raw, table COMMENT is escaped\n        assertTrue(ddl.startsWith(\"-- Bob's table\\n\"));\n        assertTrue(ddl.contains(\"CREATE TABLE IF NOT EXISTS t_demo (\"));\n        assertTrue(ddl.contains(\"COMMENT='Bob''s table';\"));\n\n        // column comment escaping and null comment handling\n        String a = lineStarting(ddl, \"col_a\");\n        assertTrue(a.contains(\"NOT NULL\"));\n        assertTrue(a.endsWith(\"COMMENT 'it''s a',\"));\n        String b = lineStarting(ddl, \"col_b\");\n        assertFalse(b.contains(\"NOT NULL\"));\n        assertTrue(b.contains(\"    NULL\"));\n        assertTrue(b.endsWith(\"COMMENT '',\"));\n\n        // ordering: id, business columns, audit columns, primary key, indexes\n        int id = ddl.indexOf(\"id            \");\n        int ca = ddl.indexOf(\"col_a\");\n        int cb = ddl.indexOf(\"col_b\");\n        int cc = ddl.indexOf(\"col_c\");\n        int createBy = ddl.indexOf(\"create_by\");\n        int createTime = ddl.indexOf(\"create_time\");\n        int updateBy = ddl.indexOf(\"update_by\");\n        int updateTime = ddl.indexOf(\"update_time\");\n        int deleted = ddl.indexOf(\"deleted\");\n        int version = ddl.indexOf(\"version\");\n        int pk = ddl.indexOf(\"PRIMARY KEY (id)\");\n        int ka = ddl.indexOf(\"KEY idx_t_demo_col_a (col_a)\");\n        int kc = ddl.indexOf(\"KEY idx_t_demo_col_c (col_c)\");\n        assertTrue(id >= 0 && id < ca);\n        assertTrue(ca < cb && cb < cc && cc < createBy);\n        assertTrue(createBy < createTime && createTime < updateBy\n                && updateBy < updateTime && updateTime < deleted && deleted < version);\n        assertTrue(version < pk && pk < ka && ka < kc);\n        assertFalse(ddl.contains(\"idx_t_demo_col_b\"));\n\n        // comma separation: last column and primary key end with commas, last key does not\n        assertTrue(lineStarting(ddl, \"version\").endsWith(\",\"));\n        assertTrue(lineStarting(ddl, \"PRIMARY KEY\").endsWith(\",\"));\n        assertTrue(lineStarting(ddl, \"KEY idx_t_demo_col_a\").endsWith(\",\"));\n        assertEquals(\"  KEY idx_t_demo_col_c (col_c)\", lineStarting(ddl, \"KEY idx_t_demo_col_c\"));\n        assertTrue(ddl.contains(\"KEY idx_t_demo_col_c (col_c)\\n) ENGINE=InnoDB\"));\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1513,
+        "cache_read_input_tokens": 6694,
+        "output_tokens": 2481,
+        "thinking_tokens": 840
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.DdlGeneratorMutaGate4Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\nimport java.util.ArrayList;\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass DdlGeneratorMutaGate4Test {\n\n    @Test\n    void escapesQuotesAndKeepsColumnLayoutAndOrder() throws Exception {\n        ModuleSpec base = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n\n        List<FieldSpec> fields = new ArrayList<>(base.fields());\n        FieldSpec orig = fields.get(0);\n        FieldSpec quoted = new FieldSpec(orig.name(), orig.column(), orig.type(), orig.length(),\n                orig.precision(), orig.scale(), orig.nullable(), \"it's\", orig.query(),\n                orig.indexed());\n        fields.set(0, quoted);\n\n        ModuleSpec s = new ModuleSpec(base.basePackage(), base.module(), base.entity(),\n                base.table(), \"O'Brien\", base.apiPrefix(), base.layout(), base.layoutOrigin(),\n                fields);\n\n        String ddl = DdlGenerator.generate(s);\n\n        // header comment is raw, table comment is escaped\n        assertTrue(ddl.startsWith(\"-- O'Brien\\n--\\n\"));\n        assertTrue(ddl.contains(\"COMMENT='O''Brien';\"));\n        assertTrue(ddl.endsWith(\";\\n\"));\n        assertTrue(ddl.contains(\"CREATE TABLE IF NOT EXISTS \" + base.table() + \" (\\n  id \"));\n\n        // exact id line and field line formatting\n        String idLine = String.format(\"%-14s\", \"id\") + \" BIGINT      NOT NULL AUTO_INCREMENT COMMENT '\u4e3b\u952e'\";\n        String fieldLine = String.format(\"%-14s\", quoted.column()) + \" \"\n                + String.format(\"%-11s\", quoted.sqlColumnType()) + \" \"\n                + (quoted.nullable() ? \"    NULL\" : \"NOT NULL\")\n                + \" COMMENT 'it''s'\";\n        assertTrue(ddl.contains(idLine + \",\\n  \" + fieldLine + \",\\n  \"));\n\n        // order: id, fields, audit columns, primary key, then indexes\n        int idPos = ddl.indexOf(idLine);\n        int fieldPos = ddl.indexOf(fieldLine);\n        int createBy = ddl.indexOf(String.format(\"%-14s\", \"create_by\"));\n        int version = ddl.indexOf(String.format(\"%-14s\", \"version\"));\n        int pk = ddl.indexOf(\"PRIMARY KEY (id)\");\n        assertTrue(idPos < fieldPos);\n        assertTrue(fieldPos < createBy);\n        assertTrue(createBy < version);\n        assertTrue(version < pk);\n\n        // primary key line is followed by index lines only; no trailing comma before \")\"\n        assertTrue(ddl.contains(\"\\n) ENGINE=InnoDB\\n\"));\n        assertEquals(-1, ddl.indexOf(\",\\n)\"));\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1514,
+        "cache_read_input_tokens": 6694,
+        "output_tokens": 2137,
+        "thinking_tokens": 929
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

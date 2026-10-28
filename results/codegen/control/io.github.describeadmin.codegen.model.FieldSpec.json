@@ -1,0 +1,984 @@
+{
+  "repo": "codegen",
+  "class": "io.github.describeadmin.codegen.model.FieldSpec",
+  "kind": "CONTROL",
+  "setup": {
+    "repo_commit": "7697931d89755fe35b6cd149d774babd85af9bd5",
+    "date": "2026-10-28",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "db5009105cb4dfcea734e68a59d73ccd921853e2",
+    "provider": "claude-code",
+    "provider_version": "2.1.311",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.375,
+  "score_after": 1.0,
+  "mutants_total": 8,
+  "undetected_before": 5,
+  "newly_detected": 5,
+  "candidates": 5,
+  "kept": 5,
+  "acceptance_rate": 1.0,
+  "attempts_per_kept_test": 1.0,
+  "tokens": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 9658,
+    "cache_read_input_tokens": 22896,
+    "output_tokens": 4504,
+    "thinking_tokens": 0
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/model/FieldSpecMutaGate1Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 5 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 43,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 44,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            14
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 46,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            32
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            40
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            53
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 44,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            25
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            66
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 50,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            73
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate1Test {\n\n    private static FieldSpec spec(FieldType type, Integer length, Integer precision, Integer scale) {\n        return new FieldSpec(\"f\", \"f\", type, length, precision, scale, true, \"c\",\n                FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeDefaultsAndPlainTypes() {\n        // STRING: default length 255 when null, explicit length otherwise\n        assertEquals(\"VARCHAR(255)\", spec(FieldType.STRING, null, null, null).sqlColumnType());\n        assertEquals(\"VARCHAR(64)\", spec(FieldType.STRING, 64, 10, 5).sqlColumnType());\n\n        // DECIMAL: default precision 18 and scale 2 independently\n        assertEquals(\"DECIMAL(18,2)\", spec(FieldType.DECIMAL, 99, null, null).sqlColumnType());\n        assertEquals(\"DECIMAL(10,2)\", spec(FieldType.DECIMAL, null, 10, null).sqlColumnType());\n        assertEquals(\"DECIMAL(18,4)\", spec(FieldType.DECIMAL, null, null, 4).sqlColumnType());\n        assertEquals(\"DECIMAL(12,0)\", spec(FieldType.DECIMAL, null, 12, 0).sqlColumnType());\n\n        // Types needing neither length nor precision ignore those values\n        assertEquals(\"TEXT\", spec(FieldType.TEXT, 100, 10, 2).sqlColumnType());\n        assertEquals(\"INT\", spec(FieldType.INT, 11, 10, 2).sqlColumnType());\n        assertEquals(\"BIGINT\", spec(FieldType.LONG, null, null, null).sqlColumnType());\n        assertEquals(\"TINYINT\", spec(FieldType.FLAG, 1, null, null).sqlColumnType());\n        assertEquals(\"DATE\", spec(FieldType.DATE, null, null, null).sqlColumnType());\n        assertEquals(\"DATETIME\", spec(FieldType.DATETIME, 6, 6, 6).sqlColumnType());\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/model/FieldSpecMutaGate2Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 5 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 43,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 44,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            14
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 46,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            32
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            40
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            53
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 44,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            25
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            66
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 50,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            73
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate2Test {\n\n    private static FieldSpec spec(FieldType type, Integer length, Integer precision, Integer scale) {\n        return new FieldSpec(\"f\", \"f\", type, length, precision, scale, true, \"c\",\n                FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeDefaultsAndPlainTypes() {\n        // STRING: explicit length, and default 255 when null\n        assertEquals(\"VARCHAR(64)\", spec(FieldType.STRING, 64, null, null).sqlColumnType());\n        assertEquals(\"VARCHAR(255)\", spec(FieldType.STRING, null, null, null).sqlColumnType());\n        // length is ignored by precision handling; precision/scale ignored for STRING\n        assertEquals(\"VARCHAR(10)\", spec(FieldType.STRING, 10, 5, 3).sqlColumnType());\n\n        // DECIMAL: defaults 18,2 individually\n        assertEquals(\"DECIMAL(18,2)\", spec(FieldType.DECIMAL, null, null, null).sqlColumnType());\n        assertEquals(\"DECIMAL(10,2)\", spec(FieldType.DECIMAL, null, 10, null).sqlColumnType());\n        assertEquals(\"DECIMAL(18,4)\", spec(FieldType.DECIMAL, null, null, 4).sqlColumnType());\n        assertEquals(\"DECIMAL(12,3)\", spec(FieldType.DECIMAL, 99, 12, 3).sqlColumnType());\n        assertEquals(\"DECIMAL(8,0)\", spec(FieldType.DECIMAL, null, 8, 0).sqlColumnType());\n\n        // Types without length/precision ignore those values\n        assertEquals(\"TEXT\", spec(FieldType.TEXT, 100, 5, 2).sqlColumnType());\n        assertEquals(\"INT\", spec(FieldType.INT, 11, 5, 2).sqlColumnType());\n        assertEquals(\"BIGINT\", spec(FieldType.LONG, null, null, null).sqlColumnType());\n        assertEquals(\"TINYINT\", spec(FieldType.FLAG, 1, null, null).sqlColumnType());\n        assertEquals(\"DATE\", spec(FieldType.DATE, null, null, null).sqlColumnType());\n        assertEquals(\"DATETIME\", spec(FieldType.DATETIME, 6, 6, 6).sqlColumnType());\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/model/FieldSpecMutaGate3Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 5 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 43,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 44,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            14
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 46,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            32
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            40
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            53
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 44,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            25
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            66
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 50,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            73
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate3Test {\n\n    private static FieldSpec spec(FieldType type, Integer length, Integer precision, Integer scale) {\n        return new FieldSpec(\"f\", \"f\", type, length, precision, scale, true, \"c\",\n                FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeDefaultsAndNonParameterizedTypes() {\n        // STRING: explicit length and default 255\n        assertEquals(\"VARCHAR(64)\", spec(FieldType.STRING, 64, null, null).sqlColumnType());\n        assertEquals(\"VARCHAR(255)\", spec(FieldType.STRING, null, null, null).sqlColumnType());\n        // length is ignored for precision-based types and vice versa\n        assertEquals(\"VARCHAR(10)\", spec(FieldType.STRING, 10, 30, 5).sqlColumnType());\n\n        // DECIMAL: defaults, partial defaults, explicit values\n        assertEquals(\"DECIMAL(18,2)\", spec(FieldType.DECIMAL, null, null, null).sqlColumnType());\n        assertEquals(\"DECIMAL(10,2)\", spec(FieldType.DECIMAL, null, 10, null).sqlColumnType());\n        assertEquals(\"DECIMAL(18,4)\", spec(FieldType.DECIMAL, null, null, 4).sqlColumnType());\n        assertEquals(\"DECIMAL(12,0)\", spec(FieldType.DECIMAL, 99, 12, 0).sqlColumnType());\n\n        // Types needing neither length nor precision ignore those values\n        assertEquals(\"TEXT\", spec(FieldType.TEXT, 100, 10, 2).sqlColumnType());\n        assertEquals(\"INT\", spec(FieldType.INT, 11, null, null).sqlColumnType());\n        assertEquals(\"BIGINT\", spec(FieldType.LONG, null, 20, 0).sqlColumnType());\n        assertEquals(\"TINYINT\", spec(FieldType.FLAG, 1, null, null).sqlColumnType());\n        assertEquals(\"DATE\", spec(FieldType.DATE, null, null, null).sqlColumnType());\n        assertEquals(\"DATETIME\", spec(FieldType.DATETIME, null, null, null).sqlColumnType());\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/model/FieldSpecMutaGate4Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 5 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 43,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 44,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            14
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 46,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            32
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            40
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            53
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 44,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            25
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            66
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 50,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            73
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate4Test {\n\n    private static FieldSpec spec(FieldType type, Integer length, Integer precision, Integer scale) {\n        return new FieldSpec(\"f\", \"f\", type, length, precision, scale, true, \"c\",\n                FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeDefaultsAndPlainTypes() {\n        // STRING: explicit length and default 255\n        assertEquals(\"VARCHAR(64)\", spec(FieldType.STRING, 64, null, null).sqlColumnType());\n        assertEquals(\"VARCHAR(255)\", spec(FieldType.STRING, null, null, null).sqlColumnType());\n        // precision/scale are ignored for STRING\n        assertEquals(\"VARCHAR(10)\", spec(FieldType.STRING, 10, 5, 3).sqlColumnType());\n\n        // DECIMAL: defaults, partial defaults, explicit values\n        assertEquals(\"DECIMAL(18,2)\", spec(FieldType.DECIMAL, null, null, null).sqlColumnType());\n        assertEquals(\"DECIMAL(10,2)\", spec(FieldType.DECIMAL, null, 10, null).sqlColumnType());\n        assertEquals(\"DECIMAL(18,4)\", spec(FieldType.DECIMAL, null, null, 4).sqlColumnType());\n        assertEquals(\"DECIMAL(12,0)\", spec(FieldType.DECIMAL, null, 12, 0).sqlColumnType());\n        // length is ignored for DECIMAL\n        assertEquals(\"DECIMAL(18,2)\", spec(FieldType.DECIMAL, 99, null, null).sqlColumnType());\n\n        // Other types: no parameters, even if length/precision supplied\n        assertEquals(\"TEXT\", spec(FieldType.TEXT, 100, 5, 2).sqlColumnType());\n        assertEquals(\"INT\", spec(FieldType.INT, 11, null, null).sqlColumnType());\n        assertEquals(\"BIGINT\", spec(FieldType.LONG, null, 20, 0).sqlColumnType());\n        assertEquals(\"TINYINT\", spec(FieldType.FLAG, null, null, null).sqlColumnType());\n        assertEquals(\"DATE\", spec(FieldType.DATE, null, null, null).sqlColumnType());\n        assertEquals(\"DATETIME\", spec(FieldType.DATETIME, 6, null, null).sqlColumnType());\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/model/FieldSpecMutaGate5Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 5 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 43,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 44,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            14
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 46,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            32
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            40
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            53
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 44,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            25
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            66
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.SpecLoaderTest#typeMapping",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        },
+        {
+          "source_file": "FieldSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.FieldSpec",
+          "mutated_method": "sqlColumnType",
+          "method_description": "()Ljava/lang/String;",
+          "line": 50,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            73
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/FieldSpec::sqlColumnType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test#sqlColumnTypeDefaultsAndNonParameterizedTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test#sqlColumnTypeDefaultsAndPlainTypes",
+            "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test#sqlColumnTypeCoversDefaultsAndNonParameterizedTypes"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate5Test {\n\n    private static FieldSpec spec(FieldType type, Integer length, Integer precision, Integer scale) {\n        return new FieldSpec(\"f\", \"f\", type, length, precision, scale, true, \"c\",\n                FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeCoversDefaultsAndNonParameterizedTypes() {\n        // STRING: explicit length and default 255\n        assertEquals(\"VARCHAR(64)\", spec(FieldType.STRING, 64, null, null).sqlColumnType());\n        assertEquals(\"VARCHAR(255)\", spec(FieldType.STRING, null, null, null).sqlColumnType());\n        // length is ignored for STRING's precision/scale\n        assertEquals(\"VARCHAR(10)\", spec(FieldType.STRING, 10, 5, 3).sqlColumnType());\n\n        // DECIMAL: defaults, partial defaults, explicit values\n        assertEquals(\"DECIMAL(18,2)\", spec(FieldType.DECIMAL, null, null, null).sqlColumnType());\n        assertEquals(\"DECIMAL(10,2)\", spec(FieldType.DECIMAL, null, 10, null).sqlColumnType());\n        assertEquals(\"DECIMAL(18,4)\", spec(FieldType.DECIMAL, null, null, 4).sqlColumnType());\n        assertEquals(\"DECIMAL(12,0)\", spec(FieldType.DECIMAL, null, 12, 0).sqlColumnType());\n        // length is ignored for DECIMAL\n        assertEquals(\"DECIMAL(20,6)\", spec(FieldType.DECIMAL, 99, 20, 6).sqlColumnType());\n\n        // Types without parameters ignore length/precision/scale\n        assertEquals(\"TEXT\", spec(FieldType.TEXT, 100, 10, 2).sqlColumnType());\n        assertEquals(\"INT\", spec(FieldType.INT, 100, 10, 2).sqlColumnType());\n        assertEquals(\"BIGINT\", spec(FieldType.LONG, null, null, null).sqlColumnType());\n        assertEquals(\"TINYINT\", spec(FieldType.FLAG, 1, null, null).sqlColumnType());\n        assertEquals(\"DATE\", spec(FieldType.DATE, 8, 8, 8).sqlColumnType());\n        assertEquals(\"DATETIME\", spec(FieldType.DATETIME, 3, 3, 3).sqlColumnType());\n    }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldSpecMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate1Test {\n\n    private static FieldSpec spec(FieldType type, Integer length, Integer precision, Integer scale) {\n        return new FieldSpec(\"f\", \"f\", type, length, precision, scale, true, \"c\",\n                FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeDefaultsAndPlainTypes() {\n        // STRING: default length 255 when null, explicit length otherwise\n        assertEquals(\"VARCHAR(255)\", spec(FieldType.STRING, null, null, null).sqlColumnType());\n        assertEquals(\"VARCHAR(64)\", spec(FieldType.STRING, 64, 10, 5).sqlColumnType());\n\n        // DECIMAL: default precision 18 and scale 2 independently\n        assertEquals(\"DECIMAL(18,2)\", spec(FieldType.DECIMAL, 99, null, null).sqlColumnType());\n        assertEquals(\"DECIMAL(10,2)\", spec(FieldType.DECIMAL, null, 10, null).sqlColumnType());\n        assertEquals(\"DECIMAL(18,4)\", spec(FieldType.DECIMAL, null, null, 4).sqlColumnType());\n        assertEquals(\"DECIMAL(12,0)\", spec(FieldType.DECIMAL, null, 12, 0).sqlColumnType());\n\n        // Types needing neither length nor precision ignore those values\n        assertEquals(\"TEXT\", spec(FieldType.TEXT, 100, 10, 2).sqlColumnType());\n        assertEquals(\"INT\", spec(FieldType.INT, 11, 10, 2).sqlColumnType());\n        assertEquals(\"BIGINT\", spec(FieldType.LONG, null, null, null).sqlColumnType());\n        assertEquals(\"TINYINT\", spec(FieldType.FLAG, 1, null, null).sqlColumnType());\n        assertEquals(\"DATE\", spec(FieldType.DATE, null, null, null).sqlColumnType());\n        assertEquals(\"DATETIME\", spec(FieldType.DATETIME, 6, 6, 6).sqlColumnType());\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 6511,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 818,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldSpecMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate2Test {\n\n    private static FieldSpec spec(FieldType type, Integer length, Integer precision, Integer scale) {\n        return new FieldSpec(\"f\", \"f\", type, length, precision, scale, true, \"c\",\n                FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeDefaultsAndPlainTypes() {\n        // STRING: explicit length, and default 255 when null\n        assertEquals(\"VARCHAR(64)\", spec(FieldType.STRING, 64, null, null).sqlColumnType());\n        assertEquals(\"VARCHAR(255)\", spec(FieldType.STRING, null, null, null).sqlColumnType());\n        // length is ignored by precision handling; precision/scale ignored for STRING\n        assertEquals(\"VARCHAR(10)\", spec(FieldType.STRING, 10, 5, 3).sqlColumnType());\n\n        // DECIMAL: defaults 18,2 individually\n        assertEquals(\"DECIMAL(18,2)\", spec(FieldType.DECIMAL, null, null, null).sqlColumnType());\n        assertEquals(\"DECIMAL(10,2)\", spec(FieldType.DECIMAL, null, 10, null).sqlColumnType());\n        assertEquals(\"DECIMAL(18,4)\", spec(FieldType.DECIMAL, null, null, 4).sqlColumnType());\n        assertEquals(\"DECIMAL(12,3)\", spec(FieldType.DECIMAL, 99, 12, 3).sqlColumnType());\n        assertEquals(\"DECIMAL(8,0)\", spec(FieldType.DECIMAL, null, 8, 0).sqlColumnType());\n\n        // Types without length/precision ignore those values\n        assertEquals(\"TEXT\", spec(FieldType.TEXT, 100, 5, 2).sqlColumnType());\n        assertEquals(\"INT\", spec(FieldType.INT, 11, 5, 2).sqlColumnType());\n        assertEquals(\"BIGINT\", spec(FieldType.LONG, null, null, null).sqlColumnType());\n        assertEquals(\"TINYINT\", spec(FieldType.FLAG, 1, null, null).sqlColumnType());\n        assertEquals(\"DATE\", spec(FieldType.DATE, null, null, null).sqlColumnType());\n        assertEquals(\"DATETIME\", spec(FieldType.DATETIME, 6, 6, 6).sqlColumnType());\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 788,
+        "cache_read_input_tokens": 5724,
+        "output_tokens": 928,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldSpecMutaGate3Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate3Test {\n\n    private static FieldSpec spec(FieldType type, Integer length, Integer precision, Integer scale) {\n        return new FieldSpec(\"f\", \"f\", type, length, precision, scale, true, \"c\",\n                FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeDefaultsAndNonParameterizedTypes() {\n        // STRING: explicit length and default 255\n        assertEquals(\"VARCHAR(64)\", spec(FieldType.STRING, 64, null, null).sqlColumnType());\n        assertEquals(\"VARCHAR(255)\", spec(FieldType.STRING, null, null, null).sqlColumnType());\n        // length is ignored for precision-based types and vice versa\n        assertEquals(\"VARCHAR(10)\", spec(FieldType.STRING, 10, 30, 5).sqlColumnType());\n\n        // DECIMAL: defaults, partial defaults, explicit values\n        assertEquals(\"DECIMAL(18,2)\", spec(FieldType.DECIMAL, null, null, null).sqlColumnType());\n        assertEquals(\"DECIMAL(10,2)\", spec(FieldType.DECIMAL, null, 10, null).sqlColumnType());\n        assertEquals(\"DECIMAL(18,4)\", spec(FieldType.DECIMAL, null, null, 4).sqlColumnType());\n        assertEquals(\"DECIMAL(12,0)\", spec(FieldType.DECIMAL, 99, 12, 0).sqlColumnType());\n\n        // Types needing neither length nor precision ignore those values\n        assertEquals(\"TEXT\", spec(FieldType.TEXT, 100, 10, 2).sqlColumnType());\n        assertEquals(\"INT\", spec(FieldType.INT, 11, null, null).sqlColumnType());\n        assertEquals(\"BIGINT\", spec(FieldType.LONG, null, 20, 0).sqlColumnType());\n        assertEquals(\"TINYINT\", spec(FieldType.FLAG, 1, null, null).sqlColumnType());\n        assertEquals(\"DATE\", spec(FieldType.DATE, null, null, null).sqlColumnType());\n        assertEquals(\"DATETIME\", spec(FieldType.DATETIME, null, null, null).sqlColumnType());\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 788,
+        "cache_read_input_tokens": 5724,
+        "output_tokens": 875,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldSpecMutaGate4Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate4Test {\n\n    private static FieldSpec spec(FieldType type, Integer length, Integer precision, Integer scale) {\n        return new FieldSpec(\"f\", \"f\", type, length, precision, scale, true, \"c\",\n                FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeDefaultsAndPlainTypes() {\n        // STRING: explicit length and default 255\n        assertEquals(\"VARCHAR(64)\", spec(FieldType.STRING, 64, null, null).sqlColumnType());\n        assertEquals(\"VARCHAR(255)\", spec(FieldType.STRING, null, null, null).sqlColumnType());\n        // precision/scale are ignored for STRING\n        assertEquals(\"VARCHAR(10)\", spec(FieldType.STRING, 10, 5, 3).sqlColumnType());\n\n        // DECIMAL: defaults, partial defaults, explicit values\n        assertEquals(\"DECIMAL(18,2)\", spec(FieldType.DECIMAL, null, null, null).sqlColumnType());\n        assertEquals(\"DECIMAL(10,2)\", spec(FieldType.DECIMAL, null, 10, null).sqlColumnType());\n        assertEquals(\"DECIMAL(18,4)\", spec(FieldType.DECIMAL, null, null, 4).sqlColumnType());\n        assertEquals(\"DECIMAL(12,0)\", spec(FieldType.DECIMAL, null, 12, 0).sqlColumnType());\n        // length is ignored for DECIMAL\n        assertEquals(\"DECIMAL(18,2)\", spec(FieldType.DECIMAL, 99, null, null).sqlColumnType());\n\n        // Other types: no parameters, even if length/precision supplied\n        assertEquals(\"TEXT\", spec(FieldType.TEXT, 100, 5, 2).sqlColumnType());\n        assertEquals(\"INT\", spec(FieldType.INT, 11, null, null).sqlColumnType());\n        assertEquals(\"BIGINT\", spec(FieldType.LONG, null, 20, 0).sqlColumnType());\n        assertEquals(\"TINYINT\", spec(FieldType.FLAG, null, null, null).sqlColumnType());\n        assertEquals(\"DATE\", spec(FieldType.DATE, null, null, null).sqlColumnType());\n        assertEquals(\"DATETIME\", spec(FieldType.DATETIME, 6, null, null).sqlColumnType());\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 788,
+        "cache_read_input_tokens": 5724,
+        "output_tokens": 934,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.model.FieldSpecMutaGate5Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass FieldSpecMutaGate5Test {\n\n    private static FieldSpec spec(FieldType type, Integer length, Integer precision, Integer scale) {\n        return new FieldSpec(\"f\", \"f\", type, length, precision, scale, true, \"c\",\n                FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void sqlColumnTypeCoversDefaultsAndNonParameterizedTypes() {\n        // STRING: explicit length and default 255\n        assertEquals(\"VARCHAR(64)\", spec(FieldType.STRING, 64, null, null).sqlColumnType());\n        assertEquals(\"VARCHAR(255)\", spec(FieldType.STRING, null, null, null).sqlColumnType());\n        // length is ignored for STRING's precision/scale\n        assertEquals(\"VARCHAR(10)\", spec(FieldType.STRING, 10, 5, 3).sqlColumnType());\n\n        // DECIMAL: defaults, partial defaults, explicit values\n        assertEquals(\"DECIMAL(18,2)\", spec(FieldType.DECIMAL, null, null, null).sqlColumnType());\n        assertEquals(\"DECIMAL(10,2)\", spec(FieldType.DECIMAL, null, 10, null).sqlColumnType());\n        assertEquals(\"DECIMAL(18,4)\", spec(FieldType.DECIMAL, null, null, 4).sqlColumnType());\n        assertEquals(\"DECIMAL(12,0)\", spec(FieldType.DECIMAL, null, 12, 0).sqlColumnType());\n        // length is ignored for DECIMAL\n        assertEquals(\"DECIMAL(20,6)\", spec(FieldType.DECIMAL, 99, 20, 6).sqlColumnType());\n\n        // Types without parameters ignore length/precision/scale\n        assertEquals(\"TEXT\", spec(FieldType.TEXT, 100, 10, 2).sqlColumnType());\n        assertEquals(\"INT\", spec(FieldType.INT, 100, 10, 2).sqlColumnType());\n        assertEquals(\"BIGINT\", spec(FieldType.LONG, null, null, null).sqlColumnType());\n        assertEquals(\"TINYINT\", spec(FieldType.FLAG, 1, null, null).sqlColumnType());\n        assertEquals(\"DATE\", spec(FieldType.DATE, 8, 8, 8).sqlColumnType());\n        assertEquals(\"DATETIME\", spec(FieldType.DATETIME, 3, 3, 3).sqlColumnType());\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 783,
+        "cache_read_input_tokens": 5724,
+        "output_tokens": 949,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

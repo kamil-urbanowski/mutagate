@@ -1,0 +1,101 @@
+{
+  "repo": "codegen",
+  "class": "io.github.describeadmin.codegen.model.Layout",
+  "kind": "CONTROL",
+  "setup": {
+    "repo_commit": "7697931d89755fe35b6cd149d774babd85af9bd5",
+    "date": "2026-10-28",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "db5009105cb4dfcea734e68a59d73ccd921853e2",
+    "provider": "claude-code",
+    "provider_version": "2.1.311",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.5,
+  "score_after": 1.0,
+  "mutants_total": 2,
+  "undetected_before": 1,
+  "newly_detected": 1,
+  "candidates": 1,
+  "kept": 1,
+  "acceptance_rate": 1.0,
+  "attempts_per_kept_test": 1.0,
+  "tokens": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 6072,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 667,
+    "thinking_tokens": 0
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.describeadmin.codegen.model.LayoutMutaGate1Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/model/LayoutMutaGate1Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 1 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "Layout.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.Layout",
+          "mutated_method": "key",
+          "method_description": "()Ljava/lang/String;",
+          "line": 27,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/Layout::key",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.model.LayoutMutaGate1Test#ofHandlesNullCaseWhitespaceAndInvalidInputs"
+          ]
+        },
+        {
+          "source_file": "Layout.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.Layout",
+          "mutated_method": "of",
+          "method_description": "(Ljava/lang/String;)Ljava/util/Optional;",
+          "line": 32,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+            "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+            "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#precedence",
+            "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat",
+            "io.github.describeadmin.codegen.model.LayoutMutaGate1Test#ofHandlesNullCaseWhitespaceAndInvalidInputs"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport java.util.Optional;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nclass LayoutMutaGate1Test {\n\n    @Test\n    void ofHandlesNullCaseWhitespaceAndInvalidInputs() {\n        assertEquals(Optional.empty(), Layout.of(null));\n        assertEquals(Optional.empty(), Layout.of(\"\"));\n        assertEquals(Optional.empty(), Layout.of(\"   \"));\n        assertEquals(Optional.empty(), Layout.of(\"nest\"));\n        assertEquals(Optional.empty(), Layout.of(\"nested flat\"));\n        assertEquals(Optional.empty(), Layout.of(\"ne sted\"));\n\n        assertSame(Layout.NESTED, Layout.of(\"nested\").orElseThrow());\n        assertSame(Layout.NESTED, Layout.of(\"NESTED\").orElseThrow());\n        assertSame(Layout.NESTED, Layout.of(\"  NeStEd\\t\").orElseThrow());\n        assertSame(Layout.NESTED, Layout.of(\"\\nnested\\n\").orElseThrow());\n\n        assertSame(Layout.FLAT, Layout.of(\"flat\").orElseThrow());\n        assertSame(Layout.FLAT, Layout.of(\"FLAT\").orElseThrow());\n        assertSame(Layout.FLAT, Layout.of(\"  fLaT \").orElseThrow());\n        assertSame(Layout.FLAT, Layout.of(\"\\tflat\\r\\n\").orElseThrow());\n\n        for (Layout l : Layout.values()) {\n            assertSame(l, Layout.of(l.key()).orElseThrow());\n            assertSame(l, Layout.of(l.name()).orElseThrow());\n        }\n    }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.describeadmin.codegen.model.LayoutMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport java.util.Optional;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nclass LayoutMutaGate1Test {\n\n    @Test\n    void ofHandlesNullCaseWhitespaceAndInvalidInputs() {\n        assertEquals(Optional.empty(), Layout.of(null));\n        assertEquals(Optional.empty(), Layout.of(\"\"));\n        assertEquals(Optional.empty(), Layout.of(\"   \"));\n        assertEquals(Optional.empty(), Layout.of(\"nest\"));\n        assertEquals(Optional.empty(), Layout.of(\"nested flat\"));\n        assertEquals(Optional.empty(), Layout.of(\"ne sted\"));\n\n        assertSame(Layout.NESTED, Layout.of(\"nested\").orElseThrow());\n        assertSame(Layout.NESTED, Layout.of(\"NESTED\").orElseThrow());\n        assertSame(Layout.NESTED, Layout.of(\"  NeStEd\\t\").orElseThrow());\n        assertSame(Layout.NESTED, Layout.of(\"\\nnested\\n\").orElseThrow());\n\n        assertSame(Layout.FLAT, Layout.of(\"flat\").orElseThrow());\n        assertSame(Layout.FLAT, Layout.of(\"FLAT\").orElseThrow());\n        assertSame(Layout.FLAT, Layout.of(\"  fLaT \").orElseThrow());\n        assertSame(Layout.FLAT, Layout.of(\"\\tflat\\r\\n\").orElseThrow());\n\n        for (Layout l : Layout.values()) {\n            assertSame(l, Layout.of(l.key()).orElseThrow());\n            assertSame(l, Layout.of(l.name()).orElseThrow());\n        }\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 6072,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 667,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

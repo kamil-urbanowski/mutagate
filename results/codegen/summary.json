@@ -141,5 +141,165 @@
         "score_after": 1.0
       }
     ]
+  },
+  "control": {
+    "score_before": 0.6043478260869565,
+    "score_after": 0.8391304347826087,
+    "detected_after": 193,
+    "newly_detected_by_status": {
+      "NO_COVERAGE": {
+        "undetected": 48,
+        "newly_detected": 17
+      },
+      "SURVIVED": {
+        "undetected": 43,
+        "newly_detected": 37
+      }
+    },
+    "candidates": 91,
+    "kept": 62,
+    "acceptance_rate": 0.6813186813186813,
+    "attempts_per_kept_test": 1.467741935483871,
+    "kept_after_repair": 0,
+    "redundant_kept": 50,
+    "verdicts": {
+      "KEPT": 62,
+      "NO_NEW_KILL": 29
+    },
+    "gate": {
+      "rejected_at_screen": {
+        "count": 0,
+        "share": 0.0
+      },
+      "rejected_at_verification": {
+        "count": 29,
+        "share": 0.31868131868131866
+      },
+      "batch_failed": {
+        "count": 0,
+        "share": 0.0
+      }
+    },
+    "requests": 91,
+    "requests_reused": 0,
+    "tokens": {
+      "input_tokens": 182,
+      "cache_creation_input_tokens": 211806,
+      "cache_read_input_tokens": 719093,
+      "output_tokens": 129309,
+      "thinking_tokens": 41978
+    },
+    "settings": [
+      {
+        "provider": "claude-code",
+        "model": "claude-sonnet-5-5",
+        "effort": "medium",
+        "system_prompt": "the shared part of each request"
+      }
+    ],
+    "classes_not_run": [],
+    "classes": [
+      {
+        "class": "io.github.describeadmin.codegen.CodegenCli",
+        "candidates": 46,
+        "kept": 31,
+        "score_before": 0.0,
+        "score_after": 0.34782608695652173
+      },
+      {
+        "class": "io.github.describeadmin.codegen.generator.DdlGenerator",
+        "candidates": 4,
+        "kept": 4,
+        "score_before": 0.42857142857142855,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+        "candidates": 2,
+        "kept": 1,
+        "score_before": 0.8823529411764706,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+        "candidates": 2,
+        "kept": 2,
+        "score_before": 0.6666666666666666,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.describeadmin.codegen.generator.VueGenerator",
+        "candidates": 11,
+        "kept": 2,
+        "score_before": 0.725,
+        "score_after": 0.925
+      },
+      {
+        "class": "io.github.describeadmin.codegen.model.FieldSpec",
+        "candidates": 5,
+        "kept": 5,
+        "score_before": 0.375,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.describeadmin.codegen.model.FieldType",
+        "candidates": 5,
+        "kept": 4,
+        "score_before": 0.6875,
+        "score_after": 0.9375
+      },
+      {
+        "class": "io.github.describeadmin.codegen.model.Layout",
+        "candidates": 1,
+        "kept": 1,
+        "score_before": 0.5,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.describeadmin.codegen.model.ModuleSpec",
+        "candidates": 1,
+        "kept": 0,
+        "score_before": 0.9,
+        "score_after": 0.9
+      },
+      {
+        "class": "io.github.describeadmin.codegen.parser.SpecLoader",
+        "candidates": 14,
+        "kept": 12,
+        "score_before": 0.8181818181818182,
+        "score_after": 0.974025974025974
+      }
+    ]
+  },
+  "comparison": {
+    "classes": [
+      "io.github.describeadmin.codegen.CodegenCli",
+      "io.github.describeadmin.codegen.generator.DdlGenerator",
+      "io.github.describeadmin.codegen.generator.JavaGenerator",
+      "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+      "io.github.describeadmin.codegen.generator.VueGenerator",
+      "io.github.describeadmin.codegen.model.FieldSpec",
+      "io.github.describeadmin.codegen.model.FieldType",
+      "io.github.describeadmin.codegen.model.Layout",
+      "io.github.describeadmin.codegen.model.ModuleSpec",
+      "io.github.describeadmin.codegen.parser.SpecLoader"
+    ],
+    "targeted": {
+      "score_after": 0.9652173913043478,
+      "candidates": 91,
+      "kept": 80,
+      "attempts_per_kept_test": 1.25
+    },
+    "control": {
+      "score_after": 0.8391304347826087,
+      "candidates": 91,
+      "kept": 62,
+      "attempts_per_kept_test": 1.467741935483871
+    },
+    "newly_detected": {
+      "targeted_only": 29,
+      "control_only": 0,
+      "both": 54
+    }
   }
 }
