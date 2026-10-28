@@ -288,12 +288,14 @@
       "score_after": 0.9652173913043478,
       "candidates": 91,
       "kept": 80,
+      "kept_with_new_kill": 53,
       "attempts_per_kept_test": 1.25
     },
     "control": {
       "score_after": 0.8391304347826087,
       "candidates": 91,
       "kept": 62,
+      "kept_with_new_kill": 12,
       "attempts_per_kept_test": 1.467741935483871
     },
     "newly_detected": {
