@@ -1,0 +1,105 @@
+{
+  "repo": "codegen",
+  "class": "io.github.describeadmin.codegen.model.ModuleSpec",
+  "kind": "CONTROL",
+  "setup": {
+    "repo_commit": "7697931d89755fe35b6cd149d774babd85af9bd5",
+    "date": "2026-10-28",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "db5009105cb4dfcea734e68a59d73ccd921853e2",
+    "provider": "claude-code",
+    "provider_version": "2.1.311",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.9,
+  "score_after": 0.9,
+  "mutants_total": 10,
+  "undetected_before": 1,
+  "newly_detected": 0,
+  "candidates": 1,
+  "kept": 0,
+  "acceptance_rate": 0.0,
+  "attempts_per_kept_test": null,
+  "tokens": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 16142,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 813,
+    "thinking_tokens": 0
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.describeadmin.codegen.model.ModuleSpecMutaGate1Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/model/ModuleSpecMutaGate1Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "ModuleSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.ModuleSpec",
+          "mutated_method": "<init>",
+          "method_description": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lio/github/describeadmin/codegen/model/Layout;Ljava/lang/String;Ljava/util/List;)V",
+          "line": 41,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            8
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+            "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#cliOverridesSpec",
+            "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat",
+            "io.github.describeadmin.codegen.model.ModuleSpecMutaGate1Test#nullLayoutFallsBackToNestedAndKeepsOtherComponents"
+          ]
+        },
+        {
+          "source_file": "ModuleSpec.java",
+          "mutated_class": "io.github.describeadmin.codegen.model.ModuleSpec",
+          "mutated_method": "packageOf",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 64,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            35
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/model/ModuleSpec::packageOf",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+            "io.github.describeadmin.codegen.GeneratorTest#nestedLayoutKeepsModuleSegment",
+            "io.github.describeadmin.codegen.SpecLoaderTest#minimal",
+            "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#defaultsToNested",
+            "io.github.describeadmin.codegen.SpecLoaderTest$PackageLayout#specKeyFlat",
+            "io.github.describeadmin.codegen.model.ModuleSpecMutaGate1Test#nullLayoutFallsBackToNestedAndKeepsOtherComponents"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nclass ModuleSpecMutaGate1Test {\n\n    @Test\n    void nullLayoutFallsBackToNestedAndKeepsOtherComponents() {\n        List<FieldSpec> fields = List.of();\n        ModuleSpec nullLayout = new ModuleSpec(\"com.example.demo\", \"project\", \"Project\",\n                \"biz_project\", \"\u9879\u76ee\", \"/api/project\", null, \"\u4efb\u610f\u6765\u6e90\", fields);\n\n        // \u515c\u5e95\uff1a\u5e03\u5c40\u4e3a NESTED\uff0c\u6765\u6e90\u88ab\u8986\u76d6\u4e3a\u300c\u9ed8\u8ba4\u300d\n        assertEquals(Layout.NESTED, nullLayout.layout());\n        assertEquals(\"\u9ed8\u8ba4\", nullLayout.layoutOrigin());\n        assertEquals(\"com.example.demo.project.entity\", nullLayout.packageOf(\"entity\"));\n\n        // \u5176\u5b83\u7ec4\u4ef6\u4e0d\u53d7\u5f71\u54cd\n        assertEquals(\"com.example.demo\", nullLayout.basePackage());\n        assertEquals(\"project\", nullLayout.module());\n        assertEquals(\"Project\", nullLayout.entity());\n        assertEquals(\"biz_project\", nullLayout.table());\n        assertEquals(\"\u9879\u76ee\", nullLayout.comment());\n        assertEquals(\"/api/project\", nullLayout.apiPrefix());\n        assertSame(fields, nullLayout.fields());\n\n        // \u663e\u5f0f\u7ed9\u51fa\u5e03\u5c40\u65f6\uff0c\u5e03\u5c40\u4e0e\u6765\u6e90\u539f\u6837\u4fdd\u7559\n        ModuleSpec flat = new ModuleSpec(\"com.example.demo\", \"project\", \"Project\",\n                \"biz_project\", \"\u9879\u76ee\", \"/api/project\", Layout.FLAT, \"\u81ea\u5b9a\u4e49\u6765\u6e90\", fields);\n        assertEquals(Layout.FLAT, flat.layout());\n        assertEquals(\"\u81ea\u5b9a\u4e49\u6765\u6e90\", flat.layoutOrigin());\n        assertEquals(\"com.example.demo.entity\", flat.packageOf(\"entity\"));\n\n        // \u663e\u5f0f NESTED \u65f6\u6765\u6e90\u540c\u6837\u4e0d\u88ab\u8986\u76d6\n        ModuleSpec nested = new ModuleSpec(\"com.example.demo\", \"project\", \"Project\",\n                \"biz_project\", \"\u9879\u76ee\", \"/api/project\", Layout.NESTED, \"\u81ea\u5b9a\u4e49\u6765\u6e90\", fields);\n        assertEquals(\"\u81ea\u5b9a\u4e49\u6765\u6e90\", nested.layoutOrigin());\n    }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.describeadmin.codegen.model.ModuleSpecMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.model;\n\nimport org.junit.jupiter.api.Test;\n\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nclass ModuleSpecMutaGate1Test {\n\n    @Test\n    void nullLayoutFallsBackToNestedAndKeepsOtherComponents() {\n        List<FieldSpec> fields = List.of();\n        ModuleSpec nullLayout = new ModuleSpec(\"com.example.demo\", \"project\", \"Project\",\n                \"biz_project\", \"\u9879\u76ee\", \"/api/project\", null, \"\u4efb\u610f\u6765\u6e90\", fields);\n\n        // \u515c\u5e95\uff1a\u5e03\u5c40\u4e3a NESTED\uff0c\u6765\u6e90\u88ab\u8986\u76d6\u4e3a\u300c\u9ed8\u8ba4\u300d\n        assertEquals(Layout.NESTED, nullLayout.layout());\n        assertEquals(\"\u9ed8\u8ba4\", nullLayout.layoutOrigin());\n        assertEquals(\"com.example.demo.project.entity\", nullLayout.packageOf(\"entity\"));\n\n        // \u5176\u5b83\u7ec4\u4ef6\u4e0d\u53d7\u5f71\u54cd\n        assertEquals(\"com.example.demo\", nullLayout.basePackage());\n        assertEquals(\"project\", nullLayout.module());\n        assertEquals(\"Project\", nullLayout.entity());\n        assertEquals(\"biz_project\", nullLayout.table());\n        assertEquals(\"\u9879\u76ee\", nullLayout.comment());\n        assertEquals(\"/api/project\", nullLayout.apiPrefix());\n        assertSame(fields, nullLayout.fields());\n\n        // \u663e\u5f0f\u7ed9\u51fa\u5e03\u5c40\u65f6\uff0c\u5e03\u5c40\u4e0e\u6765\u6e90\u539f\u6837\u4fdd\u7559\n        ModuleSpec flat = new ModuleSpec(\"com.example.demo\", \"project\", \"Project\",\n                \"biz_project\", \"\u9879\u76ee\", \"/api/project\", Layout.FLAT, \"\u81ea\u5b9a\u4e49\u6765\u6e90\", fields);\n        assertEquals(Layout.FLAT, flat.layout());\n        assertEquals(\"\u81ea\u5b9a\u4e49\u6765\u6e90\", flat.layoutOrigin());\n        assertEquals(\"com.example.demo.entity\", flat.packageOf(\"entity\"));\n\n        // \u663e\u5f0f NESTED \u65f6\u6765\u6e90\u540c\u6837\u4e0d\u88ab\u8986\u76d6\n        ModuleSpec nested = new ModuleSpec(\"com.example.demo\", \"project\", \"Project\",\n                \"biz_project\", \"\u9879\u76ee\", \"/api/project\", Layout.NESTED, \"\u81ea\u5b9a\u4e49\u6765\u6e90\", fields);\n        assertEquals(\"\u81ea\u5b9a\u4e49\u6765\u6e90\", nested.layoutOrigin());\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 16142,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 813,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

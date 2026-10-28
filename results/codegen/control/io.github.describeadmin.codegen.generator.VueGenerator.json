@@ -1,0 +1,1431 @@
+{
+  "repo": "codegen",
+  "class": "io.github.describeadmin.codegen.generator.VueGenerator",
+  "kind": "CONTROL",
+  "setup": {
+    "repo_commit": "7697931d89755fe35b6cd149d774babd85af9bd5",
+    "date": "2026-10-28",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "db5009105cb4dfcea734e68a59d73ccd921853e2",
+    "provider": "claude-code",
+    "provider_version": "2.1.311",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.725,
+  "score_after": 0.925,
+  "mutants_total": 40,
+  "undetected_before": 11,
+  "newly_detected": 8,
+  "candidates": 11,
+  "kept": 2,
+  "acceptance_rate": 0.18181818181818182,
+  "attempts_per_kept_test": 5.5,
+  "tokens": {
+    "input_tokens": 22,
+    "cache_creation_input_tokens": 29769,
+    "cache_read_input_tokens": 135160,
+    "output_tokens": 15683,
+    "thinking_tokens": 5990
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/VueGeneratorMutaGate1Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 8 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "formModel",
+          "method_description": "(Ljava/util/List;Ljava/lang/String;)Ljava/lang/String;",
+          "line": 446,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::formModel",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "initialValue",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+          "line": 616,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            32
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::initialValue",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "lambda$formModel$8",
+          "method_description": "(Ljava/lang/String;Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+          "line": 447,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            9
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::lambda$formModel$8",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "lambda$page$2",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Z",
+          "line": 169,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "lambda$page$2",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Z",
+          "line": 169,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            13
+          ],
+          "description": "replaced boolean return with true for io/github/describeadmin/codegen/generator/VueGenerator::lambda$page$2",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "lambda$page$3",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+          "line": 170,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            12
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::lambda$page$3",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "lambda$page$5",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Z",
+          "line": 183,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#textFieldNotInTable",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "lambda$page$5",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Z",
+          "line": 183,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            14
+          ],
+          "description": "replaced boolean return with true for io/github/describeadmin/codegen/generator/VueGenerator::lambda$page$5",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#textFieldNotInTable",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "lambda$page$6",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+          "line": 184,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            8
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::lambda$page$6",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#textFieldNotInTable",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "page",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 159,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            15
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "page",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 190,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            97
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "page",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 193,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            112
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "page",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 196,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            127
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "page",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 197,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            141
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "page",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 417,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            242
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "page",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 419,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            261
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "page",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 203,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            425
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::page",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#controlsMatchFieldTypes",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#importsAreMinimal",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#longUsesTextInput",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#textFieldNotInTable",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "testId",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Ljava/lang/String;)Ljava/lang/String;",
+          "line": 30,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::testId",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate10Test#testIdJoinsModuleAndSuffixWithSingleHyphenWithoutTransformingSuffix",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate4Test#testIdJoinsModuleAndSuffixWithSingleHyphen"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.FieldType;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass VueGeneratorMutaGate1Test {\n\n    @Test\n    void pageWithoutQueryFieldsAndWithMixedNullability() throws Exception {\n        ModuleSpec base = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        List<FieldSpec> fields = List.of(\n                new FieldSpec(\"title\", \"title\", FieldType.STRING, 50, null, null,\n                        false, \"\u6807\u9898\", FieldSpec.QueryMode.NONE, false),\n                new FieldSpec(\"note\", \"note\", FieldType.TEXT, null, null, null,\n                        true, \"\u5907\u6ce8\", FieldSpec.QueryMode.NONE, false),\n                new FieldSpec(\"qty\", \"qty\", FieldType.INT, null, null, null,\n                        true, \"\u6570\u91cf\", FieldSpec.QueryMode.NONE, false));\n        ModuleSpec spec = new ModuleSpec(base.basePackage(), \"task\", \"Task\", \"t_task\",\n                \"\u4efb\u52a1\", \"/api/task\", base.layout(), base.layoutOrigin(), fields);\n\n        String page = VueGenerator.page(spec);\n\n        // no search wiring when there are no query fields\n        assertFalse(page.contains(\"useSearchForm\"));\n        assertFalse(page.contains(\"SearchFormBar\"));\n        assertFalse(page.contains(\"SearchFormSchema\"));\n        assertTrue(page.contains(\"const search = reactive({\\n  // spec \u4e2d\u6ca1\u6709 query \u5b57\u6bb5\uff0c\u65e0\u67e5\u8be2\u6761\u4ef6\\n});\"));\n\n        // imports glue without search lines\n        assertTrue(page.contains(\"import type { Task } from '#/api/task';\\n\\nimport { onMounted\"));\n        assertTrue(page.contains(\"} from '#/api/task';\\n\\ndefineOptions({ name: 'task' });\"));\n\n        // required rule only for non-nullable field\n        assertTrue(page.contains(\"const rules = {\\n  title: [{ required: true, message: '\u8bf7\u586b\u5199\u6807\u9898', trigger: 'blur' }],\\n};\"));\n        assertFalse(page.contains(\"note: [{ required\"));\n        assertFalse(page.contains(\"qty: [{ required\"));\n\n        // form model at two indentation levels\n        assertTrue(page.contains(\"const form = reactive({\\n  title: '',\\n  note: '',\\n  qty: undefined as number | undefined,\\n});\"));\n        assertTrue(page.contains(\"Object.assign(form, {\\n    title: '',\\n    note: '',\\n    qty: undefined as number | undefined,\\n  });\"));\n\n        // columns: TEXT excluded, others included\n        assertTrue(page.contains(\"<ElTableColumn prop=\\\"title\\\" label=\\\"\u6807\u9898\\\" min-width=\\\"140\\\" />\"));\n        assertTrue(page.contains(\"<ElTableColumn prop=\\\"qty\\\" label=\\\"\u6570\u91cf\\\" min-width=\\\"140\\\" />\"));\n        assertFalse(page.contains(\"<ElTableColumn prop=\\\"note\\\"\"));\n\n        // titles and anchors\n        assertTrue(page.contains(\"<Page description=\\\"\u7531 codegen \u751f\u6210\uff0c\u53ef\u76f4\u63a5\u4fee\u6539\\\" title=\\\"\u4efb\u52a1\\\">\"));\n        assertTrue(page.contains(\":title=\\\"editingId === null ? '\u65b0\u589e\u4efb\u52a1' : '\u7f16\u8f91\u4efb\u52a1'\\\"\"));\n        assertTrue(page.contains(\"data-testid=\\\"task-add-btn\\\"\"));\n        assertTrue(page.contains(\"data-testid=\\\"task-table\\\"\"));\n        assertTrue(page.contains(\"data-testid=\\\"task-edit-btn\\\"\"));\n        assertTrue(page.contains(\"data-testid=\\\"task-delete-btn\\\"\"));\n        assertTrue(page.contains(\"data-testid=\\\"task-pagination\\\"\"));\n        assertTrue(page.contains(\"data-testid=\\\"task-form-dialog\\\"\"));\n        assertTrue(page.contains(\"data-testid=\\\"task-cancel-btn\\\"\"));\n        assertTrue(page.contains(\"data-testid=\\\"task-submit-btn\\\"\"));\n        assertTrue(page.contains(\"testid=\\\"task\\\"\"));\n\n        // entity-based wiring\n        assertTrue(page.contains(\"const rows = ref<Task[]>([]);\"));\n        assertTrue(page.contains(\"function openEdit(row: Task) {\"));\n        assertTrue(page.contains(\"function askDelete(row: Task) {\"));\n        assertTrue(page.contains(\"await getTaskListApi({ ...page, ...search });\"));\n        assertTrue(page.contains(\"? createTaskApi({ ...form })\"));\n        assertTrue(page.contains(\": updateTaskApi(editingId.value, { ...form }));\"));\n        assertTrue(page.contains(\"await deleteTaskApi(deletingId.value);\"));\n\n        // all-nullable variant gives the placeholder\n        List<FieldSpec> nullableOnly = List.of(fields.get(1), fields.get(2));\n        ModuleSpec spec2 = new ModuleSpec(base.basePackage(), \"task\", \"Task\", \"t_task\",\n                \"\u4efb\u52a1\", \"/api/task\", base.layout(), base.layoutOrigin(), nullableOnly);\n        String page2 = VueGenerator.page(spec2);\n        assertTrue(page2.contains(\"const rules = {\\n  // spec \u4e2d\u6240\u6709\u5b57\u6bb5\u5747\u53ef\u7a7a\uff0c\u65e0\u5fc5\u586b\u6821\u9a8c\\n};\"));\n        assertEquals(-1, page2.indexOf(\"required: true\"));\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate2Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/VueGeneratorMutaGate2Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "api",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 71,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            30
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate2Test#apiStructureOrderingAndSignatures",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate8Test#apiInterfacesAreSortedAndComplete"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "api",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 83,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            196
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::api",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#apiPathHasNoDuplicatePrefix",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#auditIdsAreStrings",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#longMapsToString",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#mutationApisTakeStringId",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#pageMetadataStaysNumeric",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate2Test#apiStructureOrderingAndSignatures",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate8Test#apiInterfacesAreSortedAndComplete"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "clientPath",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 61,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            8
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::clientPath",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#apiPathHasNoDuplicatePrefix",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate2Test#apiStructureOrderingAndSignatures",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate6Test#clientPathStripsOnlyLeadingApiPrefixOnce"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "lambda$api$0",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+          "line": 67,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            9
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::lambda$api$0",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate2Test#apiStructureOrderingAndSignatures",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate8Test#apiInterfacesAreSortedAndComplete"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "lambda$api$1",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/util/stream/Stream;",
+          "line": 74,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate2Test#apiStructureOrderingAndSignatures",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate8Test#apiInterfacesAreSortedAndComplete"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "lambda$api$1",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/util/stream/Stream;",
+          "line": 74,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            54
+          ],
+          "description": "replaced return value with Stream.empty for io/github/describeadmin/codegen/generator/VueGenerator::lambda$api$1",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate2Test#apiStructureOrderingAndSignatures",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate8Test#apiInterfacesAreSortedAndComplete"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "tsType",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldType;)Ljava/lang/String;",
+          "line": 624,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            26
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::tsType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#longMapsToString",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate2Test#apiStructureOrderingAndSignatures",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate8Test#apiInterfacesAreSortedAndComplete"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass VueGeneratorMutaGate2Test {\n\n    @Test\n    void apiStructureOrderingAndSignatures() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String e = spec.entity();\n        String api = VueGenerator.api(spec);\n\n        // header comment carries the module comment\n        assertTrue(api.startsWith(\"/**\\n * \" + spec.comment() + \" \u63a5\u53e3\u3002\u7531 codegen \u751f\u6210\u3002\"));\n\n        // entity interface extends the audit interface\n        assertTrue(api.contains(\"export interface \" + e + \"Audit {\"));\n        assertTrue(api.contains(\"export interface \" + e + \" extends \" + e + \"Audit {\"));\n\n        // entity fields are sorted alphabetically\n        int budget = api.indexOf(\"  budget?: number;\");\n        int owner = api.indexOf(\"  ownerDeptId?: string;\");\n        int name = api.indexOf(\"  projectName?: string;\");\n        int remark = api.indexOf(\"  remark?: string;\");\n        int startDate = api.indexOf(\"  startDate?: string;\");\n        int status = api.indexOf(\"  status?: number;\");\n        assertTrue(budget > 0);\n        assertTrue(budget < owner);\n        assertTrue(owner < name);\n        assertTrue(name < remark);\n        assertTrue(remark < startDate);\n        assertTrue(startDate < status);\n\n        // query interface starts with paging fields, then range End before Start\n        String queryHead = \"export interface \" + e + \"Query {\\n  current?: number;\\n  size?: number;\\n\";\n        int q = api.indexOf(queryHead);\n        assertTrue(q >= 0);\n        int qEnd = api.indexOf(\"}\", q);\n        String queryBody = api.substring(q, qEnd);\n        int end = queryBody.indexOf(\"  startDateEnd?: string;\");\n        int start = queryBody.indexOf(\"  startDateStart?: string;\");\n        assertTrue(end > 0);\n        assertTrue(end < start);\n\n        // page interface references the entity array\n        assertTrue(api.contains(\"export interface \" + e + \"Page {\"));\n        assertTrue(api.contains(\"  records: \" + e + \"[];\"));\n\n        // function signatures and paths\n        assertTrue(api.contains(\"export async function get\" + e + \"ListApi(params: \" + e + \"Query) {\"));\n        assertTrue(api.contains(\"export async function create\" + e + \"Api(data: \" + e + \") {\"));\n        assertTrue(api.contains(\"requestClient.post<\" + e + \">('/project', data);\"));\n        assertTrue(api.contains(\"export async function update\" + e + \"Api(id: string, data: \" + e + \") {\"));\n        assertTrue(api.contains(\"requestClient.put<\" + e + \">(`/project/${id}`, data);\"));\n        assertTrue(api.contains(\"requestClient.get<\" + e + \"Page>('/project', { params });\"));\n        assertTrue(api.contains(\"requestClient.delete(`/project/${id}`);\"));\n\n        // import and single occurrence of each exported function\n        assertTrue(api.contains(\"import { requestClient } from '#/api/request';\"));\n        assertEquals(4, api.split(\"export async function \", -1).length - 1);\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate3Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/VueGeneratorMutaGate3Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "kebab",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 41,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            30
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#longUsesTextInput",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate11Test#fieldTestIdKebabCasesEveryUppercaseLetter",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate3Test#kebabConvertsUppercaseLettersToHyphenLowercase",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate5Test#fieldTestIdKebabCasesNameWithModulePrefixAndInputSuffix",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate9Test#kebabEdgeCases"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "kebab",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            58
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::kebab",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#longUsesTextInput",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate11Test#fieldTestIdKebabCasesEveryUppercaseLetter",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate3Test#kebabConvertsUppercaseLettersToHyphenLowercase",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate5Test#fieldTestIdKebabCasesNameWithModulePrefixAndInputSuffix",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate9Test#kebabEdgeCases"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass VueGeneratorMutaGate3Test {\n\n    @Test\n    void kebabConvertsUppercaseLettersToHyphenLowercase() {\n        // empty and already-lowercase input unchanged\n        assertEquals(\"\", VueGenerator.kebab(\"\"));\n        assertEquals(\"name\", VueGenerator.kebab(\"name\"));\n\n        // single hump\n        assertEquals(\"project-name\", VueGenerator.kebab(\"projectName\"));\n\n        // multiple humps\n        assertEquals(\"a-b-c\", VueGenerator.kebab(\"aBC\"));\n        assertEquals(\"owner-dept-id\", VueGenerator.kebab(\"ownerDeptId\"));\n\n        // leading uppercase gets a leading hyphen (no special casing)\n        assertEquals(\"-name\", VueGenerator.kebab(\"Name\"));\n\n        // consecutive capitals each get their own hyphen\n        assertEquals(\"-u-r-l\", VueGenerator.kebab(\"URL\"));\n\n        // digits and existing separators pass through unchanged\n        assertEquals(\"field1-name2\", VueGenerator.kebab(\"field1Name2\"));\n        assertEquals(\"a_b-c\", VueGenerator.kebab(\"a_bC\"));\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate4Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/VueGeneratorMutaGate4Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "fieldTestId",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+          "line": 35,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            9
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::fieldTestId",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#longUsesTextInput",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate11Test#fieldTestIdKebabCasesEveryUppercaseLetter",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate4Test#testIdJoinsModuleAndSuffixWithSingleHyphen",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate5Test#fieldTestIdKebabCasesNameWithModulePrefixAndInputSuffix"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "testId",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Ljava/lang/String;)Ljava/lang/String;",
+          "line": 30,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::testId",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate10Test#testIdJoinsModuleAndSuffixWithSingleHyphenWithoutTransformingSuffix",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate4Test#testIdJoinsModuleAndSuffixWithSingleHyphen"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass VueGeneratorMutaGate4Test {\n\n    @Test\n    void testIdJoinsModuleAndSuffixWithSingleHyphen() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String module = spec.module();\n\n        // Suffix is appended verbatim after exactly one hyphen\n        assertEquals(module + \"-add-btn\", VueGenerator.testId(spec, \"add-btn\"));\n        assertEquals(module + \"-a-b_C d\", VueGenerator.testId(spec, \"a-b_C d\"));\n        // Empty suffix still yields the separator\n        assertEquals(module + \"-\", VueGenerator.testId(spec, \"\"));\n\n        // Not trimmed or case-altered\n        assertEquals(module + \"-Table\", VueGenerator.testId(spec, \"Table\"));\n\n        // Consistent with the field anchor convention\n        FieldSpec f = spec.fields().get(0);\n        assertEquals(\n                VueGenerator.fieldTestId(spec, f),\n                VueGenerator.testId(spec, VueGenerator.kebab(f.name()) + \"-input\"));\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate5Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/VueGeneratorMutaGate5Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "fieldTestId",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+          "line": 35,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            9
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::fieldTestId",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#longUsesTextInput",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate11Test#fieldTestIdKebabCasesEveryUppercaseLetter",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate4Test#testIdJoinsModuleAndSuffixWithSingleHyphen",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate5Test#fieldTestIdKebabCasesNameWithModulePrefixAndInputSuffix"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "kebab",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 41,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            30
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#longUsesTextInput",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate11Test#fieldTestIdKebabCasesEveryUppercaseLetter",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate3Test#kebabConvertsUppercaseLettersToHyphenLowercase",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate5Test#fieldTestIdKebabCasesNameWithModulePrefixAndInputSuffix",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate9Test#kebabEdgeCases"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "kebab",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            58
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::kebab",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#longUsesTextInput",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate11Test#fieldTestIdKebabCasesEveryUppercaseLetter",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate3Test#kebabConvertsUppercaseLettersToHyphenLowercase",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate5Test#fieldTestIdKebabCasesNameWithModulePrefixAndInputSuffix",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate9Test#kebabEdgeCases"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.FieldType;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass VueGeneratorMutaGate5Test {\n\n    private static FieldSpec field(String name, FieldType type) {\n        return new FieldSpec(name, \"col\", type, null, null, null, true, \"c\",\n                FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void fieldTestIdKebabCasesNameWithModulePrefixAndInputSuffix() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String prefix = spec.module() + \"-\";\n\n        // no uppercase: unchanged\n        assertEquals(prefix + \"name-input\",\n                VueGenerator.fieldTestId(spec, field(\"name\", FieldType.STRING)));\n        // consecutive uppercase letters each get their own hyphen\n        assertEquals(prefix + \"user-i-d-input\",\n                VueGenerator.fieldTestId(spec, field(\"userID\", FieldType.LONG)));\n        // leading uppercase yields a leading hyphen\n        assertEquals(prefix + \"-name-input\",\n                VueGenerator.fieldTestId(spec, field(\"Name\", FieldType.STRING)));\n        // digits are kept as-is; field type does not influence the id\n        assertEquals(prefix + \"addr2-line-input\",\n                VueGenerator.fieldTestId(spec, field(\"addr2Line\", FieldType.FLAG)));\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate6Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/VueGeneratorMutaGate6Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "clientPath",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 61,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            8
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::clientPath",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#apiPathHasNoDuplicatePrefix",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate2Test#apiStructureOrderingAndSignatures",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate6Test#clientPathStripsOnlyLeadingApiPrefixOnce"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass VueGeneratorMutaGate6Test {\n\n    private static ModuleSpec withPrefix(ModuleSpec base, String prefix) {\n        return new ModuleSpec(\n                base.basePackage(),\n                base.module(),\n                base.entity(),\n                base.table(),\n                base.comment(),\n                prefix,\n                base.layout(),\n                base.layoutOrigin(),\n                base.fields());\n    }\n\n    @Test\n    void clientPathStripsOnlyLeadingApiPrefixOnce() throws Exception {\n        ModuleSpec base = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n\n        // \u5f00\u5934\u7684 /api \u88ab\u53bb\u6389\uff0c\u5176\u4f59\u4fdd\u7559\n        assertEquals(\"/project\", VueGenerator.clientPath(withPrefix(base, \"/api/project\")));\n        assertEquals(\"/sys/user\", VueGenerator.clientPath(withPrefix(base, \"/api/sys/user\")));\n\n        // \u53ea\u53bb\u6389\u7b2c\u4e00\u6b21\u51fa\u73b0\u7684\u524d\u7f00\uff0c\u4e0d\u4f1a\u9012\u5f52\u5265\u79bb\n        assertEquals(\"/api/x\", VueGenerator.clientPath(withPrefix(base, \"/api/api/x\")));\n\n        // \u4e0d\u5728\u5f00\u5934\u7684 api \u4e0d\u52a8\n        assertEquals(\"/v1/api/project\", VueGenerator.clientPath(withPrefix(base, \"/v1/api/project\")));\n\n        // \u6ca1\u6709 /api \u524d\u7f00\u7684\u8def\u5f84\u539f\u6837\u8fd4\u56de\n        assertEquals(\"/project\", VueGenerator.clientPath(withPrefix(base, \"/project\")));\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/VueGeneratorMutaGate7Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 8 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "formModel",
+          "method_description": "(Ljava/util/List;Ljava/lang/String;)Ljava/lang/String;",
+          "line": 446,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::formModel",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "initialValue",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+          "line": 616,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            32
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::initialValue",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "lambda$formModel$8",
+          "method_description": "(Ljava/lang/String;Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+          "line": 447,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            9
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::lambda$formModel$8",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "lambda$page$2",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Z",
+          "line": 169,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "lambda$page$2",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Z",
+          "line": 169,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            13
+          ],
+          "description": "replaced boolean return with true for io/github/describeadmin/codegen/generator/VueGenerator::lambda$page$2",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "lambda$page$3",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+          "line": 170,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            12
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::lambda$page$3",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "page",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 159,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            15
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "page",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 190,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            97
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "page",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 193,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            112
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "page",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 196,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            127
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "page",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 197,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            141
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "page",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 417,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            242
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "page",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 419,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            261
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "page",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 203,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            425
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::page",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#controlsMatchFieldTypes",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#importsAreMinimal",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#longUsesTextInput",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#textFieldNotInTable",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test#pageWithoutQueryFieldsAndRequiredRules"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.FieldType;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass VueGeneratorMutaGate7Test {\n\n    private static ModuleSpec withFields(ModuleSpec base, List<FieldSpec> fields) {\n        return new ModuleSpec(base.basePackage(), base.module(), base.entity(), base.table(),\n                base.comment(), base.apiPrefix(), base.layout(), base.layoutOrigin(), fields);\n    }\n\n    private static FieldSpec field(String name, String column, FieldType type, boolean nullable, String comment) {\n        return new FieldSpec(name, column, type, type == FieldType.STRING ? 64 : null, null, null,\n                nullable, comment, FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void pageWithoutQueryFieldsAndRequiredRules() throws Exception {\n        ModuleSpec base = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n\n        FieldSpec name = field(\"projectName\", \"project_name\", FieldType.STRING, false, \"\u9879\u76ee\u540d\u79f0\");\n        FieldSpec count = field(\"headCount\", \"head_count\", FieldType.INT, true, \"\u4eba\u6570\");\n        FieldSpec remark = field(\"remark\", \"remark\", FieldType.TEXT, true, \"\u5907\u6ce8\");\n\n        String page = VueGenerator.page(withFields(base, List.of(name, count, remark)));\n\n        // no query fields: no search wiring, placeholder in search model\n        assertFalse(page.contains(\"useSearchForm\"));\n        assertFalse(page.contains(\"SearchFormBar\"));\n        assertTrue(page.contains(\"// spec \u4e2d\u6ca1\u6709 query \u5b57\u6bb5\uff0c\u65e0\u67e5\u8be2\u6761\u4ef6\"));\n\n        // required rule only for non-nullable field\n        assertTrue(page.contains(\"const rules = {\\n  projectName: [{ required: true, message: '\u8bf7\u586b\u5199\u9879\u76ee\u540d\u79f0', trigger: 'blur' }],\\n};\"));\n        assertFalse(page.contains(\"headCount: [{ required\"));\n        assertFalse(page.contains(\"\u6240\u6709\u5b57\u6bb5\u5747\u53ef\u7a7a\"));\n\n        // initial values at both indentation levels\n        assertTrue(page.contains(\"\\n  projectName: '',\"));\n        assertTrue(page.contains(\"\\n    projectName: '',\"));\n        assertTrue(page.contains(\"\\n  headCount: undefined as number | undefined,\"));\n        assertTrue(page.contains(\"\\n    headCount: undefined as number | undefined,\"));\n        assertTrue(page.contains(\"\\n  remark: '',\"));\n\n        // all-nullable variant yields the rules placeholder\n        String relaxed = VueGenerator.page(withFields(base, List.of(count, remark)));\n        assertTrue(relaxed.contains(\"// spec \u4e2d\u6240\u6709\u5b57\u6bb5\u5747\u53ef\u7a7a\uff0c\u65e0\u5fc5\u586b\u6821\u9a8c\"));\n        assertFalse(relaxed.contains(\"required: true\"));\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate8Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/VueGeneratorMutaGate8Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "api",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 71,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            30
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate2Test#apiStructureOrderingAndSignatures",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate8Test#apiInterfacesAreSortedAndComplete"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "api",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 83,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            196
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::api",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#apiPathHasNoDuplicatePrefix",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#auditIdsAreStrings",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#longMapsToString",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#mutationApisTakeStringId",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#pageMetadataStaysNumeric",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate2Test#apiStructureOrderingAndSignatures",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate8Test#apiInterfacesAreSortedAndComplete"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "lambda$api$0",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+          "line": 67,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            9
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::lambda$api$0",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate2Test#apiStructureOrderingAndSignatures",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate8Test#apiInterfacesAreSortedAndComplete"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "lambda$api$1",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/util/stream/Stream;",
+          "line": 74,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate2Test#apiStructureOrderingAndSignatures",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate8Test#apiInterfacesAreSortedAndComplete"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "lambda$api$1",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/util/stream/Stream;",
+          "line": 74,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            54
+          ],
+          "description": "replaced return value with Stream.empty for io/github/describeadmin/codegen/generator/VueGenerator::lambda$api$1",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate2Test#apiStructureOrderingAndSignatures",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate8Test#apiInterfacesAreSortedAndComplete"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "tsType",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldType;)Ljava/lang/String;",
+          "line": 624,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            26
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::tsType",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#apiClient",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#longMapsToString",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate2Test#apiStructureOrderingAndSignatures",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate8Test#apiInterfacesAreSortedAndComplete"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.FieldType;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\nimport java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass VueGeneratorMutaGate8Test {\n\n    private static String ts(FieldType t) {\n        return switch (t) {\n            case STRING, TEXT, DATE, DATETIME, LONG -> \"string\";\n            case INT, DECIMAL, FLAG -> \"number\";\n        };\n    }\n\n    private static String block(String text, String startMarker) {\n        int start = text.indexOf(startMarker);\n        assertTrue(start >= 0, \"missing: \" + startMarker);\n        start += startMarker.length();\n        int end = text.indexOf(\"\\n}\\n\", start);\n        assertTrue(end >= start, \"unterminated block: \" + startMarker);\n        return text.substring(start, end);\n    }\n\n    @Test\n    void apiInterfacesAreSortedAndComplete() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String api = VueGenerator.api(spec);\n        String e = spec.entity();\n\n        // header carries the module comment\n        assertTrue(api.startsWith(\"/**\\n * \" + spec.comment() + \" \u63a5\u53e3\u3002\u7531 codegen \u751f\u6210\u3002\\n\"));\n\n        // entity interface: one line per field, sorted\n        List<String> expectedFields = new ArrayList<>();\n        for (FieldSpec f : spec.fields()) {\n            expectedFields.add(\"  \" + f.name() + \"?: \" + ts(f.type()) + \";\");\n        }\n        Collections.sort(expectedFields);\n        String entityBody = block(api, \"export interface \" + e + \" extends \" + e + \"Audit {\\n\");\n        assertEquals(String.join(\"\\n\", expectedFields), entityBody);\n\n        // query interface: paging first, then sorted query lines (range split into Start/End)\n        List<String> expectedQuery = new ArrayList<>();\n        for (FieldSpec f : spec.queryFields()) {\n            if (f.query() == FieldSpec.QueryMode.RANGE) {\n                expectedQuery.add(\"  \" + f.name() + \"End?: \" + ts(f.type()) + \";\");\n                expectedQuery.add(\"  \" + f.name() + \"Start?: \" + ts(f.type()) + \";\");\n            } else {\n                expectedQuery.add(\"  \" + f.name() + \"?: \" + ts(f.type()) + \";\");\n            }\n        }\n        Collections.sort(expectedQuery);\n        String queryBody = block(api,\n                \"export interface \" + e + \"Query {\\n  current?: number;\\n  size?: number;\\n\");\n        assertEquals(String.join(\"\\n\", expectedQuery), queryBody);\n\n        // function signatures wired to the entity name\n        assertTrue(api.contains(\"export async function get\" + e + \"ListApi(params: \" + e + \"Query)\"));\n        assertTrue(api.contains(\"export async function create\" + e + \"Api(data: \" + e + \")\"));\n        assertTrue(api.contains(\"export async function update\" + e + \"Api(id: string, data: \" + e + \")\"));\n        assertTrue(api.contains(\"requestClient.put<\" + e + \">(`\"));\n        assertTrue(api.contains(\"export interface \" + e + \"Page {\"));\n        assertTrue(api.contains(\"records: \" + e + \"[];\"));\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate9Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/VueGeneratorMutaGate9Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "kebab",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 41,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            30
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#longUsesTextInput",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate11Test#fieldTestIdKebabCasesEveryUppercaseLetter",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate3Test#kebabConvertsUppercaseLettersToHyphenLowercase",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate5Test#fieldTestIdKebabCasesNameWithModulePrefixAndInputSuffix",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate9Test#kebabEdgeCases"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "kebab",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            58
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::kebab",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#longUsesTextInput",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate11Test#fieldTestIdKebabCasesEveryUppercaseLetter",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate3Test#kebabConvertsUppercaseLettersToHyphenLowercase",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate5Test#fieldTestIdKebabCasesNameWithModulePrefixAndInputSuffix",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate9Test#kebabEdgeCases"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass VueGeneratorMutaGate9Test {\n\n    @Test\n    void kebabEdgeCases() {\n        // empty and already-lowercase input unchanged\n        assertEquals(\"\", VueGenerator.kebab(\"\"));\n        assertEquals(\"name\", VueGenerator.kebab(\"name\"));\n        // multiple uppercase letters each get their own hyphen\n        assertEquals(\"a-b-c\", VueGenerator.kebab(\"aBC\"));\n        // leading uppercase yields a leading hyphen\n        assertEquals(\"-name\", VueGenerator.kebab(\"Name\"));\n        // digits and existing hyphens/underscores are preserved\n        assertEquals(\"field1-name\", VueGenerator.kebab(\"field1Name\"));\n        assertEquals(\"a_b-c\", VueGenerator.kebab(\"a_bC\"));\n        // consecutive capitals are split individually\n        assertEquals(\"owner-dept-i-d\", VueGenerator.kebab(\"ownerDeptID\"));\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate10Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/VueGeneratorMutaGate10Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "testId",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Ljava/lang/String;)Ljava/lang/String;",
+          "line": 30,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::testId",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate10Test#testIdJoinsModuleAndSuffixWithSingleHyphenWithoutTransformingSuffix",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test#pageWithoutQueryFieldsAndWithMixedNullability",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate4Test#testIdJoinsModuleAndSuffixWithSingleHyphen"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass VueGeneratorMutaGate10Test {\n\n    @Test\n    void testIdJoinsModuleAndSuffixWithSingleHyphenWithoutTransformingSuffix() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String module = spec.module();\n\n        // Plain concatenation: module + \"-\" + suffix\n        assertEquals(module + \"-x\", VueGenerator.testId(spec, \"x\"));\n\n        // Suffix is kept verbatim: case, inner hyphens, and surrounding spaces are not altered\n        assertEquals(module + \"-Add-Btn\", VueGenerator.testId(spec, \"Add-Btn\"));\n        assertEquals(module + \"-a_b.c\", VueGenerator.testId(spec, \"a_b.c\"));\n        assertEquals(module + \"- pad \", VueGenerator.testId(spec, \" pad \"));\n\n        // Empty suffix still yields the separator\n        assertEquals(module + \"-\", VueGenerator.testId(spec, \"\"));\n\n        // Deterministic: same inputs give the same output\n        assertEquals(VueGenerator.testId(spec, \"table\"), VueGenerator.testId(spec, \"table\"));\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate11Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/VueGeneratorMutaGate11Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "fieldTestId",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+          "line": 35,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            9
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::fieldTestId",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#longUsesTextInput",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate11Test#fieldTestIdKebabCasesEveryUppercaseLetter",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate4Test#testIdJoinsModuleAndSuffixWithSingleHyphen",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate5Test#fieldTestIdKebabCasesNameWithModulePrefixAndInputSuffix"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "kebab",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 41,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            30
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#longUsesTextInput",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate11Test#fieldTestIdKebabCasesEveryUppercaseLetter",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate3Test#kebabConvertsUppercaseLettersToHyphenLowercase",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate5Test#fieldTestIdKebabCasesNameWithModulePrefixAndInputSuffix",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate9Test#kebabEdgeCases"
+          ]
+        },
+        {
+          "source_file": "VueGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.VueGenerator",
+          "mutated_method": "kebab",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            58
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/VueGenerator::kebab",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#longUsesTextInput",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#searchBarGenerated",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#testIdNaming",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate11Test#fieldTestIdKebabCasesEveryUppercaseLetter",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate3Test#kebabConvertsUppercaseLettersToHyphenLowercase",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate5Test#fieldTestIdKebabCasesNameWithModulePrefixAndInputSuffix",
+            "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate9Test#kebabEdgeCases"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.FieldType;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass VueGeneratorMutaGate11Test {\n\n    private static FieldSpec field(String name) {\n        return new FieldSpec(name, \"col\", FieldType.STRING, null, null, null,\n                true, \"comment\", FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void fieldTestIdKebabCasesEveryUppercaseLetter() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String prefix = spec.module() + \"-\";\n\n        // no uppercase: unchanged\n        assertEquals(prefix + \"name-input\", VueGenerator.fieldTestId(spec, field(\"name\")));\n        // multiple humps, each gets its own hyphen\n        assertEquals(prefix + \"owner-dept-id-input\",\n                VueGenerator.fieldTestId(spec, field(\"ownerDeptId\")));\n        // consecutive uppercase letters are each split\n        assertEquals(prefix + \"user-i-d-input\",\n                VueGenerator.fieldTestId(spec, field(\"userID\")));\n        // leading uppercase yields a leading hyphen after the module separator\n        assertEquals(prefix + \"-name-input\",\n                VueGenerator.fieldTestId(spec, field(\"Name\")));\n        // digits are kept as they are\n        assertEquals(prefix + \"addr2-line-input\",\n                VueGenerator.fieldTestId(spec, field(\"addr2Line\")));\n    }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.FieldType;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass VueGeneratorMutaGate1Test {\n\n    @Test\n    void pageWithoutQueryFieldsAndWithMixedNullability() throws Exception {\n        ModuleSpec base = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        List<FieldSpec> fields = List.of(\n                new FieldSpec(\"title\", \"title\", FieldType.STRING, 50, null, null,\n                        false, \"\u6807\u9898\", FieldSpec.QueryMode.NONE, false),\n                new FieldSpec(\"note\", \"note\", FieldType.TEXT, null, null, null,\n                        true, \"\u5907\u6ce8\", FieldSpec.QueryMode.NONE, false),\n                new FieldSpec(\"qty\", \"qty\", FieldType.INT, null, null, null,\n                        true, \"\u6570\u91cf\", FieldSpec.QueryMode.NONE, false));\n        ModuleSpec spec = new ModuleSpec(base.basePackage(), \"task\", \"Task\", \"t_task\",\n                \"\u4efb\u52a1\", \"/api/task\", base.layout(), base.layoutOrigin(), fields);\n\n        String page = VueGenerator.page(spec);\n\n        // no search wiring when there are no query fields\n        assertFalse(page.contains(\"useSearchForm\"));\n        assertFalse(page.contains(\"SearchFormBar\"));\n        assertFalse(page.contains(\"SearchFormSchema\"));\n        assertTrue(page.contains(\"const search = reactive({\\n  // spec \u4e2d\u6ca1\u6709 query \u5b57\u6bb5\uff0c\u65e0\u67e5\u8be2\u6761\u4ef6\\n});\"));\n\n        // imports glue without search lines\n        assertTrue(page.contains(\"import type { Task } from '#/api/task';\\n\\nimport { onMounted\"));\n        assertTrue(page.contains(\"} from '#/api/task';\\n\\ndefineOptions({ name: 'task' });\"));\n\n        // required rule only for non-nullable field\n        assertTrue(page.contains(\"const rules = {\\n  title: [{ required: true, message: '\u8bf7\u586b\u5199\u6807\u9898', trigger: 'blur' }],\\n};\"));\n        assertFalse(page.contains(\"note: [{ required\"));\n        assertFalse(page.contains(\"qty: [{ required\"));\n\n        // form model at two indentation levels\n        assertTrue(page.contains(\"const form = reactive({\\n  title: '',\\n  note: '',\\n  qty: undefined as number | undefined,\\n});\"));\n        assertTrue(page.contains(\"Object.assign(form, {\\n    title: '',\\n    note: '',\\n    qty: undefined as number | undefined,\\n  });\"));\n\n        // columns: TEXT excluded, others included\n        assertTrue(page.contains(\"<ElTableColumn prop=\\\"title\\\" label=\\\"\u6807\u9898\\\" min-width=\\\"140\\\" />\"));\n        assertTrue(page.contains(\"<ElTableColumn prop=\\\"qty\\\" label=\\\"\u6570\u91cf\\\" min-width=\\\"140\\\" />\"));\n        assertFalse(page.contains(\"<ElTableColumn prop=\\\"note\\\"\"));\n\n        // titles and anchors\n        assertTrue(page.contains(\"<Page description=\\\"\u7531 codegen \u751f\u6210\uff0c\u53ef\u76f4\u63a5\u4fee\u6539\\\" title=\\\"\u4efb\u52a1\\\">\"));\n        assertTrue(page.contains(\":title=\\\"editingId === null ? '\u65b0\u589e\u4efb\u52a1' : '\u7f16\u8f91\u4efb\u52a1'\\\"\"));\n        assertTrue(page.contains(\"data-testid=\\\"task-add-btn\\\"\"));\n        assertTrue(page.contains(\"data-testid=\\\"task-table\\\"\"));\n        assertTrue(page.contains(\"data-testid=\\\"task-edit-btn\\\"\"));\n        assertTrue(page.contains(\"data-testid=\\\"task-delete-btn\\\"\"));\n        assertTrue(page.contains(\"data-testid=\\\"task-pagination\\\"\"));\n        assertTrue(page.contains(\"data-testid=\\\"task-form-dialog\\\"\"));\n        assertTrue(page.contains(\"data-testid=\\\"task-cancel-btn\\\"\"));\n        assertTrue(page.contains(\"data-testid=\\\"task-submit-btn\\\"\"));\n        assertTrue(page.contains(\"testid=\\\"task\\\"\"));\n\n        // entity-based wiring\n        assertTrue(page.contains(\"const rows = ref<Task[]>([]);\"));\n        assertTrue(page.contains(\"function openEdit(row: Task) {\"));\n        assertTrue(page.contains(\"function askDelete(row: Task) {\"));\n        assertTrue(page.contains(\"await getTaskListApi({ ...page, ...search });\"));\n        assertTrue(page.contains(\"? createTaskApi({ ...form })\"));\n        assertTrue(page.contains(\": updateTaskApi(editingId.value, { ...form }));\"));\n        assertTrue(page.contains(\"await deleteTaskApi(deletingId.value);\"));\n\n        // all-nullable variant gives the placeholder\n        List<FieldSpec> nullableOnly = List.of(fields.get(1), fields.get(2));\n        ModuleSpec spec2 = new ModuleSpec(base.basePackage(), \"task\", \"Task\", \"t_task\",\n                \"\u4efb\u52a1\", \"/api/task\", base.layout(), base.layoutOrigin(), nullableOnly);\n        String page2 = VueGenerator.page(spec2);\n        assertTrue(page2.contains(\"const rules = {\\n  // spec \u4e2d\u6240\u6709\u5b57\u6bb5\u5747\u53ef\u7a7a\uff0c\u65e0\u5fc5\u586b\u6821\u9a8c\\n};\"));\n        assertEquals(-1, page2.indexOf(\"required: true\"));\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 17373,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 3157,
+        "thinking_tokens": 1136
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass VueGeneratorMutaGate2Test {\n\n    @Test\n    void apiStructureOrderingAndSignatures() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String e = spec.entity();\n        String api = VueGenerator.api(spec);\n\n        // header comment carries the module comment\n        assertTrue(api.startsWith(\"/**\\n * \" + spec.comment() + \" \u63a5\u53e3\u3002\u7531 codegen \u751f\u6210\u3002\"));\n\n        // entity interface extends the audit interface\n        assertTrue(api.contains(\"export interface \" + e + \"Audit {\"));\n        assertTrue(api.contains(\"export interface \" + e + \" extends \" + e + \"Audit {\"));\n\n        // entity fields are sorted alphabetically\n        int budget = api.indexOf(\"  budget?: number;\");\n        int owner = api.indexOf(\"  ownerDeptId?: string;\");\n        int name = api.indexOf(\"  projectName?: string;\");\n        int remark = api.indexOf(\"  remark?: string;\");\n        int startDate = api.indexOf(\"  startDate?: string;\");\n        int status = api.indexOf(\"  status?: number;\");\n        assertTrue(budget > 0);\n        assertTrue(budget < owner);\n        assertTrue(owner < name);\n        assertTrue(name < remark);\n        assertTrue(remark < startDate);\n        assertTrue(startDate < status);\n\n        // query interface starts with paging fields, then range End before Start\n        String queryHead = \"export interface \" + e + \"Query {\\n  current?: number;\\n  size?: number;\\n\";\n        int q = api.indexOf(queryHead);\n        assertTrue(q >= 0);\n        int qEnd = api.indexOf(\"}\", q);\n        String queryBody = api.substring(q, qEnd);\n        int end = queryBody.indexOf(\"  startDateEnd?: string;\");\n        int start = queryBody.indexOf(\"  startDateStart?: string;\");\n        assertTrue(end > 0);\n        assertTrue(end < start);\n\n        // page interface references the entity array\n        assertTrue(api.contains(\"export interface \" + e + \"Page {\"));\n        assertTrue(api.contains(\"  records: \" + e + \"[];\"));\n\n        // function signatures and paths\n        assertTrue(api.contains(\"export async function get\" + e + \"ListApi(params: \" + e + \"Query) {\"));\n        assertTrue(api.contains(\"export async function create\" + e + \"Api(data: \" + e + \") {\"));\n        assertTrue(api.contains(\"requestClient.post<\" + e + \">('/project', data);\"));\n        assertTrue(api.contains(\"export async function update\" + e + \"Api(id: string, data: \" + e + \") {\"));\n        assertTrue(api.contains(\"requestClient.put<\" + e + \">(`/project/${id}`, data);\"));\n        assertTrue(api.contains(\"requestClient.get<\" + e + \"Page>('/project', { params });\"));\n        assertTrue(api.contains(\"requestClient.delete(`/project/${id}`);\"));\n\n        // import and single occurrence of each exported function\n        assertTrue(api.contains(\"import { requestClient } from '#/api/request';\"));\n        assertEquals(4, api.split(\"export async function \", -1).length - 1);\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1765,
+        "cache_read_input_tokens": 13516,
+        "output_tokens": 2008,
+        "thinking_tokens": 761
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate3Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass VueGeneratorMutaGate3Test {\n\n    @Test\n    void kebabConvertsUppercaseLettersToHyphenLowercase() {\n        // empty and already-lowercase input unchanged\n        assertEquals(\"\", VueGenerator.kebab(\"\"));\n        assertEquals(\"name\", VueGenerator.kebab(\"name\"));\n\n        // single hump\n        assertEquals(\"project-name\", VueGenerator.kebab(\"projectName\"));\n\n        // multiple humps\n        assertEquals(\"a-b-c\", VueGenerator.kebab(\"aBC\"));\n        assertEquals(\"owner-dept-id\", VueGenerator.kebab(\"ownerDeptId\"));\n\n        // leading uppercase gets a leading hyphen (no special casing)\n        assertEquals(\"-name\", VueGenerator.kebab(\"Name\"));\n\n        // consecutive capitals each get their own hyphen\n        assertEquals(\"-u-r-l\", VueGenerator.kebab(\"URL\"));\n\n        // digits and existing separators pass through unchanged\n        assertEquals(\"field1-name2\", VueGenerator.kebab(\"field1Name2\"));\n        assertEquals(\"a_b-c\", VueGenerator.kebab(\"a_bC\"));\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 768,
+        "cache_read_input_tokens": 13516,
+        "output_tokens": 474,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate4Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass VueGeneratorMutaGate4Test {\n\n    @Test\n    void testIdJoinsModuleAndSuffixWithSingleHyphen() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String module = spec.module();\n\n        // Suffix is appended verbatim after exactly one hyphen\n        assertEquals(module + \"-add-btn\", VueGenerator.testId(spec, \"add-btn\"));\n        assertEquals(module + \"-a-b_C d\", VueGenerator.testId(spec, \"a-b_C d\"));\n        // Empty suffix still yields the separator\n        assertEquals(module + \"-\", VueGenerator.testId(spec, \"\"));\n\n        // Not trimmed or case-altered\n        assertEquals(module + \"-Table\", VueGenerator.testId(spec, \"Table\"));\n\n        // Consistent with the field anchor convention\n        FieldSpec f = spec.fields().get(0);\n        assertEquals(\n                VueGenerator.fieldTestId(spec, f),\n                VueGenerator.testId(spec, VueGenerator.kebab(f.name()) + \"-input\"));\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 686,
+        "cache_read_input_tokens": 13516,
+        "output_tokens": 939,
+        "thinking_tokens": 380
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate5Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.FieldType;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass VueGeneratorMutaGate5Test {\n\n    private static FieldSpec field(String name, FieldType type) {\n        return new FieldSpec(name, \"col\", type, null, null, null, true, \"c\",\n                FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void fieldTestIdKebabCasesNameWithModulePrefixAndInputSuffix() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String prefix = spec.module() + \"-\";\n\n        // no uppercase: unchanged\n        assertEquals(prefix + \"name-input\",\n                VueGenerator.fieldTestId(spec, field(\"name\", FieldType.STRING)));\n        // consecutive uppercase letters each get their own hyphen\n        assertEquals(prefix + \"user-i-d-input\",\n                VueGenerator.fieldTestId(spec, field(\"userID\", FieldType.LONG)));\n        // leading uppercase yields a leading hyphen\n        assertEquals(prefix + \"-name-input\",\n                VueGenerator.fieldTestId(spec, field(\"Name\", FieldType.STRING)));\n        // digits are kept as-is; field type does not influence the id\n        assertEquals(prefix + \"addr2-line-input\",\n                VueGenerator.fieldTestId(spec, field(\"addr2Line\", FieldType.FLAG)));\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 705,
+        "cache_read_input_tokens": 13516,
+        "output_tokens": 1178,
+        "thinking_tokens": 514
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate6Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass VueGeneratorMutaGate6Test {\n\n    private static ModuleSpec withPrefix(ModuleSpec base, String prefix) {\n        return new ModuleSpec(\n                base.basePackage(),\n                base.module(),\n                base.entity(),\n                base.table(),\n                base.comment(),\n                prefix,\n                base.layout(),\n                base.layoutOrigin(),\n                base.fields());\n    }\n\n    @Test\n    void clientPathStripsOnlyLeadingApiPrefixOnce() throws Exception {\n        ModuleSpec base = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n\n        // \u5f00\u5934\u7684 /api \u88ab\u53bb\u6389\uff0c\u5176\u4f59\u4fdd\u7559\n        assertEquals(\"/project\", VueGenerator.clientPath(withPrefix(base, \"/api/project\")));\n        assertEquals(\"/sys/user\", VueGenerator.clientPath(withPrefix(base, \"/api/sys/user\")));\n\n        // \u53ea\u53bb\u6389\u7b2c\u4e00\u6b21\u51fa\u73b0\u7684\u524d\u7f00\uff0c\u4e0d\u4f1a\u9012\u5f52\u5265\u79bb\n        assertEquals(\"/api/x\", VueGenerator.clientPath(withPrefix(base, \"/api/api/x\")));\n\n        // \u4e0d\u5728\u5f00\u5934\u7684 api \u4e0d\u52a8\n        assertEquals(\"/v1/api/project\", VueGenerator.clientPath(withPrefix(base, \"/v1/api/project\")));\n\n        // \u6ca1\u6709 /api \u524d\u7f00\u7684\u8def\u5f84\u539f\u6837\u8fd4\u56de\n        assertEquals(\"/project\", VueGenerator.clientPath(withPrefix(base, \"/project\")));\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 691,
+        "cache_read_input_tokens": 13516,
+        "output_tokens": 1292,
+        "thinking_tokens": 657
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate7Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.FieldType;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass VueGeneratorMutaGate7Test {\n\n    private static ModuleSpec withFields(ModuleSpec base, List<FieldSpec> fields) {\n        return new ModuleSpec(base.basePackage(), base.module(), base.entity(), base.table(),\n                base.comment(), base.apiPrefix(), base.layout(), base.layoutOrigin(), fields);\n    }\n\n    private static FieldSpec field(String name, String column, FieldType type, boolean nullable, String comment) {\n        return new FieldSpec(name, column, type, type == FieldType.STRING ? 64 : null, null, null,\n                nullable, comment, FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void pageWithoutQueryFieldsAndRequiredRules() throws Exception {\n        ModuleSpec base = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n\n        FieldSpec name = field(\"projectName\", \"project_name\", FieldType.STRING, false, \"\u9879\u76ee\u540d\u79f0\");\n        FieldSpec count = field(\"headCount\", \"head_count\", FieldType.INT, true, \"\u4eba\u6570\");\n        FieldSpec remark = field(\"remark\", \"remark\", FieldType.TEXT, true, \"\u5907\u6ce8\");\n\n        String page = VueGenerator.page(withFields(base, List.of(name, count, remark)));\n\n        // no query fields: no search wiring, placeholder in search model\n        assertFalse(page.contains(\"useSearchForm\"));\n        assertFalse(page.contains(\"SearchFormBar\"));\n        assertTrue(page.contains(\"// spec \u4e2d\u6ca1\u6709 query \u5b57\u6bb5\uff0c\u65e0\u67e5\u8be2\u6761\u4ef6\"));\n\n        // required rule only for non-nullable field\n        assertTrue(page.contains(\"const rules = {\\n  projectName: [{ required: true, message: '\u8bf7\u586b\u5199\u9879\u76ee\u540d\u79f0', trigger: 'blur' }],\\n};\"));\n        assertFalse(page.contains(\"headCount: [{ required\"));\n        assertFalse(page.contains(\"\u6240\u6709\u5b57\u6bb5\u5747\u53ef\u7a7a\"));\n\n        // initial values at both indentation levels\n        assertTrue(page.contains(\"\\n  projectName: '',\"));\n        assertTrue(page.contains(\"\\n    projectName: '',\"));\n        assertTrue(page.contains(\"\\n  headCount: undefined as number | undefined,\"));\n        assertTrue(page.contains(\"\\n    headCount: undefined as number | undefined,\"));\n        assertTrue(page.contains(\"\\n  remark: '',\"));\n\n        // all-nullable variant yields the rules placeholder\n        String relaxed = VueGenerator.page(withFields(base, List.of(count, remark)));\n        assertTrue(relaxed.contains(\"// spec \u4e2d\u6240\u6709\u5b57\u6bb5\u5747\u53ef\u7a7a\uff0c\u65e0\u5fc5\u586b\u6821\u9a8c\"));\n        assertFalse(relaxed.contains(\"required: true\"));\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 3858,
+        "cache_read_input_tokens": 13516,
+        "output_tokens": 2030,
+        "thinking_tokens": 889
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate8Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.FieldType;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\nimport java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass VueGeneratorMutaGate8Test {\n\n    private static String ts(FieldType t) {\n        return switch (t) {\n            case STRING, TEXT, DATE, DATETIME, LONG -> \"string\";\n            case INT, DECIMAL, FLAG -> \"number\";\n        };\n    }\n\n    private static String block(String text, String startMarker) {\n        int start = text.indexOf(startMarker);\n        assertTrue(start >= 0, \"missing: \" + startMarker);\n        start += startMarker.length();\n        int end = text.indexOf(\"\\n}\\n\", start);\n        assertTrue(end >= start, \"unterminated block: \" + startMarker);\n        return text.substring(start, end);\n    }\n\n    @Test\n    void apiInterfacesAreSortedAndComplete() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String api = VueGenerator.api(spec);\n        String e = spec.entity();\n\n        // header carries the module comment\n        assertTrue(api.startsWith(\"/**\\n * \" + spec.comment() + \" \u63a5\u53e3\u3002\u7531 codegen \u751f\u6210\u3002\\n\"));\n\n        // entity interface: one line per field, sorted\n        List<String> expectedFields = new ArrayList<>();\n        for (FieldSpec f : spec.fields()) {\n            expectedFields.add(\"  \" + f.name() + \"?: \" + ts(f.type()) + \";\");\n        }\n        Collections.sort(expectedFields);\n        String entityBody = block(api, \"export interface \" + e + \" extends \" + e + \"Audit {\\n\");\n        assertEquals(String.join(\"\\n\", expectedFields), entityBody);\n\n        // query interface: paging first, then sorted query lines (range split into Start/End)\n        List<String> expectedQuery = new ArrayList<>();\n        for (FieldSpec f : spec.queryFields()) {\n            if (f.query() == FieldSpec.QueryMode.RANGE) {\n                expectedQuery.add(\"  \" + f.name() + \"End?: \" + ts(f.type()) + \";\");\n                expectedQuery.add(\"  \" + f.name() + \"Start?: \" + ts(f.type()) + \";\");\n            } else {\n                expectedQuery.add(\"  \" + f.name() + \"?: \" + ts(f.type()) + \";\");\n            }\n        }\n        Collections.sort(expectedQuery);\n        String queryBody = block(api,\n                \"export interface \" + e + \"Query {\\n  current?: number;\\n  size?: number;\\n\");\n        assertEquals(String.join(\"\\n\", expectedQuery), queryBody);\n\n        // function signatures wired to the entity name\n        assertTrue(api.contains(\"export async function get\" + e + \"ListApi(params: \" + e + \"Query)\"));\n        assertTrue(api.contains(\"export async function create\" + e + \"Api(data: \" + e + \")\"));\n        assertTrue(api.contains(\"export async function update\" + e + \"Api(id: string, data: \" + e + \")\"));\n        assertTrue(api.contains(\"requestClient.put<\" + e + \">(`\"));\n        assertTrue(api.contains(\"export interface \" + e + \"Page {\"));\n        assertTrue(api.contains(\"records: \" + e + \"[];\"));\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1765,
+        "cache_read_input_tokens": 13516,
+        "output_tokens": 2252,
+        "thinking_tokens": 939
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate9Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass VueGeneratorMutaGate9Test {\n\n    @Test\n    void kebabEdgeCases() {\n        // empty and already-lowercase input unchanged\n        assertEquals(\"\", VueGenerator.kebab(\"\"));\n        assertEquals(\"name\", VueGenerator.kebab(\"name\"));\n        // multiple uppercase letters each get their own hyphen\n        assertEquals(\"a-b-c\", VueGenerator.kebab(\"aBC\"));\n        // leading uppercase yields a leading hyphen\n        assertEquals(\"-name\", VueGenerator.kebab(\"Name\"));\n        // digits and existing hyphens/underscores are preserved\n        assertEquals(\"field1-name\", VueGenerator.kebab(\"field1Name\"));\n        assertEquals(\"a_b-c\", VueGenerator.kebab(\"a_bC\"));\n        // consecutive capitals are split individually\n        assertEquals(\"owner-dept-i-d\", VueGenerator.kebab(\"ownerDeptID\"));\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 768,
+        "cache_read_input_tokens": 13516,
+        "output_tokens": 400,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate10Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass VueGeneratorMutaGate10Test {\n\n    @Test\n    void testIdJoinsModuleAndSuffixWithSingleHyphenWithoutTransformingSuffix() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String module = spec.module();\n\n        // Plain concatenation: module + \"-\" + suffix\n        assertEquals(module + \"-x\", VueGenerator.testId(spec, \"x\"));\n\n        // Suffix is kept verbatim: case, inner hyphens, and surrounding spaces are not altered\n        assertEquals(module + \"-Add-Btn\", VueGenerator.testId(spec, \"Add-Btn\"));\n        assertEquals(module + \"-a_b.c\", VueGenerator.testId(spec, \"a_b.c\"));\n        assertEquals(module + \"- pad \", VueGenerator.testId(spec, \" pad \"));\n\n        // Empty suffix still yields the separator\n        assertEquals(module + \"-\", VueGenerator.testId(spec, \"\"));\n\n        // Deterministic: same inputs give the same output\n        assertEquals(VueGenerator.testId(spec, \"table\"), VueGenerator.testId(spec, \"table\"));\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 687,
+        "cache_read_input_tokens": 13516,
+        "output_tokens": 881,
+        "thinking_tokens": 324
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.VueGeneratorMutaGate11Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.FieldType;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass VueGeneratorMutaGate11Test {\n\n    private static FieldSpec field(String name) {\n        return new FieldSpec(name, \"col\", FieldType.STRING, null, null, null,\n                true, \"comment\", FieldSpec.QueryMode.NONE, false);\n    }\n\n    @Test\n    void fieldTestIdKebabCasesEveryUppercaseLetter() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String prefix = spec.module() + \"-\";\n\n        // no uppercase: unchanged\n        assertEquals(prefix + \"name-input\", VueGenerator.fieldTestId(spec, field(\"name\")));\n        // multiple humps, each gets its own hyphen\n        assertEquals(prefix + \"owner-dept-id-input\",\n                VueGenerator.fieldTestId(spec, field(\"ownerDeptId\")));\n        // consecutive uppercase letters are each split\n        assertEquals(prefix + \"user-i-d-input\",\n                VueGenerator.fieldTestId(spec, field(\"userID\")));\n        // leading uppercase yields a leading hyphen after the module separator\n        assertEquals(prefix + \"-name-input\",\n                VueGenerator.fieldTestId(spec, field(\"Name\")));\n        // digits are kept as they are\n        assertEquals(prefix + \"addr2-line-input\",\n                VueGenerator.fieldTestId(spec, field(\"addr2Line\")));\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 703,
+        "cache_read_input_tokens": 13516,
+        "output_tokens": 1072,
+        "thinking_tokens": 390
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

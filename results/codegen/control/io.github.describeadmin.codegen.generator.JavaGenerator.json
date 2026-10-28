@@ -1,0 +1,255 @@
+{
+  "repo": "codegen",
+  "class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+  "kind": "CONTROL",
+  "setup": {
+    "repo_commit": "7697931d89755fe35b6cd149d774babd85af9bd5",
+    "date": "2026-10-28",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "db5009105cb4dfcea734e68a59d73ccd921853e2",
+    "provider": "claude-code",
+    "provider_version": "2.1.311",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.8823529411764706,
+  "score_after": 1.0,
+  "mutants_total": 17,
+  "undetected_before": 2,
+  "newly_detected": 2,
+  "candidates": 2,
+  "kept": 1,
+  "acceptance_rate": 0.5,
+  "attempts_per_kept_test": 2.0,
+  "tokens": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 12907,
+    "cache_read_input_tokens": 9650,
+    "output_tokens": 3605,
+    "thinking_tokens": 1492
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate1Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/JavaGeneratorMutaGate1Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "JavaGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+          "mutated_method": "controller",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 131,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            10
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate1Test#controllerDocImportsAndPermPrefix"
+          ]
+        },
+        {
+          "source_file": "JavaGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+          "mutated_method": "controller",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 149,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            78
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate1Test#controllerDocImportsAndPermPrefix"
+          ]
+        },
+        {
+          "source_file": "JavaGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+          "mutated_method": "controller",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 156,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            209
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::controller",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#controller",
+            "io.github.describeadmin.codegen.GeneratorTest#controllerActuallyFilters",
+            "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+            "io.github.describeadmin.codegen.GeneratorTest#generatedJavaHasAllImports",
+            "io.github.describeadmin.codegen.GeneratorTest#parsersAreDelegatedToBaseController",
+            "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate1Test#controllerDocImportsAndPermPrefix"
+          ]
+        },
+        {
+          "source_file": "JavaGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+          "mutated_method": "lambda$controller$2",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+          "line": 134,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            16
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::lambda$controller$2",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#javadocWellFormed",
+            "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate1Test#controllerDocImportsAndPermPrefix"
+          ]
+        },
+        {
+          "source_file": "JavaGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+          "mutated_method": "lambda$controller$3",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 201,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::lambda$controller$3",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#controller",
+            "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+            "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate1Test#controllerDocImportsAndPermPrefix"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\nimport java.util.ArrayList;\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass JavaGeneratorMutaGate1Test {\n\n    @Test\n    void controllerDocImportsAndPermPrefix() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String src = JavaGenerator.controller(spec);\n\n        List<FieldSpec> queryFields = spec.queryFields();\n        assertFalse(queryFields.isEmpty());\n\n        // Javadoc lists each query condition with its mode, inside a <ul>\n        StringBuilder expectedDoc = new StringBuilder(\"\\n *\\n * <p>\u5217\u8868\u67e5\u8be2\u652f\u6301\u7684\u6761\u4ef6\uff1a\\n * <ul>\\n\");\n        for (int i = 0; i < queryFields.size(); i++) {\n            FieldSpec f = queryFields.get(i);\n            if (i > 0) {\n                expectedDoc.append(\"\\n\");\n            }\n            expectedDoc.append(\" *   <li>{@code \").append(f.name()).append(\"} \u2014\u2014 \")\n                    .append(f.comment()).append(\"\uff08\")\n                    .append(f.query().name().toLowerCase()).append(\"\uff09</li>\");\n        }\n        expectedDoc.append(\"\\n * </ul>\");\n        assertTrue(src.contains(expectedDoc.toString()), src);\n\n        // class comment followed by the full-width period\n        assertTrue(src.contains(\" * \" + spec.comment() + \"\u3002\"), src);\n\n        // permPrefix returns the raw module name\n        assertTrue(src.contains(\"public String permPrefix() {\\n        return \\\"\"\n                + spec.module() + \"\\\";\\n    }\"), src);\n\n        // getService returns the injected field\n        assertTrue(src.contains(\"return \" + spec.entityVar() + \"Service;\"), src);\n\n        // imports are emitted in sorted order and include the query-related ones\n        List<String> imports = new ArrayList<>();\n        for (String line : src.split(\"\\n\")) {\n            if (line.startsWith(\"import \")) {\n                imports.add(line.substring(\"import \".length(), line.length() - 1));\n            }\n        }\n        List<String> sorted = new ArrayList<>(imports);\n        sorted.sort(null);\n        assertEquals(sorted, imports);\n        assertTrue(imports.contains(\"com.baomidou.mybatisplus.core.conditions.Wrapper\"));\n        assertTrue(imports.contains(\"com.baomidou.mybatisplus.core.conditions.query.QueryWrapper\"));\n        assertTrue(imports.contains(\"java.util.Map\"));\n        assertTrue(imports.contains(\"io.github.describeadmin.mybatis.api.BaseController\"));\n        assertTrue(imports.contains(\"org.springframework.web.bind.annotation.RestController\"));\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate2Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/JavaGeneratorMutaGate2Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "JavaGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+          "mutated_method": "entity",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 39,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            51
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#entityImports",
+            "io.github.describeadmin.codegen.GeneratorTest#generatedJavaHasAllImports",
+            "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate2Test#entityHasExactHeaderImportOrderAndFieldLayout"
+          ]
+        },
+        {
+          "source_file": "JavaGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+          "mutated_method": "entity",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            136
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::entity",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#entityImports",
+            "io.github.describeadmin.codegen.GeneratorTest#entityIsThin",
+            "io.github.describeadmin.codegen.GeneratorTest#entityUsesLombokAccessors",
+            "io.github.describeadmin.codegen.GeneratorTest#flatLayoutDropsModuleSegment",
+            "io.github.describeadmin.codegen.GeneratorTest#generatedJavaHasAllImports",
+            "io.github.describeadmin.codegen.GeneratorTest#nestedLayoutKeepsModuleSegment",
+            "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate2Test#entityHasExactHeaderImportOrderAndFieldLayout"
+          ]
+        },
+        {
+          "source_file": "JavaGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+          "mutated_method": "lambda$entity$0",
+          "method_description": "(Lio/github/describeadmin/codegen/model/FieldSpec;)Ljava/lang/String;",
+          "line": 45,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            27
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::lambda$entity$0",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#entityIsThin",
+            "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate2Test#entityHasExactHeaderImportOrderAndFieldLayout"
+          ]
+        },
+        {
+          "source_file": "JavaGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.JavaGenerator",
+          "mutated_method": "lambda$entity$1",
+          "method_description": "(Ljava/lang/String;)Ljava/lang/String;",
+          "line": 72,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/JavaGenerator::lambda$entity$1",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.GeneratorTest#entityImports",
+            "io.github.describeadmin.codegen.GeneratorTest#entityUsesLombokAccessors",
+            "io.github.describeadmin.codegen.GeneratorTest#generatedJavaHasAllImports",
+            "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate2Test#entityHasExactHeaderImportOrderAndFieldLayout"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\nimport java.util.LinkedHashSet;\nimport java.util.Set;\nimport java.util.stream.Collectors;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass JavaGeneratorMutaGate2Test {\n\n    @Test\n    void entityHasExactHeaderImportOrderAndFieldLayout() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String src = JavaGenerator.entity(spec);\n\n        Set<String> imports = new LinkedHashSet<>();\n        imports.add(\"com.baomidou.mybatisplus.annotation.TableName\");\n        imports.add(\"io.github.describeadmin.mybatis.api.BaseEntity\");\n        imports.add(\"lombok.Getter\");\n        imports.add(\"lombok.Setter\");\n        for (FieldSpec f : spec.fields()) {\n            if (f.type().importName() != null) {\n                imports.add(f.type().importName());\n            }\n        }\n        String importBlock = imports.stream()\n                .map(i -> \"import \" + i + \";\")\n                .collect(Collectors.joining(\"\\n\"));\n\n        String expectedHead = \"package \" + spec.packageOf(\"entity\") + \";\\n\\n\"\n                + importBlock + \"\\n\\n\"\n                + \"/**\\n * \" + spec.comment() + \"\u3002\\n\";\n        assertTrue(src.startsWith(expectedHead),\n                \"header/import block mismatch:\\n\" + src);\n\n        String fieldDecls = spec.fields().stream()\n                .map(f -> \"    /** \" + f.comment() + \" */\\n    private \"\n                        + f.type().javaSimpleType() + \" \" + f.name() + \";\\n\")\n                .collect(Collectors.joining(\"\\n\"));\n        String expectedTail = \"@Getter\\n@Setter\\n@TableName(\\\"\" + spec.table() + \"\\\")\\n\"\n                + \"public class \" + spec.entityClass() + \" extends BaseEntity {\\n\\n\"\n                + fieldDecls + \"}\\n\";\n        assertTrue(src.endsWith(expectedTail),\n                \"class body mismatch:\\n\" + src);\n\n        // each import appears exactly once (no duplicates from repeated field types)\n        for (String i : imports) {\n            String line = \"import \" + i + \";\";\n            assertEquals(src.indexOf(line), src.lastIndexOf(line), \"duplicate: \" + line);\n        }\n    }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\nimport java.util.ArrayList;\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass JavaGeneratorMutaGate1Test {\n\n    @Test\n    void controllerDocImportsAndPermPrefix() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String src = JavaGenerator.controller(spec);\n\n        List<FieldSpec> queryFields = spec.queryFields();\n        assertFalse(queryFields.isEmpty());\n\n        // Javadoc lists each query condition with its mode, inside a <ul>\n        StringBuilder expectedDoc = new StringBuilder(\"\\n *\\n * <p>\u5217\u8868\u67e5\u8be2\u652f\u6301\u7684\u6761\u4ef6\uff1a\\n * <ul>\\n\");\n        for (int i = 0; i < queryFields.size(); i++) {\n            FieldSpec f = queryFields.get(i);\n            if (i > 0) {\n                expectedDoc.append(\"\\n\");\n            }\n            expectedDoc.append(\" *   <li>{@code \").append(f.name()).append(\"} \u2014\u2014 \")\n                    .append(f.comment()).append(\"\uff08\")\n                    .append(f.query().name().toLowerCase()).append(\"\uff09</li>\");\n        }\n        expectedDoc.append(\"\\n * </ul>\");\n        assertTrue(src.contains(expectedDoc.toString()), src);\n\n        // class comment followed by the full-width period\n        assertTrue(src.contains(\" * \" + spec.comment() + \"\u3002\"), src);\n\n        // permPrefix returns the raw module name\n        assertTrue(src.contains(\"public String permPrefix() {\\n        return \\\"\"\n                + spec.module() + \"\\\";\\n    }\"), src);\n\n        // getService returns the injected field\n        assertTrue(src.contains(\"return \" + spec.entityVar() + \"Service;\"), src);\n\n        // imports are emitted in sorted order and include the query-related ones\n        List<String> imports = new ArrayList<>();\n        for (String line : src.split(\"\\n\")) {\n            if (line.startsWith(\"import \")) {\n                imports.add(line.substring(\"import \".length(), line.length() - 1));\n            }\n        }\n        List<String> sorted = new ArrayList<>(imports);\n        sorted.sort(null);\n        assertEquals(sorted, imports);\n        assertTrue(imports.contains(\"com.baomidou.mybatisplus.core.conditions.Wrapper\"));\n        assertTrue(imports.contains(\"com.baomidou.mybatisplus.core.conditions.query.QueryWrapper\"));\n        assertTrue(imports.contains(\"java.util.Map\"));\n        assertTrue(imports.contains(\"io.github.describeadmin.mybatis.api.BaseController\"));\n        assertTrue(imports.contains(\"org.springframework.web.bind.annotation.RestController\"));\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 11681,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 2012,
+        "thinking_tokens": 873
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.JavaGeneratorMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.FieldSpec;\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\nimport java.util.LinkedHashSet;\nimport java.util.Set;\nimport java.util.stream.Collectors;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass JavaGeneratorMutaGate2Test {\n\n    @Test\n    void entityHasExactHeaderImportOrderAndFieldLayout() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String src = JavaGenerator.entity(spec);\n\n        Set<String> imports = new LinkedHashSet<>();\n        imports.add(\"com.baomidou.mybatisplus.annotation.TableName\");\n        imports.add(\"io.github.describeadmin.mybatis.api.BaseEntity\");\n        imports.add(\"lombok.Getter\");\n        imports.add(\"lombok.Setter\");\n        for (FieldSpec f : spec.fields()) {\n            if (f.type().importName() != null) {\n                imports.add(f.type().importName());\n            }\n        }\n        String importBlock = imports.stream()\n                .map(i -> \"import \" + i + \";\")\n                .collect(Collectors.joining(\"\\n\"));\n\n        String expectedHead = \"package \" + spec.packageOf(\"entity\") + \";\\n\\n\"\n                + importBlock + \"\\n\\n\"\n                + \"/**\\n * \" + spec.comment() + \"\u3002\\n\";\n        assertTrue(src.startsWith(expectedHead),\n                \"header/import block mismatch:\\n\" + src);\n\n        String fieldDecls = spec.fields().stream()\n                .map(f -> \"    /** \" + f.comment() + \" */\\n    private \"\n                        + f.type().javaSimpleType() + \" \" + f.name() + \";\\n\")\n                .collect(Collectors.joining(\"\\n\"));\n        String expectedTail = \"@Getter\\n@Setter\\n@TableName(\\\"\" + spec.table() + \"\\\")\\n\"\n                + \"public class \" + spec.entityClass() + \" extends BaseEntity {\\n\\n\"\n                + fieldDecls + \"}\\n\";\n        assertTrue(src.endsWith(expectedTail),\n                \"class body mismatch:\\n\" + src);\n\n        // each import appears exactly once (no duplicates from repeated field types)\n        for (String i : imports) {\n            String line = \"import \" + i + \";\";\n            assertEquals(src.indexOf(line), src.lastIndexOf(line), \"duplicate: \" + line);\n        }\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1226,
+        "cache_read_input_tokens": 9650,
+        "output_tokens": 1593,
+        "thinking_tokens": 619
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

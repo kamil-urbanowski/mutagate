@@ -1,0 +1,307 @@
+{
+  "repo": "codegen",
+  "class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+  "kind": "CONTROL",
+  "setup": {
+    "repo_commit": "7697931d89755fe35b6cd149d774babd85af9bd5",
+    "date": "2026-10-28",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "db5009105cb4dfcea734e68a59d73ccd921853e2",
+    "provider": "claude-code",
+    "provider_version": "2.1.311",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.6666666666666666,
+  "score_after": 1.0,
+  "mutants_total": 6,
+  "undetected_before": 2,
+  "newly_detected": 2,
+  "candidates": 2,
+  "kept": 2,
+  "acceptance_rate": 1.0,
+  "attempts_per_kept_test": 1.0,
+  "tokens": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 9178,
+    "cache_read_input_tokens": 7330,
+    "output_tokens": 4737,
+    "thinking_tokens": 1980
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/MenuSqlGeneratorMutaGate1Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "MenuSqlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+          "mutated_method": "buttonRow",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+          "line": 100,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            38
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::buttonRow",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#buttonPermissionsMatchPage",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test#generatesSectionsInOrderWithModuleSpecificValues",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#generatesStatementsInOrderWithExpectedRowsAndRoute"
+          ]
+        },
+        {
+          "source_file": "MenuSqlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+          "mutated_method": "generate",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 45,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            153
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::generate",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#buttonPermissionsMatchPage",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#menuComponentMatchesGeneratedFile",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#menuSqlRespectsRedLines",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test#generatesSectionsInOrderWithModuleSpecificValues",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#generatesStatementsInOrderWithExpectedRowsAndRoute"
+          ]
+        },
+        {
+          "source_file": "MenuSqlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+          "mutated_method": "grantToAdmin",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 112,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            20
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::grantToAdmin",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test#generatesSectionsInOrderWithModuleSpecificValues",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#generatesStatementsInOrderWithExpectedRowsAndRoute"
+          ]
+        },
+        {
+          "source_file": "MenuSqlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+          "mutated_method": "header",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 49,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            27
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::header",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test#generatesSectionsInOrderWithModuleSpecificValues",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#generatesStatementsInOrderWithExpectedRowsAndRoute"
+          ]
+        },
+        {
+          "source_file": "MenuSqlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+          "mutated_method": "menuRow",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+          "line": 84,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            36
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::menuRow",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#menuComponentMatchesGeneratedFile",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test#generatesSectionsInOrderWithModuleSpecificValues",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#generatesStatementsInOrderWithExpectedRowsAndRoute"
+          ]
+        },
+        {
+          "source_file": "MenuSqlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+          "mutated_method": "rootDir",
+          "method_description": "()Ljava/lang/String;",
+          "line": 68,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            23
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::rootDir",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#menuComponentMatchesGeneratedFile",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test#generatesSectionsInOrderWithModuleSpecificValues",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#generatesStatementsInOrderWithExpectedRowsAndRoute"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass MenuSqlGeneratorMutaGate1Test {\n\n    @Test\n    void generatesSectionsInOrderWithModuleSpecificValues() throws Exception {\n        ModuleSpec base = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        ModuleSpec s = new ModuleSpec(base.basePackage(), \"order\", base.entity(), base.table(),\n                \"\u8ba2\u5355\", \"/api/order-items\", base.layout(), base.layoutOrigin(), base.fields());\n\n        String sql = MenuSqlGenerator.generate(s);\n\n        // header\n        assertTrue(sql.startsWith(\"-- =====\"), \"should start with header comment\");\n        assertTrue(sql.contains(\"-- \u8ba2\u5355 \u83dc\u5355\u4e0e\u6743\u9650\u70b9\"));\n        assertTrue(sql.contains(\"'order/index' \u5bf9\u5e94 frontend \u7684 src/views/order/index.vue\"));\n\n        // list menu row: /api prefix stripped, comment used as name\n        assertTrue(sql.contains(\n                \"SELECT m.id, '\u8ba2\u5355', 'MENU', 'order:list', '/order-items', 'order/index', 'lucide:table', 1, 1,\"));\n        assertFalse(sql.contains(\"'/api/order-items'\"));\n\n        // button rows with their sort values\n        assertTrue(sql.contains(\n                \"SELECT m.id, '\u65b0\u589e', 'BUTTON', 'order:add', NULL, NULL, NULL, 1, 1, NOW(), NOW(), 0, 0\"));\n        assertTrue(sql.contains(\n                \"SELECT m.id, '\u7f16\u8f91', 'BUTTON', 'order:edit', NULL, NULL, NULL, 2, 1, NOW(), NOW(), 0, 0\"));\n        assertTrue(sql.contains(\n                \"SELECT m.id, '\u5220\u9664', 'BUTTON', 'order:remove', NULL, NULL, NULL, 3, 1, NOW(), NOW(), 0, 0\"));\n\n        // grant uses a single % wildcard and the root path\n        assertTrue(sql.contains(\"m.perm_code LIKE 'order:%' OR m.path = '/biz'\"));\n        assertFalse(sql.contains(\"'order:%%'\"));\n\n        // overall ordering of the sections\n        int root = sql.indexOf(\"-- \u4e1a\u52a1\u83dc\u5355\u6839\u76ee\u5f55\");\n        int list = sql.indexOf(\"-- \u5217\u8868\u9875\");\n        int add = sql.indexOf(\"'order:add'\");\n        int edit = sql.indexOf(\"'order:edit'\");\n        int remove = sql.indexOf(\"'order:remove'\");\n        int grant = sql.indexOf(\"-- \u6388\u4e88 ADMIN\");\n        assertTrue(root > 0);\n        assertTrue(root < list);\n        assertTrue(list < add);\n        assertTrue(add < edit);\n        assertTrue(edit < remove);\n        assertTrue(remove < grant);\n\n        // 1 root dir + 1 list + 3 buttons + 1 grant into sys_role_menu\n        assertEquals(5, countOccurrences(sql, \"INSERT INTO sys_menu\"));\n        assertEquals(1, countOccurrences(sql, \"INSERT INTO sys_role_menu\"));\n    }\n\n    private static int countOccurrences(String text, String needle) {\n        int count = 0;\n        int from = 0;\n        while ((from = text.indexOf(needle, from)) >= 0) {\n            count++;\n            from += needle.length();\n        }\n        return count;\n    }\n}\n"
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test",
+      "path": "src/test/java/io/github/describeadmin/codegen/generator/MenuSqlGeneratorMutaGate2Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "MenuSqlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+          "mutated_method": "buttonRow",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+          "line": 100,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            38
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::buttonRow",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#buttonPermissionsMatchPage",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test#generatesSectionsInOrderWithModuleSpecificValues",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#generatesStatementsInOrderWithExpectedRowsAndRoute"
+          ]
+        },
+        {
+          "source_file": "MenuSqlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+          "mutated_method": "generate",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 45,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            153
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::generate",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#buttonPermissionsMatchPage",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#menuComponentMatchesGeneratedFile",
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#menuSqlRespectsRedLines",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test#generatesSectionsInOrderWithModuleSpecificValues",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#generatesStatementsInOrderWithExpectedRowsAndRoute"
+          ]
+        },
+        {
+          "source_file": "MenuSqlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+          "mutated_method": "grantToAdmin",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 112,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            20
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::grantToAdmin",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test#generatesSectionsInOrderWithModuleSpecificValues",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#generatesStatementsInOrderWithExpectedRowsAndRoute"
+          ]
+        },
+        {
+          "source_file": "MenuSqlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+          "mutated_method": "header",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;)Ljava/lang/String;",
+          "line": 49,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            27
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::header",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test#generatesSectionsInOrderWithModuleSpecificValues",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#generatesStatementsInOrderWithExpectedRowsAndRoute"
+          ]
+        },
+        {
+          "source_file": "MenuSqlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+          "mutated_method": "menuRow",
+          "method_description": "(Lio/github/describeadmin/codegen/model/ModuleSpec;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+          "line": 84,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            36
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::menuRow",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#menuComponentMatchesGeneratedFile",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test#generatesSectionsInOrderWithModuleSpecificValues",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#generatesStatementsInOrderWithExpectedRowsAndRoute"
+          ]
+        },
+        {
+          "source_file": "MenuSqlGenerator.java",
+          "mutated_class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
+          "mutated_method": "rootDir",
+          "method_description": "()Ljava/lang/String;",
+          "line": 68,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            23
+          ],
+          "description": "replaced return value with \"\" for io/github/describeadmin/codegen/generator/MenuSqlGenerator::rootDir",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.describeadmin.codegen.FrontendGeneratorTest#menuComponentMatchesGeneratedFile",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test#generatesSectionsInOrderWithModuleSpecificValues",
+            "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test#generatesStatementsInOrderWithExpectedRowsAndRoute"
+          ]
+        }
+      ],
+      "source": "package io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass MenuSqlGeneratorMutaGate2Test {\n\n    private static int count(String text, String needle) {\n        int n = 0;\n        int from = 0;\n        while ((from = text.indexOf(needle, from)) >= 0) {\n            n++;\n            from += needle.length();\n        }\n        return n;\n    }\n\n    @Test\n    void generatesStatementsInOrderWithExpectedRowsAndRoute() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String sql = MenuSqlGenerator.generate(spec);\n        String module = spec.module();\n        String route = spec.apiPrefix().replaceFirst(\"^/api\", \"\");\n\n        // 5 sys_menu inserts (root dir, list page, 3 buttons) and exactly one grant\n        assertEquals(5, count(sql, \"INSERT INTO sys_menu\"));\n        assertEquals(1, count(sql, \"INSERT INTO sys_role_menu\"));\n\n        // header carries the module comment\n        assertTrue(sql.startsWith(\"-- =====\"));\n        assertTrue(sql.contains(\"-- \" + spec.comment() + \" \u83dc\u5355\u4e0e\u6743\u9650\u70b9\"));\n\n        // list page row: name, perm, route without /api prefix, component\n        String menuRow = \"SELECT m.id, '\" + spec.comment() + \"', 'MENU', '\" + module + \":list', '\"\n                + route + \"', '\" + module + \"/index'\";\n        assertTrue(sql.contains(menuRow), \"menu row missing\");\n        assertTrue(!route.startsWith(\"/api\"));\n\n        // button rows with label and sort order\n        String add = \"SELECT m.id, '\u65b0\u589e', 'BUTTON', '\" + module + \":add', NULL, NULL, NULL, 1, 1, NOW()\";\n        String edit = \"SELECT m.id, '\u7f16\u8f91', 'BUTTON', '\" + module + \":edit', NULL, NULL, NULL, 2, 1, NOW()\";\n        String remove = \"SELECT m.id, '\u5220\u9664', 'BUTTON', '\" + module + \":remove', NULL, NULL, NULL, 3, 1, NOW()\";\n        assertTrue(sql.contains(add), \"add button missing\");\n        assertTrue(sql.contains(edit), \"edit button missing\");\n        assertTrue(sql.contains(remove), \"remove button missing\");\n\n        // buttons hang under the list permission\n        assertEquals(3, count(sql, \"WHERE m.perm_code = '\" + module + \":list' AND m.deleted = 0\"));\n\n        // ordering: root dir -> list page -> add -> edit -> remove -> grant\n        int dir = sql.indexOf(\"'DIR'\");\n        int menu = sql.indexOf(menuRow);\n        int iAdd = sql.indexOf(add);\n        int iEdit = sql.indexOf(edit);\n        int iRemove = sql.indexOf(remove);\n        int grant = sql.indexOf(\"INSERT INTO sys_role_menu\");\n        assertTrue(dir > 0);\n        assertTrue(dir < menu);\n        assertTrue(menu < iAdd);\n        assertTrue(iAdd < iEdit);\n        assertTrue(iEdit < iRemove);\n        assertTrue(iRemove < grant);\n\n        // grant is limited to ADMIN and to this module's perms plus the root dir\n        String tail = sql.substring(grant);\n        assertTrue(tail.contains(\"r.role_code = 'ADMIN'\"));\n        assertTrue(tail.contains(\"m.perm_code LIKE '\" + module + \":%' OR m.path = '/biz'\"));\n        assertTrue(!tail.contains(\"%%\"));\n    }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass MenuSqlGeneratorMutaGate1Test {\n\n    @Test\n    void generatesSectionsInOrderWithModuleSpecificValues() throws Exception {\n        ModuleSpec base = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        ModuleSpec s = new ModuleSpec(base.basePackage(), \"order\", base.entity(), base.table(),\n                \"\u8ba2\u5355\", \"/api/order-items\", base.layout(), base.layoutOrigin(), base.fields());\n\n        String sql = MenuSqlGenerator.generate(s);\n\n        // header\n        assertTrue(sql.startsWith(\"-- =====\"), \"should start with header comment\");\n        assertTrue(sql.contains(\"-- \u8ba2\u5355 \u83dc\u5355\u4e0e\u6743\u9650\u70b9\"));\n        assertTrue(sql.contains(\"'order/index' \u5bf9\u5e94 frontend \u7684 src/views/order/index.vue\"));\n\n        // list menu row: /api prefix stripped, comment used as name\n        assertTrue(sql.contains(\n                \"SELECT m.id, '\u8ba2\u5355', 'MENU', 'order:list', '/order-items', 'order/index', 'lucide:table', 1, 1,\"));\n        assertFalse(sql.contains(\"'/api/order-items'\"));\n\n        // button rows with their sort values\n        assertTrue(sql.contains(\n                \"SELECT m.id, '\u65b0\u589e', 'BUTTON', 'order:add', NULL, NULL, NULL, 1, 1, NOW(), NOW(), 0, 0\"));\n        assertTrue(sql.contains(\n                \"SELECT m.id, '\u7f16\u8f91', 'BUTTON', 'order:edit', NULL, NULL, NULL, 2, 1, NOW(), NOW(), 0, 0\"));\n        assertTrue(sql.contains(\n                \"SELECT m.id, '\u5220\u9664', 'BUTTON', 'order:remove', NULL, NULL, NULL, 3, 1, NOW(), NOW(), 0, 0\"));\n\n        // grant uses a single % wildcard and the root path\n        assertTrue(sql.contains(\"m.perm_code LIKE 'order:%' OR m.path = '/biz'\"));\n        assertFalse(sql.contains(\"'order:%%'\"));\n\n        // overall ordering of the sections\n        int root = sql.indexOf(\"-- \u4e1a\u52a1\u83dc\u5355\u6839\u76ee\u5f55\");\n        int list = sql.indexOf(\"-- \u5217\u8868\u9875\");\n        int add = sql.indexOf(\"'order:add'\");\n        int edit = sql.indexOf(\"'order:edit'\");\n        int remove = sql.indexOf(\"'order:remove'\");\n        int grant = sql.indexOf(\"-- \u6388\u4e88 ADMIN\");\n        assertTrue(root > 0);\n        assertTrue(root < list);\n        assertTrue(list < add);\n        assertTrue(add < edit);\n        assertTrue(edit < remove);\n        assertTrue(remove < grant);\n\n        // 1 root dir + 1 list + 3 buttons + 1 grant into sys_role_menu\n        assertEquals(5, countOccurrences(sql, \"INSERT INTO sys_menu\"));\n        assertEquals(1, countOccurrences(sql, \"INSERT INTO sys_role_menu\"));\n    }\n\n    private static int countOccurrences(String text, String needle) {\n        int count = 0;\n        int from = 0;\n        while ((from = text.indexOf(needle, from)) >= 0) {\n            count++;\n            from += needle.length();\n        }\n        return count;\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 8255,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 2304,
+        "thinking_tokens": 955
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.describeadmin.codegen.generator.MenuSqlGeneratorMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.describeadmin.codegen.generator;\n\nimport io.github.describeadmin.codegen.model.ModuleSpec;\nimport io.github.describeadmin.codegen.parser.SpecLoader;\nimport org.junit.jupiter.api.Test;\n\nimport java.nio.file.Path;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass MenuSqlGeneratorMutaGate2Test {\n\n    private static int count(String text, String needle) {\n        int n = 0;\n        int from = 0;\n        while ((from = text.indexOf(needle, from)) >= 0) {\n            n++;\n            from += needle.length();\n        }\n        return n;\n    }\n\n    @Test\n    void generatesStatementsInOrderWithExpectedRowsAndRoute() throws Exception {\n        ModuleSpec spec = SpecLoader.load(Path.of(\"examples/project.yaml\"));\n        String sql = MenuSqlGenerator.generate(spec);\n        String module = spec.module();\n        String route = spec.apiPrefix().replaceFirst(\"^/api\", \"\");\n\n        // 5 sys_menu inserts (root dir, list page, 3 buttons) and exactly one grant\n        assertEquals(5, count(sql, \"INSERT INTO sys_menu\"));\n        assertEquals(1, count(sql, \"INSERT INTO sys_role_menu\"));\n\n        // header carries the module comment\n        assertTrue(sql.startsWith(\"-- =====\"));\n        assertTrue(sql.contains(\"-- \" + spec.comment() + \" \u83dc\u5355\u4e0e\u6743\u9650\u70b9\"));\n\n        // list page row: name, perm, route without /api prefix, component\n        String menuRow = \"SELECT m.id, '\" + spec.comment() + \"', 'MENU', '\" + module + \":list', '\"\n                + route + \"', '\" + module + \"/index'\";\n        assertTrue(sql.contains(menuRow), \"menu row missing\");\n        assertTrue(!route.startsWith(\"/api\"));\n\n        // button rows with label and sort order\n        String add = \"SELECT m.id, '\u65b0\u589e', 'BUTTON', '\" + module + \":add', NULL, NULL, NULL, 1, 1, NOW()\";\n        String edit = \"SELECT m.id, '\u7f16\u8f91', 'BUTTON', '\" + module + \":edit', NULL, NULL, NULL, 2, 1, NOW()\";\n        String remove = \"SELECT m.id, '\u5220\u9664', 'BUTTON', '\" + module + \":remove', NULL, NULL, NULL, 3, 1, NOW()\";\n        assertTrue(sql.contains(add), \"add button missing\");\n        assertTrue(sql.contains(edit), \"edit button missing\");\n        assertTrue(sql.contains(remove), \"remove button missing\");\n\n        // buttons hang under the list permission\n        assertEquals(3, count(sql, \"WHERE m.perm_code = '\" + module + \":list' AND m.deleted = 0\"));\n\n        // ordering: root dir -> list page -> add -> edit -> remove -> grant\n        int dir = sql.indexOf(\"'DIR'\");\n        int menu = sql.indexOf(menuRow);\n        int iAdd = sql.indexOf(add);\n        int iEdit = sql.indexOf(edit);\n        int iRemove = sql.indexOf(remove);\n        int grant = sql.indexOf(\"INSERT INTO sys_role_menu\");\n        assertTrue(dir > 0);\n        assertTrue(dir < menu);\n        assertTrue(menu < iAdd);\n        assertTrue(iAdd < iEdit);\n        assertTrue(iEdit < iRemove);\n        assertTrue(iRemove < grant);\n\n        // grant is limited to ADMIN and to this module's perms plus the root dir\n        String tail = sql.substring(grant);\n        assertTrue(tail.contains(\"r.role_code = 'ADMIN'\"));\n        assertTrue(tail.contains(\"m.perm_code LIKE '\" + module + \":%' OR m.path = '/biz'\"));\n        assertTrue(!tail.contains(\"%%\"));\n    }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 923,
+        "cache_read_input_tokens": 7330,
+        "output_tokens": 2433,
+        "thinking_tokens": 1025
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}
