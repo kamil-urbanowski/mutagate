@@ -48,9 +48,6 @@ _TASK = (
     "were made."
 )
 
-# The control's task uses nothing from PIT. Asking for behavior the existing
-# tests do not check keeps it a fair baseline for improving a suite: without
-# that, it tends to repeat the existing checks.
 _CONTROL_TASK = """\
 Test behavior of this method that the existing tests above do not already
 check. The test must pass against the code as it is now."""

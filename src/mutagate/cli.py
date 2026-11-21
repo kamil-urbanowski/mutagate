@@ -323,9 +323,6 @@ def _requests(
         contexts = [context.build_context(sources, class_name, t) for t in targets]
         return contexts, [f"line {t.line}" for t in targets]
     methods = context.control_methods(context.class_source(sources, class_name))
-    # No method is named twice: on codegen, repeated requests killed no new
-    # mutant and only spent Pro usage. The cap keeps the control's budget at
-    # most the targeted run's.
     named = methods[: len(targets)]
     contexts = [context.build_context(sources, class_name, method=m) for m in named]
     return contexts, [context.declaration_line(m) for m in named]
