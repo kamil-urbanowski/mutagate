@@ -156,15 +156,15 @@
         "newly_detected": 37
       }
     },
-    "candidates": 91,
-    "kept": 62,
-    "acceptance_rate": 0.6813186813186813,
-    "attempts_per_kept_test": 1.467741935483871,
+    "candidates": 27,
+    "kept": 17,
+    "acceptance_rate": 0.6296296296296297,
+    "attempts_per_kept_test": 1.588235294117647,
     "kept_after_repair": 0,
-    "redundant_kept": 50,
+    "redundant_kept": 5,
     "verdicts": {
-      "KEPT": 62,
-      "NO_NEW_KILL": 29
+      "KEPT": 17,
+      "NO_NEW_KILL": 10
     },
     "gate": {
       "rejected_at_screen": {
@@ -172,22 +172,22 @@
         "share": 0.0
       },
       "rejected_at_verification": {
-        "count": 29,
-        "share": 0.31868131868131866
+        "count": 10,
+        "share": 0.37037037037037035
       },
       "batch_failed": {
         "count": 0,
         "share": 0.0
       }
     },
-    "requests": 91,
-    "requests_reused": 0,
+    "requests": 27,
+    "requests_reused": 27,
     "tokens": {
-      "input_tokens": 182,
-      "cache_creation_input_tokens": 211806,
-      "cache_read_input_tokens": 719093,
-      "output_tokens": 129309,
-      "thinking_tokens": 41978
+      "input_tokens": 54,
+      "cache_creation_input_tokens": 128750,
+      "cache_read_input_tokens": 229603,
+      "output_tokens": 34938,
+      "thinking_tokens": 11216
     },
     "settings": [
       {
@@ -201,15 +201,15 @@
     "classes": [
       {
         "class": "io.github.describeadmin.codegen.CodegenCli",
-        "candidates": 46,
-        "kept": 31,
+        "candidates": 3,
+        "kept": 2,
         "score_before": 0.0,
         "score_after": 0.34782608695652173
       },
       {
         "class": "io.github.describeadmin.codegen.generator.DdlGenerator",
-        "candidates": 4,
-        "kept": 4,
+        "candidates": 1,
+        "kept": 1,
         "score_before": 0.42857142857142855,
         "score_after": 1.0
       },
@@ -222,22 +222,22 @@
       },
       {
         "class": "io.github.describeadmin.codegen.generator.MenuSqlGenerator",
-        "candidates": 2,
-        "kept": 2,
+        "candidates": 1,
+        "kept": 1,
         "score_before": 0.6666666666666666,
         "score_after": 1.0
       },
       {
         "class": "io.github.describeadmin.codegen.generator.VueGenerator",
-        "candidates": 11,
-        "kept": 2,
+        "candidates": 6,
+        "kept": 1,
         "score_before": 0.725,
         "score_after": 0.925
       },
       {
         "class": "io.github.describeadmin.codegen.model.FieldSpec",
-        "candidates": 5,
-        "kept": 5,
+        "candidates": 1,
+        "kept": 1,
         "score_before": 0.375,
         "score_after": 1.0
       },
@@ -264,8 +264,8 @@
       },
       {
         "class": "io.github.describeadmin.codegen.parser.SpecLoader",
-        "candidates": 14,
-        "kept": 12,
+        "candidates": 6,
+        "kept": 5,
         "score_before": 0.8181818181818182,
         "score_after": 0.974025974025974
       }
@@ -293,10 +293,10 @@
     },
     "control": {
       "score_after": 0.8391304347826087,
-      "candidates": 91,
-      "kept": 62,
+      "candidates": 27,
+      "kept": 17,
       "kept_with_new_kill": 12,
-      "attempts_per_kept_test": 1.467741935483871
+      "attempts_per_kept_test": 1.588235294117647
     },
     "newly_detected": {
       "targeted_only": 29,
