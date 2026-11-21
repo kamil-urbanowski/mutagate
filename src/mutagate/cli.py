@@ -75,8 +75,8 @@ def run(repo: Path, target: str, control: bool, provider: str) -> None:
     """Generate tests for one class's undetected mutants and keep the ones that
     pass the gate.
 
-    With --control, an untargeted control run instead: as many requests, each
-    naming one of the class's methods rather than a mutant.
+    With --control, an untargeted control run instead: each request names one
+    of the class's methods rather than a mutant, each method at most once.
     """
     replies = SavedReplies(load(provider), REPLIES_DIR / repo.resolve().name)
     try:
@@ -205,9 +205,9 @@ def run_targeted(
 def run_control(
     repo: Path, class_name: str, provider: SavedReplies, corpus: Path = report.CORPUS_DIR
 ) -> report.RunMetrics:
-    """One untargeted control run of one class: as many requests as it has
-    targets, so both run kinds get the same budget, each naming one of its
-    methods and nothing from PIT. Otherwise the same as `run_targeted`."""
+    """One untargeted control run of one class: one request per method, at most
+    as many as it has targets, each naming one of its methods and nothing from
+    PIT. Otherwise the same as `run_targeted`."""
     return _run(repo, class_name, provider, corpus, report.RunKind.CONTROL)
 
 
@@ -233,13 +233,14 @@ def _run(
         click.echo(
             "Warning: MutaGate's code has uncommitted changes; this run has no exact commit."
         )
-    what = "targets" if kind is report.RunKind.TARGETED else "control requests"
-    click.echo(f"{class_name}: {len(targets)} {what}, provider {provider.name} {provider.settings}")
-
     workspace = pit.make_workspace(repo)
     try:
         sources = pit.read_sources(workspace)  # before any candidate is added
         contexts, labels = _requests(kind, sources, class_name, targets)
+        what = "targets" if kind is report.RunKind.TARGETED else "control requests"
+        click.echo(
+            f"{class_name}: {len(contexts)} {what}, provider {provider.name} {provider.settings}"
+        )
         names = [generate.test_class_name(class_name, i) for i in range(1, len(contexts) + 1)]
         for ctx, test_class in zip(contexts, names):
             path = ctx.test_dir / f"{test_class.rpartition('.')[2]}.java"
@@ -315,15 +316,17 @@ def _requests(
 ) -> tuple[list[MutantContext], list[str]]:
     """Each request's context, and how its progress line names it.
 
-    A control run makes as many requests as the class has targets. Request i
-    (from 1) names method (i - 1) mod n: longest first, repeating when there
-    are more requests than methods.
+    A control run makes one request per method, longest first, and at most as
+    many as the class has targets.
     """
     if kind is report.RunKind.TARGETED:
         contexts = [context.build_context(sources, class_name, t) for t in targets]
         return contexts, [f"line {t.line}" for t in targets]
     methods = context.control_methods(context.class_source(sources, class_name))
-    named = [methods[i % len(methods)] for i in range(len(targets))]
+    # No method is named twice: on codegen, repeated requests killed no new
+    # mutant and only spent Pro usage. The cap keeps the control's budget at
+    # most the targeted run's.
+    named = methods[: len(targets)]
     contexts = [context.build_context(sources, class_name, method=m) for m in named]
     return contexts, [context.declaration_line(m) for m in named]
 
