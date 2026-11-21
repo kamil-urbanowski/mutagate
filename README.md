@@ -28,8 +28,8 @@ Anything else is discarded. A program makes that call, not a person.
 
 Targeted runs work end to end: MutaGate finds the mutants a class's tests
 miss, asks a model for one test per mutant, and keeps only the tests that
-kill their own mutant. An untargeted control run, with as many requests and
-no mutant named, measures what targeting adds.
+kill their own mutant. An untargeted control run, with one request per
+method and no mutant named, measures what targeting adds.
 
 ## Results
 
@@ -41,17 +41,18 @@ rest of the corpus follows.
 | Measure | Targeted | Control |
 |---|---|---|
 | Mutation score, whole module | 60.4% → 96.5% (139 → 222 of 230 mutants) | 60.4% → 83.9% (139 → 193) |
-| Tests kept | 80 of 91 generated (88%) | 62 of 91 (68%) |
+| Tests kept | 80 of 91 generated (88%) | 17 of 27 (63%) |
 | Kept tests that added a new kill | 53 | 12 |
-| Attempts per kept test | 1.25 | 1.47 |
+| Attempts per kept test | 1.25 | 1.59 |
 
 The control asks for a test of one of the class's methods in place of a
-mutant, with as many requests as the targeted run. Every mutant its tests
-killed, a targeted test killed too; targeting killed 29 more. With one
-request per method, 27 requests in place of 91, the control scores the same
-83.9%: its repeated requests killed nothing new. Most of its kept tests are
-near-copies, so compare mutants killed, not tests kept: a kept test adds a new
-kill only if it kills a mutant no earlier kept test in its class had killed.
+mutant: one request per method, longest first, and never more requests than
+the class has targets. Every mutant its tests killed, a targeted test killed
+too; targeting killed 29 more. A first control run named methods again until
+it matched the targeted run's 91 requests; it killed the same 54 mutants, so
+its 64 repeated requests added nothing but cost. Compare mutants killed, not
+tests kept: a kept test adds a new kill only if it kills a mutant no earlier
+kept test in its class had killed.
 
 Each request sends what every request about the class shares (the rules, the
 class, its collaborators, its tests) as the system prompt, so later requests
