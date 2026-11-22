@@ -1,0 +1,1822 @@
+{
+  "repo": "tarballfs",
+  "class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+  "kind": "CONTROL",
+  "setup": {
+    "repo_commit": "9d0d8eb2b3a52801b34531675750076fd46a1b5f",
+    "date": "2026-11-22",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "fbbf194a393f76fb2eabba89ffadc9c0a7b7e53d",
+    "provider": "claude-code",
+    "provider_version": "2.1.329",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.058823529411764705,
+  "score_after": 0.8823529411764706,
+  "mutants_total": 34,
+  "undetected_before": 32,
+  "newly_detected": 28,
+  "candidates": 18,
+  "kept": 17,
+  "acceptance_rate": 0.9444444444444444,
+  "attempts_per_kept_test": 1.1764705882352942,
+  "tokens": {
+    "input_tokens": 40,
+    "cache_creation_input_tokens": 16894,
+    "cache_read_input_tokens": 37392,
+    "output_tokens": 21250,
+    "thinking_tokens": 1879
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannelMutaGate1Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 10 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "position",
+          "method_description": "()J",
+          "line": 79,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test#positionReflectsDelegateAcrossReadsSeeksAndPositionalReads",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;J)I",
+          "line": 56,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            31
+          ],
+          "description": "replaced int return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::read",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "transferTo",
+          "method_description": "(JJLjava/nio/channels/WritableByteChannel;)J",
+          "line": 111,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "indexes": [
+            32
+          ],
+          "description": "Replaced long subtraction with addition",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "transferTo",
+          "method_description": "(JJLjava/nio/channels/WritableByteChannel;)J",
+          "line": 124,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "indexes": [
+            94
+          ],
+          "description": "Replaced long addition with subtraction",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "transferTo",
+          "method_description": "(JJLjava/nio/channels/WritableByteChannel;)J",
+          "line": 125,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "indexes": [
+            101
+          ],
+          "description": "Replaced long addition with subtraction",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "transferTo",
+          "method_description": "(JJLjava/nio/channels/WritableByteChannel;)J",
+          "line": 105,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "transferTo",
+          "method_description": "(JJLjava/nio/channels/WritableByteChannel;)J",
+          "line": 110,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            26
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "transferTo",
+          "method_description": "(JJLjava/nio/channels/WritableByteChannel;)J",
+          "line": 114,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            51
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "transferTo",
+          "method_description": "(JJLjava/nio/channels/WritableByteChannel;)J",
+          "line": 118,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            66
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "transferTo",
+          "method_description": "(JJLjava/nio/channels/WritableByteChannel;)J",
+          "line": 120,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            76
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "transferTo",
+          "method_description": "(JJLjava/nio/channels/WritableByteChannel;)J",
+          "line": 127,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            110
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::transferTo",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertArrayEquals;\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.io.ByteArrayOutputStream;\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.Channels;\nimport java.nio.channels.SeekableByteChannel;\nimport java.nio.channels.WritableByteChannel;\nimport java.util.Arrays;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate1Test {\n\n  private static final class MemoryChannel implements SeekableByteChannel {\n    private final byte[] data;\n    private long pos;\n    private boolean open = true;\n\n    MemoryChannel(byte[] data) {\n      this.data = data;\n    }\n\n    @Override\n    public int read(ByteBuffer dst) {\n      if (pos >= data.length) {\n        return -1;\n      }\n      int n = (int) Math.min(dst.remaining(), data.length - pos);\n      dst.put(data, (int) pos, n);\n      pos += n;\n      return n;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return data.length;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  private static final class StuckTarget implements WritableByteChannel {\n    @Override\n    public int write(ByteBuffer src) {\n      return 0;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return true;\n    }\n\n    @Override\n    public void close() {}\n  }\n\n  @Test\n  void transferToCopiesRangesAcrossChunksWithoutMovingPosition() throws IOException {\n    byte[] data = new byte[20000];\n    for (int i = 0; i < data.length; i++) {\n      data[i] = (byte) ((i * 31) % 251);\n    }\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(new MemoryChannel(data));\n    channel.position(5);\n\n    ByteArrayOutputStream out1 = new ByteArrayOutputStream();\n    long t1 = channel.transferTo(100, 10000, Channels.newChannel(out1));\n    assertEquals(10000, t1);\n    assertArrayEquals(Arrays.copyOfRange(data, 100, 10100), out1.toByteArray());\n    assertEquals(5, channel.position());\n\n    ByteArrayOutputStream out2 = new ByteArrayOutputStream();\n    long t2 = channel.transferTo(19000, 5000, Channels.newChannel(out2));\n    assertEquals(1000, t2);\n    assertArrayEquals(Arrays.copyOfRange(data, 19000, 20000), out2.toByteArray());\n    assertEquals(5, channel.position());\n\n    ByteArrayOutputStream out3 = new ByteArrayOutputStream();\n    assertEquals(0, channel.transferTo(20000, 10, Channels.newChannel(out3)));\n    assertEquals(0, out3.size());\n\n    ByteArrayOutputStream out4 = new ByteArrayOutputStream();\n    assertEquals(0, channel.transferTo(0, 0, Channels.newChannel(out4)));\n    assertEquals(0, out4.size());\n\n    assertThrows(IOException.class, () -> channel.transferTo(0, 10, new StuckTarget()));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannelMutaGate2Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 11 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "position",
+          "method_description": "()J",
+          "line": 79,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test#positionReflectsDelegateAcrossReadsSeeksAndPositionalReads",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "read",
+          "method_description": "([Ljava/nio/ByteBuffer;II)J",
+          "line": 36,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "indexes": [
+            15
+          ],
+          "description": "changed conditional boundary",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "read",
+          "method_description": "([Ljava/nio/ByteBuffer;II)J",
+          "line": 36,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "indexes": [
+            14
+          ],
+          "description": "Replaced integer addition with subtraction",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "read",
+          "method_description": "([Ljava/nio/ByteBuffer;II)J",
+          "line": 45,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "indexes": [
+            66
+          ],
+          "description": "Replaced long addition with subtraction",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "read",
+          "method_description": "([Ljava/nio/ByteBuffer;II)J",
+          "line": 36,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            15
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "read",
+          "method_description": "([Ljava/nio/ByteBuffer;II)J",
+          "line": 37,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            23
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "read",
+          "method_description": "([Ljava/nio/ByteBuffer;II)J",
+          "line": 39,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            36
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "read",
+          "method_description": "([Ljava/nio/ByteBuffer;II)J",
+          "line": 40,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            42
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "read",
+          "method_description": "([Ljava/nio/ByteBuffer;II)J",
+          "line": 42,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            55
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "read",
+          "method_description": "([Ljava/nio/ByteBuffer;II)J",
+          "line": 40,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            50
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::read",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "read",
+          "method_description": "([Ljava/nio/ByteBuffer;II)J",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            80
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::read",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertArrayEquals;\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate2Test {\n\n  private static final class InMemoryChannel implements SeekableByteChannel {\n    private final byte[] data;\n    private int pos;\n    private boolean open = true;\n\n    InMemoryChannel(byte[] data) {\n      this.data = data;\n    }\n\n    @Override\n    public int read(ByteBuffer dst) {\n      if (pos >= data.length) {\n        return -1;\n      }\n      int n = Math.min(dst.remaining(), data.length - pos);\n      dst.put(data, pos, n);\n      pos += n;\n      return n;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      pos = (int) newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return data.length;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() throws IOException {\n      open = false;\n    }\n  }\n\n  @Test\n  void scatterReadHonorsOffsetLengthAndReportsEof() throws IOException {\n    byte[] data = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};\n    ReadOnlySeekableFileChannel channel =\n        new ReadOnlySeekableFileChannel(new InMemoryChannel(data));\n\n    ByteBuffer b0 = ByteBuffer.allocate(3);\n    ByteBuffer b1 = ByteBuffer.allocate(4);\n    ByteBuffer b2 = ByteBuffer.allocate(5);\n    ByteBuffer b3 = ByteBuffer.allocate(2);\n    ByteBuffer[] bufs = {b0, b1, b2, b3};\n\n    long first = channel.read(bufs, 1, 2);\n\n    assertEquals(9, first);\n    assertEquals(0, b0.position());\n    assertEquals(0, b3.position());\n    assertEquals(4, b1.position());\n    assertEquals(5, b2.position());\n    assertArrayEquals(new byte[] {0, 1, 2, 3}, b1.array());\n    assertArrayEquals(new byte[] {4, 5, 6, 7, 8}, b2.array());\n    assertEquals(9, channel.position());\n\n    b1.clear();\n    b2.clear();\n\n    // Only one byte left: partial total is returned rather than -1.\n    long second = channel.read(bufs, 1, 2);\n    assertEquals(1, second);\n    assertEquals(1, b1.position());\n    assertEquals(0, b2.position());\n    assertEquals(9, b1.get(0));\n\n    // Now at EOF with nothing read: -1.\n    b1.clear();\n    b2.clear();\n    assertEquals(-1, channel.read(bufs, 1, 2));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannelMutaGate3Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 1 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "position",
+          "method_description": "()J",
+          "line": 79,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test#positionReflectsDelegateAcrossReadsSeeksAndPositionalReads",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 30,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "replaced int return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::read",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;J)I",
+          "line": 56,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            31
+          ],
+          "description": "replaced int return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::read",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport java.nio.charset.StandardCharsets;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate3Test {\n\n  private static final class MemoryChannel implements SeekableByteChannel {\n    private final byte[] data;\n    private long pos;\n    private boolean open = true;\n\n    MemoryChannel(byte[] data) {\n      this.data = data;\n    }\n\n    @Override\n    public int read(ByteBuffer dst) {\n      if (pos >= data.length) {\n        return -1;\n      }\n      int n = (int) Math.min(dst.remaining(), data.length - pos);\n      dst.put(data, (int) pos, n);\n      pos += n;\n      return n;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return data.length;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() throws IOException {\n      open = false;\n    }\n  }\n\n  @Test\n  void positionalReadReadsAtGivenPositionAndRestoresPosition() throws IOException {\n    byte[] data = \"0123456789\".getBytes(StandardCharsets.US_ASCII);\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(new MemoryChannel(data));\n    channel.position(2);\n\n    ByteBuffer buf = ByteBuffer.allocate(3);\n    int n = channel.read(buf, 5);\n\n    assertEquals(3, n);\n    assertEquals(\"567\", new String(buf.array(), StandardCharsets.US_ASCII));\n    assertEquals(2, channel.position());\n\n    // Reading at/after end returns -1 and still restores position\n    ByteBuffer eof = ByteBuffer.allocate(4);\n    assertEquals(-1, channel.read(eof, 10));\n    assertEquals(2, channel.position());\n\n    // Subsequent sequential read continues from the restored position\n    ByteBuffer next = ByteBuffer.allocate(2);\n    assertEquals(2, channel.read(next));\n    assertEquals(\"23\", new String(next.array(), StandardCharsets.US_ASCII));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannelMutaGate4Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "position",
+          "method_description": "()J",
+          "line": 79,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test#positionReflectsDelegateAcrossReadsSeeksAndPositionalReads",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/FileChannel;",
+          "line": 85,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            11
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test#positionReflectsDelegateAcrossReadsSeeksAndPositionalReads",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 30,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "replaced int return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::read",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.FileChannel;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate4Test {\n\n  private static final class MemoryChannel implements SeekableByteChannel {\n    private final byte[] data;\n    private long pos;\n    private boolean open = true;\n\n    MemoryChannel(byte[] data) {\n      this.data = data;\n    }\n\n    @Override\n    public int read(ByteBuffer dst) {\n      if (pos >= data.length) {\n        return -1;\n      }\n      int n = (int) Math.min(dst.remaining(), data.length - pos);\n      dst.put(data, (int) pos, n);\n      pos += n;\n      return n;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      this.pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return data.length;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  @Test\n  void positionMovesDelegateAndReturnsSameChannel() throws IOException {\n    MemoryChannel delegate = new MemoryChannel(new byte[] {10, 11, 12, 13, 14, 15});\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(delegate);\n\n    FileChannel result = channel.position(3);\n\n    assertSame(channel, result);\n    assertEquals(3L, delegate.position());\n    assertEquals(3L, channel.position());\n\n    ByteBuffer buf = ByteBuffer.allocate(1);\n    assertEquals(1, channel.read(buf));\n    assertEquals(13, buf.get(0));\n    assertEquals(4L, channel.position());\n\n    FileChannel chained = channel.position(1).position(5);\n    assertSame(channel, chained);\n    assertEquals(5L, delegate.position());\n\n    ByteBuffer buf2 = ByteBuffer.allocate(1);\n    assertEquals(1, channel.read(buf2));\n    assertEquals(15, buf2.get(0));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate5Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannelMutaGate5Test.java",
+      "target": null,
+      "attempts": 2,
+      "verdict": "KEPT",
+      "detail": "killed 1 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "implCloseChannel",
+          "method_description": "()V",
+          "line": 25,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "indexes": [
+            5
+          ],
+          "description": "removed call to java/nio/channels/SeekableByteChannel::close",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate5Test#closeClosesDelegateExactlyOnceEvenWhenClosedTwice",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate5Test {\n\n  private static final class CountingChannel implements SeekableByteChannel {\n    int closeCount = 0;\n    boolean open = true;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return 0;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return 0;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() throws IOException {\n      closeCount++;\n      open = false;\n    }\n  }\n\n  @Test\n  void closeClosesDelegateExactlyOnceEvenWhenClosedTwice() throws IOException {\n    CountingChannel delegate = new CountingChannel();\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(delegate);\n\n    assertTrue(channel.isOpen());\n    assertTrue(delegate.isOpen());\n\n    channel.close();\n\n    assertFalse(channel.isOpen());\n    assertFalse(delegate.isOpen());\n    assertEquals(1, delegate.closeCount);\n\n    channel.close();\n\n    assertEquals(1, delegate.closeCount);\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannelMutaGate6Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "implCloseChannel",
+          "method_description": "()V",
+          "line": 25,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "indexes": [
+            5
+          ],
+          "description": "removed call to java/nio/channels/SeekableByteChannel::close",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate5Test#closeClosesDelegateExactlyOnceEvenWhenClosedTwice",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "position",
+          "method_description": "()J",
+          "line": 79,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test#positionReflectsDelegateAcrossReadsSeeksAndPositionalReads",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 30,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "replaced int return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::read",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertArrayEquals;\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport java.nio.channels.ClosedChannelException;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate6Test {\n\n  private static final class ArrayChannel implements SeekableByteChannel {\n    private final byte[] data;\n    private long pos;\n    private boolean open = true;\n    int readCalls;\n\n    ArrayChannel(byte[] data) {\n      this.data = data;\n    }\n\n    @Override\n    public int read(ByteBuffer dst) throws IOException {\n      readCalls++;\n      if (!open) {\n        throw new ClosedChannelException();\n      }\n      if (pos >= data.length) {\n        return -1;\n      }\n      int n = (int) Math.min(dst.remaining(), data.length - pos);\n      dst.put(data, (int) pos, n);\n      pos += n;\n      return n;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return data.length;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  @Test\n  void readDelegatesAndAdvancesPositionUntilEof() throws IOException {\n    byte[] data = {1, 2, 3, 4, 5};\n    ArrayChannel delegate = new ArrayChannel(data);\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(delegate);\n\n    ByteBuffer first = ByteBuffer.allocate(3);\n    assertEquals(3, channel.read(first));\n    assertArrayEquals(new byte[] {1, 2, 3}, first.array());\n    assertEquals(3, channel.position());\n\n    ByteBuffer second = ByteBuffer.allocate(10);\n    assertEquals(2, channel.read(second));\n    assertEquals(2, second.position());\n    assertEquals(5, channel.position());\n    assertEquals(4, second.array()[0]);\n    assertEquals(5, second.array()[1]);\n\n    ByteBuffer third = ByteBuffer.allocate(4);\n    assertEquals(-1, channel.read(third));\n    assertEquals(0, third.position());\n    assertEquals(3, delegate.readCalls);\n\n    channel.close();\n    try {\n      channel.read(ByteBuffer.allocate(1));\n      throw new AssertionError(\"expected exception\");\n    } catch (ClosedChannelException expected) {\n      // expected\n    }\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannelMutaGate7Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "position",
+          "method_description": "()J",
+          "line": 79,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test#positionReflectsDelegateAcrossReadsSeeksAndPositionalReads",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "size",
+          "method_description": "()J",
+          "line": 90,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::size",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.NonWritableChannelException;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate7Test {\n\n  private static final class StubChannel implements SeekableByteChannel {\n    boolean open = true;\n    long pos = 3;\n    int writeCalls = 0;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      writeCalls++;\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return 10;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  @Test\n  void writeThrowsAndLeavesBufferAndDelegateUntouched() throws IOException {\n    StubChannel stub = new StubChannel();\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(stub);\n    ByteBuffer src = ByteBuffer.wrap(new byte[] {1, 2, 3, 4});\n\n    assertThrows(NonWritableChannelException.class, () -> channel.write(src));\n\n    assertEquals(0, src.position());\n    assertEquals(4, src.remaining());\n    assertEquals(0, stub.writeCalls);\n    assertEquals(3, stub.pos);\n    assertEquals(3, channel.position());\n    assertEquals(10, channel.size());\n    assertEquals(true, channel.isOpen());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannelMutaGate8Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "position",
+          "method_description": "()J",
+          "line": 79,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test#positionReflectsDelegateAcrossReadsSeeksAndPositionalReads",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "size",
+          "method_description": "()J",
+          "line": 90,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::size",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.NonWritableChannelException;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate8Test {\n\n  private static final class TrackingChannel implements SeekableByteChannel {\n    private boolean open = true;\n    private long pos = 3;\n    int writeCalls = 0;\n    int readCalls = 0;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      readCalls++;\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      writeCalls++;\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return 10;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  @Test\n  void gatheringWriteThrowsAndLeavesStateUntouched() throws IOException {\n    TrackingChannel delegate = new TrackingChannel();\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(delegate);\n\n    ByteBuffer first = ByteBuffer.wrap(new byte[] {1, 2, 3});\n    ByteBuffer second = ByteBuffer.wrap(new byte[] {4, 5});\n    ByteBuffer[] srcs = {first, second};\n\n    assertThrows(NonWritableChannelException.class, () -> channel.write(srcs, 0, 2));\n    assertThrows(NonWritableChannelException.class, () -> channel.write(srcs, 1, 1));\n    assertThrows(NonWritableChannelException.class, () -> channel.write(new ByteBuffer[0], 0, 0));\n    assertThrows(NonWritableChannelException.class, () -> channel.write(null, 0, 0));\n\n    assertEquals(0, delegate.writeCalls);\n    assertEquals(0, delegate.readCalls);\n    assertEquals(3, first.remaining());\n    assertEquals(2, second.remaining());\n    assertEquals(0, first.position());\n    assertEquals(0, second.position());\n    assertEquals(3, channel.position());\n    assertEquals(10, channel.size());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannelMutaGate9Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "position",
+          "method_description": "()J",
+          "line": 79,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test#positionReflectsDelegateAcrossReadsSeeksAndPositionalReads",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "size",
+          "method_description": "()J",
+          "line": 90,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::size",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.NonWritableChannelException;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate9Test {\n\n  private static final class FakeChannel implements SeekableByteChannel {\n    long pos = 3;\n    boolean open = true;\n    int writeCalls = 0;\n    int readCalls = 0;\n    int positionSets = 0;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      readCalls++;\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      writeCalls++;\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      positionSets++;\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return 100;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() throws IOException {\n      open = false;\n    }\n  }\n\n  @Test\n  void positionalWriteThrowsAndLeavesStateUntouched() throws IOException {\n    FakeChannel fake = new FakeChannel();\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(fake);\n    ByteBuffer src = ByteBuffer.wrap(new byte[] {1, 2, 3, 4});\n\n    assertThrows(NonWritableChannelException.class, () -> channel.write(src, 10L));\n    assertThrows(NonWritableChannelException.class, () -> channel.write(src, 0L));\n    assertThrows(NonWritableChannelException.class, () -> channel.write(src, -1L));\n\n    assertEquals(4, src.remaining());\n    assertEquals(0, src.position());\n    assertEquals(0, fake.writeCalls);\n    assertEquals(0, fake.readCalls);\n    assertEquals(0, fake.positionSets);\n    assertEquals(3, channel.position());\n    assertEquals(100, channel.size());\n    assertEquals(true, channel.isOpen());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannelMutaGate10Test.java",
+      "target": null,
+      "attempts": 2,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "position",
+          "method_description": "()J",
+          "line": 79,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test#positionReflectsDelegateAcrossReadsSeeksAndPositionalReads",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/FileChannel;",
+          "line": 85,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            11
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test#positionReflectsDelegateAcrossReadsSeeksAndPositionalReads",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate10Test {\n\n  private static final class StubChannel implements SeekableByteChannel {\n    private final byte[] data;\n    private long pos;\n    private boolean open = true;\n\n    StubChannel(byte[] data) {\n      this.data = data;\n    }\n\n    @Override\n    public int read(ByteBuffer dst) {\n      if (pos >= data.length) {\n        return -1;\n      }\n      int n = (int) Math.min(dst.remaining(), data.length - pos);\n      dst.put(data, (int) pos, n);\n      pos += n;\n      return n;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return data.length;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  @Test\n  void positionReflectsDelegateAcrossReadsSeeksAndPositionalReads() throws IOException {\n    ReadOnlySeekableFileChannel channel =\n        new ReadOnlySeekableFileChannel(new StubChannel(new byte[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}));\n\n    assertEquals(0L, channel.position());\n\n    channel.read(ByteBuffer.allocate(4));\n    assertEquals(4L, channel.position());\n\n    assertSame(channel, channel.position(7));\n    assertEquals(7L, channel.position());\n\n    // positional read must not disturb the channel position\n    ByteBuffer buf = ByteBuffer.allocate(2);\n    channel.read(buf, 1);\n    assertEquals(7L, channel.position());\n\n    // position beyond the size is passed through\n    channel.position(25);\n    assertEquals(25L, channel.position());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannelMutaGate11Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "position",
+          "method_description": "()J",
+          "line": 79,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test#positionReflectsDelegateAcrossReadsSeeksAndPositionalReads",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "size",
+          "method_description": "()J",
+          "line": 90,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::size",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate11Test {\n\n  private static final class StubChannel implements SeekableByteChannel {\n    long size;\n    long position;\n    int sizeCalls;\n    boolean open = true;\n\n    StubChannel(long size, long position) {\n      this.size = size;\n      this.position = position;\n    }\n\n    @Override\n    public int read(ByteBuffer dst) {\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return position;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      position = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      sizeCalls++;\n      return size;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  @Test\n  void sizeReflectsDelegateSizeLiveWithoutAffectingPosition() throws IOException {\n    StubChannel stub = new StubChannel(123456789012L, 7);\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(stub);\n\n    assertEquals(123456789012L, channel.size());\n    assertEquals(1, stub.sizeCalls);\n    assertEquals(7, channel.position());\n\n    stub.size = 42;\n    assertEquals(42, channel.size());\n    assertEquals(2, stub.sizeCalls);\n\n    stub.size = 0;\n    assertEquals(0, channel.size());\n    assertEquals(7, stub.position);\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannelMutaGate12Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "position",
+          "method_description": "()J",
+          "line": 79,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test#positionReflectsDelegateAcrossReadsSeeksAndPositionalReads",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "size",
+          "method_description": "()J",
+          "line": 90,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::size",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.NonWritableChannelException;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate12Test {\n\n  private static final class StubChannel implements SeekableByteChannel {\n    private boolean open = true;\n    private long position = 5;\n    private final long size = 100;\n    int calls = 0;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      calls++;\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      calls++;\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return position;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      calls++;\n      position = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return size;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      calls++;\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() throws IOException {\n      open = false;\n    }\n  }\n\n  @Test\n  void truncateThrowsAndLeavesDelegateUntouched() throws IOException {\n    StubChannel stub = new StubChannel();\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(stub);\n\n    assertThrows(NonWritableChannelException.class, () -> channel.truncate(0));\n    assertThrows(NonWritableChannelException.class, () -> channel.truncate(50));\n    assertThrows(NonWritableChannelException.class, () -> channel.truncate(1000));\n    assertThrows(NonWritableChannelException.class, () -> channel.truncate(-1));\n\n    assertEquals(0, stub.calls);\n    assertEquals(100, channel.size());\n    assertEquals(5, channel.position());\n    assertTrue(channel.isOpen());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannelMutaGate13Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "position",
+          "method_description": "()J",
+          "line": 79,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test#positionReflectsDelegateAcrossReadsSeeksAndPositionalReads",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 30,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "replaced int return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::read",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "size",
+          "method_description": "()J",
+          "line": 90,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::size",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertArrayEquals;\nimport static org.junit.jupiter.api.Assertions.assertDoesNotThrow;\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate13Test {\n\n  private static final class CountingChannel implements SeekableByteChannel {\n    private final byte[] data;\n    private long pos;\n    private boolean open = true;\n    int interactions;\n\n    CountingChannel(byte[] data) {\n      this.data = data;\n    }\n\n    @Override\n    public int read(ByteBuffer dst) {\n      interactions++;\n      if (pos >= data.length) {\n        return -1;\n      }\n      int n = (int) Math.min(dst.remaining(), data.length - pos);\n      dst.put(data, (int) pos, n);\n      pos += n;\n      return n;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      interactions++;\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public long position() {\n      interactions++;\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      interactions++;\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      interactions++;\n      return data.length;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      interactions++;\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  @Test\n  void forceIsNoOpForBothArgumentsAndLeavesChannelUntouched() throws IOException {\n    byte[] bytes = {1, 2, 3, 4, 5, 6};\n    CountingChannel backing = new CountingChannel(bytes);\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(backing);\n\n    ByteBuffer first = ByteBuffer.allocate(2);\n    channel.read(first);\n    assertEquals(2, channel.position());\n    int interactionsBefore = backing.interactions;\n\n    assertDoesNotThrow(() -> channel.force(true));\n    assertDoesNotThrow(() -> channel.force(false));\n\n    assertEquals(interactionsBefore, backing.interactions);\n    assertTrue(channel.isOpen());\n    assertTrue(backing.isOpen());\n    assertEquals(2, channel.position());\n    assertEquals(bytes.length, channel.size());\n\n    ByteBuffer rest = ByteBuffer.allocate(4);\n    assertEquals(4, channel.read(rest));\n    assertArrayEquals(new byte[] {3, 4, 5, 6}, rest.array());\n\n    channel.close();\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate14Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannelMutaGate14Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.NonWritableChannelException;\nimport java.nio.channels.ReadableByteChannel;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate14Test {\n\n  private static final class FakeChannel implements SeekableByteChannel {\n    private long position = 0;\n    private boolean open = true;\n    private int reads = 0;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      reads++;\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return position;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      position = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return 10;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() throws IOException {\n      open = false;\n    }\n  }\n\n  @Test\n  void transferFromThrowsNonWritableAndDoesNotTouchSourceOrDelegate() throws IOException {\n    FakeChannel fake = new FakeChannel();\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(fake);\n    final int[] srcReads = {0};\n    ReadableByteChannel src =\n        new ReadableByteChannel() {\n          @Override\n          public int read(ByteBuffer dst) {\n            srcReads[0]++;\n            return -1;\n          }\n\n          @Override\n          public boolean isOpen() {\n            return true;\n          }\n\n          @Override\n          public void close() {}\n        };\n\n    assertThrows(NonWritableChannelException.class, () -> channel.transferFrom(src, 0, 5));\n    assertThrows(NonWritableChannelException.class, () -> channel.transferFrom(src, 3, 0));\n    assertThrows(NonWritableChannelException.class, () -> channel.transferFrom(null, 0, 1));\n\n    assertEquals(0, srcReads[0]);\n    assertEquals(0, fake.reads);\n    assertEquals(0, fake.position);\n    assertEquals(true, channel.isOpen());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannelMutaGate15Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 3 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "implCloseChannel",
+          "method_description": "()V",
+          "line": 25,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "indexes": [
+            5
+          ],
+          "description": "removed call to java/nio/channels/SeekableByteChannel::close",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate5Test#closeClosesDelegateExactlyOnceEvenWhenClosedTwice",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "position",
+          "method_description": "()J",
+          "line": 79,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test#positionReflectsDelegateAcrossReadsSeeksAndPositionalReads",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "size",
+          "method_description": "()J",
+          "line": 90,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::size",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.FileChannel;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\npublic class ReadOnlySeekableFileChannelMutaGate15Test {\n\n  private static final class StubChannel implements SeekableByteChannel {\n    private boolean open = true;\n    private long pos = 0;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return 100;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() throws IOException {\n      open = false;\n    }\n  }\n\n  @Test\n  void mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable() throws IOException {\n    StubChannel stub = new StubChannel();\n    try (ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(stub)) {\n      stub.position(7);\n\n      UnsupportedOperationException ex1 =\n          assertThrows(\n              UnsupportedOperationException.class,\n              () -> channel.map(FileChannel.MapMode.READ_ONLY, 0, 10));\n      assertEquals(\"Memory mapping is not supported for in-memory archive channels\", ex1.getMessage());\n\n      UnsupportedOperationException ex2 =\n          assertThrows(\n              UnsupportedOperationException.class,\n              () -> channel.map(FileChannel.MapMode.READ_WRITE, 0, 10));\n      assertEquals(\"Memory mapping is not supported for in-memory archive channels\", ex2.getMessage());\n\n      assertThrows(\n          UnsupportedOperationException.class,\n          () -> channel.map(FileChannel.MapMode.PRIVATE, 5, 0));\n\n      // Channel state is unaffected by failed map calls.\n      assertTrue(channel.isOpen());\n      assertEquals(7, channel.position());\n      assertEquals(100, channel.size());\n    }\n    assertTrue(!stub.isOpen());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate16Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannelMutaGate16Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 4 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "lock",
+          "method_description": "(JJZ)Ljava/nio/channels/FileLock;",
+          "line": 142,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            10
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::lock",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate16Test#lockReturnsValidLockReflectingArgumentsAndInvalidatedOnReleaseOrClose"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel$VirtualFileLock",
+          "mutated_method": "isValid",
+          "method_description": "()Z",
+          "line": 159,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate16Test#lockReturnsValidLockReflectingArgumentsAndInvalidatedOnReleaseOrClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate17Test#tryLockReturnsVirtualLockWithGivenParametersAndTracksValidity"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel$VirtualFileLock",
+          "mutated_method": "isValid",
+          "method_description": "()Z",
+          "line": 159,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            9
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate16Test#lockReturnsValidLockReflectingArgumentsAndInvalidatedOnReleaseOrClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate17Test#tryLockReturnsVirtualLockWithGivenParametersAndTracksValidity"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel$VirtualFileLock",
+          "mutated_method": "isValid",
+          "method_description": "()Z",
+          "line": 159,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            17
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel$VirtualFileLock::isValid",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate16Test#lockReturnsValidLockReflectingArgumentsAndInvalidatedOnReleaseOrClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate17Test#tryLockReturnsVirtualLockWithGivenParametersAndTracksValidity"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.FileLock;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate16Test {\n\n  private static final class StubChannel implements SeekableByteChannel {\n    private boolean open = true;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return 0;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return 0;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  @Test\n  void lockReturnsValidLockReflectingArgumentsAndInvalidatedOnReleaseOrClose() throws IOException {\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(new StubChannel());\n\n    FileLock lock = channel.lock(5L, 77L, true);\n    assertSame(channel, lock.channel());\n    assertSame(channel, lock.acquiredBy());\n    assertEquals(5L, lock.position());\n    assertEquals(77L, lock.size());\n    assertTrue(lock.isShared());\n    assertTrue(lock.isValid());\n\n    lock.release();\n    assertFalse(lock.isValid());\n\n    FileLock exclusive = channel.lock(0L, 10L, false);\n    assertFalse(exclusive.isShared());\n    assertEquals(0L, exclusive.position());\n    assertEquals(10L, exclusive.size());\n    assertTrue(exclusive.isValid());\n\n    channel.close();\n    assertFalse(exclusive.isValid());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate17Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannelMutaGate17Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 4 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "tryLock",
+          "method_description": "(JJZ)Ljava/nio/channels/FileLock;",
+          "line": 147,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            10
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::tryLock",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate17Test#tryLockReturnsVirtualLockWithGivenParametersAndTracksValidity"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel$VirtualFileLock",
+          "mutated_method": "isValid",
+          "method_description": "()Z",
+          "line": 159,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate16Test#lockReturnsValidLockReflectingArgumentsAndInvalidatedOnReleaseOrClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate17Test#tryLockReturnsVirtualLockWithGivenParametersAndTracksValidity"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel$VirtualFileLock",
+          "mutated_method": "isValid",
+          "method_description": "()Z",
+          "line": 159,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            9
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate16Test#lockReturnsValidLockReflectingArgumentsAndInvalidatedOnReleaseOrClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate17Test#tryLockReturnsVirtualLockWithGivenParametersAndTracksValidity"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel$VirtualFileLock",
+          "mutated_method": "isValid",
+          "method_description": "()Z",
+          "line": 159,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            17
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel$VirtualFileLock::isValid",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate16Test#lockReturnsValidLockReflectingArgumentsAndInvalidatedOnReleaseOrClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate17Test#tryLockReturnsVirtualLockWithGivenParametersAndTracksValidity"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertNotSame;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.FileLock;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate17Test {\n\n  private static final class StubChannel implements SeekableByteChannel {\n    private boolean open = true;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return 0;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return 0;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  @Test\n  void tryLockReturnsVirtualLockWithGivenParametersAndTracksValidity() throws IOException {\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(new StubChannel());\n\n    FileLock shared = channel.tryLock(5L, 100L, true);\n    assertNotNull(shared);\n    assertSame(channel, shared.channel());\n    assertSame(channel, shared.acquiredBy());\n    assertEquals(5L, shared.position());\n    assertEquals(100L, shared.size());\n    assertTrue(shared.isShared());\n    assertTrue(shared.isValid());\n\n    FileLock exclusive = channel.tryLock(0L, 10L, false);\n    assertNotNull(exclusive);\n    assertNotSame(shared, exclusive);\n    assertFalse(exclusive.isShared());\n    assertEquals(0L, exclusive.position());\n    assertEquals(10L, exclusive.size());\n    assertTrue(exclusive.isValid());\n\n    exclusive.release();\n    assertFalse(exclusive.isValid());\n    assertTrue(shared.isValid());\n\n    channel.close();\n    assertFalse(shared.isValid());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannelMutaGate18Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 4 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "implCloseChannel",
+          "method_description": "()V",
+          "line": 25,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "indexes": [
+            5
+          ],
+          "description": "removed call to java/nio/channels/SeekableByteChannel::close",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate5Test#closeClosesDelegateExactlyOnceEvenWhenClosedTwice",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "position",
+          "method_description": "()J",
+          "line": 79,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test#positionReflectsDelegateAcrossReadsSeeksAndPositionalReads",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test#transferToCopiesRangesAcrossChunksWithoutMovingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test#scatterReadHonorsOffsetLengthAndReportsEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test#positionalReadReadsAtGivenPositionAndRestoresPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test#readDelegatesAndAdvancesPositionUntilEof",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/FileChannel;",
+          "line": 85,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            11
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test#positionReflectsDelegateAcrossReadsSeeksAndPositionalReads",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test#positionMovesDelegateAndReturnsSameChannel"
+          ]
+        },
+        {
+          "source_file": "ReadOnlySeekableFileChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+          "mutated_method": "size",
+          "method_description": "()J",
+          "line": 90,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlySeekableFileChannel::size",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test#sizeReflectsDelegateSizeLiveWithoutAffectingPosition",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test#truncateThrowsAndLeavesDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test#forceIsNoOpForBothArgumentsAndLeavesChannelUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test#mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test#constructorStoresDelegateUsedForPositionSizeAndClose",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test#writeThrowsAndLeavesBufferAndDelegateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test#gatheringWriteThrowsAndLeavesStateUntouched",
+            "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test#positionalWriteThrowsAndLeavesStateUntouched"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate18Test {\n\n  private static final class StubChannel implements SeekableByteChannel {\n    long pos = 7;\n    long sizeValue = 42;\n    boolean open = true;\n    boolean closed = false;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return sizeValue;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() throws IOException {\n      open = false;\n      closed = true;\n    }\n  }\n\n  @Test\n  void constructorStoresDelegateUsedForPositionSizeAndClose() throws IOException {\n    StubChannel stub = new StubChannel();\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(stub);\n\n    assertEquals(7L, channel.position());\n    assertEquals(42L, channel.size());\n    assertSame(channel, channel.position(13L));\n    assertEquals(13L, stub.pos);\n    assertTrue(channel.isOpen());\n\n    channel.close();\n    assertTrue(stub.closed);\n    assertEquals(false, channel.isOpen());\n  }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertArrayEquals;\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.io.ByteArrayOutputStream;\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.Channels;\nimport java.nio.channels.SeekableByteChannel;\nimport java.nio.channels.WritableByteChannel;\nimport java.util.Arrays;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate1Test {\n\n  private static final class MemoryChannel implements SeekableByteChannel {\n    private final byte[] data;\n    private long pos;\n    private boolean open = true;\n\n    MemoryChannel(byte[] data) {\n      this.data = data;\n    }\n\n    @Override\n    public int read(ByteBuffer dst) {\n      if (pos >= data.length) {\n        return -1;\n      }\n      int n = (int) Math.min(dst.remaining(), data.length - pos);\n      dst.put(data, (int) pos, n);\n      pos += n;\n      return n;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return data.length;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  private static final class StuckTarget implements WritableByteChannel {\n    @Override\n    public int write(ByteBuffer src) {\n      return 0;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return true;\n    }\n\n    @Override\n    public void close() {}\n  }\n\n  @Test\n  void transferToCopiesRangesAcrossChunksWithoutMovingPosition() throws IOException {\n    byte[] data = new byte[20000];\n    for (int i = 0; i < data.length; i++) {\n      data[i] = (byte) ((i * 31) % 251);\n    }\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(new MemoryChannel(data));\n    channel.position(5);\n\n    ByteArrayOutputStream out1 = new ByteArrayOutputStream();\n    long t1 = channel.transferTo(100, 10000, Channels.newChannel(out1));\n    assertEquals(10000, t1);\n    assertArrayEquals(Arrays.copyOfRange(data, 100, 10100), out1.toByteArray());\n    assertEquals(5, channel.position());\n\n    ByteArrayOutputStream out2 = new ByteArrayOutputStream();\n    long t2 = channel.transferTo(19000, 5000, Channels.newChannel(out2));\n    assertEquals(1000, t2);\n    assertArrayEquals(Arrays.copyOfRange(data, 19000, 20000), out2.toByteArray());\n    assertEquals(5, channel.position());\n\n    ByteArrayOutputStream out3 = new ByteArrayOutputStream();\n    assertEquals(0, channel.transferTo(20000, 10, Channels.newChannel(out3)));\n    assertEquals(0, out3.size());\n\n    ByteArrayOutputStream out4 = new ByteArrayOutputStream();\n    assertEquals(0, channel.transferTo(0, 0, Channels.newChannel(out4)));\n    assertEquals(0, out4.size());\n\n    assertThrows(IOException.class, () -> channel.transferTo(0, 10, new StuckTarget()));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 2907,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 1841,
+        "thinking_tokens": 454
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertArrayEquals;\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate2Test {\n\n  private static final class InMemoryChannel implements SeekableByteChannel {\n    private final byte[] data;\n    private int pos;\n    private boolean open = true;\n\n    InMemoryChannel(byte[] data) {\n      this.data = data;\n    }\n\n    @Override\n    public int read(ByteBuffer dst) {\n      if (pos >= data.length) {\n        return -1;\n      }\n      int n = Math.min(dst.remaining(), data.length - pos);\n      dst.put(data, pos, n);\n      pos += n;\n      return n;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      pos = (int) newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return data.length;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() throws IOException {\n      open = false;\n    }\n  }\n\n  @Test\n  void scatterReadHonorsOffsetLengthAndReportsEof() throws IOException {\n    byte[] data = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};\n    ReadOnlySeekableFileChannel channel =\n        new ReadOnlySeekableFileChannel(new InMemoryChannel(data));\n\n    ByteBuffer b0 = ByteBuffer.allocate(3);\n    ByteBuffer b1 = ByteBuffer.allocate(4);\n    ByteBuffer b2 = ByteBuffer.allocate(5);\n    ByteBuffer b3 = ByteBuffer.allocate(2);\n    ByteBuffer[] bufs = {b0, b1, b2, b3};\n\n    long first = channel.read(bufs, 1, 2);\n\n    assertEquals(9, first);\n    assertEquals(0, b0.position());\n    assertEquals(0, b3.position());\n    assertEquals(4, b1.position());\n    assertEquals(5, b2.position());\n    assertArrayEquals(new byte[] {0, 1, 2, 3}, b1.array());\n    assertArrayEquals(new byte[] {4, 5, 6, 7, 8}, b2.array());\n    assertEquals(9, channel.position());\n\n    b1.clear();\n    b2.clear();\n\n    // Only one byte left: partial total is returned rather than -1.\n    long second = channel.read(bufs, 1, 2);\n    assertEquals(1, second);\n    assertEquals(1, b1.position());\n    assertEquals(0, b2.position());\n    assertEquals(9, b1.get(0));\n\n    // Now at EOF with nothing read: -1.\n    b1.clear();\n    b2.clear();\n    assertEquals(-1, channel.read(bufs, 1, 2));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 843,
+        "cache_read_input_tokens": 1968,
+        "output_tokens": 1759,
+        "thinking_tokens": 561
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate3Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport java.nio.charset.StandardCharsets;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate3Test {\n\n  private static final class MemoryChannel implements SeekableByteChannel {\n    private final byte[] data;\n    private long pos;\n    private boolean open = true;\n\n    MemoryChannel(byte[] data) {\n      this.data = data;\n    }\n\n    @Override\n    public int read(ByteBuffer dst) {\n      if (pos >= data.length) {\n        return -1;\n      }\n      int n = (int) Math.min(dst.remaining(), data.length - pos);\n      dst.put(data, (int) pos, n);\n      pos += n;\n      return n;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return data.length;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() throws IOException {\n      open = false;\n    }\n  }\n\n  @Test\n  void positionalReadReadsAtGivenPositionAndRestoresPosition() throws IOException {\n    byte[] data = \"0123456789\".getBytes(StandardCharsets.US_ASCII);\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(new MemoryChannel(data));\n    channel.position(2);\n\n    ByteBuffer buf = ByteBuffer.allocate(3);\n    int n = channel.read(buf, 5);\n\n    assertEquals(3, n);\n    assertEquals(\"567\", new String(buf.array(), StandardCharsets.US_ASCII));\n    assertEquals(2, channel.position());\n\n    // Reading at/after end returns -1 and still restores position\n    ByteBuffer eof = ByteBuffer.allocate(4);\n    assertEquals(-1, channel.read(eof, 10));\n    assertEquals(2, channel.position());\n\n    // Subsequent sequential read continues from the restored position\n    ByteBuffer next = ByteBuffer.allocate(2);\n    assertEquals(2, channel.read(next));\n    assertEquals(\"23\", new String(next.array(), StandardCharsets.US_ASCII));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 760,
+        "cache_read_input_tokens": 1968,
+        "output_tokens": 981,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate4Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.FileChannel;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate4Test {\n\n  private static final class MemoryChannel implements SeekableByteChannel {\n    private final byte[] data;\n    private long pos;\n    private boolean open = true;\n\n    MemoryChannel(byte[] data) {\n      this.data = data;\n    }\n\n    @Override\n    public int read(ByteBuffer dst) {\n      if (pos >= data.length) {\n        return -1;\n      }\n      int n = (int) Math.min(dst.remaining(), data.length - pos);\n      dst.put(data, (int) pos, n);\n      pos += n;\n      return n;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      this.pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return data.length;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  @Test\n  void positionMovesDelegateAndReturnsSameChannel() throws IOException {\n    MemoryChannel delegate = new MemoryChannel(new byte[] {10, 11, 12, 13, 14, 15});\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(delegate);\n\n    FileChannel result = channel.position(3);\n\n    assertSame(channel, result);\n    assertEquals(3L, delegate.position());\n    assertEquals(3L, channel.position());\n\n    ByteBuffer buf = ByteBuffer.allocate(1);\n    assertEquals(1, channel.read(buf));\n    assertEquals(13, buf.get(0));\n    assertEquals(4L, channel.position());\n\n    FileChannel chained = channel.position(1).position(5);\n    assertSame(channel, chained);\n    assertEquals(5L, delegate.position());\n\n    ByteBuffer buf2 = ByteBuffer.allocate(1);\n    assertEquals(1, channel.read(buf2));\n    assertEquals(15, buf2.get(0));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 719,
+        "cache_read_input_tokens": 1968,
+        "output_tokens": 1193,
+        "thinking_tokens": 228
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate5Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.ClosedChannelException;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate5Test {\n\n  private static final class TrackingChannel implements SeekableByteChannel {\n    int closeCalls = 0;\n    boolean open = true;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return 0;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return 0;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() throws IOException {\n      closeCalls++;\n      open = false;\n    }\n  }\n\n  @Test\n  void closeClosesDelegateExactlyOnceAndChannelBecomesClosed() throws IOException {\n    TrackingChannel delegate = new TrackingChannel();\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(delegate);\n\n    assertTrue(channel.isOpen());\n    assertEquals(0, delegate.closeCalls);\n\n    channel.close();\n\n    assertEquals(1, delegate.closeCalls);\n    assertFalse(delegate.isOpen());\n    assertFalse(channel.isOpen());\n\n    // Closing again is a no-op and must not close the delegate a second time.\n    channel.close();\n    assertEquals(1, delegate.closeCalls);\n\n    assertThrows(ClosedChannelException.class, () -> channel.read(ByteBuffer.allocate(1)));\n  }\n}\n```\n\nWait \u2014 the last assertion is wrong: `read(ByteBuffer)` delegates directly and does not check for closed state in this class, so it would return -1 rather than throw. Corrected file:\n\n```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate5Test {\n\n  private static final class TrackingChannel implements SeekableByteChannel {\n    int closeCalls = 0;\n    boolean open = true;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return 0;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return 0;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() throws IOException {\n      closeCalls++;\n      open = false;\n    }\n  }\n\n  @Test\n  void closeClosesDelegateExactlyOnceAndChannelBecomesClosed() throws IOException {\n    TrackingChannel delegate = new TrackingChannel();\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(delegate);\n\n    assertTrue(channel.isOpen());\n    assertEquals(0, delegate.closeCalls);\n\n    channel.close();\n\n    assertEquals(1, delegate.closeCalls);\n    assertFalse(delegate.isOpen());\n    assertFalse(channel.isOpen());\n\n    // Closing again is a no-op and must not close the delegate a second time.\n    channel.close();\n    assertEquals(1, delegate.closeCalls);\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 706,
+        "cache_read_input_tokens": 1968,
+        "output_tokens": 1603,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": "NO_USABLE_TEST",
+      "detail": "the reply held no usable test"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate5Test",
+      "attempt": 2,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate5Test {\n\n  private static final class CountingChannel implements SeekableByteChannel {\n    int closeCount = 0;\n    boolean open = true;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return 0;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return 0;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() throws IOException {\n      closeCount++;\n      open = false;\n    }\n  }\n\n  @Test\n  void closeClosesDelegateExactlyOnceEvenWhenClosedTwice() throws IOException {\n    CountingChannel delegate = new CountingChannel();\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(delegate);\n\n    assertTrue(channel.isOpen());\n    assertTrue(delegate.isOpen());\n\n    channel.close();\n\n    assertFalse(channel.isOpen());\n    assertFalse(delegate.isOpen());\n    assertEquals(1, delegate.closeCount);\n\n    channel.close();\n\n    assertEquals(1, delegate.closeCount);\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 819,
+        "cache_read_input_tokens": 1968,
+        "output_tokens": 693,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate6Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertArrayEquals;\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport java.nio.channels.ClosedChannelException;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate6Test {\n\n  private static final class ArrayChannel implements SeekableByteChannel {\n    private final byte[] data;\n    private long pos;\n    private boolean open = true;\n    int readCalls;\n\n    ArrayChannel(byte[] data) {\n      this.data = data;\n    }\n\n    @Override\n    public int read(ByteBuffer dst) throws IOException {\n      readCalls++;\n      if (!open) {\n        throw new ClosedChannelException();\n      }\n      if (pos >= data.length) {\n        return -1;\n      }\n      int n = (int) Math.min(dst.remaining(), data.length - pos);\n      dst.put(data, (int) pos, n);\n      pos += n;\n      return n;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return data.length;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  @Test\n  void readDelegatesAndAdvancesPositionUntilEof() throws IOException {\n    byte[] data = {1, 2, 3, 4, 5};\n    ArrayChannel delegate = new ArrayChannel(data);\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(delegate);\n\n    ByteBuffer first = ByteBuffer.allocate(3);\n    assertEquals(3, channel.read(first));\n    assertArrayEquals(new byte[] {1, 2, 3}, first.array());\n    assertEquals(3, channel.position());\n\n    ByteBuffer second = ByteBuffer.allocate(10);\n    assertEquals(2, channel.read(second));\n    assertEquals(2, second.position());\n    assertEquals(5, channel.position());\n    assertEquals(4, second.array()[0]);\n    assertEquals(5, second.array()[1]);\n\n    ByteBuffer third = ByteBuffer.allocate(4);\n    assertEquals(-1, channel.read(third));\n    assertEquals(0, third.position());\n    assertEquals(3, delegate.readCalls);\n\n    channel.close();\n    try {\n      channel.read(ByteBuffer.allocate(1));\n      throw new AssertionError(\"expected exception\");\n    } catch (ClosedChannelException expected) {\n      // expected\n    }\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 715,
+        "cache_read_input_tokens": 1968,
+        "output_tokens": 1109,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate7Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.NonWritableChannelException;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate7Test {\n\n  private static final class StubChannel implements SeekableByteChannel {\n    boolean open = true;\n    long pos = 3;\n    int writeCalls = 0;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      writeCalls++;\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return 10;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  @Test\n  void writeThrowsAndLeavesBufferAndDelegateUntouched() throws IOException {\n    StubChannel stub = new StubChannel();\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(stub);\n    ByteBuffer src = ByteBuffer.wrap(new byte[] {1, 2, 3, 4});\n\n    assertThrows(NonWritableChannelException.class, () -> channel.write(src));\n\n    assertEquals(0, src.position());\n    assertEquals(4, src.remaining());\n    assertEquals(0, stub.writeCalls);\n    assertEquals(3, stub.pos);\n    assertEquals(3, channel.position());\n    assertEquals(10, channel.size());\n    assertEquals(true, channel.isOpen());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 711,
+        "cache_read_input_tokens": 1968,
+        "output_tokens": 760,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate8Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.NonWritableChannelException;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate8Test {\n\n  private static final class TrackingChannel implements SeekableByteChannel {\n    private boolean open = true;\n    private long pos = 3;\n    int writeCalls = 0;\n    int readCalls = 0;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      readCalls++;\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      writeCalls++;\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return 10;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  @Test\n  void gatheringWriteThrowsAndLeavesStateUntouched() throws IOException {\n    TrackingChannel delegate = new TrackingChannel();\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(delegate);\n\n    ByteBuffer first = ByteBuffer.wrap(new byte[] {1, 2, 3});\n    ByteBuffer second = ByteBuffer.wrap(new byte[] {4, 5});\n    ByteBuffer[] srcs = {first, second};\n\n    assertThrows(NonWritableChannelException.class, () -> channel.write(srcs, 0, 2));\n    assertThrows(NonWritableChannelException.class, () -> channel.write(srcs, 1, 1));\n    assertThrows(NonWritableChannelException.class, () -> channel.write(new ByteBuffer[0], 0, 0));\n    assertThrows(NonWritableChannelException.class, () -> channel.write(null, 0, 0));\n\n    assertEquals(0, delegate.writeCalls);\n    assertEquals(0, delegate.readCalls);\n    assertEquals(3, first.remaining());\n    assertEquals(2, second.remaining());\n    assertEquals(0, first.position());\n    assertEquals(0, second.position());\n    assertEquals(3, channel.position());\n    assertEquals(10, channel.size());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 723,
+        "cache_read_input_tokens": 1968,
+        "output_tokens": 981,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate9Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.NonWritableChannelException;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate9Test {\n\n  private static final class FakeChannel implements SeekableByteChannel {\n    long pos = 3;\n    boolean open = true;\n    int writeCalls = 0;\n    int readCalls = 0;\n    int positionSets = 0;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      readCalls++;\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      writeCalls++;\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      positionSets++;\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return 100;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() throws IOException {\n      open = false;\n    }\n  }\n\n  @Test\n  void positionalWriteThrowsAndLeavesStateUntouched() throws IOException {\n    FakeChannel fake = new FakeChannel();\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(fake);\n    ByteBuffer src = ByteBuffer.wrap(new byte[] {1, 2, 3, 4});\n\n    assertThrows(NonWritableChannelException.class, () -> channel.write(src, 10L));\n    assertThrows(NonWritableChannelException.class, () -> channel.write(src, 0L));\n    assertThrows(NonWritableChannelException.class, () -> channel.write(src, -1L));\n\n    assertEquals(4, src.remaining());\n    assertEquals(0, src.position());\n    assertEquals(0, fake.writeCalls);\n    assertEquals(0, fake.readCalls);\n    assertEquals(0, fake.positionSets);\n    assertEquals(3, channel.position());\n    assertEquals(100, channel.size());\n    assertEquals(true, channel.isOpen());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 713,
+        "cache_read_input_tokens": 1968,
+        "output_tokens": 895,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test",
+      "attempt": 1,
+      "reply": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate10Test {\n\n  private static final class FakeChannel implements SeekableByteChannel {\n    private final byte[] data;\n    private long pos;\n    private boolean open = true;\n\n    FakeChannel(byte[] data) {\n      this.data = data;\n    }\n\n    @Override\n    public int read(ByteBuffer dst) {\n      if (pos >= data.length) {\n        return -1;\n      }\n      int n = (int) Math.min(dst.remaining(), data.length - pos);\n      dst.put(data, (int) pos, n);\n      pos += n;\n      return n;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return data.length;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  @Test\n  void positionTracksReadsSeeksAndPositionalReads() throws IOException {\n    ReadOnlySeekableFileChannel channel =\n        new ReadOnlySeekableFileChannel(new FakeChannel(new byte[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}));\n\n    assertEquals(0L, channel.position());\n\n    channel.read(ByteBuffer.allocate(3));\n    assertEquals(3L, channel.position());\n\n    assertSame(channel, channel.position(7));\n    assertEquals(7L, channel.position());\n\n    // positional read must not disturb the reported position\n    channel.read(ByteBuffer.allocate(2), 1);\n    assertEquals(7L, channel.position());\n\n    channel.read(ByteBuffer.allocate(10));\n    assertEquals(10L, channel.position());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 701,
+        "cache_read_input_tokens": 1968,
+        "output_tokens": 865,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": "NO_USABLE_TEST",
+      "detail": "the reply held no usable test"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate10Test",
+      "attempt": 2,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate10Test {\n\n  private static final class StubChannel implements SeekableByteChannel {\n    private final byte[] data;\n    private long pos;\n    private boolean open = true;\n\n    StubChannel(byte[] data) {\n      this.data = data;\n    }\n\n    @Override\n    public int read(ByteBuffer dst) {\n      if (pos >= data.length) {\n        return -1;\n      }\n      int n = (int) Math.min(dst.remaining(), data.length - pos);\n      dst.put(data, (int) pos, n);\n      pos += n;\n      return n;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return data.length;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  @Test\n  void positionReflectsDelegateAcrossReadsSeeksAndPositionalReads() throws IOException {\n    ReadOnlySeekableFileChannel channel =\n        new ReadOnlySeekableFileChannel(new StubChannel(new byte[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}));\n\n    assertEquals(0L, channel.position());\n\n    channel.read(ByteBuffer.allocate(4));\n    assertEquals(4L, channel.position());\n\n    assertSame(channel, channel.position(7));\n    assertEquals(7L, channel.position());\n\n    // positional read must not disturb the channel position\n    ByteBuffer buf = ByteBuffer.allocate(2);\n    channel.read(buf, 1);\n    assertEquals(7L, channel.position());\n\n    // position beyond the size is passed through\n    channel.position(25);\n    assertEquals(25L, channel.position());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 814,
+        "cache_read_input_tokens": 1968,
+        "output_tokens": 888,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate11Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate11Test {\n\n  private static final class StubChannel implements SeekableByteChannel {\n    long size;\n    long position;\n    int sizeCalls;\n    boolean open = true;\n\n    StubChannel(long size, long position) {\n      this.size = size;\n      this.position = position;\n    }\n\n    @Override\n    public int read(ByteBuffer dst) {\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return position;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      position = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      sizeCalls++;\n      return size;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  @Test\n  void sizeReflectsDelegateSizeLiveWithoutAffectingPosition() throws IOException {\n    StubChannel stub = new StubChannel(123456789012L, 7);\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(stub);\n\n    assertEquals(123456789012L, channel.size());\n    assertEquals(1, stub.sizeCalls);\n    assertEquals(7, channel.position());\n\n    stub.size = 42;\n    assertEquals(42, channel.size());\n    assertEquals(2, stub.sizeCalls);\n\n    stub.size = 0;\n    assertEquals(0, channel.size());\n    assertEquals(7, stub.position);\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 699,
+        "cache_read_input_tokens": 1968,
+        "output_tokens": 884,
+        "thinking_tokens": 171
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate12Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.NonWritableChannelException;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate12Test {\n\n  private static final class StubChannel implements SeekableByteChannel {\n    private boolean open = true;\n    private long position = 5;\n    private final long size = 100;\n    int calls = 0;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      calls++;\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      calls++;\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return position;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      calls++;\n      position = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return size;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      calls++;\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() throws IOException {\n      open = false;\n    }\n  }\n\n  @Test\n  void truncateThrowsAndLeavesDelegateUntouched() throws IOException {\n    StubChannel stub = new StubChannel();\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(stub);\n\n    assertThrows(NonWritableChannelException.class, () -> channel.truncate(0));\n    assertThrows(NonWritableChannelException.class, () -> channel.truncate(50));\n    assertThrows(NonWritableChannelException.class, () -> channel.truncate(1000));\n    assertThrows(NonWritableChannelException.class, () -> channel.truncate(-1));\n\n    assertEquals(0, stub.calls);\n    assertEquals(100, channel.size());\n    assertEquals(5, channel.position());\n    assertTrue(channel.isOpen());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 710,
+        "cache_read_input_tokens": 1968,
+        "output_tokens": 816,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate13Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertArrayEquals;\nimport static org.junit.jupiter.api.Assertions.assertDoesNotThrow;\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate13Test {\n\n  private static final class CountingChannel implements SeekableByteChannel {\n    private final byte[] data;\n    private long pos;\n    private boolean open = true;\n    int interactions;\n\n    CountingChannel(byte[] data) {\n      this.data = data;\n    }\n\n    @Override\n    public int read(ByteBuffer dst) {\n      interactions++;\n      if (pos >= data.length) {\n        return -1;\n      }\n      int n = (int) Math.min(dst.remaining(), data.length - pos);\n      dst.put(data, (int) pos, n);\n      pos += n;\n      return n;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      interactions++;\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public long position() {\n      interactions++;\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      interactions++;\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      interactions++;\n      return data.length;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      interactions++;\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  @Test\n  void forceIsNoOpForBothArgumentsAndLeavesChannelUntouched() throws IOException {\n    byte[] bytes = {1, 2, 3, 4, 5, 6};\n    CountingChannel backing = new CountingChannel(bytes);\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(backing);\n\n    ByteBuffer first = ByteBuffer.allocate(2);\n    channel.read(first);\n    assertEquals(2, channel.position());\n    int interactionsBefore = backing.interactions;\n\n    assertDoesNotThrow(() -> channel.force(true));\n    assertDoesNotThrow(() -> channel.force(false));\n\n    assertEquals(interactionsBefore, backing.interactions);\n    assertTrue(channel.isOpen());\n    assertTrue(backing.isOpen());\n    assertEquals(2, channel.position());\n    assertEquals(bytes.length, channel.size());\n\n    ByteBuffer rest = ByteBuffer.allocate(4);\n    assertEquals(4, channel.read(rest));\n    assertArrayEquals(new byte[] {3, 4, 5, 6}, rest.array());\n\n    channel.close();\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 712,
+        "cache_read_input_tokens": 1968,
+        "output_tokens": 1325,
+        "thinking_tokens": 223
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate14Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.NonWritableChannelException;\nimport java.nio.channels.ReadableByteChannel;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate14Test {\n\n  private static final class FakeChannel implements SeekableByteChannel {\n    private long position = 0;\n    private boolean open = true;\n    private int reads = 0;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      reads++;\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return position;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      position = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return 10;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() throws IOException {\n      open = false;\n    }\n  }\n\n  @Test\n  void transferFromThrowsNonWritableAndDoesNotTouchSourceOrDelegate() throws IOException {\n    FakeChannel fake = new FakeChannel();\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(fake);\n    final int[] srcReads = {0};\n    ReadableByteChannel src =\n        new ReadableByteChannel() {\n          @Override\n          public int read(ByteBuffer dst) {\n            srcReads[0]++;\n            return -1;\n          }\n\n          @Override\n          public boolean isOpen() {\n            return true;\n          }\n\n          @Override\n          public void close() {}\n        };\n\n    assertThrows(NonWritableChannelException.class, () -> channel.transferFrom(src, 0, 5));\n    assertThrows(NonWritableChannelException.class, () -> channel.transferFrom(src, 3, 0));\n    assertThrows(NonWritableChannelException.class, () -> channel.transferFrom(null, 0, 1));\n\n    assertEquals(0, srcReads[0]);\n    assertEquals(0, fake.reads);\n    assertEquals(0, fake.position);\n    assertEquals(true, channel.isOpen());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 723,
+        "cache_read_input_tokens": 1968,
+        "output_tokens": 917,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate15Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.FileChannel;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\npublic class ReadOnlySeekableFileChannelMutaGate15Test {\n\n  private static final class StubChannel implements SeekableByteChannel {\n    private boolean open = true;\n    private long pos = 0;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return 100;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() throws IOException {\n      open = false;\n    }\n  }\n\n  @Test\n  void mapThrowsUnsupportedForAllModesWithMessageAndKeepsChannelUsable() throws IOException {\n    StubChannel stub = new StubChannel();\n    try (ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(stub)) {\n      stub.position(7);\n\n      UnsupportedOperationException ex1 =\n          assertThrows(\n              UnsupportedOperationException.class,\n              () -> channel.map(FileChannel.MapMode.READ_ONLY, 0, 10));\n      assertEquals(\"Memory mapping is not supported for in-memory archive channels\", ex1.getMessage());\n\n      UnsupportedOperationException ex2 =\n          assertThrows(\n              UnsupportedOperationException.class,\n              () -> channel.map(FileChannel.MapMode.READ_WRITE, 0, 10));\n      assertEquals(\"Memory mapping is not supported for in-memory archive channels\", ex2.getMessage());\n\n      assertThrows(\n          UnsupportedOperationException.class,\n          () -> channel.map(FileChannel.MapMode.PRIVATE, 5, 0));\n\n      // Channel state is unaffected by failed map calls.\n      assertTrue(channel.isOpen());\n      assertEquals(7, channel.position());\n      assertEquals(100, channel.size());\n    }\n    assertTrue(!stub.isOpen());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 745,
+        "cache_read_input_tokens": 1968,
+        "output_tokens": 974,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate16Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.FileLock;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate16Test {\n\n  private static final class StubChannel implements SeekableByteChannel {\n    private boolean open = true;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return 0;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return 0;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  @Test\n  void lockReturnsValidLockReflectingArgumentsAndInvalidatedOnReleaseOrClose() throws IOException {\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(new StubChannel());\n\n    FileLock lock = channel.lock(5L, 77L, true);\n    assertSame(channel, lock.channel());\n    assertSame(channel, lock.acquiredBy());\n    assertEquals(5L, lock.position());\n    assertEquals(77L, lock.size());\n    assertTrue(lock.isShared());\n    assertTrue(lock.isValid());\n\n    lock.release();\n    assertFalse(lock.isValid());\n\n    FileLock exclusive = channel.lock(0L, 10L, false);\n    assertFalse(exclusive.isShared());\n    assertEquals(0L, exclusive.position());\n    assertEquals(10L, exclusive.size());\n    assertTrue(exclusive.isValid());\n\n    channel.close();\n    assertFalse(exclusive.isValid());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 726,
+        "cache_read_input_tokens": 1968,
+        "output_tokens": 847,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate17Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertNotSame;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.FileLock;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate17Test {\n\n  private static final class StubChannel implements SeekableByteChannel {\n    private boolean open = true;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return 0;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return 0;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() {\n      open = false;\n    }\n  }\n\n  @Test\n  void tryLockReturnsVirtualLockWithGivenParametersAndTracksValidity() throws IOException {\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(new StubChannel());\n\n    FileLock shared = channel.tryLock(5L, 100L, true);\n    assertNotNull(shared);\n    assertSame(channel, shared.channel());\n    assertSame(channel, shared.acquiredBy());\n    assertEquals(5L, shared.position());\n    assertEquals(100L, shared.size());\n    assertTrue(shared.isShared());\n    assertTrue(shared.isValid());\n\n    FileLock exclusive = channel.tryLock(0L, 10L, false);\n    assertNotNull(exclusive);\n    assertNotSame(shared, exclusive);\n    assertFalse(exclusive.isShared());\n    assertEquals(0L, exclusive.position());\n    assertEquals(10L, exclusive.size());\n    assertTrue(exclusive.isValid());\n\n    exclusive.release();\n    assertFalse(exclusive.isValid());\n    assertTrue(shared.isValid());\n\n    channel.close();\n    assertFalse(shared.isValid());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 728,
+        "cache_read_input_tokens": 1968,
+        "output_tokens": 1200,
+        "thinking_tokens": 242
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannelMutaGate18Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlySeekableFileChannelMutaGate18Test {\n\n  private static final class StubChannel implements SeekableByteChannel {\n    long pos = 7;\n    long sizeValue = 42;\n    boolean open = true;\n    boolean closed = false;\n\n    @Override\n    public int read(ByteBuffer dst) {\n      return -1;\n    }\n\n    @Override\n    public int write(ByteBuffer src) {\n      return 0;\n    }\n\n    @Override\n    public long position() {\n      return pos;\n    }\n\n    @Override\n    public SeekableByteChannel position(long newPosition) {\n      pos = newPosition;\n      return this;\n    }\n\n    @Override\n    public long size() {\n      return sizeValue;\n    }\n\n    @Override\n    public SeekableByteChannel truncate(long size) {\n      return this;\n    }\n\n    @Override\n    public boolean isOpen() {\n      return open;\n    }\n\n    @Override\n    public void close() throws IOException {\n      open = false;\n      closed = true;\n    }\n  }\n\n  @Test\n  void constructorStoresDelegateUsedForPositionSizeAndClose() throws IOException {\n    StubChannel stub = new StubChannel();\n    ReadOnlySeekableFileChannel channel = new ReadOnlySeekableFileChannel(stub);\n\n    assertEquals(7L, channel.position());\n    assertEquals(42L, channel.size());\n    assertSame(channel, channel.position(13L));\n    assertEquals(13L, stub.pos);\n    assertTrue(channel.isOpen());\n\n    channel.close();\n    assertTrue(stub.closed);\n    assertEquals(false, channel.isOpen());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 720,
+        "cache_read_input_tokens": 1968,
+        "output_tokens": 719,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

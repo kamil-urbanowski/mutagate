@@ -1,0 +1,693 @@
+{
+  "repo": "tarballfs",
+  "class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+  "kind": "TARGETED",
+  "setup": {
+    "repo_commit": "9d0d8eb2b3a52801b34531675750076fd46a1b5f",
+    "date": "2026-11-21",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "fbbf194a393f76fb2eabba89ffadc9c0a7b7e53d",
+    "provider": "claude-code",
+    "provider_version": "2.1.329",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.5,
+  "score_after": 1.0,
+  "mutants_total": 8,
+  "undetected_before": 4,
+  "newly_detected": 4,
+  "candidates": 4,
+  "kept": 4,
+  "acceptance_rate": 1.0,
+  "attempts_per_kept_test": 1.0,
+  "tokens": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 5784,
+    "cache_read_input_tokens": 3294,
+    "output_tokens": 3527,
+    "thinking_tokens": 619
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/BasicFileAttributesMapsMutaGate1Test.java",
+      "target": {
+        "source_file": "BasicFileAttributesMaps.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+        "mutated_method": "basicAttributesToMap",
+        "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+        "line": 12,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+        "indexes": [
+          15
+        ],
+        "description": "negated conditional",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 12,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            12
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 12,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            15
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 13,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            29
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 32,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            134
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 26,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "indexes": [
+            94
+          ],
+          "description": "removed call to io/github/iachimoe/tarballfs/BasicFileAttributesMaps::putBasicAttribute",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 33,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "indexes": [
+            140
+          ],
+          "description": "removed call to io/github/iachimoe/tarballfs/BasicFileAttributesMaps::putBasicAttribute",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 28,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            103
+          ],
+          "description": "replaced return value with Collections.emptyMap for io/github/iachimoe/tarballfs/BasicFileAttributesMaps::basicAttributesToMap",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 36,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            150
+          ],
+          "description": "replaced return value with Collections.emptyMap for io/github/iachimoe/tarballfs/BasicFileAttributesMaps::basicAttributesToMap",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.attribute.BasicFileAttributes;\nimport java.nio.file.attribute.FileTime;\nimport java.util.List;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass BasicFileAttributesMapsMutaGate1Test {\n\n  private static final class FakeAttrs implements BasicFileAttributes {\n    private final FileTime time = FileTime.fromMillis(1000L);\n\n    @Override\n    public FileTime lastModifiedTime() {\n      return time;\n    }\n\n    @Override\n    public FileTime lastAccessTime() {\n      return time;\n    }\n\n    @Override\n    public FileTime creationTime() {\n      return time;\n    }\n\n    @Override\n    public boolean isRegularFile() {\n      return true;\n    }\n\n    @Override\n    public boolean isDirectory() {\n      return false;\n    }\n\n    @Override\n    public boolean isSymbolicLink() {\n      return false;\n    }\n\n    @Override\n    public boolean isOther() {\n      return false;\n    }\n\n    @Override\n    public long size() {\n      return 42L;\n    }\n\n    @Override\n    public Object fileKey() {\n      return null;\n    }\n  }\n\n  @Test\n  void wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested() {\n    FakeAttrs attrs = new FakeAttrs();\n    List<String> allKeys =\n        List.of(\n            \"lastModifiedTime\",\n            \"lastAccessTime\",\n            \"creationTime\",\n            \"size\",\n            \"isRegularFile\",\n            \"isDirectory\",\n            \"isSymbolicLink\",\n            \"isOther\",\n            \"fileKey\");\n\n    Map<String, Object> star = BasicFileAttributesMaps.basicAttributesToMap(attrs, \"*\");\n    assertEquals(allKeys, List.copyOf(star.keySet()));\n    assertEquals(42L, star.get(\"size\"));\n\n    Map<String, Object> empty = BasicFileAttributesMaps.basicAttributesToMap(attrs, \"\");\n    assertEquals(allKeys, List.copyOf(empty.keySet()));\n    assertEquals(true, empty.get(\"isRegularFile\"));\n\n    Map<String, Object> named = BasicFileAttributesMaps.basicAttributesToMap(attrs, \"size\");\n    assertEquals(List.of(\"size\"), List.copyOf(named.keySet()));\n    assertEquals(42L, named.get(\"size\"));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/BasicFileAttributesMapsMutaGate2Test.java",
+      "target": {
+        "source_file": "BasicFileAttributesMaps.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+        "mutated_method": "basicAttributesToMap",
+        "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+        "line": 32,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+        "indexes": [
+          134
+        ],
+        "description": "negated conditional",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 12,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            12
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 12,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            15
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 13,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            29
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 32,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            134
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 33,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "indexes": [
+            140
+          ],
+          "description": "removed call to io/github/iachimoe/tarballfs/BasicFileAttributesMaps::putBasicAttribute",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 36,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            150
+          ],
+          "description": "replaced return value with Collections.emptyMap for io/github/iachimoe/tarballfs/BasicFileAttributesMaps::basicAttributesToMap",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.attribute.BasicFileAttributes;\nimport java.nio.file.attribute.FileTime;\nimport java.util.List;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass BasicFileAttributesMapsMutaGate2Test {\n\n  private static final class StubAttrs implements BasicFileAttributes {\n    @Override\n    public FileTime lastModifiedTime() {\n      return FileTime.fromMillis(1000L);\n    }\n\n    @Override\n    public FileTime lastAccessTime() {\n      return FileTime.fromMillis(2000L);\n    }\n\n    @Override\n    public FileTime creationTime() {\n      return FileTime.fromMillis(3000L);\n    }\n\n    @Override\n    public boolean isRegularFile() {\n      return true;\n    }\n\n    @Override\n    public boolean isDirectory() {\n      return false;\n    }\n\n    @Override\n    public boolean isSymbolicLink() {\n      return false;\n    }\n\n    @Override\n    public boolean isOther() {\n      return false;\n    }\n\n    @Override\n    public long size() {\n      return 42L;\n    }\n\n    @Override\n    public Object fileKey() {\n      return null;\n    }\n  }\n\n  @Test\n  void blankEntriesAreSkippedAndNonBlankEntriesAreIncluded() {\n    Map<String, Object> map =\n        BasicFileAttributesMaps.basicAttributesToMap(new StubAttrs(), \"size,, isDirectory , \");\n\n    assertEquals(List.of(\"size\", \"isDirectory\"), List.copyOf(map.keySet()));\n    assertEquals(42L, map.get(\"size\"));\n    assertEquals(false, map.get(\"isDirectory\"));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/BasicFileAttributesMapsMutaGate3Test.java",
+      "target": {
+        "source_file": "BasicFileAttributesMaps.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+        "mutated_method": "basicAttributesToMap",
+        "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+        "line": 33,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+        "indexes": [
+          140
+        ],
+        "description": "removed call to io/github/iachimoe/tarballfs/BasicFileAttributesMaps::putBasicAttribute",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 12,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            12
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 12,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            15
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 13,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            29
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 32,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            134
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 33,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "indexes": [
+            140
+          ],
+          "description": "removed call to io/github/iachimoe/tarballfs/BasicFileAttributesMaps::putBasicAttribute",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 36,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            150
+          ],
+          "description": "replaced return value with Collections.emptyMap for io/github/iachimoe/tarballfs/BasicFileAttributesMaps::basicAttributesToMap",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.attribute.BasicFileAttributes;\nimport java.nio.file.attribute.FileTime;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass BasicFileAttributesMapsMutaGate3Test {\n\n  private static final class StubAttrs implements BasicFileAttributes {\n    @Override\n    public FileTime lastModifiedTime() {\n      return FileTime.fromMillis(1000L);\n    }\n\n    @Override\n    public FileTime lastAccessTime() {\n      return FileTime.fromMillis(2000L);\n    }\n\n    @Override\n    public FileTime creationTime() {\n      return FileTime.fromMillis(3000L);\n    }\n\n    @Override\n    public boolean isRegularFile() {\n      return true;\n    }\n\n    @Override\n    public boolean isDirectory() {\n      return false;\n    }\n\n    @Override\n    public boolean isSymbolicLink() {\n      return false;\n    }\n\n    @Override\n    public boolean isOther() {\n      return false;\n    }\n\n    @Override\n    public long size() {\n      return 42L;\n    }\n\n    @Override\n    public Object fileKey() {\n      return null;\n    }\n  }\n\n  @Test\n  void explicitListPopulatesRequestedAttributesInOrder() {\n    Map<String, Object> map =\n        BasicFileAttributesMaps.basicAttributesToMap(new StubAttrs(), \"size, isDirectory,,lastModifiedTime\");\n\n    assertEquals(3, map.size());\n    assertEquals(42L, map.get(\"size\"));\n    assertEquals(false, map.get(\"isDirectory\"));\n    assertEquals(FileTime.fromMillis(1000L), map.get(\"lastModifiedTime\"));\n    assertEquals(\n        java.util.List.of(\"size\", \"isDirectory\", \"lastModifiedTime\"), new ArrayList<>(map.keySet()));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/BasicFileAttributesMapsMutaGate4Test.java",
+      "target": {
+        "source_file": "BasicFileAttributesMaps.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+        "mutated_method": "basicAttributesToMap",
+        "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+        "line": 36,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+        "indexes": [
+          150
+        ],
+        "description": "replaced return value with Collections.emptyMap for io/github/iachimoe/tarballfs/BasicFileAttributesMaps::basicAttributesToMap",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 12,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            12
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 12,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            15
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 13,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            29
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 32,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            134
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 33,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "indexes": [
+            140
+          ],
+          "description": "removed call to io/github/iachimoe/tarballfs/BasicFileAttributesMaps::putBasicAttribute",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder"
+          ]
+        },
+        {
+          "source_file": "BasicFileAttributesMaps.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+          "mutated_method": "basicAttributesToMap",
+          "method_description": "(Ljava/nio/file/attribute/BasicFileAttributes;Ljava/lang/String;)Ljava/util/Map;",
+          "line": 36,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            150
+          ],
+          "description": "replaced return value with Collections.emptyMap for io/github/iachimoe/tarballfs/BasicFileAttributesMaps::basicAttributesToMap",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test#wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test#blankEntriesAreSkippedAndNonBlankEntriesAreIncluded",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test#explicitListPopulatesRequestedAttributesInOrder",
+            "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test#explicitAttributeListReturnsRequestedEntriesInOrder"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.attribute.BasicFileAttributes;\nimport java.nio.file.attribute.FileTime;\nimport java.util.ArrayList;\nimport java.util.List;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass BasicFileAttributesMapsMutaGate4Test {\n\n  private static final class StubAttrs implements BasicFileAttributes {\n    @Override\n    public FileTime lastModifiedTime() {\n      return FileTime.fromMillis(1000L);\n    }\n\n    @Override\n    public FileTime lastAccessTime() {\n      return FileTime.fromMillis(2000L);\n    }\n\n    @Override\n    public FileTime creationTime() {\n      return FileTime.fromMillis(3000L);\n    }\n\n    @Override\n    public boolean isRegularFile() {\n      return true;\n    }\n\n    @Override\n    public boolean isDirectory() {\n      return false;\n    }\n\n    @Override\n    public boolean isSymbolicLink() {\n      return false;\n    }\n\n    @Override\n    public boolean isOther() {\n      return false;\n    }\n\n    @Override\n    public long size() {\n      return 42L;\n    }\n\n    @Override\n    public Object fileKey() {\n      return null;\n    }\n  }\n\n  @Test\n  void explicitAttributeListReturnsRequestedEntriesInOrder() {\n    Map<String, Object> result =\n        BasicFileAttributesMaps.basicAttributesToMap(new StubAttrs(), \"size, isDirectory,,lastModifiedTime\");\n\n    assertEquals(3, result.size());\n    assertEquals(42L, result.get(\"size\"));\n    assertEquals(false, result.get(\"isDirectory\"));\n    assertEquals(FileTime.fromMillis(1000L), result.get(\"lastModifiedTime\"));\n    assertEquals(List.of(\"size\", \"isDirectory\", \"lastModifiedTime\"), new ArrayList<>(result.keySet()));\n  }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.attribute.BasicFileAttributes;\nimport java.nio.file.attribute.FileTime;\nimport java.util.List;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass BasicFileAttributesMapsMutaGate1Test {\n\n  private static final class FakeAttrs implements BasicFileAttributes {\n    private final FileTime time = FileTime.fromMillis(1000L);\n\n    @Override\n    public FileTime lastModifiedTime() {\n      return time;\n    }\n\n    @Override\n    public FileTime lastAccessTime() {\n      return time;\n    }\n\n    @Override\n    public FileTime creationTime() {\n      return time;\n    }\n\n    @Override\n    public boolean isRegularFile() {\n      return true;\n    }\n\n    @Override\n    public boolean isDirectory() {\n      return false;\n    }\n\n    @Override\n    public boolean isSymbolicLink() {\n      return false;\n    }\n\n    @Override\n    public boolean isOther() {\n      return false;\n    }\n\n    @Override\n    public long size() {\n      return 42L;\n    }\n\n    @Override\n    public Object fileKey() {\n      return null;\n    }\n  }\n\n  @Test\n  void wildcardAndEmptyReturnAllWhileNamedReturnsOnlyRequested() {\n    FakeAttrs attrs = new FakeAttrs();\n    List<String> allKeys =\n        List.of(\n            \"lastModifiedTime\",\n            \"lastAccessTime\",\n            \"creationTime\",\n            \"size\",\n            \"isRegularFile\",\n            \"isDirectory\",\n            \"isSymbolicLink\",\n            \"isOther\",\n            \"fileKey\");\n\n    Map<String, Object> star = BasicFileAttributesMaps.basicAttributesToMap(attrs, \"*\");\n    assertEquals(allKeys, List.copyOf(star.keySet()));\n    assertEquals(42L, star.get(\"size\"));\n\n    Map<String, Object> empty = BasicFileAttributesMaps.basicAttributesToMap(attrs, \"\");\n    assertEquals(allKeys, List.copyOf(empty.keySet()));\n    assertEquals(true, empty.get(\"isRegularFile\"));\n\n    Map<String, Object> named = BasicFileAttributesMaps.basicAttributesToMap(attrs, \"size\");\n    assertEquals(List.of(\"size\"), List.copyOf(named.keySet()));\n    assertEquals(42L, named.get(\"size\"));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 2285,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 1173,
+        "thinking_tokens": 298
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.attribute.BasicFileAttributes;\nimport java.nio.file.attribute.FileTime;\nimport java.util.List;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass BasicFileAttributesMapsMutaGate2Test {\n\n  private static final class StubAttrs implements BasicFileAttributes {\n    @Override\n    public FileTime lastModifiedTime() {\n      return FileTime.fromMillis(1000L);\n    }\n\n    @Override\n    public FileTime lastAccessTime() {\n      return FileTime.fromMillis(2000L);\n    }\n\n    @Override\n    public FileTime creationTime() {\n      return FileTime.fromMillis(3000L);\n    }\n\n    @Override\n    public boolean isRegularFile() {\n      return true;\n    }\n\n    @Override\n    public boolean isDirectory() {\n      return false;\n    }\n\n    @Override\n    public boolean isSymbolicLink() {\n      return false;\n    }\n\n    @Override\n    public boolean isOther() {\n      return false;\n    }\n\n    @Override\n    public long size() {\n      return 42L;\n    }\n\n    @Override\n    public Object fileKey() {\n      return null;\n    }\n  }\n\n  @Test\n  void blankEntriesAreSkippedAndNonBlankEntriesAreIncluded() {\n    Map<String, Object> map =\n        BasicFileAttributesMaps.basicAttributesToMap(new StubAttrs(), \"size,, isDirectory , \");\n\n    assertEquals(List.of(\"size\", \"isDirectory\"), List.copyOf(map.keySet()));\n    assertEquals(42L, map.get(\"size\"));\n    assertEquals(false, map.get(\"isDirectory\"));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1136,
+        "cache_read_input_tokens": 1098,
+        "output_tokens": 846,
+        "thinking_tokens": 218
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate3Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.attribute.BasicFileAttributes;\nimport java.nio.file.attribute.FileTime;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass BasicFileAttributesMapsMutaGate3Test {\n\n  private static final class StubAttrs implements BasicFileAttributes {\n    @Override\n    public FileTime lastModifiedTime() {\n      return FileTime.fromMillis(1000L);\n    }\n\n    @Override\n    public FileTime lastAccessTime() {\n      return FileTime.fromMillis(2000L);\n    }\n\n    @Override\n    public FileTime creationTime() {\n      return FileTime.fromMillis(3000L);\n    }\n\n    @Override\n    public boolean isRegularFile() {\n      return true;\n    }\n\n    @Override\n    public boolean isDirectory() {\n      return false;\n    }\n\n    @Override\n    public boolean isSymbolicLink() {\n      return false;\n    }\n\n    @Override\n    public boolean isOther() {\n      return false;\n    }\n\n    @Override\n    public long size() {\n      return 42L;\n    }\n\n    @Override\n    public Object fileKey() {\n      return null;\n    }\n  }\n\n  @Test\n  void explicitListPopulatesRequestedAttributesInOrder() {\n    Map<String, Object> map =\n        BasicFileAttributesMaps.basicAttributesToMap(new StubAttrs(), \"size, isDirectory,,lastModifiedTime\");\n\n    assertEquals(3, map.size());\n    assertEquals(42L, map.get(\"size\"));\n    assertEquals(false, map.get(\"isDirectory\"));\n    assertEquals(FileTime.fromMillis(1000L), map.get(\"lastModifiedTime\"));\n    assertEquals(\n        java.util.List.of(\"size\", \"isDirectory\", \"lastModifiedTime\"), new ArrayList<>(map.keySet()));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1174,
+        "cache_read_input_tokens": 1098,
+        "output_tokens": 700,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.BasicFileAttributesMapsMutaGate4Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.attribute.BasicFileAttributes;\nimport java.nio.file.attribute.FileTime;\nimport java.util.ArrayList;\nimport java.util.List;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass BasicFileAttributesMapsMutaGate4Test {\n\n  private static final class StubAttrs implements BasicFileAttributes {\n    @Override\n    public FileTime lastModifiedTime() {\n      return FileTime.fromMillis(1000L);\n    }\n\n    @Override\n    public FileTime lastAccessTime() {\n      return FileTime.fromMillis(2000L);\n    }\n\n    @Override\n    public FileTime creationTime() {\n      return FileTime.fromMillis(3000L);\n    }\n\n    @Override\n    public boolean isRegularFile() {\n      return true;\n    }\n\n    @Override\n    public boolean isDirectory() {\n      return false;\n    }\n\n    @Override\n    public boolean isSymbolicLink() {\n      return false;\n    }\n\n    @Override\n    public boolean isOther() {\n      return false;\n    }\n\n    @Override\n    public long size() {\n      return 42L;\n    }\n\n    @Override\n    public Object fileKey() {\n      return null;\n    }\n  }\n\n  @Test\n  void explicitAttributeListReturnsRequestedEntriesInOrder() {\n    Map<String, Object> result =\n        BasicFileAttributesMaps.basicAttributesToMap(new StubAttrs(), \"size, isDirectory,,lastModifiedTime\");\n\n    assertEquals(3, result.size());\n    assertEquals(42L, result.get(\"size\"));\n    assertEquals(false, result.get(\"isDirectory\"));\n    assertEquals(FileTime.fromMillis(1000L), result.get(\"lastModifiedTime\"));\n    assertEquals(List.of(\"size\", \"isDirectory\", \"lastModifiedTime\"), new ArrayList<>(result.keySet()));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1189,
+        "cache_read_input_tokens": 1098,
+        "output_tokens": 808,
+        "thinking_tokens": 103
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

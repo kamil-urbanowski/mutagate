@@ -1,0 +1,121 @@
+{
+  "repo": "tarballfs",
+  "class": "io.github.iachimoe.tarballfs.GzipBasicFileAttributeView",
+  "kind": "CONTROL",
+  "setup": {
+    "repo_commit": "9d0d8eb2b3a52801b34531675750076fd46a1b5f",
+    "date": "2026-11-22",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "fbbf194a393f76fb2eabba89ffadc9c0a7b7e53d",
+    "provider": "claude-code",
+    "provider_version": "2.1.329",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.0,
+  "score_after": 0.5,
+  "mutants_total": 2,
+  "undetected_before": 2,
+  "newly_detected": 1,
+  "candidates": 2,
+  "kept": 1,
+  "acceptance_rate": 0.5,
+  "attempts_per_kept_test": 3.0,
+  "tokens": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 5388,
+    "cache_read_input_tokens": 4090,
+    "output_tokens": 3675,
+    "thinking_tokens": 1380
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.GzipBasicFileAttributeViewMutaGate1Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/GzipBasicFileAttributeViewMutaGate1Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 1 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "GzipBasicFileAttributeView.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.GzipBasicFileAttributeView",
+          "mutated_method": "name",
+          "method_description": "()Ljava/lang/String;",
+          "line": 18,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/GzipBasicFileAttributeView::name",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.GzipBasicFileAttributeViewMutaGate1Test#nameIsBasicRegardlessOfPath"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass GzipBasicFileAttributeViewMutaGate1Test {\n\n  @Test\n  void nameIsBasicRegardlessOfPath() {\n    GzipBasicFileAttributeView view = new GzipBasicFileAttributeView(null);\n    assertEquals(\"basic\", view.name());\n    assertEquals(\"basic\", view.name());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.GzipBasicFileAttributeViewMutaGate2Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/GzipBasicFileAttributeViewMutaGate2Test.java",
+      "target": null,
+      "attempts": 2,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assumptions.assumeTrue;\n\nimport java.io.IOException;\nimport java.nio.file.FileStore;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Path;\nimport java.nio.file.PathMatcher;\nimport java.nio.file.WatchService;\nimport java.nio.file.attribute.BasicFileAttributes;\nimport java.nio.file.attribute.UserPrincipalLookupService;\nimport java.nio.file.spi.FileSystemProvider;\nimport java.util.Collections;\nimport java.util.Set;\nimport org.junit.jupiter.api.Test;\n\nclass GzipBasicFileAttributeViewMutaGate2Test {\n\n  private static final class StubFileSystem extends FileSystem {\n    @Override\n    public FileSystemProvider provider() {\n      return null;\n    }\n\n    @Override\n    public void close() {}\n\n    @Override\n    public boolean isOpen() {\n      return true;\n    }\n\n    @Override\n    public boolean isReadOnly() {\n      return true;\n    }\n\n    @Override\n    public String getSeparator() {\n      return \"/\";\n    }\n\n    @Override\n    public Iterable<Path> getRootDirectories() {\n      return Collections.emptyList();\n    }\n\n    @Override\n    public Iterable<FileStore> getFileStores() {\n      return Collections.emptyList();\n    }\n\n    @Override\n    public Set<String> supportedFileAttributeViews() {\n      return Collections.singleton(\"basic\");\n    }\n\n    @Override\n    public Path getPath(String first, String... more) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public PathMatcher getPathMatcher(String syntaxAndPattern) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public UserPrincipalLookupService getUserPrincipalLookupService() {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public WatchService newWatchService() throws IOException {\n      throw new UnsupportedOperationException();\n    }\n  }\n\n  private static final class Outcome {\n    final Class<?> type;\n    final BasicFileAttributes attributes;\n\n    Outcome(Class<?> type, BasicFileAttributes attributes) {\n      this.type = type;\n      this.attributes = attributes;\n    }\n  }\n\n  private static Outcome attempt(GzipBasicFileAttributeView view) {\n    try {\n      BasicFileAttributes attrs = view.readAttributes();\n      return new Outcome(null, attrs);\n    } catch (Throwable t) {\n      return new Outcome(t.getClass(), null);\n    }\n  }\n\n  @Test\n  void readAttributesOutcomeIsStableAcrossCalls() {\n    Object[] constants = SingleEntryArchiveFormat.class.getEnumConstants();\n    assumeTrue(constants != null && constants.length > 0);\n    SingleEntryArchiveFormat format = (SingleEntryArchiveFormat) constants[0];\n\n    SingleEntryArchivePath path =\n        new SingleEntryArchivePath(new StubFileSystem(), format, true, \"entry\");\n    GzipBasicFileAttributeView view = new GzipBasicFileAttributeView(path);\n\n    Outcome first = attempt(view);\n    Outcome second = attempt(view);\n\n    assertEquals(first.type, second.type);\n    if (first.type == null) {\n      assertNotNull(first.attributes);\n      assertNotNull(second.attributes);\n      assertEquals(first.attributes.isDirectory(), second.attributes.isDirectory());\n      assertEquals(first.attributes.isRegularFile(), second.attributes.isRegularFile());\n      assertEquals(first.attributes.size(), second.attributes.size());\n    }\n  }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.GzipBasicFileAttributeViewMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass GzipBasicFileAttributeViewMutaGate1Test {\n\n  @Test\n  void nameIsBasicRegardlessOfPath() {\n    GzipBasicFileAttributeView view = new GzipBasicFileAttributeView(null);\n    assertEquals(\"basic\", view.name());\n    assertEquals(\"basic\", view.name());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 2734,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 241,
+        "thinking_tokens": 54
+      },
+      "reused": true,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.GzipBasicFileAttributeViewMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assumptions.assumeTrue;\n\nimport java.nio.file.attribute.BasicFileAttributes;\nimport org.junit.jupiter.api.Test;\n\nclass GzipBasicFileAttributeViewMutaGate2Test {\n\n  private static final class Outcome {\n    final Class<?> type;\n    final BasicFileAttributes attributes;\n\n    Outcome(Class<?> type, BasicFileAttributes attributes) {\n      this.type = type;\n      this.attributes = attributes;\n    }\n  }\n\n  private static Outcome attempt(GzipBasicFileAttributeView view) {\n    try {\n      BasicFileAttributes attrs = view.readAttributes();\n      return new Outcome(null, attrs);\n    } catch (Throwable t) {\n      return new Outcome(t.getClass(), null);\n    }\n  }\n\n  @Test\n  void readAttributesOutcomeIsStableAcrossCalls() {\n    Object[] constants = SingleEntryArchiveFormat.class.getEnumConstants();\n    assumeTrue(constants != null && constants.length > 0);\n    SingleEntryArchiveFormat format = (SingleEntryArchiveFormat) constants[0];\n\n    SingleEntryArchivePath path = new SingleEntryArchivePath(null, format, true, \"entry\");\n    GzipBasicFileAttributeView view = new GzipBasicFileAttributeView(path);\n\n    Outcome first = attempt(view);\n    Outcome second = attempt(view);\n\n    assertEquals(first.type, second.type);\n    if (first.type == null) {\n      assertNotNull(first.attributes);\n      assertNotNull(second.attributes);\n      assertEquals(first.attributes.isDirectory(), second.attributes.isDirectory());\n      assertEquals(first.attributes.isRegularFile(), second.attributes.isRegularFile());\n      assertEquals(first.attributes.size(), second.attributes.size());\n    }\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 729,
+        "cache_read_input_tokens": 2045,
+        "output_tokens": 1443,
+        "thinking_tokens": 694
+      },
+      "reused": true,
+      "screen": "FAILED_ON_UNMODIFIED_CODE",
+      "detail": "Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.020 s <<< FAILURE! -- in io.github.iachimoe.tarballfs.GzipBasicFileAttributeViewMutaGate2Test\nio.github.iachimoe.tarballfs.GzipBasicFileAttributeViewMutaGate2Test.readAttributesOutcomeIsStableAcrossCalls -- Time elapsed: 0.010 s <<< ERROR!\nErrors:\nGzipBasicFileAttributeViewMutaGate2Test.readAttributesOutcomeIsStableAcrossCalls:37 \u00bb NullPointer fileSystem\nTests run: 1, Failures: 0, Errors: 1, Skipped: 0\nFailed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.5:test (default-test) on project tarballfs:\nSee target/surefire-reports for the individual test results.\nSee dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream."
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.GzipBasicFileAttributeViewMutaGate2Test",
+      "attempt": 2,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assumptions.assumeTrue;\n\nimport java.io.IOException;\nimport java.nio.file.FileStore;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Path;\nimport java.nio.file.PathMatcher;\nimport java.nio.file.WatchService;\nimport java.nio.file.attribute.BasicFileAttributes;\nimport java.nio.file.attribute.UserPrincipalLookupService;\nimport java.nio.file.spi.FileSystemProvider;\nimport java.util.Collections;\nimport java.util.Set;\nimport org.junit.jupiter.api.Test;\n\nclass GzipBasicFileAttributeViewMutaGate2Test {\n\n  private static final class StubFileSystem extends FileSystem {\n    @Override\n    public FileSystemProvider provider() {\n      return null;\n    }\n\n    @Override\n    public void close() {}\n\n    @Override\n    public boolean isOpen() {\n      return true;\n    }\n\n    @Override\n    public boolean isReadOnly() {\n      return true;\n    }\n\n    @Override\n    public String getSeparator() {\n      return \"/\";\n    }\n\n    @Override\n    public Iterable<Path> getRootDirectories() {\n      return Collections.emptyList();\n    }\n\n    @Override\n    public Iterable<FileStore> getFileStores() {\n      return Collections.emptyList();\n    }\n\n    @Override\n    public Set<String> supportedFileAttributeViews() {\n      return Collections.singleton(\"basic\");\n    }\n\n    @Override\n    public Path getPath(String first, String... more) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public PathMatcher getPathMatcher(String syntaxAndPattern) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public UserPrincipalLookupService getUserPrincipalLookupService() {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public WatchService newWatchService() throws IOException {\n      throw new UnsupportedOperationException();\n    }\n  }\n\n  private static final class Outcome {\n    final Class<?> type;\n    final BasicFileAttributes attributes;\n\n    Outcome(Class<?> type, BasicFileAttributes attributes) {\n      this.type = type;\n      this.attributes = attributes;\n    }\n  }\n\n  private static Outcome attempt(GzipBasicFileAttributeView view) {\n    try {\n      BasicFileAttributes attrs = view.readAttributes();\n      return new Outcome(null, attrs);\n    } catch (Throwable t) {\n      return new Outcome(t.getClass(), null);\n    }\n  }\n\n  @Test\n  void readAttributesOutcomeIsStableAcrossCalls() {\n    Object[] constants = SingleEntryArchiveFormat.class.getEnumConstants();\n    assumeTrue(constants != null && constants.length > 0);\n    SingleEntryArchiveFormat format = (SingleEntryArchiveFormat) constants[0];\n\n    SingleEntryArchivePath path =\n        new SingleEntryArchivePath(new StubFileSystem(), format, true, \"entry\");\n    GzipBasicFileAttributeView view = new GzipBasicFileAttributeView(path);\n\n    Outcome first = attempt(view);\n    Outcome second = attempt(view);\n\n    assertEquals(first.type, second.type);\n    if (first.type == null) {\n      assertNotNull(first.attributes);\n      assertNotNull(second.attributes);\n      assertEquals(first.attributes.isDirectory(), second.attributes.isDirectory());\n      assertEquals(first.attributes.isRegularFile(), second.attributes.isRegularFile());\n      assertEquals(first.attributes.size(), second.attributes.size());\n    }\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1925,
+        "cache_read_input_tokens": 2045,
+        "output_tokens": 1991,
+        "thinking_tokens": 632
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

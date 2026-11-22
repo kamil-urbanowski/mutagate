@@ -1,0 +1,835 @@
+{
+  "repo": "tarballfs",
+  "class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat",
+  "kind": "CONTROL",
+  "setup": {
+    "repo_commit": "9d0d8eb2b3a52801b34531675750076fd46a1b5f",
+    "date": "2026-11-22",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "fbbf194a393f76fb2eabba89ffadc9c0a7b7e53d",
+    "provider": "claude-code",
+    "provider_version": "2.1.329",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.0,
+  "score_after": 0.8571428571428571,
+  "mutants_total": 14,
+  "undetected_before": 14,
+  "newly_detected": 12,
+  "candidates": 14,
+  "kept": 12,
+  "acceptance_rate": 0.8571428571428571,
+  "attempts_per_kept_test": 1.1666666666666667,
+  "tokens": {
+    "input_tokens": 28,
+    "cache_creation_input_tokens": 12675,
+    "cache_read_input_tokens": 35477,
+    "output_tokens": 9052,
+    "thinking_tokens": 1969
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate1Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SingleEntryArchiveFormatMutaGate1Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.io.IOException;\nimport java.nio.file.FileStore;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Path;\nimport java.nio.file.PathMatcher;\nimport java.nio.file.WatchService;\nimport java.nio.file.attribute.UserPrincipalLookupService;\nimport java.nio.file.spi.FileSystemProvider;\nimport java.util.Collections;\nimport java.util.Set;\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate1Test {\n\n  private static final class ForeignFileSystem extends FileSystem {\n    @Override\n    public FileSystemProvider provider() {\n      return null;\n    }\n\n    @Override\n    public void close() throws IOException {}\n\n    @Override\n    public boolean isOpen() {\n      return true;\n    }\n\n    @Override\n    public boolean isReadOnly() {\n      return true;\n    }\n\n    @Override\n    public String getSeparator() {\n      return \"/\";\n    }\n\n    @Override\n    public Iterable<Path> getRootDirectories() {\n      return Collections.emptyList();\n    }\n\n    @Override\n    public Iterable<FileStore> getFileStores() {\n      return Collections.emptyList();\n    }\n\n    @Override\n    public Set<String> supportedFileAttributeViews() {\n      return Collections.emptySet();\n    }\n\n    @Override\n    public Path getPath(String first, String... more) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public PathMatcher getPathMatcher(String syntaxAndPattern) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public UserPrincipalLookupService getUserPrincipalLookupService() {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public WatchService newWatchService() throws IOException {\n      throw new UnsupportedOperationException();\n    }\n  }\n\n  @Test\n  void gzipHostArchiveRejectsFileSystemsThatAreNotGzipFileSystems() {\n    assertThrows(\n        ClassCastException.class,\n        () -> SingleEntryArchiveFormat.GZIP.hostArchive(new ForeignFileSystem()));\n    assertThrows(\n        NullPointerException.class, () -> SingleEntryArchiveFormat.GZIP.hostArchive(null));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate2Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SingleEntryArchiveFormatMutaGate2Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 3 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$2",
+          "mutated_method": "uriSchemePrefix",
+          "method_description": "()Ljava/lang/String;",
+          "line": 52,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$2::uriSchemePrefix",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate10Test#bzip2UriSchemeIdIsPlainSchemeWithoutColonAndDiffersFromGzip",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate2Test#uriSchemePrefixIsSchemeIdPlusColonAndDistinctPerFormat",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate3Test#uriSchemeIdIsBareSchemeConsistentWithPrefixAndDistinctPerFormat",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate9Test#bzip2UriSchemePrefixIsSchemeIdWithColonAndDiffersFromGzip"
+          ]
+        },
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$1",
+          "mutated_method": "uriSchemeId",
+          "method_description": "()Ljava/lang/String;",
+          "line": 21,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$1::uriSchemeId",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate2Test#uriSchemePrefixIsSchemeIdPlusColonAndDistinctPerFormat",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate3Test#uriSchemeIdIsBareSchemeConsistentWithPrefixAndDistinctPerFormat"
+          ]
+        },
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$1",
+          "mutated_method": "uriSchemePrefix",
+          "method_description": "()Ljava/lang/String;",
+          "line": 16,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$1::uriSchemePrefix",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate2Test#uriSchemePrefixIsSchemeIdPlusColonAndDistinctPerFormat",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate3Test#uriSchemeIdIsBareSchemeConsistentWithPrefixAndDistinctPerFormat"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate2Test {\n\n  @Test\n  void uriSchemePrefixIsSchemeIdPlusColonAndDistinctPerFormat() {\n    String gzipPrefix = SingleEntryArchiveFormat.GZIP.uriSchemePrefix();\n    String bzip2Prefix = SingleEntryArchiveFormat.BZIP2.uriSchemePrefix();\n\n    assertEquals(\"gzip:\", gzipPrefix);\n    assertEquals(SingleEntryArchiveFormat.GZIP.uriSchemeId() + \":\", gzipPrefix);\n    assertTrue(gzipPrefix.endsWith(\":\"));\n    assertEquals(5, gzipPrefix.length());\n    assertNotEquals(bzip2Prefix, gzipPrefix);\n    assertEquals(\"bzip2:\", bzip2Prefix);\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate3Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SingleEntryArchiveFormatMutaGate3Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 4 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$2",
+          "mutated_method": "uriSchemeId",
+          "method_description": "()Ljava/lang/String;",
+          "line": 57,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$2::uriSchemeId",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate10Test#bzip2UriSchemeIdIsPlainSchemeWithoutColonAndDiffersFromGzip",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate3Test#uriSchemeIdIsBareSchemeConsistentWithPrefixAndDistinctPerFormat",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate9Test#bzip2UriSchemePrefixIsSchemeIdWithColonAndDiffersFromGzip"
+          ]
+        },
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$2",
+          "mutated_method": "uriSchemePrefix",
+          "method_description": "()Ljava/lang/String;",
+          "line": 52,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$2::uriSchemePrefix",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate10Test#bzip2UriSchemeIdIsPlainSchemeWithoutColonAndDiffersFromGzip",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate2Test#uriSchemePrefixIsSchemeIdPlusColonAndDistinctPerFormat",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate3Test#uriSchemeIdIsBareSchemeConsistentWithPrefixAndDistinctPerFormat",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate9Test#bzip2UriSchemePrefixIsSchemeIdWithColonAndDiffersFromGzip"
+          ]
+        },
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$1",
+          "mutated_method": "uriSchemeId",
+          "method_description": "()Ljava/lang/String;",
+          "line": 21,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$1::uriSchemeId",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate2Test#uriSchemePrefixIsSchemeIdPlusColonAndDistinctPerFormat",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate3Test#uriSchemeIdIsBareSchemeConsistentWithPrefixAndDistinctPerFormat"
+          ]
+        },
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$1",
+          "mutated_method": "uriSchemePrefix",
+          "method_description": "()Ljava/lang/String;",
+          "line": 16,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$1::uriSchemePrefix",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate2Test#uriSchemePrefixIsSchemeIdPlusColonAndDistinctPerFormat",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate3Test#uriSchemeIdIsBareSchemeConsistentWithPrefixAndDistinctPerFormat"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate3Test {\n\n  @Test\n  void uriSchemeIdIsBareSchemeConsistentWithPrefixAndDistinctPerFormat() {\n    String gzipId = SingleEntryArchiveFormat.GZIP.uriSchemeId();\n    String bzip2Id = SingleEntryArchiveFormat.BZIP2.uriSchemeId();\n\n    assertEquals(\"gzip\", gzipId);\n    assertEquals(\"bzip2\", bzip2Id);\n    assertNotEquals(gzipId, bzip2Id);\n\n    assertEquals(gzipId + \":\", SingleEntryArchiveFormat.GZIP.uriSchemePrefix());\n    assertEquals(bzip2Id + \":\", SingleEntryArchiveFormat.BZIP2.uriSchemePrefix());\n\n    assertTrue(!gzipId.isEmpty());\n    assertEquals(gzipId, gzipId.toLowerCase());\n    assertEquals(gzipId, gzipId.trim());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate4Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SingleEntryArchiveFormatMutaGate4Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$2",
+          "mutated_method": "providerDisplayName",
+          "method_description": "()Ljava/lang/String;",
+          "line": 62,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$2::providerDisplayName",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate11Test#bzip2ProviderDisplayNameIsBzip2AndDiffersFromGzip",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate4Test#providerDisplayNameIsSpecificToEachFormat"
+          ]
+        },
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$1",
+          "mutated_method": "providerDisplayName",
+          "method_description": "()Ljava/lang/String;",
+          "line": 26,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$1::providerDisplayName",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate4Test#providerDisplayNameIsSpecificToEachFormat"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate4Test {\n\n  @Test\n  void providerDisplayNameIsSpecificToEachFormat() {\n    assertEquals(\"Gzip\", SingleEntryArchiveFormat.GZIP.providerDisplayName());\n    assertEquals(\"Bzip2\", SingleEntryArchiveFormat.BZIP2.providerDisplayName());\n    assertNotEquals(\n        SingleEntryArchiveFormat.GZIP.providerDisplayName(),\n        SingleEntryArchiveFormat.BZIP2.providerDisplayName());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate5Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SingleEntryArchiveFormatMutaGate5Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$2",
+          "mutated_method": "watchServiceMessage",
+          "method_description": "()Ljava/lang/String;",
+          "line": 67,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$2::watchServiceMessage",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate12Test#bzip2WatchServiceMessageIsExactAndDistinctFromGzip",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate5Test#watchServiceMessagesAreFormatSpecific"
+          ]
+        },
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$1",
+          "mutated_method": "watchServiceMessage",
+          "method_description": "()Ljava/lang/String;",
+          "line": 31,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$1::watchServiceMessage",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate12Test#bzip2WatchServiceMessageIsExactAndDistinctFromGzip",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate5Test#watchServiceMessagesAreFormatSpecific"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate5Test {\n\n  @Test\n  void watchServiceMessagesAreFormatSpecific() {\n    assertEquals(\n        \"Watch service is not implemented for gzip entries\",\n        SingleEntryArchiveFormat.GZIP.watchServiceMessage());\n    assertEquals(\n        \"Watch service is not implemented for bzip2 entries\",\n        SingleEntryArchiveFormat.BZIP2.watchServiceMessage());\n    assertNotEquals(\n        SingleEntryArchiveFormat.GZIP.watchServiceMessage(),\n        SingleEntryArchiveFormat.BZIP2.watchServiceMessage());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate6Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SingleEntryArchiveFormatMutaGate6Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$2",
+          "mutated_method": "toHostFileUnsupportedMessage",
+          "method_description": "()Ljava/lang/String;",
+          "line": 72,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$2::toHostFileUnsupportedMessage",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate13Test#toHostFileUnsupportedMessageIsFormatSpecific",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate6Test#toHostFileUnsupportedMessageIsFormatSpecific"
+          ]
+        },
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$1",
+          "mutated_method": "toHostFileUnsupportedMessage",
+          "method_description": "()Ljava/lang/String;",
+          "line": 36,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$1::toHostFileUnsupportedMessage",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate13Test#toHostFileUnsupportedMessageIsFormatSpecific",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate6Test#toHostFileUnsupportedMessageIsFormatSpecific"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate6Test {\n\n  @Test\n  void toHostFileUnsupportedMessageIsFormatSpecific() {\n    assertEquals(\n        \"Gzip entry path does not map to a host java.io.File\",\n        SingleEntryArchiveFormat.GZIP.toHostFileUnsupportedMessage());\n    assertEquals(\n        \"Bzip2 entry path does not map to a host java.io.File\",\n        SingleEntryArchiveFormat.BZIP2.toHostFileUnsupportedMessage());\n    assertNotEquals(\n        SingleEntryArchiveFormat.GZIP.toHostFileUnsupportedMessage(),\n        SingleEntryArchiveFormat.BZIP2.toHostFileUnsupportedMessage());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate7Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SingleEntryArchiveFormatMutaGate7Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 1 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$1",
+          "mutated_method": "newBasicAttributeView",
+          "method_description": "(Lio/github/iachimoe/tarballfs/SingleEntryArchivePath;)Ljava/nio/file/attribute/BasicFileAttributeView;",
+          "line": 41,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$1::newBasicAttributeView",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate14Test#bzip2NewBasicAttributeViewReturnsBzip2View",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate7Test#gzipFormatCreatesGzipBasicAttributeViewEachTime"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertInstanceOf;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertNotSame;\n\nimport java.io.IOException;\nimport java.nio.file.FileStore;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Path;\nimport java.nio.file.PathMatcher;\nimport java.nio.file.WatchService;\nimport java.nio.file.attribute.BasicFileAttributeView;\nimport java.nio.file.attribute.UserPrincipalLookupService;\nimport java.nio.file.spi.FileSystemProvider;\nimport java.util.Collections;\nimport java.util.Set;\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate7Test {\n\n  private static final class StubFileSystem extends FileSystem {\n    @Override\n    public FileSystemProvider provider() {\n      return null;\n    }\n\n    @Override\n    public void close() throws IOException {}\n\n    @Override\n    public boolean isOpen() {\n      return true;\n    }\n\n    @Override\n    public boolean isReadOnly() {\n      return true;\n    }\n\n    @Override\n    public String getSeparator() {\n      return \"/\";\n    }\n\n    @Override\n    public Iterable<Path> getRootDirectories() {\n      return Collections.emptyList();\n    }\n\n    @Override\n    public Iterable<FileStore> getFileStores() {\n      return Collections.emptyList();\n    }\n\n    @Override\n    public Set<String> supportedFileAttributeViews() {\n      return Collections.singleton(\"basic\");\n    }\n\n    @Override\n    public Path getPath(String first, String... more) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public PathMatcher getPathMatcher(String syntaxAndPattern) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public UserPrincipalLookupService getUserPrincipalLookupService() {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public WatchService newWatchService() throws IOException {\n      throw new UnsupportedOperationException();\n    }\n  }\n\n  @Test\n  void gzipFormatCreatesGzipBasicAttributeViewEachTime() {\n    SingleEntryArchivePath path =\n        new SingleEntryArchivePath(\n            new StubFileSystem(), SingleEntryArchiveFormat.GZIP, true, \"entry.txt\");\n\n    BasicFileAttributeView first = SingleEntryArchiveFormat.GZIP.newBasicAttributeView(path);\n    BasicFileAttributeView second = SingleEntryArchiveFormat.GZIP.newBasicAttributeView(path);\n\n    assertNotNull(first);\n    assertInstanceOf(GzipBasicFileAttributeView.class, first);\n    assertInstanceOf(GzipBasicFileAttributeView.class, second);\n    assertNotSame(first, second);\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate8Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SingleEntryArchiveFormatMutaGate8Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.nio.file.FileSystems;\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate8Test {\n\n  @Test\n  void bzip2HostArchiveRejectsFileSystemsThatAreNotBzip2() {\n    assertThrows(\n        ClassCastException.class,\n        () -> SingleEntryArchiveFormat.BZIP2.hostArchive(FileSystems.getDefault()));\n    assertThrows(\n        NullPointerException.class, () -> SingleEntryArchiveFormat.BZIP2.hostArchive(null));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate9Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SingleEntryArchiveFormatMutaGate9Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$2",
+          "mutated_method": "uriSchemeId",
+          "method_description": "()Ljava/lang/String;",
+          "line": 57,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$2::uriSchemeId",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate10Test#bzip2UriSchemeIdIsPlainSchemeWithoutColonAndDiffersFromGzip",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate3Test#uriSchemeIdIsBareSchemeConsistentWithPrefixAndDistinctPerFormat",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate9Test#bzip2UriSchemePrefixIsSchemeIdWithColonAndDiffersFromGzip"
+          ]
+        },
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$2",
+          "mutated_method": "uriSchemePrefix",
+          "method_description": "()Ljava/lang/String;",
+          "line": 52,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$2::uriSchemePrefix",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate10Test#bzip2UriSchemeIdIsPlainSchemeWithoutColonAndDiffersFromGzip",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate2Test#uriSchemePrefixIsSchemeIdPlusColonAndDistinctPerFormat",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate3Test#uriSchemeIdIsBareSchemeConsistentWithPrefixAndDistinctPerFormat",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate9Test#bzip2UriSchemePrefixIsSchemeIdWithColonAndDiffersFromGzip"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate9Test {\n\n  @Test\n  void bzip2UriSchemePrefixIsSchemeIdWithColonAndDiffersFromGzip() {\n    String prefix = SingleEntryArchiveFormat.BZIP2.uriSchemePrefix();\n\n    assertEquals(\"bzip2:\", prefix);\n    assertEquals(SingleEntryArchiveFormat.BZIP2.uriSchemeId() + \":\", prefix);\n    assertNotEquals(SingleEntryArchiveFormat.GZIP.uriSchemePrefix(), prefix);\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate10Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SingleEntryArchiveFormatMutaGate10Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$2",
+          "mutated_method": "uriSchemeId",
+          "method_description": "()Ljava/lang/String;",
+          "line": 57,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$2::uriSchemeId",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate10Test#bzip2UriSchemeIdIsPlainSchemeWithoutColonAndDiffersFromGzip",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate3Test#uriSchemeIdIsBareSchemeConsistentWithPrefixAndDistinctPerFormat",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate9Test#bzip2UriSchemePrefixIsSchemeIdWithColonAndDiffersFromGzip"
+          ]
+        },
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$2",
+          "mutated_method": "uriSchemePrefix",
+          "method_description": "()Ljava/lang/String;",
+          "line": 52,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$2::uriSchemePrefix",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate10Test#bzip2UriSchemeIdIsPlainSchemeWithoutColonAndDiffersFromGzip",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate2Test#uriSchemePrefixIsSchemeIdPlusColonAndDistinctPerFormat",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate3Test#uriSchemeIdIsBareSchemeConsistentWithPrefixAndDistinctPerFormat",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate9Test#bzip2UriSchemePrefixIsSchemeIdWithColonAndDiffersFromGzip"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate10Test {\n\n  @Test\n  void bzip2UriSchemeIdIsPlainSchemeWithoutColonAndDiffersFromGzip() {\n    String id = SingleEntryArchiveFormat.BZIP2.uriSchemeId();\n\n    assertEquals(\"bzip2\", id);\n    assertEquals(\n        SingleEntryArchiveFormat.BZIP2.uriSchemePrefix(), id + \":\");\n    assertNotEquals(SingleEntryArchiveFormat.GZIP.uriSchemeId(), id);\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate11Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SingleEntryArchiveFormatMutaGate11Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 1 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$2",
+          "mutated_method": "providerDisplayName",
+          "method_description": "()Ljava/lang/String;",
+          "line": 62,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$2::providerDisplayName",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate11Test#bzip2ProviderDisplayNameIsBzip2AndDiffersFromGzip",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate4Test#providerDisplayNameIsSpecificToEachFormat"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate11Test {\n\n  @Test\n  void bzip2ProviderDisplayNameIsBzip2AndDiffersFromGzip() {\n    assertEquals(\"Bzip2\", SingleEntryArchiveFormat.BZIP2.providerDisplayName());\n    assertNotEquals(\n        SingleEntryArchiveFormat.GZIP.providerDisplayName(),\n        SingleEntryArchiveFormat.BZIP2.providerDisplayName());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate12Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SingleEntryArchiveFormatMutaGate12Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$2",
+          "mutated_method": "watchServiceMessage",
+          "method_description": "()Ljava/lang/String;",
+          "line": 67,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$2::watchServiceMessage",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate12Test#bzip2WatchServiceMessageIsExactAndDistinctFromGzip",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate5Test#watchServiceMessagesAreFormatSpecific"
+          ]
+        },
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$1",
+          "mutated_method": "watchServiceMessage",
+          "method_description": "()Ljava/lang/String;",
+          "line": 31,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$1::watchServiceMessage",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate12Test#bzip2WatchServiceMessageIsExactAndDistinctFromGzip",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate5Test#watchServiceMessagesAreFormatSpecific"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate12Test {\n\n  @Test\n  void bzip2WatchServiceMessageIsExactAndDistinctFromGzip() {\n    String bzip2 = SingleEntryArchiveFormat.BZIP2.watchServiceMessage();\n    assertEquals(\"Watch service is not implemented for bzip2 entries\", bzip2);\n    assertNotEquals(SingleEntryArchiveFormat.GZIP.watchServiceMessage(), bzip2);\n    assertEquals(\"Watch service is not implemented for gzip entries\",\n        SingleEntryArchiveFormat.GZIP.watchServiceMessage());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate13Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SingleEntryArchiveFormatMutaGate13Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$2",
+          "mutated_method": "toHostFileUnsupportedMessage",
+          "method_description": "()Ljava/lang/String;",
+          "line": 72,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$2::toHostFileUnsupportedMessage",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate13Test#toHostFileUnsupportedMessageIsFormatSpecific",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate6Test#toHostFileUnsupportedMessageIsFormatSpecific"
+          ]
+        },
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$1",
+          "mutated_method": "toHostFileUnsupportedMessage",
+          "method_description": "()Ljava/lang/String;",
+          "line": 36,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$1::toHostFileUnsupportedMessage",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate13Test#toHostFileUnsupportedMessageIsFormatSpecific",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate6Test#toHostFileUnsupportedMessageIsFormatSpecific"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate13Test {\n\n  @Test\n  void toHostFileUnsupportedMessageIsFormatSpecific() {\n    assertEquals(\n        \"Bzip2 entry path does not map to a host java.io.File\",\n        SingleEntryArchiveFormat.BZIP2.toHostFileUnsupportedMessage());\n    assertEquals(\n        \"Gzip entry path does not map to a host java.io.File\",\n        SingleEntryArchiveFormat.GZIP.toHostFileUnsupportedMessage());\n    assertNotEquals(\n        SingleEntryArchiveFormat.GZIP.toHostFileUnsupportedMessage(),\n        SingleEntryArchiveFormat.BZIP2.toHostFileUnsupportedMessage());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate14Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SingleEntryArchiveFormatMutaGate14Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$2",
+          "mutated_method": "newBasicAttributeView",
+          "method_description": "(Lio/github/iachimoe/tarballfs/SingleEntryArchivePath;)Ljava/nio/file/attribute/BasicFileAttributeView;",
+          "line": 77,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$2::newBasicAttributeView",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate14Test#bzip2NewBasicAttributeViewReturnsBzip2View"
+          ]
+        },
+        {
+          "source_file": "SingleEntryArchiveFormat.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat$1",
+          "mutated_method": "newBasicAttributeView",
+          "method_description": "(Lio/github/iachimoe/tarballfs/SingleEntryArchivePath;)Ljava/nio/file/attribute/BasicFileAttributeView;",
+          "line": 41,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SingleEntryArchiveFormat$1::newBasicAttributeView",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate14Test#bzip2NewBasicAttributeViewReturnsBzip2View",
+            "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate7Test#gzipFormatCreatesGzipBasicAttributeViewEachTime"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertNotSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.nio.file.FileStore;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Path;\nimport java.nio.file.PathMatcher;\nimport java.nio.file.WatchService;\nimport java.nio.file.attribute.BasicFileAttributeView;\nimport java.nio.file.attribute.UserPrincipalLookupService;\nimport java.nio.file.spi.FileSystemProvider;\nimport java.util.Collections;\nimport java.util.Set;\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate14Test {\n\n  private static final class StubFileSystem extends FileSystem {\n    @Override\n    public FileSystemProvider provider() {\n      return null;\n    }\n\n    @Override\n    public void close() throws IOException {}\n\n    @Override\n    public boolean isOpen() {\n      return true;\n    }\n\n    @Override\n    public boolean isReadOnly() {\n      return true;\n    }\n\n    @Override\n    public String getSeparator() {\n      return \"/\";\n    }\n\n    @Override\n    public Iterable<Path> getRootDirectories() {\n      return Collections.emptyList();\n    }\n\n    @Override\n    public Iterable<FileStore> getFileStores() {\n      return Collections.emptyList();\n    }\n\n    @Override\n    public Set<String> supportedFileAttributeViews() {\n      return Collections.singleton(\"basic\");\n    }\n\n    @Override\n    public Path getPath(String first, String... more) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public PathMatcher getPathMatcher(String syntaxAndPattern) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public UserPrincipalLookupService getUserPrincipalLookupService() {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public WatchService newWatchService() throws IOException {\n      throw new UnsupportedOperationException();\n    }\n  }\n\n  @Test\n  void bzip2NewBasicAttributeViewReturnsBzip2View() {\n    StubFileSystem fs = new StubFileSystem();\n    SingleEntryArchivePath bzPath =\n        new SingleEntryArchivePath(fs, SingleEntryArchiveFormat.BZIP2, true, \"entry\");\n    SingleEntryArchivePath gzPath =\n        new SingleEntryArchivePath(fs, SingleEntryArchiveFormat.GZIP, true, \"entry\");\n\n    BasicFileAttributeView bzView = SingleEntryArchiveFormat.BZIP2.newBasicAttributeView(bzPath);\n    BasicFileAttributeView gzView = SingleEntryArchiveFormat.GZIP.newBasicAttributeView(gzPath);\n\n    assertNotNull(bzView);\n    assertTrue(bzView instanceof Bzip2BasicFileAttributeView);\n    assertEquals(Bzip2BasicFileAttributeView.class, bzView.getClass());\n    assertTrue(gzView instanceof GzipBasicFileAttributeView);\n    assertNotSame(bzView.getClass(), gzView.getClass());\n    assertNotSame(bzView, SingleEntryArchiveFormat.BZIP2.newBasicAttributeView(bzPath));\n  }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.io.IOException;\nimport java.nio.file.FileStore;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Path;\nimport java.nio.file.PathMatcher;\nimport java.nio.file.WatchService;\nimport java.nio.file.attribute.UserPrincipalLookupService;\nimport java.nio.file.spi.FileSystemProvider;\nimport java.util.Collections;\nimport java.util.Set;\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate1Test {\n\n  private static final class ForeignFileSystem extends FileSystem {\n    @Override\n    public FileSystemProvider provider() {\n      return null;\n    }\n\n    @Override\n    public void close() throws IOException {}\n\n    @Override\n    public boolean isOpen() {\n      return true;\n    }\n\n    @Override\n    public boolean isReadOnly() {\n      return true;\n    }\n\n    @Override\n    public String getSeparator() {\n      return \"/\";\n    }\n\n    @Override\n    public Iterable<Path> getRootDirectories() {\n      return Collections.emptyList();\n    }\n\n    @Override\n    public Iterable<FileStore> getFileStores() {\n      return Collections.emptyList();\n    }\n\n    @Override\n    public Set<String> supportedFileAttributeViews() {\n      return Collections.emptySet();\n    }\n\n    @Override\n    public Path getPath(String first, String... more) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public PathMatcher getPathMatcher(String syntaxAndPattern) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public UserPrincipalLookupService getUserPrincipalLookupService() {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public WatchService newWatchService() throws IOException {\n      throw new UnsupportedOperationException();\n    }\n  }\n\n  @Test\n  void gzipHostArchiveRejectsFileSystemsThatAreNotGzipFileSystems() {\n    assertThrows(\n        ClassCastException.class,\n        () -> SingleEntryArchiveFormat.GZIP.hostArchive(new ForeignFileSystem()));\n    assertThrows(\n        NullPointerException.class, () -> SingleEntryArchiveFormat.GZIP.hostArchive(null));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 3448,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 1353,
+        "thinking_tokens": 499
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate2Test {\n\n  @Test\n  void uriSchemePrefixIsSchemeIdPlusColonAndDistinctPerFormat() {\n    String gzipPrefix = SingleEntryArchiveFormat.GZIP.uriSchemePrefix();\n    String bzip2Prefix = SingleEntryArchiveFormat.BZIP2.uriSchemePrefix();\n\n    assertEquals(\"gzip:\", gzipPrefix);\n    assertEquals(SingleEntryArchiveFormat.GZIP.uriSchemeId() + \":\", gzipPrefix);\n    assertTrue(gzipPrefix.endsWith(\":\"));\n    assertEquals(5, gzipPrefix.length());\n    assertNotEquals(bzip2Prefix, gzipPrefix);\n    assertEquals(\"bzip2:\", bzip2Prefix);\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 700,
+        "cache_read_input_tokens": 2729,
+        "output_tokens": 437,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate3Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate3Test {\n\n  @Test\n  void uriSchemeIdIsBareSchemeConsistentWithPrefixAndDistinctPerFormat() {\n    String gzipId = SingleEntryArchiveFormat.GZIP.uriSchemeId();\n    String bzip2Id = SingleEntryArchiveFormat.BZIP2.uriSchemeId();\n\n    assertEquals(\"gzip\", gzipId);\n    assertEquals(\"bzip2\", bzip2Id);\n    assertNotEquals(gzipId, bzip2Id);\n\n    assertEquals(gzipId + \":\", SingleEntryArchiveFormat.GZIP.uriSchemePrefix());\n    assertEquals(bzip2Id + \":\", SingleEntryArchiveFormat.BZIP2.uriSchemePrefix());\n\n    assertTrue(!gzipId.isEmpty());\n    assertEquals(gzipId, gzipId.toLowerCase());\n    assertEquals(gzipId, gzipId.trim());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 696,
+        "cache_read_input_tokens": 2729,
+        "output_tokens": 488,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate4Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate4Test {\n\n  @Test\n  void providerDisplayNameIsSpecificToEachFormat() {\n    assertEquals(\"Gzip\", SingleEntryArchiveFormat.GZIP.providerDisplayName());\n    assertEquals(\"Bzip2\", SingleEntryArchiveFormat.BZIP2.providerDisplayName());\n    assertNotEquals(\n        SingleEntryArchiveFormat.GZIP.providerDisplayName(),\n        SingleEntryArchiveFormat.BZIP2.providerDisplayName());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 698,
+        "cache_read_input_tokens": 2729,
+        "output_tokens": 306,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate5Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate5Test {\n\n  @Test\n  void watchServiceMessagesAreFormatSpecific() {\n    assertEquals(\n        \"Watch service is not implemented for gzip entries\",\n        SingleEntryArchiveFormat.GZIP.watchServiceMessage());\n    assertEquals(\n        \"Watch service is not implemented for bzip2 entries\",\n        SingleEntryArchiveFormat.BZIP2.watchServiceMessage());\n    assertNotEquals(\n        SingleEntryArchiveFormat.GZIP.watchServiceMessage(),\n        SingleEntryArchiveFormat.BZIP2.watchServiceMessage());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 707,
+        "cache_read_input_tokens": 2729,
+        "output_tokens": 341,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate6Test",
+      "attempt": 1,
+      "reply": "<invoke name=\"bash\">\n<parameter name=\"command\">true</parameter>\n</invoke>\n\n<invoke name=\"bash\">\n<parameter name=\"command\">true</parameter>\n</invoke>\n\n```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate6Test {\n\n  @Test\n  void toHostFileUnsupportedMessageIsFormatSpecific() {\n    assertEquals(\n        \"Gzip entry path does not map to a host java.io.File\",\n        SingleEntryArchiveFormat.GZIP.toHostFileUnsupportedMessage());\n    assertEquals(\n        \"Bzip2 entry path does not map to a host java.io.File\",\n        SingleEntryArchiveFormat.BZIP2.toHostFileUnsupportedMessage());\n    assertNotEquals(\n        SingleEntryArchiveFormat.GZIP.toHostFileUnsupportedMessage(),\n        SingleEntryArchiveFormat.BZIP2.toHostFileUnsupportedMessage());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 717,
+        "cache_read_input_tokens": 2729,
+        "output_tokens": 468,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate7Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertInstanceOf;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertNotSame;\n\nimport java.io.IOException;\nimport java.nio.file.FileStore;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Path;\nimport java.nio.file.PathMatcher;\nimport java.nio.file.WatchService;\nimport java.nio.file.attribute.BasicFileAttributeView;\nimport java.nio.file.attribute.UserPrincipalLookupService;\nimport java.nio.file.spi.FileSystemProvider;\nimport java.util.Collections;\nimport java.util.Set;\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate7Test {\n\n  private static final class StubFileSystem extends FileSystem {\n    @Override\n    public FileSystemProvider provider() {\n      return null;\n    }\n\n    @Override\n    public void close() throws IOException {}\n\n    @Override\n    public boolean isOpen() {\n      return true;\n    }\n\n    @Override\n    public boolean isReadOnly() {\n      return true;\n    }\n\n    @Override\n    public String getSeparator() {\n      return \"/\";\n    }\n\n    @Override\n    public Iterable<Path> getRootDirectories() {\n      return Collections.emptyList();\n    }\n\n    @Override\n    public Iterable<FileStore> getFileStores() {\n      return Collections.emptyList();\n    }\n\n    @Override\n    public Set<String> supportedFileAttributeViews() {\n      return Collections.singleton(\"basic\");\n    }\n\n    @Override\n    public Path getPath(String first, String... more) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public PathMatcher getPathMatcher(String syntaxAndPattern) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public UserPrincipalLookupService getUserPrincipalLookupService() {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public WatchService newWatchService() throws IOException {\n      throw new UnsupportedOperationException();\n    }\n  }\n\n  @Test\n  void gzipFormatCreatesGzipBasicAttributeViewEachTime() {\n    SingleEntryArchivePath path =\n        new SingleEntryArchivePath(\n            new StubFileSystem(), SingleEntryArchiveFormat.GZIP, true, \"entry.txt\");\n\n    BasicFileAttributeView first = SingleEntryArchiveFormat.GZIP.newBasicAttributeView(path);\n    BasicFileAttributeView second = SingleEntryArchiveFormat.GZIP.newBasicAttributeView(path);\n\n    assertNotNull(first);\n    assertInstanceOf(GzipBasicFileAttributeView.class, first);\n    assertInstanceOf(GzipBasicFileAttributeView.class, second);\n    assertNotSame(first, second);\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 730,
+        "cache_read_input_tokens": 2729,
+        "output_tokens": 1645,
+        "thinking_tokens": 585
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate8Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.nio.file.FileSystems;\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate8Test {\n\n  @Test\n  void bzip2HostArchiveRejectsFileSystemsThatAreNotBzip2() {\n    assertThrows(\n        ClassCastException.class,\n        () -> SingleEntryArchiveFormat.BZIP2.hostArchive(FileSystems.getDefault()));\n    assertThrows(\n        NullPointerException.class, () -> SingleEntryArchiveFormat.BZIP2.hostArchive(null));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 718,
+        "cache_read_input_tokens": 2729,
+        "output_tokens": 649,
+        "thinking_tokens": 386
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate9Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate9Test {\n\n  @Test\n  void bzip2UriSchemePrefixIsSchemeIdWithColonAndDiffersFromGzip() {\n    String prefix = SingleEntryArchiveFormat.BZIP2.uriSchemePrefix();\n\n    assertEquals(\"bzip2:\", prefix);\n    assertEquals(SingleEntryArchiveFormat.BZIP2.uriSchemeId() + \":\", prefix);\n    assertNotEquals(SingleEntryArchiveFormat.GZIP.uriSchemePrefix(), prefix);\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 699,
+        "cache_read_input_tokens": 2729,
+        "output_tokens": 313,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate10Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate10Test {\n\n  @Test\n  void bzip2UriSchemeIdIsPlainSchemeWithoutColonAndDiffersFromGzip() {\n    String id = SingleEntryArchiveFormat.BZIP2.uriSchemeId();\n\n    assertEquals(\"bzip2\", id);\n    assertEquals(\n        SingleEntryArchiveFormat.BZIP2.uriSchemePrefix(), id + \":\");\n    assertNotEquals(SingleEntryArchiveFormat.GZIP.uriSchemeId(), id);\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 698,
+        "cache_read_input_tokens": 2729,
+        "output_tokens": 306,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate11Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate11Test {\n\n  @Test\n  void bzip2ProviderDisplayNameIsBzip2AndDiffersFromGzip() {\n    assertEquals(\"Bzip2\", SingleEntryArchiveFormat.BZIP2.providerDisplayName());\n    assertNotEquals(\n        SingleEntryArchiveFormat.GZIP.providerDisplayName(),\n        SingleEntryArchiveFormat.BZIP2.providerDisplayName());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 699,
+        "cache_read_input_tokens": 2729,
+        "output_tokens": 277,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate12Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate12Test {\n\n  @Test\n  void bzip2WatchServiceMessageIsExactAndDistinctFromGzip() {\n    String bzip2 = SingleEntryArchiveFormat.BZIP2.watchServiceMessage();\n    assertEquals(\"Watch service is not implemented for bzip2 entries\", bzip2);\n    assertNotEquals(SingleEntryArchiveFormat.GZIP.watchServiceMessage(), bzip2);\n    assertEquals(\"Watch service is not implemented for gzip entries\",\n        SingleEntryArchiveFormat.GZIP.watchServiceMessage());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 711,
+        "cache_read_input_tokens": 2729,
+        "output_tokens": 329,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate13Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate13Test {\n\n  @Test\n  void toHostFileUnsupportedMessageIsFormatSpecific() {\n    assertEquals(\n        \"Bzip2 entry path does not map to a host java.io.File\",\n        SingleEntryArchiveFormat.BZIP2.toHostFileUnsupportedMessage());\n    assertEquals(\n        \"Gzip entry path does not map to a host java.io.File\",\n        SingleEntryArchiveFormat.GZIP.toHostFileUnsupportedMessage());\n    assertNotEquals(\n        SingleEntryArchiveFormat.GZIP.toHostFileUnsupportedMessage(),\n        SingleEntryArchiveFormat.BZIP2.toHostFileUnsupportedMessage());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 721,
+        "cache_read_input_tokens": 2729,
+        "output_tokens": 376,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormatMutaGate14Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertNotSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.nio.file.FileStore;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Path;\nimport java.nio.file.PathMatcher;\nimport java.nio.file.WatchService;\nimport java.nio.file.attribute.BasicFileAttributeView;\nimport java.nio.file.attribute.UserPrincipalLookupService;\nimport java.nio.file.spi.FileSystemProvider;\nimport java.util.Collections;\nimport java.util.Set;\nimport org.junit.jupiter.api.Test;\n\nclass SingleEntryArchiveFormatMutaGate14Test {\n\n  private static final class StubFileSystem extends FileSystem {\n    @Override\n    public FileSystemProvider provider() {\n      return null;\n    }\n\n    @Override\n    public void close() throws IOException {}\n\n    @Override\n    public boolean isOpen() {\n      return true;\n    }\n\n    @Override\n    public boolean isReadOnly() {\n      return true;\n    }\n\n    @Override\n    public String getSeparator() {\n      return \"/\";\n    }\n\n    @Override\n    public Iterable<Path> getRootDirectories() {\n      return Collections.emptyList();\n    }\n\n    @Override\n    public Iterable<FileStore> getFileStores() {\n      return Collections.emptyList();\n    }\n\n    @Override\n    public Set<String> supportedFileAttributeViews() {\n      return Collections.singleton(\"basic\");\n    }\n\n    @Override\n    public Path getPath(String first, String... more) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public PathMatcher getPathMatcher(String syntaxAndPattern) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public UserPrincipalLookupService getUserPrincipalLookupService() {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public WatchService newWatchService() throws IOException {\n      throw new UnsupportedOperationException();\n    }\n  }\n\n  @Test\n  void bzip2NewBasicAttributeViewReturnsBzip2View() {\n    StubFileSystem fs = new StubFileSystem();\n    SingleEntryArchivePath bzPath =\n        new SingleEntryArchivePath(fs, SingleEntryArchiveFormat.BZIP2, true, \"entry\");\n    SingleEntryArchivePath gzPath =\n        new SingleEntryArchivePath(fs, SingleEntryArchiveFormat.GZIP, true, \"entry\");\n\n    BasicFileAttributeView bzView = SingleEntryArchiveFormat.BZIP2.newBasicAttributeView(bzPath);\n    BasicFileAttributeView gzView = SingleEntryArchiveFormat.GZIP.newBasicAttributeView(gzPath);\n\n    assertNotNull(bzView);\n    assertTrue(bzView instanceof Bzip2BasicFileAttributeView);\n    assertEquals(Bzip2BasicFileAttributeView.class, bzView.getClass());\n    assertTrue(gzView instanceof GzipBasicFileAttributeView);\n    assertNotSame(bzView.getClass(), gzView.getClass());\n    assertNotSame(bzView, SingleEntryArchiveFormat.BZIP2.newBasicAttributeView(bzPath));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 733,
+        "cache_read_input_tokens": 2729,
+        "output_tokens": 1764,
+        "thinking_tokens": 499
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

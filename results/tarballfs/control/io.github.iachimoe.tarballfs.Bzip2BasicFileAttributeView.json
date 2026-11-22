@@ -1,0 +1,106 @@
+{
+  "repo": "tarballfs",
+  "class": "io.github.iachimoe.tarballfs.Bzip2BasicFileAttributeView",
+  "kind": "CONTROL",
+  "setup": {
+    "repo_commit": "9d0d8eb2b3a52801b34531675750076fd46a1b5f",
+    "date": "2026-11-22",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "fbbf194a393f76fb2eabba89ffadc9c0a7b7e53d",
+    "provider": "claude-code",
+    "provider_version": "2.1.329",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.0,
+  "score_after": 0.5,
+  "mutants_total": 2,
+  "undetected_before": 2,
+  "newly_detected": 1,
+  "candidates": 2,
+  "kept": 1,
+  "acceptance_rate": 0.5,
+  "attempts_per_kept_test": 2.0,
+  "tokens": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 3483,
+    "cache_read_input_tokens": 2053,
+    "output_tokens": 1808,
+    "thinking_tokens": 794
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.Bzip2BasicFileAttributeViewMutaGate1Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/Bzip2BasicFileAttributeViewMutaGate1Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 1 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "Bzip2BasicFileAttributeView.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.Bzip2BasicFileAttributeView",
+          "mutated_method": "name",
+          "method_description": "()Ljava/lang/String;",
+          "line": 18,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/Bzip2BasicFileAttributeView::name",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2BasicFileAttributeViewMutaGate1Test#nameReturnsBasic"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass Bzip2BasicFileAttributeViewMutaGate1Test {\n\n  @Test\n  void nameReturnsBasic() {\n    Bzip2BasicFileAttributeView view = new Bzip2BasicFileAttributeView(null);\n\n    assertEquals(\"basic\", view.name());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.Bzip2BasicFileAttributeViewMutaGate2Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/Bzip2BasicFileAttributeViewMutaGate2Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\n\nimport java.nio.file.FileSystems;\nimport java.nio.file.attribute.BasicFileAttributes;\nimport org.junit.jupiter.api.Test;\n\nclass Bzip2BasicFileAttributeViewMutaGate2Test {\n\n  private static final class Outcome {\n    final BasicFileAttributes attrs;\n    final Class<?> failure;\n\n    Outcome(BasicFileAttributes attrs, Class<?> failure) {\n      this.attrs = attrs;\n      this.failure = failure;\n    }\n  }\n\n  private interface Call {\n    BasicFileAttributes run() throws Exception;\n  }\n\n  private static Outcome capture(Call call) {\n    try {\n      return new Outcome(call.run(), null);\n    } catch (Throwable t) {\n      return new Outcome(null, t.getClass());\n    }\n  }\n\n  @Test\n  void readAttributesDelegatesToSupport() {\n    SingleEntryArchiveFormat[] formats = SingleEntryArchiveFormat.class.getEnumConstants();\n    SingleEntryArchiveFormat format = formats == null || formats.length == 0 ? null : formats[0];\n    SingleEntryArchivePath path =\n        new SingleEntryArchivePath(FileSystems.getDefault(), format, true, \"entry.txt\");\n    Bzip2BasicFileAttributeView view = new Bzip2BasicFileAttributeView(path);\n\n    Outcome expected = capture(() -> CompressorArchiveProviderSupport.readBasicAttributes(path));\n    Outcome actual = capture(view::readAttributes);\n\n    assertEquals(expected.failure, actual.failure);\n    if (expected.failure == null) {\n      assertNotNull(actual.attrs);\n      assertEquals(expected.attrs.size(), actual.attrs.size());\n      assertEquals(expected.attrs.isDirectory(), actual.attrs.isDirectory());\n      assertEquals(expected.attrs.isRegularFile(), actual.attrs.isRegularFile());\n      assertEquals(expected.attrs.isSymbolicLink(), actual.attrs.isSymbolicLink());\n      assertEquals(expected.attrs.isOther(), actual.attrs.isOther());\n    }\n  }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.Bzip2BasicFileAttributeViewMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass Bzip2BasicFileAttributeViewMutaGate1Test {\n\n  @Test\n  void nameReturnsBasic() {\n    Bzip2BasicFileAttributeView view = new Bzip2BasicFileAttributeView(null);\n\n    assertEquals(\"basic\", view.name());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 2749,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 266,
+        "thinking_tokens": 95
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.Bzip2BasicFileAttributeViewMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\n\nimport java.nio.file.FileSystems;\nimport java.nio.file.attribute.BasicFileAttributes;\nimport org.junit.jupiter.api.Test;\n\nclass Bzip2BasicFileAttributeViewMutaGate2Test {\n\n  private static final class Outcome {\n    final BasicFileAttributes attrs;\n    final Class<?> failure;\n\n    Outcome(BasicFileAttributes attrs, Class<?> failure) {\n      this.attrs = attrs;\n      this.failure = failure;\n    }\n  }\n\n  private interface Call {\n    BasicFileAttributes run() throws Exception;\n  }\n\n  private static Outcome capture(Call call) {\n    try {\n      return new Outcome(call.run(), null);\n    } catch (Throwable t) {\n      return new Outcome(null, t.getClass());\n    }\n  }\n\n  @Test\n  void readAttributesDelegatesToSupport() {\n    SingleEntryArchiveFormat[] formats = SingleEntryArchiveFormat.class.getEnumConstants();\n    SingleEntryArchiveFormat format = formats == null || formats.length == 0 ? null : formats[0];\n    SingleEntryArchivePath path =\n        new SingleEntryArchivePath(FileSystems.getDefault(), format, true, \"entry.txt\");\n    Bzip2BasicFileAttributeView view = new Bzip2BasicFileAttributeView(path);\n\n    Outcome expected = capture(() -> CompressorArchiveProviderSupport.readBasicAttributes(path));\n    Outcome actual = capture(view::readAttributes);\n\n    assertEquals(expected.failure, actual.failure);\n    if (expected.failure == null) {\n      assertNotNull(actual.attrs);\n      assertEquals(expected.attrs.size(), actual.attrs.size());\n      assertEquals(expected.attrs.isDirectory(), actual.attrs.isDirectory());\n      assertEquals(expected.attrs.isRegularFile(), actual.attrs.isRegularFile());\n      assertEquals(expected.attrs.isSymbolicLink(), actual.attrs.isSymbolicLink());\n      assertEquals(expected.attrs.isOther(), actual.attrs.isOther());\n    }\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 734,
+        "cache_read_input_tokens": 2053,
+        "output_tokens": 1542,
+        "thinking_tokens": 699
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

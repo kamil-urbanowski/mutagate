@@ -1,0 +1,1067 @@
+{
+  "repo": "tarballfs",
+  "class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+  "kind": "CONTROL",
+  "setup": {
+    "repo_commit": "9d0d8eb2b3a52801b34531675750076fd46a1b5f",
+    "date": "2026-11-22",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "fbbf194a393f76fb2eabba89ffadc9c0a7b7e53d",
+    "provider": "claude-code",
+    "provider_version": "2.1.329",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.46153846153846156,
+  "score_after": 1.0,
+  "mutants_total": 13,
+  "undetected_before": 7,
+  "newly_detected": 7,
+  "candidates": 7,
+  "kept": 7,
+  "acceptance_rate": 1.0,
+  "attempts_per_kept_test": 1.0,
+  "tokens": {
+    "input_tokens": 14,
+    "cache_creation_input_tokens": 6204,
+    "cache_read_input_tokens": 6876,
+    "output_tokens": 2940,
+    "thinking_tokens": 0
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributesMutaGate1Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 6 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "creationTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 54,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::creationTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate5Test#creationTimeIsEpochForDirectoryAndRegularFile"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "directory",
+          "method_description": "(Ljava/lang/String;)Lio/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes;",
+          "line": 34,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::directory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate3Test#lastModifiedTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate4Test#lastAccessTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate5Test#creationTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "fileKey",
+          "method_description": "()Ljava/lang/Object;",
+          "line": 84,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::fileKey",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "isDirectory",
+          "method_description": "()Z",
+          "line": 64,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::isDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "isOther",
+          "method_description": "()Z",
+          "line": 74,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::isOther",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "isRegularFile",
+          "method_description": "()Z",
+          "line": 59,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::isRegularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "isSymbolicLink",
+          "method_description": "()Z",
+          "line": 69,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::isSymbolicLink",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "lastAccessTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 49,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::lastAccessTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate4Test#lastAccessTimeIsEpochForDirectoryAndRegularFile"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "lastModifiedTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 44,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::lastModifiedTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate3Test#lastModifiedTimeIsEpochForDirectoryAndRegularFile"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.attribute.FileTime;\nimport org.junit.jupiter.api.Test;\n\nclass SimpleVirtualBasicAttributesMutaGate1Test {\n\n  @Test\n  void directoryAttributesHaveExpectedValues() {\n    String key = \"some/dir/\";\n    SimpleVirtualBasicAttributes attrs = SimpleVirtualBasicAttributes.directory(key);\n\n    FileTime epoch = FileTime.fromMillis(0L);\n\n    assertTrue(attrs.isDirectory());\n    assertFalse(attrs.isRegularFile());\n    assertFalse(attrs.isSymbolicLink());\n    assertFalse(attrs.isOther());\n    assertEquals(0L, attrs.size());\n    assertEquals(epoch, attrs.lastModifiedTime());\n    assertEquals(epoch, attrs.lastAccessTime());\n    assertEquals(epoch, attrs.creationTime());\n    assertEquals(key, attrs.fileKey());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributesMutaGate2Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 7 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "creationTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 54,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::creationTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate5Test#creationTimeIsEpochForDirectoryAndRegularFile"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "fileKey",
+          "method_description": "()Ljava/lang/Object;",
+          "line": 84,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::fileKey",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "isDirectory",
+          "method_description": "()Z",
+          "line": 64,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::isDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "isOther",
+          "method_description": "()Z",
+          "line": 74,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::isOther",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "isRegularFile",
+          "method_description": "()Z",
+          "line": 59,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::isRegularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "isSymbolicLink",
+          "method_description": "()Z",
+          "line": 69,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::isSymbolicLink",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "lastAccessTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 49,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::lastAccessTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate4Test#lastAccessTimeIsEpochForDirectoryAndRegularFile"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "lastModifiedTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 44,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::lastModifiedTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate3Test#lastModifiedTimeIsEpochForDirectoryAndRegularFile"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "regularFile",
+          "method_description": "(Ljava/lang/String;J)Lio/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes;",
+          "line": 39,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::regularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate3Test#lastModifiedTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate4Test#lastAccessTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate5Test#creationTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "size",
+          "method_description": "()J",
+          "line": 79,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::size",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.attribute.FileTime;\nimport org.junit.jupiter.api.Test;\n\nclass SimpleVirtualBasicAttributesMutaGate2Test {\n\n  @Test\n  void regularFileHasExpectedAttributes() {\n    String key = \"dir/file.txt\";\n    SimpleVirtualBasicAttributes attrs = SimpleVirtualBasicAttributes.regularFile(key, 12345L);\n\n    assertTrue(attrs.isRegularFile());\n    assertFalse(attrs.isDirectory());\n    assertFalse(attrs.isSymbolicLink());\n    assertFalse(attrs.isOther());\n    assertEquals(12345L, attrs.size());\n    assertSame(key, attrs.fileKey());\n\n    FileTime epoch = FileTime.fromMillis(0L);\n    assertEquals(epoch, attrs.lastModifiedTime());\n    assertEquals(epoch, attrs.lastAccessTime());\n    assertEquals(epoch, attrs.creationTime());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate3Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributesMutaGate3Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 1 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "directory",
+          "method_description": "(Ljava/lang/String;)Lio/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes;",
+          "line": 34,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::directory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate3Test#lastModifiedTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate4Test#lastAccessTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate5Test#creationTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "lastModifiedTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 44,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::lastModifiedTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate3Test#lastModifiedTimeIsEpochForDirectoryAndRegularFile"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "regularFile",
+          "method_description": "(Ljava/lang/String;J)Lio/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes;",
+          "line": 39,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::regularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate3Test#lastModifiedTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate4Test#lastAccessTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate5Test#creationTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.attribute.FileTime;\nimport org.junit.jupiter.api.Test;\n\nclass SimpleVirtualBasicAttributesMutaGate3Test {\n\n  @Test\n  void lastModifiedTimeIsEpochForDirectoryAndRegularFile() {\n    FileTime epoch = FileTime.fromMillis(0L);\n\n    SimpleVirtualBasicAttributes dir = SimpleVirtualBasicAttributes.directory(\"d/\");\n    SimpleVirtualBasicAttributes file = SimpleVirtualBasicAttributes.regularFile(\"f.txt\", 42L);\n\n    assertEquals(epoch, dir.lastModifiedTime());\n    assertEquals(0L, dir.lastModifiedTime().toMillis());\n    assertEquals(epoch, file.lastModifiedTime());\n    assertEquals(0L, file.lastModifiedTime().toMillis());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate4Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributesMutaGate4Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 1 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "directory",
+          "method_description": "(Ljava/lang/String;)Lio/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes;",
+          "line": 34,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::directory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate3Test#lastModifiedTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate4Test#lastAccessTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate5Test#creationTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "lastAccessTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 49,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::lastAccessTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate4Test#lastAccessTimeIsEpochForDirectoryAndRegularFile"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "regularFile",
+          "method_description": "(Ljava/lang/String;J)Lio/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes;",
+          "line": 39,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::regularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate3Test#lastModifiedTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate4Test#lastAccessTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate5Test#creationTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\n\nimport java.nio.file.attribute.FileTime;\nimport org.junit.jupiter.api.Test;\n\nclass SimpleVirtualBasicAttributesMutaGate4Test {\n\n  @Test\n  void lastAccessTimeIsEpochForDirectoryAndRegularFile() {\n    FileTime epoch = FileTime.fromMillis(0L);\n\n    SimpleVirtualBasicAttributes dir = SimpleVirtualBasicAttributes.directory(\"d\");\n    SimpleVirtualBasicAttributes file = SimpleVirtualBasicAttributes.regularFile(\"f\", 42L);\n\n    assertNotNull(dir.lastAccessTime());\n    assertNotNull(file.lastAccessTime());\n    assertEquals(epoch, dir.lastAccessTime());\n    assertEquals(epoch, file.lastAccessTime());\n    assertEquals(0L, dir.lastAccessTime().toMillis());\n    assertEquals(0L, file.lastAccessTime().toMillis());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate5Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributesMutaGate5Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 1 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "creationTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 54,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::creationTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate5Test#creationTimeIsEpochForDirectoryAndRegularFile"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "directory",
+          "method_description": "(Ljava/lang/String;)Lio/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes;",
+          "line": 34,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::directory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate3Test#lastModifiedTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate4Test#lastAccessTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate5Test#creationTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "regularFile",
+          "method_description": "(Ljava/lang/String;J)Lio/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes;",
+          "line": 39,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::regularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate3Test#lastModifiedTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate4Test#lastAccessTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate5Test#creationTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.attribute.FileTime;\nimport org.junit.jupiter.api.Test;\n\nclass SimpleVirtualBasicAttributesMutaGate5Test {\n\n  @Test\n  void creationTimeIsEpochForDirectoryAndRegularFile() {\n    FileTime epoch = FileTime.fromMillis(0L);\n\n    SimpleVirtualBasicAttributes dir = SimpleVirtualBasicAttributes.directory(\"d/\");\n    SimpleVirtualBasicAttributes file = SimpleVirtualBasicAttributes.regularFile(\"f.txt\", 42L);\n\n    assertEquals(epoch, dir.creationTime());\n    assertEquals(epoch, file.creationTime());\n    assertEquals(0L, dir.creationTime().toMillis());\n    assertEquals(0L, file.creationTime().toMillis());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributesMutaGate6Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 1 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "directory",
+          "method_description": "(Ljava/lang/String;)Lio/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes;",
+          "line": 34,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::directory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate3Test#lastModifiedTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate4Test#lastAccessTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate5Test#creationTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "isDirectory",
+          "method_description": "()Z",
+          "line": 64,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::isDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "isDirectory",
+          "method_description": "()Z",
+          "line": 64,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::isDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "isRegularFile",
+          "method_description": "()Z",
+          "line": 59,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::isRegularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "isRegularFile",
+          "method_description": "()Z",
+          "line": 59,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::isRegularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "regularFile",
+          "method_description": "(Ljava/lang/String;J)Lio/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes;",
+          "line": 39,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::regularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate3Test#lastModifiedTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate4Test#lastAccessTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate5Test#creationTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.junit.jupiter.api.Test;\n\nclass SimpleVirtualBasicAttributesMutaGate6Test {\n\n  @Test\n  void isRegularFileReflectsFactoryUsed() {\n    SimpleVirtualBasicAttributes file = SimpleVirtualBasicAttributes.regularFile(\"a/b.txt\", 42L);\n    SimpleVirtualBasicAttributes emptyFile = SimpleVirtualBasicAttributes.regularFile(\"empty\", 0L);\n    SimpleVirtualBasicAttributes dir = SimpleVirtualBasicAttributes.directory(\"a/\");\n\n    assertTrue(file.isRegularFile());\n    assertTrue(emptyFile.isRegularFile());\n    assertFalse(dir.isRegularFile());\n\n    assertFalse(file.isDirectory());\n    assertTrue(dir.isDirectory());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributesMutaGate7Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 3 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "directory",
+          "method_description": "(Ljava/lang/String;)Lio/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes;",
+          "line": 34,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::directory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate3Test#lastModifiedTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate4Test#lastAccessTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate5Test#creationTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "isDirectory",
+          "method_description": "()Z",
+          "line": 64,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::isDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "isDirectory",
+          "method_description": "()Z",
+          "line": 64,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::isDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "isOther",
+          "method_description": "()Z",
+          "line": 74,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::isOther",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "isRegularFile",
+          "method_description": "()Z",
+          "line": 59,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::isRegularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "isRegularFile",
+          "method_description": "()Z",
+          "line": 59,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::isRegularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "isSymbolicLink",
+          "method_description": "()Z",
+          "line": 69,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::isSymbolicLink",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test#directoryAttributesHaveExpectedValues",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        },
+        {
+          "source_file": "SimpleVirtualBasicAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+          "mutated_method": "regularFile",
+          "method_description": "(Ljava/lang/String;J)Lio/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes;",
+          "line": 39,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/SimpleVirtualBasicAttributes::regularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test#regularFileHasExpectedAttributes",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate3Test#lastModifiedTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate4Test#lastAccessTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate5Test#creationTimeIsEpochForDirectoryAndRegularFile",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test#isRegularFileReflectsFactoryUsed",
+            "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test#isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.junit.jupiter.api.Test;\n\nclass SimpleVirtualBasicAttributesMutaGate7Test {\n\n  @Test\n  void isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags() {\n    SimpleVirtualBasicAttributes dir = SimpleVirtualBasicAttributes.directory(\"dir/\");\n    SimpleVirtualBasicAttributes emptyFile = SimpleVirtualBasicAttributes.regularFile(\"a.txt\", 0L);\n    SimpleVirtualBasicAttributes bigFile = SimpleVirtualBasicAttributes.regularFile(\"b.txt\", 1024L);\n\n    assertTrue(dir.isDirectory());\n    assertFalse(dir.isRegularFile());\n    assertFalse(dir.isSymbolicLink());\n    assertFalse(dir.isOther());\n\n    assertFalse(emptyFile.isDirectory());\n    assertTrue(emptyFile.isRegularFile());\n\n    assertFalse(bigFile.isDirectory());\n    assertTrue(bigFile.isRegularFile());\n  }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.attribute.FileTime;\nimport org.junit.jupiter.api.Test;\n\nclass SimpleVirtualBasicAttributesMutaGate1Test {\n\n  @Test\n  void directoryAttributesHaveExpectedValues() {\n    String key = \"some/dir/\";\n    SimpleVirtualBasicAttributes attrs = SimpleVirtualBasicAttributes.directory(key);\n\n    FileTime epoch = FileTime.fromMillis(0L);\n\n    assertTrue(attrs.isDirectory());\n    assertFalse(attrs.isRegularFile());\n    assertFalse(attrs.isSymbolicLink());\n    assertFalse(attrs.isOther());\n    assertEquals(0L, attrs.size());\n    assertEquals(epoch, attrs.lastModifiedTime());\n    assertEquals(epoch, attrs.lastAccessTime());\n    assertEquals(epoch, attrs.creationTime());\n    assertEquals(key, attrs.fileKey());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1920,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 452,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.attribute.FileTime;\nimport org.junit.jupiter.api.Test;\n\nclass SimpleVirtualBasicAttributesMutaGate2Test {\n\n  @Test\n  void regularFileHasExpectedAttributes() {\n    String key = \"dir/file.txt\";\n    SimpleVirtualBasicAttributes attrs = SimpleVirtualBasicAttributes.regularFile(key, 12345L);\n\n    assertTrue(attrs.isRegularFile());\n    assertFalse(attrs.isDirectory());\n    assertFalse(attrs.isSymbolicLink());\n    assertFalse(attrs.isOther());\n    assertEquals(12345L, attrs.size());\n    assertSame(key, attrs.fileKey());\n\n    FileTime epoch = FileTime.fromMillis(0L);\n    assertEquals(epoch, attrs.lastModifiedTime());\n    assertEquals(epoch, attrs.lastAccessTime());\n    assertEquals(epoch, attrs.creationTime());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 777,
+        "cache_read_input_tokens": 1146,
+        "output_tokens": 484,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate3Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.attribute.FileTime;\nimport org.junit.jupiter.api.Test;\n\nclass SimpleVirtualBasicAttributesMutaGate3Test {\n\n  @Test\n  void lastModifiedTimeIsEpochForDirectoryAndRegularFile() {\n    FileTime epoch = FileTime.fromMillis(0L);\n\n    SimpleVirtualBasicAttributes dir = SimpleVirtualBasicAttributes.directory(\"d/\");\n    SimpleVirtualBasicAttributes file = SimpleVirtualBasicAttributes.regularFile(\"f.txt\", 42L);\n\n    assertEquals(epoch, dir.lastModifiedTime());\n    assertEquals(0L, dir.lastModifiedTime().toMillis());\n    assertEquals(epoch, file.lastModifiedTime());\n    assertEquals(0L, file.lastModifiedTime().toMillis());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 702,
+        "cache_read_input_tokens": 1146,
+        "output_tokens": 370,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate4Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\n\nimport java.nio.file.attribute.FileTime;\nimport org.junit.jupiter.api.Test;\n\nclass SimpleVirtualBasicAttributesMutaGate4Test {\n\n  @Test\n  void lastAccessTimeIsEpochForDirectoryAndRegularFile() {\n    FileTime epoch = FileTime.fromMillis(0L);\n\n    SimpleVirtualBasicAttributes dir = SimpleVirtualBasicAttributes.directory(\"d\");\n    SimpleVirtualBasicAttributes file = SimpleVirtualBasicAttributes.regularFile(\"f\", 42L);\n\n    assertNotNull(dir.lastAccessTime());\n    assertNotNull(file.lastAccessTime());\n    assertEquals(epoch, dir.lastAccessTime());\n    assertEquals(epoch, file.lastAccessTime());\n    assertEquals(0L, dir.lastAccessTime().toMillis());\n    assertEquals(0L, file.lastAccessTime().toMillis());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 705,
+        "cache_read_input_tokens": 1146,
+        "output_tokens": 427,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate5Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.attribute.FileTime;\nimport org.junit.jupiter.api.Test;\n\nclass SimpleVirtualBasicAttributesMutaGate5Test {\n\n  @Test\n  void creationTimeIsEpochForDirectoryAndRegularFile() {\n    FileTime epoch = FileTime.fromMillis(0L);\n\n    SimpleVirtualBasicAttributes dir = SimpleVirtualBasicAttributes.directory(\"d/\");\n    SimpleVirtualBasicAttributes file = SimpleVirtualBasicAttributes.regularFile(\"f.txt\", 42L);\n\n    assertEquals(epoch, dir.creationTime());\n    assertEquals(epoch, file.creationTime());\n    assertEquals(0L, dir.creationTime().toMillis());\n    assertEquals(0L, file.creationTime().toMillis());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 699,
+        "cache_read_input_tokens": 1146,
+        "output_tokens": 350,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate6Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.junit.jupiter.api.Test;\n\nclass SimpleVirtualBasicAttributesMutaGate6Test {\n\n  @Test\n  void isRegularFileReflectsFactoryUsed() {\n    SimpleVirtualBasicAttributes file = SimpleVirtualBasicAttributes.regularFile(\"a/b.txt\", 42L);\n    SimpleVirtualBasicAttributes emptyFile = SimpleVirtualBasicAttributes.regularFile(\"empty\", 0L);\n    SimpleVirtualBasicAttributes dir = SimpleVirtualBasicAttributes.directory(\"a/\");\n\n    assertTrue(file.isRegularFile());\n    assertTrue(emptyFile.isRegularFile());\n    assertFalse(dir.isRegularFile());\n\n    assertFalse(file.isDirectory());\n    assertTrue(dir.isDirectory());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 703,
+        "cache_read_input_tokens": 1146,
+        "output_tokens": 384,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributesMutaGate7Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.junit.jupiter.api.Test;\n\nclass SimpleVirtualBasicAttributesMutaGate7Test {\n\n  @Test\n  void isDirectoryIsTrueOnlyForDirectoriesAndExclusiveOfOtherTypeFlags() {\n    SimpleVirtualBasicAttributes dir = SimpleVirtualBasicAttributes.directory(\"dir/\");\n    SimpleVirtualBasicAttributes emptyFile = SimpleVirtualBasicAttributes.regularFile(\"a.txt\", 0L);\n    SimpleVirtualBasicAttributes bigFile = SimpleVirtualBasicAttributes.regularFile(\"b.txt\", 1024L);\n\n    assertTrue(dir.isDirectory());\n    assertFalse(dir.isRegularFile());\n    assertFalse(dir.isSymbolicLink());\n    assertFalse(dir.isOther());\n\n    assertFalse(emptyFile.isDirectory());\n    assertTrue(emptyFile.isRegularFile());\n\n    assertFalse(bigFile.isDirectory());\n    assertTrue(bigFile.isRegularFile());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 698,
+        "cache_read_input_tokens": 1146,
+        "output_tokens": 473,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

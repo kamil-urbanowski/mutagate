@@ -1,0 +1,391 @@
+{
+  "repo": "tarballfs",
+  "class": "io.github.iachimoe.tarballfs.TarFileStore",
+  "kind": "CONTROL",
+  "setup": {
+    "repo_commit": "9d0d8eb2b3a52801b34531675750076fd46a1b5f",
+    "date": "2026-11-22",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "fbbf194a393f76fb2eabba89ffadc9c0a7b7e53d",
+    "provider": "claude-code",
+    "provider_version": "2.1.329",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.2,
+  "score_after": 0.9,
+  "mutants_total": 10,
+  "undetected_before": 8,
+  "newly_detected": 7,
+  "candidates": 8,
+  "kept": 4,
+  "acceptance_rate": 0.5,
+  "attempts_per_kept_test": 2.0,
+  "tokens": {
+    "input_tokens": 16,
+    "cache_creation_input_tokens": 6892,
+    "cache_read_input_tokens": 9366,
+    "output_tokens": 4949,
+    "thinking_tokens": 2062
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarFileStoreMutaGate1Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/TarFileStoreMutaGate1Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 1 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "TarFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarFileStore",
+          "mutated_method": "name",
+          "method_description": "()Ljava/lang/String;",
+          "line": 19,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            8
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/TarFileStore::name",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarFileStoreMutaGate1Test#nameReturnsOnlyTheFileNameOfTheTarFile"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.io.TempDir;\n\nclass TarFileStoreMutaGate1Test {\n\n  @TempDir\n  Path tempDir;\n\n  @Test\n  void nameReturnsOnlyTheFileNameOfTheTarFile() throws Exception {\n    Path dir = Files.createDirectory(tempDir.resolve(\"some-parent-dir\"));\n    Path tar = dir.resolve(\"my archive.tar\");\n    Files.write(tar, new byte[1024]);\n\n    TarFileSystem fs = new TarFileSystem(new TarFileSystemProvider(), tar.toUri(), tar);\n    TarFileStore store = new TarFileStore(fs);\n\n    String name = store.name();\n\n    assertEquals(\"my archive.tar\", name);\n    assertNotEquals(tar.toString(), name);\n    assertEquals(tar.getFileName().toString(), name);\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarFileStoreMutaGate2Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/TarFileStoreMutaGate2Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "TarFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarFileStore",
+          "mutated_method": "type",
+          "method_description": "()Ljava/lang/String;",
+          "line": 24,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/TarFileStore::type",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarFileStoreMutaGate2Test#typeReturnsTarRegardlessOfFileSystemAndIsStable",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getFileStores_matchesFilesGetFileStore"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport org.junit.jupiter.api.Test;\n\nclass TarFileStoreMutaGate2Test {\n\n  @Test\n  void typeReturnsTarRegardlessOfFileSystemAndIsStable() {\n    TarFileStore store = new TarFileStore(null);\n\n    String first = store.type();\n    String second = store.type();\n\n    assertEquals(\"tar\", first);\n    assertEquals(5 - 2, first.length());\n    assertEquals(\"tar\", second);\n    assertSame(first, second);\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarFileStoreMutaGate3Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/TarFileStoreMutaGate3Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "TarFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarFileStore",
+          "mutated_method": "isReadOnly",
+          "method_description": "()Z",
+          "line": 29,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/TarFileStore::isReadOnly",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarFileStoreMutaGate3Test#isReadOnlyIsTrueRegardlessOfBackingFileSystemAndRepeatedCalls",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getFileStores_matchesFilesGetFileStore"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.junit.jupiter.api.Test;\n\nclass TarFileStoreMutaGate3Test {\n\n  @Test\n  void isReadOnlyIsTrueRegardlessOfBackingFileSystemAndRepeatedCalls() {\n    TarFileStore first = new TarFileStore(null);\n    TarFileStore second = new TarFileStore(null);\n\n    assertTrue(first.isReadOnly());\n    assertTrue(first.isReadOnly());\n    assertTrue(second.isReadOnly());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarFileStoreMutaGate4Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/TarFileStoreMutaGate4Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 1 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "TarFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarFileStore",
+          "mutated_method": "getTotalSpace",
+          "method_description": "()J",
+          "line": 34,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/TarFileStore::getTotalSpace",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarFileStoreMutaGate4Test#getTotalSpaceReflectsCurrentSizeOfTarFile"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.io.TempDir;\n\nclass TarFileStoreMutaGate4Test {\n\n  @TempDir\n  Path tempDir;\n\n  @Test\n  void getTotalSpaceReflectsCurrentSizeOfTarFile() throws Exception {\n    Path tar = tempDir.resolve(\"sample.tar\");\n    Files.write(tar, new byte[1234]);\n\n    TarFileSystem fs = new TarFileSystem(new TarFileSystemProvider(), tar.toUri(), tar);\n    TarFileStore store = new TarFileStore(fs);\n\n    assertEquals(1234L, store.getTotalSpace());\n\n    Files.write(tar, new byte[5000]);\n    assertEquals(5000L, store.getTotalSpace());\n\n    Files.write(tar, new byte[0]);\n    assertEquals(0L, store.getTotalSpace());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarFileStoreMutaGate5Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/TarFileStoreMutaGate5Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.io.IOException;\nimport org.junit.jupiter.api.Test;\n\nclass TarFileStoreMutaGate5Test {\n\n  @Test\n  void usableSpaceIsZeroAndDoesNotDependOnFileSystem() throws IOException {\n    TarFileStore store = new TarFileStore(null);\n\n    assertEquals(0L, store.getUsableSpace());\n    assertEquals(0L, store.getUsableSpace());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarFileStoreMutaGate6Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/TarFileStoreMutaGate6Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.io.IOException;\nimport org.junit.jupiter.api.Test;\n\nclass TarFileStoreMutaGate6Test {\n\n  @Test\n  void getUnallocatedSpaceIsAlwaysZeroAndDoesNotTouchFileSystem() throws IOException {\n    // The file system is never consulted, so a null file system must not matter.\n    TarFileStore store = new TarFileStore(null);\n\n    assertEquals(0L, store.getUnallocatedSpace());\n    // Repeated calls give the same result.\n    assertEquals(0L, store.getUnallocatedSpace());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarFileStoreMutaGate7Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/TarFileStoreMutaGate7Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 3 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "TarFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarFileStore",
+          "mutated_method": "supportsFileAttributeView",
+          "method_description": "(Ljava/lang/Class;)Z",
+          "line": 49,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarFileStoreMutaGate7Test#supportsFileAttributeViewByClassChecksBasicAssignability"
+          ]
+        },
+        {
+          "source_file": "TarFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarFileStore",
+          "mutated_method": "supportsFileAttributeView",
+          "method_description": "(Ljava/lang/Class;)Z",
+          "line": 49,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            8
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarFileStoreMutaGate7Test#supportsFileAttributeViewByClassChecksBasicAssignability"
+          ]
+        },
+        {
+          "source_file": "TarFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarFileStore",
+          "mutated_method": "supportsFileAttributeView",
+          "method_description": "(Ljava/lang/Class;)Z",
+          "line": 49,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            16
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/TarFileStore::supportsFileAttributeView",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarFileStoreMutaGate7Test#supportsFileAttributeViewByClassChecksBasicAssignability"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.attribute.AclFileAttributeView;\nimport java.nio.file.attribute.BasicFileAttributeView;\nimport java.nio.file.attribute.DosFileAttributeView;\nimport java.nio.file.attribute.FileAttributeView;\nimport java.nio.file.attribute.FileOwnerAttributeView;\nimport java.nio.file.attribute.PosixFileAttributeView;\nimport org.junit.jupiter.api.Test;\n\nclass TarFileStoreMutaGate7Test {\n\n  interface CustomBasicView extends BasicFileAttributeView {}\n\n  interface UnrelatedView extends FileAttributeView {}\n\n  @Test\n  void supportsFileAttributeViewByClassChecksBasicAssignability() {\n    TarFileStore store = new TarFileStore(null);\n\n    assertFalse(store.supportsFileAttributeView((Class<? extends FileAttributeView>) null));\n\n    assertTrue(store.supportsFileAttributeView(BasicFileAttributeView.class));\n\n    assertTrue(store.supportsFileAttributeView(PosixFileAttributeView.class));\n    assertTrue(store.supportsFileAttributeView(DosFileAttributeView.class));\n    assertTrue(store.supportsFileAttributeView(CustomBasicView.class));\n\n    assertFalse(store.supportsFileAttributeView(FileAttributeView.class));\n    assertFalse(store.supportsFileAttributeView(FileOwnerAttributeView.class));\n    assertFalse(store.supportsFileAttributeView(AclFileAttributeView.class));\n    assertFalse(store.supportsFileAttributeView(UnrelatedView.class));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarFileStoreMutaGate8Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/TarFileStoreMutaGate8Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "TarFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarFileStore",
+          "mutated_method": "supportsFileAttributeView",
+          "method_description": "(Ljava/lang/String;)Z",
+          "line": 54,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/TarFileStore::supportsFileAttributeView",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarFileStoreMutaGate8Test#supportsFileAttributeViewByNameOnlyAcceptsExactBasic"
+          ]
+        },
+        {
+          "source_file": "TarFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarFileStore",
+          "mutated_method": "supportsFileAttributeView",
+          "method_description": "(Ljava/lang/String;)Z",
+          "line": 54,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/TarFileStore::supportsFileAttributeView",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarFileStoreMutaGate8Test#supportsFileAttributeViewByNameOnlyAcceptsExactBasic"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.junit.jupiter.api.Test;\n\nclass TarFileStoreMutaGate8Test {\n\n  @Test\n  void supportsFileAttributeViewByNameOnlyAcceptsExactBasic() {\n    TarFileStore store = new TarFileStore(null);\n\n    assertTrue(store.supportsFileAttributeView(\"basic\"));\n\n    assertFalse(store.supportsFileAttributeView(\"posix\"));\n    assertFalse(store.supportsFileAttributeView(\"unix\"));\n    assertFalse(store.supportsFileAttributeView(\"owner\"));\n    assertFalse(store.supportsFileAttributeView(\"dos\"));\n    assertFalse(store.supportsFileAttributeView(\"BASIC\"));\n    assertFalse(store.supportsFileAttributeView(\"Basic\"));\n    assertFalse(store.supportsFileAttributeView(\" basic\"));\n    assertFalse(store.supportsFileAttributeView(\"basic \"));\n    assertFalse(store.supportsFileAttributeView(\"basic:size\"));\n    assertFalse(store.supportsFileAttributeView(\"\"));\n    assertFalse(store.supportsFileAttributeView((String) null));\n  }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarFileStoreMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\n\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.io.TempDir;\n\nclass TarFileStoreMutaGate1Test {\n\n  @TempDir\n  Path tempDir;\n\n  @Test\n  void nameReturnsOnlyTheFileNameOfTheTarFile() throws Exception {\n    Path dir = Files.createDirectory(tempDir.resolve(\"some-parent-dir\"));\n    Path tar = dir.resolve(\"my archive.tar\");\n    Files.write(tar, new byte[1024]);\n\n    TarFileSystem fs = new TarFileSystem(new TarFileSystemProvider(), tar.toUri(), tar);\n    TarFileStore store = new TarFileStore(fs);\n\n    String name = store.name();\n\n    assertEquals(\"my archive.tar\", name);\n    assertNotEquals(tar.toString(), name);\n    assertEquals(tar.getFileName().toString(), name);\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 2030,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 825,
+        "thinking_tokens": 401
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarFileStoreMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport org.junit.jupiter.api.Test;\n\nclass TarFileStoreMutaGate2Test {\n\n  @Test\n  void typeReturnsTarRegardlessOfFileSystemAndIsStable() {\n    TarFileStore store = new TarFileStore(null);\n\n    String first = store.type();\n    String second = store.type();\n\n    assertEquals(\"tar\", first);\n    assertEquals(5 - 2, first.length());\n    assertEquals(\"tar\", second);\n    assertSame(first, second);\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 676,
+        "cache_read_input_tokens": 1338,
+        "output_tokens": 426,
+        "thinking_tokens": 182
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarFileStoreMutaGate3Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.junit.jupiter.api.Test;\n\nclass TarFileStoreMutaGate3Test {\n\n  @Test\n  void isReadOnlyIsTrueRegardlessOfBackingFileSystemAndRepeatedCalls() {\n    TarFileStore first = new TarFileStore(null);\n    TarFileStore second = new TarFileStore(null);\n\n    assertTrue(first.isReadOnly());\n    assertTrue(first.isReadOnly());\n    assertTrue(second.isReadOnly());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 682,
+        "cache_read_input_tokens": 1338,
+        "output_tokens": 503,
+        "thinking_tokens": 275
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarFileStoreMutaGate4Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.io.TempDir;\n\nclass TarFileStoreMutaGate4Test {\n\n  @TempDir\n  Path tempDir;\n\n  @Test\n  void getTotalSpaceReflectsCurrentSizeOfTarFile() throws Exception {\n    Path tar = tempDir.resolve(\"sample.tar\");\n    Files.write(tar, new byte[1234]);\n\n    TarFileSystem fs = new TarFileSystem(new TarFileSystemProvider(), tar.toUri(), tar);\n    TarFileStore store = new TarFileStore(fs);\n\n    assertEquals(1234L, store.getTotalSpace());\n\n    Files.write(tar, new byte[5000]);\n    assertEquals(5000L, store.getTotalSpace());\n\n    Files.write(tar, new byte[0]);\n    assertEquals(0L, store.getTotalSpace());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 701,
+        "cache_read_input_tokens": 1338,
+        "output_tokens": 703,
+        "thinking_tokens": 306
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarFileStoreMutaGate5Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.io.IOException;\nimport org.junit.jupiter.api.Test;\n\nclass TarFileStoreMutaGate5Test {\n\n  @Test\n  void usableSpaceIsZeroAndDoesNotDependOnFileSystem() throws IOException {\n    TarFileStore store = new TarFileStore(null);\n\n    assertEquals(0L, store.getUsableSpace());\n    assertEquals(0L, store.getUsableSpace());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 688,
+        "cache_read_input_tokens": 1338,
+        "output_tokens": 450,
+        "thinking_tokens": 246
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarFileStoreMutaGate6Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.io.IOException;\nimport org.junit.jupiter.api.Test;\n\nclass TarFileStoreMutaGate6Test {\n\n  @Test\n  void getUnallocatedSpaceIsAlwaysZeroAndDoesNotTouchFileSystem() throws IOException {\n    // The file system is never consulted, so a null file system must not matter.\n    TarFileStore store = new TarFileStore(null);\n\n    assertEquals(0L, store.getUnallocatedSpace());\n    // Repeated calls give the same result.\n    assertEquals(0L, store.getUnallocatedSpace());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 691,
+        "cache_read_input_tokens": 1338,
+        "output_tokens": 423,
+        "thinking_tokens": 168
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarFileStoreMutaGate7Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.attribute.AclFileAttributeView;\nimport java.nio.file.attribute.BasicFileAttributeView;\nimport java.nio.file.attribute.DosFileAttributeView;\nimport java.nio.file.attribute.FileAttributeView;\nimport java.nio.file.attribute.FileOwnerAttributeView;\nimport java.nio.file.attribute.PosixFileAttributeView;\nimport org.junit.jupiter.api.Test;\n\nclass TarFileStoreMutaGate7Test {\n\n  interface CustomBasicView extends BasicFileAttributeView {}\n\n  interface UnrelatedView extends FileAttributeView {}\n\n  @Test\n  void supportsFileAttributeViewByClassChecksBasicAssignability() {\n    TarFileStore store = new TarFileStore(null);\n\n    assertFalse(store.supportsFileAttributeView((Class<? extends FileAttributeView>) null));\n\n    assertTrue(store.supportsFileAttributeView(BasicFileAttributeView.class));\n\n    assertTrue(store.supportsFileAttributeView(PosixFileAttributeView.class));\n    assertTrue(store.supportsFileAttributeView(DosFileAttributeView.class));\n    assertTrue(store.supportsFileAttributeView(CustomBasicView.class));\n\n    assertFalse(store.supportsFileAttributeView(FileAttributeView.class));\n    assertFalse(store.supportsFileAttributeView(FileOwnerAttributeView.class));\n    assertFalse(store.supportsFileAttributeView(AclFileAttributeView.class));\n    assertFalse(store.supportsFileAttributeView(UnrelatedView.class));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 728,
+        "cache_read_input_tokens": 1338,
+        "output_tokens": 1000,
+        "thinking_tokens": 343
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarFileStoreMutaGate8Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.junit.jupiter.api.Test;\n\nclass TarFileStoreMutaGate8Test {\n\n  @Test\n  void supportsFileAttributeViewByNameOnlyAcceptsExactBasic() {\n    TarFileStore store = new TarFileStore(null);\n\n    assertTrue(store.supportsFileAttributeView(\"basic\"));\n\n    assertFalse(store.supportsFileAttributeView(\"posix\"));\n    assertFalse(store.supportsFileAttributeView(\"unix\"));\n    assertFalse(store.supportsFileAttributeView(\"owner\"));\n    assertFalse(store.supportsFileAttributeView(\"dos\"));\n    assertFalse(store.supportsFileAttributeView(\"BASIC\"));\n    assertFalse(store.supportsFileAttributeView(\"Basic\"));\n    assertFalse(store.supportsFileAttributeView(\" basic\"));\n    assertFalse(store.supportsFileAttributeView(\"basic \"));\n    assertFalse(store.supportsFileAttributeView(\"basic:size\"));\n    assertFalse(store.supportsFileAttributeView(\"\"));\n    assertFalse(store.supportsFileAttributeView((String) null));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 696,
+        "cache_read_input_tokens": 1338,
+        "output_tokens": 619,
+        "thinking_tokens": 141
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

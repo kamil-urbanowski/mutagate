@@ -1,0 +1,2384 @@
+{
+  "repo": "tarballfs",
+  "class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+  "kind": "TARGETED",
+  "setup": {
+    "repo_commit": "9d0d8eb2b3a52801b34531675750076fd46a1b5f",
+    "date": "2026-11-21",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "fbbf194a393f76fb2eabba89ffadc9c0a7b7e53d",
+    "provider": "claude-code",
+    "provider_version": "2.1.329",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.3157894736842105,
+  "score_after": 0.9473684210526315,
+  "mutants_total": 19,
+  "undetected_before": 13,
+  "newly_detected": 12,
+  "candidates": 13,
+  "kept": 12,
+  "acceptance_rate": 0.9230769230769231,
+  "attempts_per_kept_test": 1.0833333333333333,
+  "tokens": {
+    "input_tokens": 26,
+    "cache_creation_input_tokens": 15000,
+    "cache_read_input_tokens": 13056,
+    "output_tokens": 7817,
+    "thinking_tokens": 3313
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ArchiveUriSupportMutaGate1Test.java",
+      "target": {
+        "source_file": "ArchiveUriSupport.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+        "mutated_method": "archiveKeyUri",
+        "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+        "line": 55,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+        "indexes": [
+          51
+        ],
+        "description": "changed conditional boundary",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "MISSED_TARGET",
+      "detail": "target ended SURVIVED",
+      "mutants_killed": [
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            26
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            29
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 55,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            51
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 58,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            71
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::archiveKeyUri",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.net.URI;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate1Test {\n\n  @Test\n  void archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent() {\n    URI withEntry = URI.create(\"tar:/tmp/a.tar!/entry/file.txt\");\n    URI withoutEntry = URI.create(\"tar:/tmp/a.tar\");\n\n    URI expected = URI.create(\"tar:\" + Path.of(\"/tmp/a.tar\").toAbsolutePath());\n\n    assertEquals(expected, ArchiveUriSupport.archiveKeyUri(withEntry, \"tar\", \"tar:\"));\n    assertEquals(expected, ArchiveUriSupport.archiveKeyUri(withoutEntry, \"tar\", \"tar:\"));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ArchiveUriSupportMutaGate2Test.java",
+      "target": {
+        "source_file": "ArchiveUriSupport.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+        "mutated_method": "archiveKeyUri",
+        "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+        "line": 47,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+        "indexes": [
+          7
+        ],
+        "description": "negated conditional",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            26
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            29
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 55,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            51
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 58,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            71
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::archiveKeyUri",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.net.URI;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate2Test {\n\n  @Test\n  void archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers() {\n    URI matching = URI.create(\"TARBALL:/tmp/a.tar!/entry\");\n    URI result = ArchiveUriSupport.archiveKeyUri(matching, \"tarball\", \"tarball:\");\n    assertEquals(URI.create(\"tarball:\" + Path.of(\"/tmp/a.tar\").toAbsolutePath()), result);\n\n    URI other = URI.create(\"zip:/tmp/a.tar\");\n    IllegalArgumentException ex =\n        assertThrows(\n            IllegalArgumentException.class,\n            () -> ArchiveUriSupport.archiveKeyUri(other, \"tarball\", \"tarball:\"));\n    assertEquals(\"Unsupported URI scheme: zip\", ex.getMessage());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ArchiveUriSupportMutaGate3Test.java",
+      "target": {
+        "source_file": "ArchiveUriSupport.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+        "mutated_method": "archiveKeyUri",
+        "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+        "line": 51,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+        "indexes": [
+          26
+        ],
+        "description": "negated conditional",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            26
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            29
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 55,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            51
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 58,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            71
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::archiveKeyUri",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.net.URI;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate3Test {\n\n  @Test\n  void archiveKeyUriAcceptsPathAndRejectsMissingPath() {\n    URI valid = URI.create(\"tarballfs:/tmp/some-archive.tar!/entry/file.txt\");\n    URI result = ArchiveUriSupport.archiveKeyUri(valid, \"tarballfs\", \"tarballfs:\");\n    URI expected =\n        URI.create(\"tarballfs:\" + Path.of(\"/tmp/some-archive.tar\").toAbsolutePath());\n    assertEquals(expected, result);\n\n    URI opaque = URI.create(\"tarballfs:opaque\");\n    IllegalArgumentException ex =\n        assertThrows(\n            IllegalArgumentException.class,\n            () -> ArchiveUriSupport.archiveKeyUri(opaque, \"tarballfs\", \"tarballfs:\"));\n    assertEquals(\"tarballfs URI does not contain a file path: \" + opaque, ex.getMessage());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ArchiveUriSupportMutaGate4Test.java",
+      "target": {
+        "source_file": "ArchiveUriSupport.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+        "mutated_method": "archiveKeyUri",
+        "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+        "line": 51,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+        "indexes": [
+          29
+        ],
+        "description": "negated conditional",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            26
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            29
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 55,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            51
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 58,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            71
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::archiveKeyUri",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.net.URI;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate4Test {\n\n  @Test\n  void archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath() {\n    URI valid = URI.create(\"tar:/tmp/some-archive.tar!/entry/file.txt\");\n    URI expected = URI.create(\"tar:\" + Path.of(\"/tmp/some-archive.tar\").toAbsolutePath());\n    assertEquals(expected, ArchiveUriSupport.archiveKeyUri(valid, \"tar\", \"tar:\"));\n\n    // Opaque URI: getPath() returns null\n    URI nullPath = URI.create(\"tar:opaque\");\n    assertThrows(\n        IllegalArgumentException.class,\n        () -> ArchiveUriSupport.archiveKeyUri(nullPath, \"tar\", \"tar:\"));\n\n    // Authority only: getPath() returns an empty string\n    URI emptyPath = URI.create(\"tar://host\");\n    assertThrows(\n        IllegalArgumentException.class,\n        () -> ArchiveUriSupport.archiveKeyUri(emptyPath, \"tar\", \"tar:\"));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ArchiveUriSupportMutaGate5Test.java",
+      "target": {
+        "source_file": "ArchiveUriSupport.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+        "mutated_method": "archiveKeyUri",
+        "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+        "line": 55,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+        "indexes": [
+          51
+        ],
+        "description": "negated conditional",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            26
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            29
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 55,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            51
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 58,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            71
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::archiveKeyUri",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.net.URI;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate5Test {\n\n  @Test\n  void archiveKeyUriStripsEntrySuffixAndKeepsPlainPath() {\n    URI withEntry = URI.create(\"tarballfs:/tmp/archive.tar!/some/entry.txt\");\n    URI plain = URI.create(\"tarballfs:/tmp/archive.tar\");\n\n    URI expected = URI.create(\"tarballfs:\" + Path.of(\"/tmp/archive.tar\").toAbsolutePath());\n\n    assertEquals(expected, ArchiveUriSupport.archiveKeyUri(withEntry, \"tarballfs\", \"tarballfs:\"));\n    assertEquals(expected, ArchiveUriSupport.archiveKeyUri(plain, \"tarballfs\", \"tarballfs:\"));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ArchiveUriSupportMutaGate6Test.java",
+      "target": {
+        "source_file": "ArchiveUriSupport.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+        "mutated_method": "archiveKeyUri",
+        "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+        "line": 58,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+        "indexes": [
+          71
+        ],
+        "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::archiveKeyUri",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 47,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            26
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            29
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 55,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            51
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "archiveKeyUri",
+          "method_description": "(Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;",
+          "line": 58,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            71
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::archiveKeyUri",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test#archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test#archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test#archiveKeyUriAcceptsPathAndRejectsMissingPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test#archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test#archiveKeyUriStripsEntrySuffixAndKeepsPlainPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test#archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\n\nimport java.net.URI;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate6Test {\n\n  @Test\n  void archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri() {\n    URI uri = URI.create(\"tarball:/tmp/some/archive.tar!/inner/entry.txt\");\n\n    URI result = ArchiveUriSupport.archiveKeyUri(uri, \"tarball\", \"tarball://\");\n\n    assertNotNull(result);\n    URI expected = URI.create(\"tarball://\" + Path.of(\"/tmp/some/archive.tar\").toAbsolutePath());\n    assertEquals(expected, result);\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate7Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ArchiveUriSupportMutaGate7Test.java",
+      "target": {
+        "source_file": "ArchiveUriSupport.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+        "mutated_method": "extractArchivePath",
+        "method_description": "(Ljava/net/URI;Ljava/util/Map;Ljava/lang/String;)Ljava/nio/file/Path;",
+        "line": 37,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+        "indexes": [
+          48
+        ],
+        "description": "changed conditional boundary",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "extractArchivePath",
+          "method_description": "(Ljava/net/URI;Ljava/util/Map;Ljava/lang/String;)Ljava/nio/file/Path;",
+          "line": 37,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "indexes": [
+            48
+          ],
+          "description": "changed conditional boundary",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate7Test#bangAtStartOfPathIsStripped"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "extractArchivePath",
+          "method_description": "(Ljava/net/URI;Ljava/util/Map;Ljava/lang/String;)Ljava/nio/file/Path;",
+          "line": 29,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            9
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate7Test#bangAtStartOfPathIsStripped",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_invalidBzip2_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_validBzip2_returnsBzip2FileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#rootDirectoryStream_usesHostFileName_notInnerMetadata",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_invalidGzip_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_validGzip_returnsGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_existingFile_writeMode_throwsAccessDeniedException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_writeMode_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#directoryListing_listsImmediateChildren",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getFileStores_matchesFilesGetFileStore",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getRootDirectories_yieldsSingleSlashRoot",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPathMatcher_glob_matchesPaths",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_invalidTar_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_validTar_returnsTarFileSystem",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_entryThrowsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_rootReturnsHostArchiveFile",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_impliedDirectoryExists",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_missingEntryThrowsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "extractArchivePath",
+          "method_description": "(Ljava/net/URI;Ljava/util/Map;Ljava/lang/String;)Ljava/nio/file/Path;",
+          "line": 33,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            23
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate7Test#bangAtStartOfPathIsStripped",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_invalidBzip2_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_validBzip2_returnsBzip2FileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#rootDirectoryStream_usesHostFileName_notInnerMetadata",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_invalidGzip_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_validGzip_returnsGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_existingFile_writeMode_throwsAccessDeniedException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_writeMode_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#directoryListing_listsImmediateChildren",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getFileStores_matchesFilesGetFileStore",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getRootDirectories_yieldsSingleSlashRoot",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPathMatcher_glob_matchesPaths",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_invalidTar_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_validTar_returnsTarFileSystem",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_entryThrowsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_rootReturnsHostArchiveFile",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_impliedDirectoryExists",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_missingEntryThrowsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "extractArchivePath",
+          "method_description": "(Ljava/net/URI;Ljava/util/Map;Ljava/lang/String;)Ljava/nio/file/Path;",
+          "line": 33,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            26
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate7Test#bangAtStartOfPathIsStripped",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_invalidBzip2_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_validBzip2_returnsBzip2FileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#rootDirectoryStream_usesHostFileName_notInnerMetadata",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_invalidGzip_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_validGzip_returnsGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_existingFile_writeMode_throwsAccessDeniedException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_writeMode_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#directoryListing_listsImmediateChildren",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getFileStores_matchesFilesGetFileStore",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getRootDirectories_yieldsSingleSlashRoot",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPathMatcher_glob_matchesPaths",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_invalidTar_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_validTar_returnsTarFileSystem",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_entryThrowsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_rootReturnsHostArchiveFile",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_impliedDirectoryExists",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_missingEntryThrowsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "extractArchivePath",
+          "method_description": "(Ljava/net/URI;Ljava/util/Map;Ljava/lang/String;)Ljava/nio/file/Path;",
+          "line": 37,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            48
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate7Test#bangAtStartOfPathIsStripped",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_invalidBzip2_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_validBzip2_returnsBzip2FileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#rootDirectoryStream_usesHostFileName_notInnerMetadata",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_invalidGzip_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_validGzip_returnsGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_existingFile_writeMode_throwsAccessDeniedException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_writeMode_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#directoryListing_listsImmediateChildren",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getFileStores_matchesFilesGetFileStore",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getRootDirectories_yieldsSingleSlashRoot",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPathMatcher_glob_matchesPaths",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_invalidTar_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_validTar_returnsTarFileSystem",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_entryThrowsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_rootReturnsHostArchiveFile",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_impliedDirectoryExists",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_missingEntryThrowsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "extractArchivePath",
+          "method_description": "(Ljava/net/URI;Ljava/util/Map;Ljava/lang/String;)Ljava/nio/file/Path;",
+          "line": 40,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            63
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::extractArchivePath",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate7Test#bangAtStartOfPathIsStripped",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_invalidBzip2_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_validBzip2_returnsBzip2FileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#rootDirectoryStream_usesHostFileName_notInnerMetadata",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_invalidGzip_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_validGzip_returnsGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_existingFile_writeMode_throwsAccessDeniedException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_writeMode_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#directoryListing_listsImmediateChildren",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getFileStores_matchesFilesGetFileStore",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getRootDirectories_yieldsSingleSlashRoot",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPathMatcher_glob_matchesPaths",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_invalidTar_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_validTar_returnsTarFileSystem",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_entryThrowsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_rootReturnsHostArchiveFile",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_impliedDirectoryExists",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_missingEntryThrowsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 11,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate7Test#bangAtStartOfPathIsStripped",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.net.URI;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate7Test {\n\n  @Test\n  void bangAtStartOfPathIsStripped() {\n    URI uri = URI.create(\"!/entry\");\n    assertEquals(\"!/entry\", uri.getPath());\n\n    Path result = ArchiveUriSupport.extractArchivePath(uri, null, \"tar\");\n\n    assertEquals(Path.of(\"\"), result);\n    assertEquals(\"\", result.toString());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ArchiveUriSupportMutaGate8Test.java",
+      "target": {
+        "source_file": "ArchiveUriSupport.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+        "mutated_method": "extractArchivePath",
+        "method_description": "(Ljava/net/URI;Ljava/util/Map;Ljava/lang/String;)Ljava/nio/file/Path;",
+        "line": 30,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+        "indexes": [
+          13
+        ],
+        "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::extractArchivePath",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "extractArchivePath",
+          "method_description": "(Ljava/net/URI;Ljava/util/Map;Ljava/lang/String;)Ljava/nio/file/Path;",
+          "line": 29,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            9
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate7Test#bangAtStartOfPathIsStripped",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_invalidBzip2_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_validBzip2_returnsBzip2FileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#rootDirectoryStream_usesHostFileName_notInnerMetadata",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_invalidGzip_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_validGzip_returnsGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_existingFile_writeMode_throwsAccessDeniedException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_writeMode_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#directoryListing_listsImmediateChildren",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getFileStores_matchesFilesGetFileStore",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getRootDirectories_yieldsSingleSlashRoot",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPathMatcher_glob_matchesPaths",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_invalidTar_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_validTar_returnsTarFileSystem",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_entryThrowsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_rootReturnsHostArchiveFile",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_impliedDirectoryExists",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_missingEntryThrowsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "extractArchivePath",
+          "method_description": "(Ljava/net/URI;Ljava/util/Map;Ljava/lang/String;)Ljava/nio/file/Path;",
+          "line": 30,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            13
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::extractArchivePath",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 11,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate7Test#bangAtStartOfPathIsStripped",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 15,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            19
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 19,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            36
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::pathFromEnv",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.net.URI;\nimport java.nio.file.Path;\nimport java.util.HashMap;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate8Test {\n\n  @Test\n  void extractArchivePathReturnsPathFromEnvInsteadOfUri() {\n    Map<String, Object> env = new HashMap<>();\n    Path expected = Path.of(\"env\", \"archive.tar\");\n    env.put(\"path\", expected);\n\n    Path result =\n        ArchiveUriSupport.extractArchivePath(URI.create(\"tarball:/uri/other.tar!/entry\"), env, \"tarball\");\n\n    assertEquals(expected, result);\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ArchiveUriSupportMutaGate9Test.java",
+      "target": {
+        "source_file": "ArchiveUriSupport.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+        "mutated_method": "pathFromEnv",
+        "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+        "line": 11,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+        "indexes": [
+          4
+        ],
+        "description": "negated conditional",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 11,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate7Test#bangAtStartOfPathIsStripped",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 15,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            19
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 18,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            31
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 21,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            41
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_invalidBzip2_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_validBzip2_returnsBzip2FileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#rootDirectoryStream_usesHostFileName_notInnerMetadata",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_invalidGzip_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_validGzip_returnsGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_existingFile_writeMode_throwsAccessDeniedException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_writeMode_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#directoryListing_listsImmediateChildren",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getFileStores_matchesFilesGetFileStore",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getRootDirectories_yieldsSingleSlashRoot",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPathMatcher_glob_matchesPaths",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_invalidTar_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_validTar_returnsTarFileSystem",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_entryThrowsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_rootReturnsHostArchiveFile",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_impliedDirectoryExists",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_missingEntryThrowsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 19,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            36
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::pathFromEnv",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 22,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            49
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::pathFromEnv",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNull;\n\nimport java.nio.file.Path;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate9Test {\n\n  @Test\n  void pathFromEnvHandlesNullAndNonNullEnv() {\n    assertNull(ArchiveUriSupport.pathFromEnv(null));\n\n    Path expected = Path.of(\"some\", \"archive.tar\");\n    assertEquals(expected, ArchiveUriSupport.pathFromEnv(Map.of(\"path\", expected)));\n    assertEquals(Path.of(\"other.tar\"), ArchiveUriSupport.pathFromEnv(Map.of(\"file\", \"other.tar\")));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ArchiveUriSupportMutaGate10Test.java",
+      "target": {
+        "source_file": "ArchiveUriSupport.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+        "mutated_method": "pathFromEnv",
+        "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+        "line": 15,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+        "indexes": [
+          19
+        ],
+        "description": "negated conditional",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 11,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate7Test#bangAtStartOfPathIsStripped",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 15,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            19
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 18,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            31
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 21,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            41
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_invalidBzip2_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_validBzip2_returnsBzip2FileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#rootDirectoryStream_usesHostFileName_notInnerMetadata",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_invalidGzip_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_validGzip_returnsGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_existingFile_writeMode_throwsAccessDeniedException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_writeMode_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#directoryListing_listsImmediateChildren",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getFileStores_matchesFilesGetFileStore",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getRootDirectories_yieldsSingleSlashRoot",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPathMatcher_glob_matchesPaths",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_invalidTar_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_validTar_returnsTarFileSystem",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_entryThrowsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_rootReturnsHostArchiveFile",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_impliedDirectoryExists",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_missingEntryThrowsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 22,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            49
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::pathFromEnv",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.Path;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate10Test {\n\n  @Test\n  void pathFromEnvUsesPathKeyAndFallsBackToFileKey() {\n    Path onlyPath = ArchiveUriSupport.pathFromEnv(Map.of(\"path\", \"first.tar\"));\n    assertEquals(Path.of(\"first.tar\"), onlyPath);\n\n    Path onlyFile = ArchiveUriSupport.pathFromEnv(Map.of(\"file\", \"second.tar\"));\n    assertEquals(Path.of(\"second.tar\"), onlyFile);\n\n    Path both = ArchiveUriSupport.pathFromEnv(Map.of(\"path\", \"first.tar\", \"file\", \"second.tar\"));\n    assertEquals(Path.of(\"first.tar\"), both);\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ArchiveUriSupportMutaGate11Test.java",
+      "target": {
+        "source_file": "ArchiveUriSupport.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+        "mutated_method": "pathFromEnv",
+        "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+        "line": 18,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+        "indexes": [
+          31
+        ],
+        "description": "negated conditional",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 11,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate7Test#bangAtStartOfPathIsStripped",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 15,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            19
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 18,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            31
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 21,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            41
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_invalidBzip2_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_validBzip2_returnsBzip2FileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#rootDirectoryStream_usesHostFileName_notInnerMetadata",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_invalidGzip_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_validGzip_returnsGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_existingFile_writeMode_throwsAccessDeniedException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_writeMode_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#directoryListing_listsImmediateChildren",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getFileStores_matchesFilesGetFileStore",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getRootDirectories_yieldsSingleSlashRoot",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPathMatcher_glob_matchesPaths",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_invalidTar_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_validTar_returnsTarFileSystem",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_entryThrowsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_rootReturnsHostArchiveFile",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_impliedDirectoryExists",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_missingEntryThrowsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 19,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            36
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::pathFromEnv",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 22,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            49
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::pathFromEnv",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.nio.file.Path;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate11Test {\n\n  @Test\n  void pathFromEnvHandlesPathAndNonPathValues() {\n    Path original = Path.of(\"some\", \"dir\", \"archive.tar\");\n    Map<String, Object> pathEnv = Map.of(\"path\", original);\n    assertSame(original, ArchiveUriSupport.pathFromEnv(pathEnv));\n\n    Map<String, Object> stringEnv = Map.of(\"path\", \"some/dir/archive.tar\");\n    assertEquals(original, ArchiveUriSupport.pathFromEnv(stringEnv));\n\n    Map<String, Object> fileEnv = Map.of(\"file\", \"some/dir/archive.tar\");\n    assertEquals(original, ArchiveUriSupport.pathFromEnv(fileEnv));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ArchiveUriSupportMutaGate12Test.java",
+      "target": {
+        "source_file": "ArchiveUriSupport.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+        "mutated_method": "pathFromEnv",
+        "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+        "line": 19,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+        "indexes": [
+          36
+        ],
+        "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::pathFromEnv",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 11,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate7Test#bangAtStartOfPathIsStripped",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 15,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            19
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 18,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            31
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 19,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            36
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::pathFromEnv",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.nio.file.Path;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate12Test {\n\n  @Test\n  void pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath() {\n    Path expected = Path.of(\"some\", \"archive.tar\");\n    Map<String, Object> env = Map.of(\"path\", expected);\n\n    Path actual = ArchiveUriSupport.pathFromEnv(env);\n\n    assertSame(expected, actual);\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ArchiveUriSupportMutaGate13Test.java",
+      "target": {
+        "source_file": "ArchiveUriSupport.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+        "mutated_method": "pathFromEnv",
+        "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+        "line": 22,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+        "indexes": [
+          49
+        ],
+        "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::pathFromEnv",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 11,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate7Test#bangAtStartOfPathIsStripped",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 15,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            19
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test#extractArchivePathReturnsPathFromEnvInsteadOfUri",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 18,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            31
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test#pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 21,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            41
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_invalidBzip2_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_validBzip2_returnsBzip2FileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#rootDirectoryStream_usesHostFileName_notInnerMetadata",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_invalidGzip_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_validGzip_returnsGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_existingFile_writeMode_throwsAccessDeniedException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#checkAccess_missingPath_writeMode_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#directoryListing_listsImmediateChildren",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getFileStores_matchesFilesGetFileStore",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileSystem_getRootDirectories_yieldsSingleSlashRoot",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPathMatcher_glob_matchesPaths",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_invalidTar_throwsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_missingArchivePath_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#newFileSystem_validTar_returnsTarFileSystem",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_entryThrowsUnsupportedOperationException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toFile_rootReturnsHostArchiveFile",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_impliedDirectoryExists",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_missingEntryThrowsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ArchiveUriSupport.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+          "mutated_method": "pathFromEnv",
+          "method_description": "(Ljava/util/Map;)Ljava/nio/file/Path;",
+          "line": 22,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            49
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ArchiveUriSupport::pathFromEnv",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test#pathFromEnvUsesPathKeyAndFallsBackToFileKey",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test#pathFromEnvHandlesPathAndNonPathValues",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test#pathFromEnvConvertsNonPathValueToPath",
+            "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test#pathFromEnvHandlesNullAndNonNullEnv"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.Path;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate13Test {\n\n  @Test\n  void pathFromEnvConvertsNonPathValueToPath() {\n    Path result = ArchiveUriSupport.pathFromEnv(Map.of(\"path\", \"some/archive.tar\"));\n    assertEquals(Path.of(\"some/archive.tar\"), result);\n  }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.net.URI;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate1Test {\n\n  @Test\n  void archiveKeyUriStripsEntrySuffixOnlyWhenBangPresent() {\n    URI withEntry = URI.create(\"tar:/tmp/a.tar!/entry/file.txt\");\n    URI withoutEntry = URI.create(\"tar:/tmp/a.tar\");\n\n    URI expected = URI.create(\"tar:\" + Path.of(\"/tmp/a.tar\").toAbsolutePath());\n\n    assertEquals(expected, ArchiveUriSupport.archiveKeyUri(withEntry, \"tar\", \"tar:\"));\n    assertEquals(expected, ArchiveUriSupport.archiveKeyUri(withoutEntry, \"tar\", \"tar:\"));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 2221,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 1279,
+        "thinking_tokens": 925
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.net.URI;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate2Test {\n\n  @Test\n  void archiveKeyUriAcceptsMatchingSchemeAndRejectsOthers() {\n    URI matching = URI.create(\"TARBALL:/tmp/a.tar!/entry\");\n    URI result = ArchiveUriSupport.archiveKeyUri(matching, \"tarball\", \"tarball:\");\n    assertEquals(URI.create(\"tarball:\" + Path.of(\"/tmp/a.tar\").toAbsolutePath()), result);\n\n    URI other = URI.create(\"zip:/tmp/a.tar\");\n    IllegalArgumentException ex =\n        assertThrows(\n            IllegalArgumentException.class,\n            () -> ArchiveUriSupport.archiveKeyUri(other, \"tarball\", \"tarball:\"));\n    assertEquals(\"Unsupported URI scheme: zip\", ex.getMessage());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1180,
+        "cache_read_input_tokens": 1088,
+        "output_tokens": 880,
+        "thinking_tokens": 453
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate3Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.net.URI;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate3Test {\n\n  @Test\n  void archiveKeyUriAcceptsPathAndRejectsMissingPath() {\n    URI valid = URI.create(\"tarballfs:/tmp/some-archive.tar!/entry/file.txt\");\n    URI result = ArchiveUriSupport.archiveKeyUri(valid, \"tarballfs\", \"tarballfs:\");\n    URI expected =\n        URI.create(\"tarballfs:\" + Path.of(\"/tmp/some-archive.tar\").toAbsolutePath());\n    assertEquals(expected, result);\n\n    URI opaque = URI.create(\"tarballfs:opaque\");\n    IllegalArgumentException ex =\n        assertThrows(\n            IllegalArgumentException.class,\n            () -> ArchiveUriSupport.archiveKeyUri(opaque, \"tarballfs\", \"tarballfs:\"));\n    assertEquals(\"tarballfs URI does not contain a file path: \" + opaque, ex.getMessage());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1135,
+        "cache_read_input_tokens": 1088,
+        "output_tokens": 815,
+        "thinking_tokens": 352
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate4Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.net.URI;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate4Test {\n\n  @Test\n  void archiveKeyUriAcceptsNonEmptyPathAndRejectsMissingOrEmptyPath() {\n    URI valid = URI.create(\"tar:/tmp/some-archive.tar!/entry/file.txt\");\n    URI expected = URI.create(\"tar:\" + Path.of(\"/tmp/some-archive.tar\").toAbsolutePath());\n    assertEquals(expected, ArchiveUriSupport.archiveKeyUri(valid, \"tar\", \"tar:\"));\n\n    // Opaque URI: getPath() returns null\n    URI nullPath = URI.create(\"tar:opaque\");\n    assertThrows(\n        IllegalArgumentException.class,\n        () -> ArchiveUriSupport.archiveKeyUri(nullPath, \"tar\", \"tar:\"));\n\n    // Authority only: getPath() returns an empty string\n    URI emptyPath = URI.create(\"tar://host\");\n    assertThrows(\n        IllegalArgumentException.class,\n        () -> ArchiveUriSupport.archiveKeyUri(emptyPath, \"tar\", \"tar:\"));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1135,
+        "cache_read_input_tokens": 1088,
+        "output_tokens": 906,
+        "thinking_tokens": 392
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate5Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.net.URI;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate5Test {\n\n  @Test\n  void archiveKeyUriStripsEntrySuffixAndKeepsPlainPath() {\n    URI withEntry = URI.create(\"tarballfs:/tmp/archive.tar!/some/entry.txt\");\n    URI plain = URI.create(\"tarballfs:/tmp/archive.tar\");\n\n    URI expected = URI.create(\"tarballfs:\" + Path.of(\"/tmp/archive.tar\").toAbsolutePath());\n\n    assertEquals(expected, ArchiveUriSupport.archiveKeyUri(withEntry, \"tarballfs\", \"tarballfs:\"));\n    assertEquals(expected, ArchiveUriSupport.archiveKeyUri(plain, \"tarballfs\", \"tarballfs:\"));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1130,
+        "cache_read_input_tokens": 1088,
+        "output_tokens": 653,
+        "thinking_tokens": 284
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate6Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\n\nimport java.net.URI;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate6Test {\n\n  @Test\n  void archiveKeyUriStripsEntrySuffixAndReturnsAbsoluteKeyUri() {\n    URI uri = URI.create(\"tarball:/tmp/some/archive.tar!/inner/entry.txt\");\n\n    URI result = ArchiveUriSupport.archiveKeyUri(uri, \"tarball\", \"tarball://\");\n\n    assertNotNull(result);\n    URI expected = URI.create(\"tarball://\" + Path.of(\"/tmp/some/archive.tar\").toAbsolutePath());\n    assertEquals(expected, result);\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1118,
+        "cache_read_input_tokens": 1088,
+        "output_tokens": 334,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate7Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.net.URI;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate7Test {\n\n  @Test\n  void bangAtStartOfPathIsStripped() {\n    URI uri = URI.create(\"!/entry\");\n    assertEquals(\"!/entry\", uri.getPath());\n\n    Path result = ArchiveUriSupport.extractArchivePath(uri, null, \"tar\");\n\n    assertEquals(Path.of(\"\"), result);\n    assertEquals(\"\", result.toString());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1066,
+        "cache_read_input_tokens": 1088,
+        "output_tokens": 552,
+        "thinking_tokens": 311
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate8Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.net.URI;\nimport java.nio.file.Path;\nimport java.util.HashMap;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate8Test {\n\n  @Test\n  void extractArchivePathReturnsPathFromEnvInsteadOfUri() {\n    Map<String, Object> env = new HashMap<>();\n    Path expected = Path.of(\"env\", \"archive.tar\");\n    env.put(\"path\", expected);\n\n    Path result =\n        ArchiveUriSupport.extractArchivePath(URI.create(\"tarball:/uri/other.tar!/entry\"), env, \"tarball\");\n\n    assertEquals(expected, result);\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1111,
+        "cache_read_input_tokens": 1088,
+        "output_tokens": 292,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate9Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNull;\n\nimport java.nio.file.Path;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate9Test {\n\n  @Test\n  void pathFromEnvHandlesNullAndNonNullEnv() {\n    assertNull(ArchiveUriSupport.pathFromEnv(null));\n\n    Path expected = Path.of(\"some\", \"archive.tar\");\n    assertEquals(expected, ArchiveUriSupport.pathFromEnv(Map.of(\"path\", expected)));\n    assertEquals(Path.of(\"other.tar\"), ArchiveUriSupport.pathFromEnv(Map.of(\"file\", \"other.tar\")));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 980,
+        "cache_read_input_tokens": 1088,
+        "output_tokens": 421,
+        "thinking_tokens": 108
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate10Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.Path;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate10Test {\n\n  @Test\n  void pathFromEnvUsesPathKeyAndFallsBackToFileKey() {\n    Path onlyPath = ArchiveUriSupport.pathFromEnv(Map.of(\"path\", \"first.tar\"));\n    assertEquals(Path.of(\"first.tar\"), onlyPath);\n\n    Path onlyFile = ArchiveUriSupport.pathFromEnv(Map.of(\"file\", \"second.tar\"));\n    assertEquals(Path.of(\"second.tar\"), onlyFile);\n\n    Path both = ArchiveUriSupport.pathFromEnv(Map.of(\"path\", \"first.tar\", \"file\", \"second.tar\"));\n    assertEquals(Path.of(\"first.tar\"), both);\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 966,
+        "cache_read_input_tokens": 1088,
+        "output_tokens": 493,
+        "thinking_tokens": 137
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate11Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.nio.file.Path;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate11Test {\n\n  @Test\n  void pathFromEnvHandlesPathAndNonPathValues() {\n    Path original = Path.of(\"some\", \"dir\", \"archive.tar\");\n    Map<String, Object> pathEnv = Map.of(\"path\", original);\n    assertSame(original, ArchiveUriSupport.pathFromEnv(pathEnv));\n\n    Map<String, Object> stringEnv = Map.of(\"path\", \"some/dir/archive.tar\");\n    assertEquals(original, ArchiveUriSupport.pathFromEnv(stringEnv));\n\n    Map<String, Object> fileEnv = Map.of(\"file\", \"some/dir/archive.tar\");\n    assertEquals(original, ArchiveUriSupport.pathFromEnv(fileEnv));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 969,
+        "cache_read_input_tokens": 1088,
+        "output_tokens": 744,
+        "thinking_tokens": 351
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate12Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.nio.file.Path;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate12Test {\n\n  @Test\n  void pathFromEnvReturnsSamePathInstanceWhenEnvValueIsPath() {\n    Path expected = Path.of(\"some\", \"archive.tar\");\n    Map<String, Object> env = Map.of(\"path\", expected);\n\n    Path actual = ArchiveUriSupport.pathFromEnv(env);\n\n    assertSame(expected, actual);\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1003,
+        "cache_read_input_tokens": 1088,
+        "output_tokens": 238,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ArchiveUriSupportMutaGate13Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.Path;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\n\nclass ArchiveUriSupportMutaGate13Test {\n\n  @Test\n  void pathFromEnvConvertsNonPathValueToPath() {\n    Path result = ArchiveUriSupport.pathFromEnv(Map.of(\"path\", \"some/archive.tar\"));\n    assertEquals(Path.of(\"some/archive.tar\"), result);\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 986,
+        "cache_read_input_tokens": 1088,
+        "output_tokens": 210,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

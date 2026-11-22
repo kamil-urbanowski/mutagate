@@ -1,0 +1,1252 @@
+{
+  "repo": "tarballfs",
+  "class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+  "kind": "TARGETED",
+  "setup": {
+    "repo_commit": "9d0d8eb2b3a52801b34531675750076fd46a1b5f",
+    "date": "2026-11-21",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "fbbf194a393f76fb2eabba89ffadc9c0a7b7e53d",
+    "provider": "claude-code",
+    "provider_version": "2.1.329",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.35,
+  "score_after": 1.0,
+  "mutants_total": 20,
+  "undetected_before": 13,
+  "newly_detected": 13,
+  "candidates": 13,
+  "kept": 13,
+  "acceptance_rate": 1.0,
+  "attempts_per_kept_test": 1.0,
+  "tokens": {
+    "input_tokens": 26,
+    "cache_creation_input_tokens": 15262,
+    "cache_read_input_tokens": 39588,
+    "output_tokens": 15873,
+    "thinking_tokens": 5354
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate1Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystemMutaGate1Test.java",
+      "target": {
+        "source_file": "AbstractCompressorArchiveFileSystem.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+        "mutated_method": "close",
+        "method_description": "()V",
+        "line": 58,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+        "indexes": [
+          37,
+          26
+        ],
+        "description": "removed call to io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::deregister",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "close",
+          "method_description": "()V",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate11Test#isOpenReflectsClosedState",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate1Test#closeDeregistersUriExactlyOnce",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate3Test#getFileStoresWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate5Test#getPathMatcherWorksWhenOpenAndFailsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate7Test#getRootDirectoriesWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "close",
+          "method_description": "()V",
+          "line": 58,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "indexes": [
+            37,
+            26
+          ],
+          "description": "removed call to io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::deregister",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate11Test#isOpenReflectsClosedState",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate1Test#closeDeregistersUriExactlyOnce"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "isOpen",
+          "method_description": "()Z",
+          "line": 66,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::isOpen",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate11Test#isOpenReflectsClosedState",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate1Test#closeDeregistersUriExactlyOnce"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\n\nimport java.net.URI;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.ArrayList;\nimport java.util.List;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate1Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    final List<URI> deregistered = new ArrayList<>();\n\n    TestFileSystem(URI uri, Path archive, Path tempFile) {\n      super(java.nio.file.FileSystems.getDefault().provider(), uri, archive, \"gzip\", \"entry\", tempFile);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      deregistered.add(uri);\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void closeDeregistersUriExactlyOnce() throws Exception {\n    Path archive = Files.createTempFile(\"archive\", \".gz\");\n    Path temp = Files.createTempFile(\"uncompressed\", \".tmp\");\n    try {\n      URI uri = URI.create(\"test:///some-archive\");\n      TestFileSystem fs = new TestFileSystem(uri, archive, temp);\n\n      assertEquals(0, fs.deregistered.size());\n      fs.close();\n\n      assertFalse(fs.isOpen());\n      assertFalse(Files.exists(temp));\n      assertEquals(List.of(uri), fs.deregistered);\n\n      fs.close();\n      assertEquals(List.of(uri), fs.deregistered);\n    } finally {\n      Files.deleteIfExists(archive);\n      Files.deleteIfExists(temp);\n    }\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate2Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystemMutaGate2Test.java",
+      "target": {
+        "source_file": "AbstractCompressorArchiveFileSystem.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+        "mutated_method": "compressorFileStore",
+        "method_description": "()Lio/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore;",
+        "line": 135,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+        "indexes": [
+          5
+        ],
+        "description": "replaced return value with null for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::compressorFileStore",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "compressorFileStore",
+          "method_description": "()Lio/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore;",
+          "line": 135,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::compressorFileStore",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate2Test#compressorFileStoreReturnsTheStoreExposedByGetFileStores",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate3Test#getFileStoresWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate4Test#getFileStoresReturnsTheSingleCompressorFileStore"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "getFileStores",
+          "method_description": "()Ljava/lang/Iterable;",
+          "line": 89,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate2Test#compressorFileStoreReturnsTheStoreExposedByGetFileStores",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate3Test#getFileStoresWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate4Test#getFileStoresReturnsTheSingleCompressorFileStore"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "getFileStores",
+          "method_description": "()Ljava/lang/Iterable;",
+          "line": 92,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "replaced return value with Collections.emptyList for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::getFileStores",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate2Test#compressorFileStoreReturnsTheStoreExposedByGetFileStores",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate3Test#getFileStoresWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate4Test#getFileStoresReturnsTheSingleCompressorFileStore"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.net.URI;\nimport java.nio.file.FileStore;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Path;\nimport java.nio.file.spi.FileSystemProvider;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate2Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem(FileSystemProvider provider, URI uri, Path archive, Path temp) {\n      super(provider, uri, archive, \"test-type\", \"entry\", temp);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      // no-op\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void compressorFileStoreReturnsTheStoreExposedByGetFileStores() throws Exception {\n    FileSystemProvider provider = FileSystems.getDefault().provider();\n    TestFileSystem fs =\n        new TestFileSystem(\n            provider,\n            URI.create(\"test:///archive.gz\"),\n            Path.of(\"archive.gz\"),\n            Path.of(\"archive.tmp\"));\n\n    ReadOnlyCompressorFileStore store = fs.compressorFileStore();\n    assertNotNull(store);\n\n    FileStore listed = fs.getFileStores().iterator().next();\n    assertSame(listed, store);\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate3Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystemMutaGate3Test.java",
+      "target": {
+        "source_file": "AbstractCompressorArchiveFileSystem.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+        "mutated_method": "getFileStores",
+        "method_description": "()Ljava/lang/Iterable;",
+        "line": 89,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+        "indexes": [
+          5
+        ],
+        "description": "negated conditional",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "close",
+          "method_description": "()V",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate11Test#isOpenReflectsClosedState",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate1Test#closeDeregistersUriExactlyOnce",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate3Test#getFileStoresWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate5Test#getPathMatcherWorksWhenOpenAndFailsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate7Test#getRootDirectoriesWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "compressorFileStore",
+          "method_description": "()Lio/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore;",
+          "line": 135,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::compressorFileStore",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate2Test#compressorFileStoreReturnsTheStoreExposedByGetFileStores",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate3Test#getFileStoresWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate4Test#getFileStoresReturnsTheSingleCompressorFileStore"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "getFileStores",
+          "method_description": "()Ljava/lang/Iterable;",
+          "line": 89,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate2Test#compressorFileStoreReturnsTheStoreExposedByGetFileStores",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate3Test#getFileStoresWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate4Test#getFileStoresReturnsTheSingleCompressorFileStore"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "getFileStores",
+          "method_description": "()Ljava/lang/Iterable;",
+          "line": 92,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "replaced return value with Collections.emptyList for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::getFileStores",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate2Test#compressorFileStoreReturnsTheStoreExposedByGetFileStores",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate3Test#getFileStoresWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate4Test#getFileStoresReturnsTheSingleCompressorFileStore"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.net.URI;\nimport java.nio.file.ClosedFileSystemException;\nimport java.nio.file.FileStore;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.Iterator;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate3Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem(URI uri, Path archive, Path tempFile) {\n      super(FileSystems.getDefault().provider(), uri, archive, \"gzip\", \"entry\", tempFile);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void getFileStoresWorksWhenOpenAndThrowsWhenClosed() throws Exception {\n    Path tempFile = Files.createTempFile(\"mutagate3\", \".tmp\");\n    TestFileSystem fs = new TestFileSystem(\n        URI.create(\"test:///mutagate3\"), Path.of(\"archive.gz\"), tempFile);\n\n    Iterable<FileStore> stores = fs.getFileStores();\n    Iterator<FileStore> it = stores.iterator();\n    assertTrue(it.hasNext());\n    assertSame(fs.compressorFileStore(), it.next());\n\n    fs.close();\n\n    assertThrows(ClosedFileSystemException.class, fs::getFileStores);\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate4Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystemMutaGate4Test.java",
+      "target": {
+        "source_file": "AbstractCompressorArchiveFileSystem.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+        "mutated_method": "getFileStores",
+        "method_description": "()Ljava/lang/Iterable;",
+        "line": 92,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+        "indexes": [
+          18
+        ],
+        "description": "replaced return value with Collections.emptyList for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::getFileStores",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "compressorFileStore",
+          "method_description": "()Lio/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore;",
+          "line": 135,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::compressorFileStore",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate2Test#compressorFileStoreReturnsTheStoreExposedByGetFileStores",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate3Test#getFileStoresWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate4Test#getFileStoresReturnsTheSingleCompressorFileStore"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "getFileStores",
+          "method_description": "()Ljava/lang/Iterable;",
+          "line": 89,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate2Test#compressorFileStoreReturnsTheStoreExposedByGetFileStores",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate3Test#getFileStoresWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate4Test#getFileStoresReturnsTheSingleCompressorFileStore"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "getFileStores",
+          "method_description": "()Ljava/lang/Iterable;",
+          "line": 92,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "replaced return value with Collections.emptyList for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::getFileStores",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate2Test#compressorFileStoreReturnsTheStoreExposedByGetFileStores",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate3Test#getFileStoresWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate4Test#getFileStoresReturnsTheSingleCompressorFileStore"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.net.URI;\nimport java.nio.file.FileStore;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.nio.file.spi.FileSystemProvider;\nimport java.util.ArrayList;\nimport java.util.List;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate4Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem(FileSystemProvider provider, URI uri, Path host, Path temp) {\n      super(provider, uri, host, \"gzip\", \"entry\", temp);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      // nothing to deregister\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void getFileStoresReturnsTheSingleCompressorFileStore() throws Exception {\n    Path host = Files.createTempFile(\"archive\", \".gz\");\n    Path temp = Files.createTempFile(\"uncompressed\", \".tmp\");\n    try {\n      TestFileSystem fs = new TestFileSystem(\n          FileSystems.getDefault().provider(), URI.create(\"test:///archive\"), host, temp);\n      try {\n        List<FileStore> stores = new ArrayList<>();\n        for (FileStore store : fs.getFileStores()) {\n          stores.add(store);\n        }\n        assertEquals(1, stores.size());\n        assertSame(fs.compressorFileStore(), stores.get(0));\n      } finally {\n        fs.close();\n      }\n    } finally {\n      Files.deleteIfExists(host);\n      Files.deleteIfExists(temp);\n    }\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate5Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystemMutaGate5Test.java",
+      "target": {
+        "source_file": "AbstractCompressorArchiveFileSystem.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+        "mutated_method": "getPathMatcher",
+        "method_description": "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;",
+        "line": 113,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+        "indexes": [
+          5
+        ],
+        "description": "negated conditional",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "close",
+          "method_description": "()V",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate11Test#isOpenReflectsClosedState",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate1Test#closeDeregistersUriExactlyOnce",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate3Test#getFileStoresWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate5Test#getPathMatcherWorksWhenOpenAndFailsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate7Test#getRootDirectoriesWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "getPathMatcher",
+          "method_description": "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;",
+          "line": 113,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate5Test#getPathMatcherWorksWhenOpenAndFailsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate6Test#getPathMatcherReturnsWorkingMatcher"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "getPathMatcher",
+          "method_description": "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;",
+          "line": 117,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            24
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::getPathMatcher",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate5Test#getPathMatcherWorksWhenOpenAndFailsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate6Test#getPathMatcherReturnsWorkingMatcher"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.net.URI;\nimport java.nio.file.ClosedFileSystemException;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.nio.file.PathMatcher;\nimport java.nio.file.spi.FileSystemProvider;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate5Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem(FileSystemProvider provider, URI uri, Path host, Path temp) {\n      super(provider, uri, host, \"gzip\", \"entry\", temp);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      // nothing to deregister\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void getPathMatcherWorksWhenOpenAndFailsWhenClosed() throws IOException {\n    Path temp = Files.createTempFile(\"mutagate5\", \".tmp\");\n    TestFileSystem fs = new TestFileSystem(\n        FileSystems.getDefault().provider(),\n        URI.create(\"test:///archive\"),\n        Path.of(\"archive.gz\"),\n        temp);\n    try {\n      PathMatcher matcher = fs.getPathMatcher(\"glob:*.txt\");\n      assertNotNull(matcher);\n      assertTrue(matcher.matches(Path.of(\"a.txt\")));\n      assertFalse(matcher.matches(Path.of(\"a.bin\")));\n    } finally {\n      fs.close();\n    }\n\n    assertThrows(ClosedFileSystemException.class, () -> fs.getPathMatcher(\"glob:*.txt\"));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate6Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystemMutaGate6Test.java",
+      "target": {
+        "source_file": "AbstractCompressorArchiveFileSystem.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+        "mutated_method": "getPathMatcher",
+        "method_description": "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;",
+        "line": 117,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+        "indexes": [
+          24
+        ],
+        "description": "replaced return value with null for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::getPathMatcher",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "getPathMatcher",
+          "method_description": "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;",
+          "line": 113,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate5Test#getPathMatcherWorksWhenOpenAndFailsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate6Test#getPathMatcherReturnsWorkingMatcher"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "getPathMatcher",
+          "method_description": "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;",
+          "line": 117,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            24
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::getPathMatcher",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate5Test#getPathMatcherWorksWhenOpenAndFailsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate6Test#getPathMatcherReturnsWorkingMatcher"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.net.URI;\nimport java.nio.channels.SeekableByteChannel;\nimport java.nio.file.AccessMode;\nimport java.nio.file.CopyOption;\nimport java.nio.file.DirectoryStream;\nimport java.nio.file.FileStore;\nimport java.nio.file.FileSystem;\nimport java.nio.file.LinkOption;\nimport java.nio.file.OpenOption;\nimport java.nio.file.Path;\nimport java.nio.file.PathMatcher;\nimport java.nio.file.attribute.BasicFileAttributes;\nimport java.nio.file.attribute.FileAttribute;\nimport java.nio.file.attribute.FileAttributeView;\nimport java.nio.file.spi.FileSystemProvider;\nimport java.util.Map;\nimport java.util.Set;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate6Test {\n\n  private static final class StubProvider extends FileSystemProvider {\n    @Override\n    public String getScheme() {\n      return \"stub\";\n    }\n\n    @Override\n    public FileSystem newFileSystem(URI uri, Map<String, ?> env) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public FileSystem getFileSystem(URI uri) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public Path getPath(URI uri) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public SeekableByteChannel newByteChannel(\n        Path path, Set<? extends OpenOption> options, FileAttribute<?>... attrs) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public DirectoryStream<Path> newDirectoryStream(\n        Path dir, DirectoryStream.Filter<? super Path> filter) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void createDirectory(Path dir, FileAttribute<?>... attrs) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void delete(Path path) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void copy(Path source, Path target, CopyOption... options) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void move(Path source, Path target, CopyOption... options) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isSameFile(Path path, Path path2) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isHidden(Path path) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public FileStore getFileStore(Path path) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void checkAccess(Path path, AccessMode... modes) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public <V extends java.nio.file.attribute.FileAttributeView> V getFileAttributeView(\n        Path path, Class<V> type, LinkOption... options) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public <A extends BasicFileAttributes> A readAttributes(\n        Path path, Class<A> type, LinkOption... options) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public Map<String, Object> readAttributes(Path path, String attributes, LinkOption... options)\n        throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void setAttribute(Path path, String attribute, Object value, LinkOption... options)\n        throws IOException {\n      throw new UnsupportedOperationException();\n    }\n  }\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem() {\n      super(\n          new StubProvider(),\n          URI.create(\"stub:///test\"),\n          Path.of(\"archive.gz\"),\n          \"gzip\",\n          \"entry\",\n          Path.of(\"archive.gz.tmp\"));\n    }\n\n    @Override\n    protected void deregister(URI uri) {}\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void getPathMatcherReturnsWorkingMatcher() throws IOException {\n    TestFileSystem fs = new TestFileSystem();\n    try {\n      PathMatcher matcher = fs.getPathMatcher(\"glob:*.txt\");\n      assertNotNull(matcher);\n      assertTrue(matcher.matches(Path.of(\"a.txt\")));\n      assertFalse(matcher.matches(Path.of(\"a.bin\")));\n    } finally {\n      fs.close();\n    }\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate7Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystemMutaGate7Test.java",
+      "target": {
+        "source_file": "AbstractCompressorArchiveFileSystem.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+        "mutated_method": "getRootDirectories",
+        "method_description": "()Ljava/lang/Iterable;",
+        "line": 81,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+        "indexes": [
+          5
+        ],
+        "description": "negated conditional",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "close",
+          "method_description": "()V",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate11Test#isOpenReflectsClosedState",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate1Test#closeDeregistersUriExactlyOnce",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate3Test#getFileStoresWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate5Test#getPathMatcherWorksWhenOpenAndFailsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate7Test#getRootDirectoriesWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "getPath",
+          "method_description": "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;",
+          "line": 102,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate7Test#getRootDirectoriesWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate8Test#getRootDirectoriesReturnsSingleAbsoluteRoot",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#rootDirectoryStream_usesHostFileName_notInnerMetadata",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "getPath",
+          "method_description": "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;",
+          "line": 106,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            31
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::getPath",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate7Test#getRootDirectoriesWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate8Test#getRootDirectoriesReturnsSingleAbsoluteRoot",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#rootDirectoryStream_usesHostFileName_notInnerMetadata",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "getRootDirectories",
+          "method_description": "()Ljava/lang/Iterable;",
+          "line": 81,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate7Test#getRootDirectoriesWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate8Test#getRootDirectoriesReturnsSingleAbsoluteRoot"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "getRootDirectories",
+          "method_description": "()Ljava/lang/Iterable;",
+          "line": 84,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            21
+          ],
+          "description": "replaced return value with Collections.emptyList for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::getRootDirectories",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate7Test#getRootDirectoriesWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate8Test#getRootDirectoriesReturnsSingleAbsoluteRoot"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.io.IOException;\nimport java.net.URI;\nimport java.nio.file.ClosedFileSystemException;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.nio.file.spi.FileSystemProvider;\nimport java.util.ArrayList;\nimport java.util.List;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate7Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    int deregisterCalls;\n\n    TestFileSystem(FileSystemProvider provider, URI uri, Path archive, Path temp) {\n      super(provider, uri, archive, \"gzip\", \"entry\", temp);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      deregisterCalls++;\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void getRootDirectoriesWorksWhenOpenAndThrowsWhenClosed() throws IOException {\n    Path archive = Files.createTempFile(\"mutagate7-archive\", \".gz\");\n    Path temp = Files.createTempFile(\"mutagate7-temp\", \".tmp\");\n    try {\n      TestFileSystem fs =\n          new TestFileSystem(\n              FileSystems.getDefault().provider(), URI.create(\"mutagate7:test\"), archive, temp);\n\n      List<Path> roots = new ArrayList<>();\n      for (Path p : fs.getRootDirectories()) {\n        roots.add(p);\n      }\n      assertEquals(1, roots.size());\n      assertSame(fs, roots.get(0).getFileSystem());\n\n      fs.close();\n      assertThrows(ClosedFileSystemException.class, fs::getRootDirectories);\n    } finally {\n      Files.deleteIfExists(archive);\n      Files.deleteIfExists(temp);\n    }\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate8Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystemMutaGate8Test.java",
+      "target": {
+        "source_file": "AbstractCompressorArchiveFileSystem.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+        "mutated_method": "getRootDirectories",
+        "method_description": "()Ljava/lang/Iterable;",
+        "line": 84,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+        "indexes": [
+          21
+        ],
+        "description": "replaced return value with Collections.emptyList for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::getRootDirectories",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "getPath",
+          "method_description": "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;",
+          "line": 102,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate7Test#getRootDirectoriesWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate8Test#getRootDirectoriesReturnsSingleAbsoluteRoot",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#rootDirectoryStream_usesHostFileName_notInnerMetadata",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "getPath",
+          "method_description": "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;",
+          "line": 106,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            31
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::getPath",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate7Test#getRootDirectoriesWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate8Test#getRootDirectoriesReturnsSingleAbsoluteRoot",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#rootDirectoryStream_usesHostFileName_notInnerMetadata",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "getRootDirectories",
+          "method_description": "()Ljava/lang/Iterable;",
+          "line": 81,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate7Test#getRootDirectoriesWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate8Test#getRootDirectoriesReturnsSingleAbsoluteRoot"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "getRootDirectories",
+          "method_description": "()Ljava/lang/Iterable;",
+          "line": 84,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            21
+          ],
+          "description": "replaced return value with Collections.emptyList for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::getRootDirectories",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate7Test#getRootDirectoriesWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate8Test#getRootDirectoriesReturnsSingleAbsoluteRoot"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.net.URI;\nimport java.nio.file.Files;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Path;\nimport java.nio.file.spi.FileSystemProvider;\nimport java.util.ArrayList;\nimport java.util.List;\nimport org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.io.TempDir;\n\nclass AbstractCompressorArchiveFileSystemMutaGate8Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem(FileSystemProvider provider, URI uri, Path archive, Path temp) {\n      super(provider, uri, archive, \"gzip\", \"entry\", temp);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      // nothing to deregister\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void getRootDirectoriesReturnsSingleAbsoluteRoot(@TempDir Path dir) throws Exception {\n    Path archive = Files.createFile(dir.resolve(\"a.gz\"));\n    Path temp = dir.resolve(\"temp.bin\");\n    TestFileSystem fs = new TestFileSystem(\n        FileSystems.getDefault().provider(), URI.create(\"test:///a\"), archive, temp);\n\n    List<Path> roots = new ArrayList<>();\n    for (Path p : fs.getRootDirectories()) {\n      roots.add(p);\n    }\n\n    assertEquals(1, roots.size());\n    assertTrue(roots.get(0).isAbsolute());\n    assertSame(fs, roots.get(0).getFileSystem());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate9Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystemMutaGate9Test.java",
+      "target": {
+        "source_file": "AbstractCompressorArchiveFileSystem.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+        "mutated_method": "getSeparator",
+        "method_description": "()Ljava/lang/String;",
+        "line": 76,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+        "indexes": [
+          4
+        ],
+        "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::getSeparator",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "getSeparator",
+          "method_description": "()Ljava/lang/String;",
+          "line": 76,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::getSeparator",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate9Test#separatorIsForwardSlash"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.net.URI;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate9Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem() {\n      super(\n          FileSystems.getDefault().provider(),\n          URI.create(\"test:///sep\"),\n          Path.of(\"archive.gz\"),\n          \"gzip\",\n          \"entry\",\n          Path.of(\"archive.gz.tmp\"));\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      // nothing to deregister\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void separatorIsForwardSlash() {\n    TestFileSystem fs = new TestFileSystem();\n    assertEquals(\"/\", fs.getSeparator());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate10Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystemMutaGate10Test.java",
+      "target": {
+        "source_file": "AbstractCompressorArchiveFileSystem.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+        "mutated_method": "hostArchivePath",
+        "method_description": "()Ljava/nio/file/Path;",
+        "line": 131,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+        "indexes": [
+          5
+        ],
+        "description": "replaced return value with null for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::hostArchivePath",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "hostArchivePath",
+          "method_description": "()Ljava/nio/file/Path;",
+          "line": 131,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::hostArchivePath",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate10Test#hostArchivePathReturnsTheConfiguredPath"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.net.URI;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate10Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem(URI uri, Path hostArchivePath, Path tempFile) {\n      super(\n          FileSystems.getDefault().provider(),\n          uri,\n          hostArchivePath,\n          \"gzip\",\n          \"entry\",\n          tempFile);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void hostArchivePathReturnsTheConfiguredPath() {\n    Path archive = Paths.get(\"some-archive.gz\");\n    Path temp = Paths.get(\"some-archive.tmp\");\n    TestFileSystem fs = new TestFileSystem(URI.create(\"test:///archive\"), archive, temp);\n\n    assertNotNull(fs.hostArchivePath());\n    assertSame(archive, fs.hostArchivePath());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate11Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystemMutaGate11Test.java",
+      "target": {
+        "source_file": "AbstractCompressorArchiveFileSystem.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+        "mutated_method": "isOpen",
+        "method_description": "()Z",
+        "line": 66,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+        "indexes": [
+          5
+        ],
+        "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::isOpen",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "close",
+          "method_description": "()V",
+          "line": 51,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate11Test#isOpenReflectsClosedState",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate1Test#closeDeregistersUriExactlyOnce",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate3Test#getFileStoresWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate5Test#getPathMatcherWorksWhenOpenAndFailsWhenClosed",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate7Test#getRootDirectoriesWorksWhenOpenAndThrowsWhenClosed",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "close",
+          "method_description": "()V",
+          "line": 58,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "indexes": [
+            37,
+            26
+          ],
+          "description": "removed call to io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::deregister",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate11Test#isOpenReflectsClosedState",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate1Test#closeDeregistersUriExactlyOnce"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "isOpen",
+          "method_description": "()Z",
+          "line": 66,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::isOpen",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate11Test#isOpenReflectsClosedState",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis"
+          ]
+        },
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "isOpen",
+          "method_description": "()Z",
+          "line": 66,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::isOpen",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate11Test#isOpenReflectsClosedState",
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate1Test#closeDeregistersUriExactlyOnce"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.net.URI;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.nio.file.spi.FileSystemProvider;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate11Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    boolean deregistered;\n\n    TestFileSystem(FileSystemProvider provider, URI uri, Path archive, Path temp) {\n      super(provider, uri, archive, \"gzip\", \"entry\", temp);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      deregistered = true;\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void isOpenReflectsClosedState() throws IOException {\n    Path archive = Files.createTempFile(\"mutagate-archive\", \".gz\");\n    Path temp = Files.createTempFile(\"mutagate-temp\", \".tmp\");\n    try {\n      TestFileSystem fs = new TestFileSystem(\n          FileSystems.getDefault().provider(), URI.create(\"test:///mutagate\"), archive, temp);\n      assertTrue(fs.isOpen());\n      fs.close();\n      assertFalse(fs.isOpen());\n      assertTrue(fs.deregistered);\n    } finally {\n      Files.deleteIfExists(archive);\n      Files.deleteIfExists(temp);\n    }\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate12Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystemMutaGate12Test.java",
+      "target": {
+        "source_file": "AbstractCompressorArchiveFileSystem.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+        "mutated_method": "isReadOnly",
+        "method_description": "()Z",
+        "line": 71,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+        "indexes": [
+          4
+        ],
+        "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::isReadOnly",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "isReadOnly",
+          "method_description": "()Z",
+          "line": 71,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::isReadOnly",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate12Test#fileSystemIsReadOnly"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.net.URI;\nimport java.nio.channels.SeekableByteChannel;\nimport java.nio.file.AccessMode;\nimport java.nio.file.CopyOption;\nimport java.nio.file.DirectoryStream;\nimport java.nio.file.FileStore;\nimport java.nio.file.FileSystem;\nimport java.nio.file.LinkOption;\nimport java.nio.file.OpenOption;\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport java.nio.file.attribute.BasicFileAttributes;\nimport java.nio.file.attribute.FileAttribute;\nimport java.nio.file.attribute.FileAttributeView;\nimport java.nio.file.spi.FileSystemProvider;\nimport java.util.Map;\nimport java.util.Set;\n\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate12Test {\n\n  private static final class StubProvider extends FileSystemProvider {\n    @Override\n    public String getScheme() {\n      return \"stub\";\n    }\n\n    @Override\n    public FileSystem newFileSystem(URI uri, Map<String, ?> env) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public FileSystem getFileSystem(URI uri) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public Path getPath(URI uri) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public SeekableByteChannel newByteChannel(\n        Path path, Set<? extends OpenOption> options, FileAttribute<?>... attrs) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public DirectoryStream<Path> newDirectoryStream(\n        Path dir, DirectoryStream.Filter<? super Path> filter) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void createDirectory(Path dir, FileAttribute<?>... attrs) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void delete(Path path) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void copy(Path source, Path target, CopyOption... options) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void move(Path source, Path target, CopyOption... options) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isSameFile(Path path, Path path2) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isHidden(Path path) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public FileStore getFileStore(Path path) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void checkAccess(Path path, AccessMode... modes) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public <V extends FileAttributeView> V getFileAttributeView(\n        Path path, Class<V> type, LinkOption... options) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public <A extends BasicFileAttributes> A readAttributes(\n        Path path, Class<A> type, LinkOption... options) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public Map<String, Object> readAttributes(Path path, String attributes, LinkOption... options)\n        throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void setAttribute(Path path, String attribute, Object value, LinkOption... options)\n        throws IOException {\n      throw new UnsupportedOperationException();\n    }\n  }\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem(URI uri, Path archive, Path temp) {\n      super(new StubProvider(), uri, archive, \"gzip\", \"entry\", temp);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      // nothing to deregister\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void fileSystemIsReadOnly() {\n    TestFileSystem fs =\n        new TestFileSystem(\n            URI.create(\"stub:///test\"), Paths.get(\"archive.gz\"), Paths.get(\"archive.tmp\"));\n    assertTrue(fs.isReadOnly());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate13Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystemMutaGate13Test.java",
+      "target": {
+        "source_file": "AbstractCompressorArchiveFileSystem.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+        "mutated_method": "supportedFileAttributeViews",
+        "method_description": "()Ljava/util/Set;",
+        "line": 97,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+        "indexes": [
+          5
+        ],
+        "description": "replaced return value with Collections.emptySet for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::supportedFileAttributeViews",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "AbstractCompressorArchiveFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+          "mutated_method": "supportedFileAttributeViews",
+          "method_description": "()Ljava/util/Set;",
+          "line": 97,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with Collections.emptySet for io/github/iachimoe/tarballfs/AbstractCompressorArchiveFileSystem::supportedFileAttributeViews",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate13Test#supportedFileAttributeViewsContainsOnlyBasic"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.net.URI;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Path;\nimport java.util.Set;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate13Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem() {\n      super(\n          FileSystems.getDefault().provider(),\n          URI.create(\"test:///archive\"),\n          Path.of(\"archive.gz\"),\n          \"gzip\",\n          \"entry\",\n          Path.of(\"archive.tmp\"));\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      // nothing to deregister\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void supportedFileAttributeViewsContainsOnlyBasic() {\n    TestFileSystem fs = new TestFileSystem();\n    Set<String> views = fs.supportedFileAttributeViews();\n    assertEquals(Set.of(\"basic\"), views);\n  }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\n\nimport java.net.URI;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.ArrayList;\nimport java.util.List;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate1Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    final List<URI> deregistered = new ArrayList<>();\n\n    TestFileSystem(URI uri, Path archive, Path tempFile) {\n      super(java.nio.file.FileSystems.getDefault().provider(), uri, archive, \"gzip\", \"entry\", tempFile);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      deregistered.add(uri);\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void closeDeregistersUriExactlyOnce() throws Exception {\n    Path archive = Files.createTempFile(\"archive\", \".gz\");\n    Path temp = Files.createTempFile(\"uncompressed\", \".tmp\");\n    try {\n      URI uri = URI.create(\"test:///some-archive\");\n      TestFileSystem fs = new TestFileSystem(uri, archive, temp);\n\n      assertEquals(0, fs.deregistered.size());\n      fs.close();\n\n      assertFalse(fs.isOpen());\n      assertFalse(Files.exists(temp));\n      assertEquals(List.of(uri), fs.deregistered);\n\n      fs.close();\n      assertEquals(List.of(uri), fs.deregistered);\n    } finally {\n      Files.deleteIfExists(archive);\n      Files.deleteIfExists(temp);\n    }\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 4245,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 1012,
+        "thinking_tokens": 318
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.net.URI;\nimport java.nio.file.FileStore;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Path;\nimport java.nio.file.spi.FileSystemProvider;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate2Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem(FileSystemProvider provider, URI uri, Path archive, Path temp) {\n      super(provider, uri, archive, \"test-type\", \"entry\", temp);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      // no-op\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void compressorFileStoreReturnsTheStoreExposedByGetFileStores() throws Exception {\n    FileSystemProvider provider = FileSystems.getDefault().provider();\n    TestFileSystem fs =\n        new TestFileSystem(\n            provider,\n            URI.create(\"test:///archive.gz\"),\n            Path.of(\"archive.gz\"),\n            Path.of(\"archive.tmp\"));\n\n    ReadOnlyCompressorFileStore store = fs.compressorFileStore();\n    assertNotNull(store);\n\n    FileStore listed = fs.getFileStores().iterator().next();\n    assertSame(listed, store);\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 898,
+        "cache_read_input_tokens": 3299,
+        "output_tokens": 948,
+        "thinking_tokens": 347
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate3Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.net.URI;\nimport java.nio.file.ClosedFileSystemException;\nimport java.nio.file.FileStore;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.Iterator;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate3Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem(URI uri, Path archive, Path tempFile) {\n      super(FileSystems.getDefault().provider(), uri, archive, \"gzip\", \"entry\", tempFile);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void getFileStoresWorksWhenOpenAndThrowsWhenClosed() throws Exception {\n    Path tempFile = Files.createTempFile(\"mutagate3\", \".tmp\");\n    TestFileSystem fs = new TestFileSystem(\n        URI.create(\"test:///mutagate3\"), Path.of(\"archive.gz\"), tempFile);\n\n    Iterable<FileStore> stores = fs.getFileStores();\n    Iterator<FileStore> it = stores.iterator();\n    assertTrue(it.hasNext());\n    assertSame(fs.compressorFileStore(), it.next());\n\n    fs.close();\n\n    assertThrows(ClosedFileSystemException.class, fs::getFileStores);\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 906,
+        "cache_read_input_tokens": 3299,
+        "output_tokens": 1020,
+        "thinking_tokens": 346
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate4Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.net.URI;\nimport java.nio.file.FileStore;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.nio.file.spi.FileSystemProvider;\nimport java.util.ArrayList;\nimport java.util.List;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate4Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem(FileSystemProvider provider, URI uri, Path host, Path temp) {\n      super(provider, uri, host, \"gzip\", \"entry\", temp);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      // nothing to deregister\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void getFileStoresReturnsTheSingleCompressorFileStore() throws Exception {\n    Path host = Files.createTempFile(\"archive\", \".gz\");\n    Path temp = Files.createTempFile(\"uncompressed\", \".tmp\");\n    try {\n      TestFileSystem fs = new TestFileSystem(\n          FileSystems.getDefault().provider(), URI.create(\"test:///archive\"), host, temp);\n      try {\n        List<FileStore> stores = new ArrayList<>();\n        for (FileStore store : fs.getFileStores()) {\n          stores.add(store);\n        }\n        assertEquals(1, stores.size());\n        assertSame(fs.compressorFileStore(), stores.get(0));\n      } finally {\n        fs.close();\n      }\n    } finally {\n      Files.deleteIfExists(host);\n      Files.deleteIfExists(temp);\n    }\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 937,
+        "cache_read_input_tokens": 3299,
+        "output_tokens": 1120,
+        "thinking_tokens": 403
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate5Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.net.URI;\nimport java.nio.file.ClosedFileSystemException;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.nio.file.PathMatcher;\nimport java.nio.file.spi.FileSystemProvider;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate5Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem(FileSystemProvider provider, URI uri, Path host, Path temp) {\n      super(provider, uri, host, \"gzip\", \"entry\", temp);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      // nothing to deregister\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void getPathMatcherWorksWhenOpenAndFailsWhenClosed() throws IOException {\n    Path temp = Files.createTempFile(\"mutagate5\", \".tmp\");\n    TestFileSystem fs = new TestFileSystem(\n        FileSystems.getDefault().provider(),\n        URI.create(\"test:///archive\"),\n        Path.of(\"archive.gz\"),\n        temp);\n    try {\n      PathMatcher matcher = fs.getPathMatcher(\"glob:*.txt\");\n      assertNotNull(matcher);\n      assertTrue(matcher.matches(Path.of(\"a.txt\")));\n      assertFalse(matcher.matches(Path.of(\"a.bin\")));\n    } finally {\n      fs.close();\n    }\n\n    assertThrows(ClosedFileSystemException.class, () -> fs.getPathMatcher(\"glob:*.txt\"));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 990,
+        "cache_read_input_tokens": 3299,
+        "output_tokens": 1215,
+        "thinking_tokens": 434
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate6Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.net.URI;\nimport java.nio.channels.SeekableByteChannel;\nimport java.nio.file.AccessMode;\nimport java.nio.file.CopyOption;\nimport java.nio.file.DirectoryStream;\nimport java.nio.file.FileStore;\nimport java.nio.file.FileSystem;\nimport java.nio.file.LinkOption;\nimport java.nio.file.OpenOption;\nimport java.nio.file.Path;\nimport java.nio.file.PathMatcher;\nimport java.nio.file.attribute.BasicFileAttributes;\nimport java.nio.file.attribute.FileAttribute;\nimport java.nio.file.attribute.FileAttributeView;\nimport java.nio.file.spi.FileSystemProvider;\nimport java.util.Map;\nimport java.util.Set;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate6Test {\n\n  private static final class StubProvider extends FileSystemProvider {\n    @Override\n    public String getScheme() {\n      return \"stub\";\n    }\n\n    @Override\n    public FileSystem newFileSystem(URI uri, Map<String, ?> env) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public FileSystem getFileSystem(URI uri) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public Path getPath(URI uri) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public SeekableByteChannel newByteChannel(\n        Path path, Set<? extends OpenOption> options, FileAttribute<?>... attrs) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public DirectoryStream<Path> newDirectoryStream(\n        Path dir, DirectoryStream.Filter<? super Path> filter) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void createDirectory(Path dir, FileAttribute<?>... attrs) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void delete(Path path) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void copy(Path source, Path target, CopyOption... options) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void move(Path source, Path target, CopyOption... options) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isSameFile(Path path, Path path2) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isHidden(Path path) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public FileStore getFileStore(Path path) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void checkAccess(Path path, AccessMode... modes) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public <V extends java.nio.file.attribute.FileAttributeView> V getFileAttributeView(\n        Path path, Class<V> type, LinkOption... options) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public <A extends BasicFileAttributes> A readAttributes(\n        Path path, Class<A> type, LinkOption... options) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public Map<String, Object> readAttributes(Path path, String attributes, LinkOption... options)\n        throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void setAttribute(Path path, String attribute, Object value, LinkOption... options)\n        throws IOException {\n      throw new UnsupportedOperationException();\n    }\n  }\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem() {\n      super(\n          new StubProvider(),\n          URI.create(\"stub:///test\"),\n          Path.of(\"archive.gz\"),\n          \"gzip\",\n          \"entry\",\n          Path.of(\"archive.gz.tmp\"));\n    }\n\n    @Override\n    protected void deregister(URI uri) {}\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void getPathMatcherReturnsWorkingMatcher() throws IOException {\n    TestFileSystem fs = new TestFileSystem();\n    try {\n      PathMatcher matcher = fs.getPathMatcher(\"glob:*.txt\");\n      assertNotNull(matcher);\n      assertTrue(matcher.matches(Path.of(\"a.txt\")));\n      assertFalse(matcher.matches(Path.of(\"a.bin\")));\n    } finally {\n      fs.close();\n    }\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1033,
+        "cache_read_input_tokens": 3299,
+        "output_tokens": 2374,
+        "thinking_tokens": 587
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate7Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.io.IOException;\nimport java.net.URI;\nimport java.nio.file.ClosedFileSystemException;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.nio.file.spi.FileSystemProvider;\nimport java.util.ArrayList;\nimport java.util.List;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate7Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    int deregisterCalls;\n\n    TestFileSystem(FileSystemProvider provider, URI uri, Path archive, Path temp) {\n      super(provider, uri, archive, \"gzip\", \"entry\", temp);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      deregisterCalls++;\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void getRootDirectoriesWorksWhenOpenAndThrowsWhenClosed() throws IOException {\n    Path archive = Files.createTempFile(\"mutagate7-archive\", \".gz\");\n    Path temp = Files.createTempFile(\"mutagate7-temp\", \".tmp\");\n    try {\n      TestFileSystem fs =\n          new TestFileSystem(\n              FileSystems.getDefault().provider(), URI.create(\"mutagate7:test\"), archive, temp);\n\n      List<Path> roots = new ArrayList<>();\n      for (Path p : fs.getRootDirectories()) {\n        roots.add(p);\n      }\n      assertEquals(1, roots.size());\n      assertSame(fs, roots.get(0).getFileSystem());\n\n      fs.close();\n      assertThrows(ClosedFileSystemException.class, fs::getRootDirectories);\n    } finally {\n      Files.deleteIfExists(archive);\n      Files.deleteIfExists(temp);\n    }\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 910,
+        "cache_read_input_tokens": 3299,
+        "output_tokens": 1301,
+        "thinking_tokens": 490
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate8Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.net.URI;\nimport java.nio.file.Files;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Path;\nimport java.nio.file.spi.FileSystemProvider;\nimport java.util.ArrayList;\nimport java.util.List;\nimport org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.io.TempDir;\n\nclass AbstractCompressorArchiveFileSystemMutaGate8Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem(FileSystemProvider provider, URI uri, Path archive, Path temp) {\n      super(provider, uri, archive, \"gzip\", \"entry\", temp);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      // nothing to deregister\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void getRootDirectoriesReturnsSingleAbsoluteRoot(@TempDir Path dir) throws Exception {\n    Path archive = Files.createFile(dir.resolve(\"a.gz\"));\n    Path temp = dir.resolve(\"temp.bin\");\n    TestFileSystem fs = new TestFileSystem(\n        FileSystems.getDefault().provider(), URI.create(\"test:///a\"), archive, temp);\n\n    List<Path> roots = new ArrayList<>();\n    for (Path p : fs.getRootDirectories()) {\n      roots.add(p);\n    }\n\n    assertEquals(1, roots.size());\n    assertTrue(roots.get(0).isAbsolute());\n    assertSame(fs, roots.get(0).getFileSystem());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 942,
+        "cache_read_input_tokens": 3299,
+        "output_tokens": 1171,
+        "thinking_tokens": 457
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate9Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.net.URI;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate9Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem() {\n      super(\n          FileSystems.getDefault().provider(),\n          URI.create(\"test:///sep\"),\n          Path.of(\"archive.gz\"),\n          \"gzip\",\n          \"entry\",\n          Path.of(\"archive.gz.tmp\"));\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      // nothing to deregister\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void separatorIsForwardSlash() {\n    TestFileSystem fs = new TestFileSystem();\n    assertEquals(\"/\", fs.getSeparator());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 862,
+        "cache_read_input_tokens": 3299,
+        "output_tokens": 798,
+        "thinking_tokens": 384
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate10Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.net.URI;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate10Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem(URI uri, Path hostArchivePath, Path tempFile) {\n      super(\n          FileSystems.getDefault().provider(),\n          uri,\n          hostArchivePath,\n          \"gzip\",\n          \"entry\",\n          tempFile);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void hostArchivePathReturnsTheConfiguredPath() {\n    Path archive = Paths.get(\"some-archive.gz\");\n    Path temp = Paths.get(\"some-archive.tmp\");\n    TestFileSystem fs = new TestFileSystem(URI.create(\"test:///archive\"), archive, temp);\n\n    assertNotNull(fs.hostArchivePath());\n    assertSame(archive, fs.hostArchivePath());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 894,
+        "cache_read_input_tokens": 3299,
+        "output_tokens": 774,
+        "thinking_tokens": 241
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate11Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.net.URI;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.nio.file.spi.FileSystemProvider;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate11Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    boolean deregistered;\n\n    TestFileSystem(FileSystemProvider provider, URI uri, Path archive, Path temp) {\n      super(provider, uri, archive, \"gzip\", \"entry\", temp);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      deregistered = true;\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void isOpenReflectsClosedState() throws IOException {\n    Path archive = Files.createTempFile(\"mutagate-archive\", \".gz\");\n    Path temp = Files.createTempFile(\"mutagate-temp\", \".tmp\");\n    try {\n      TestFileSystem fs = new TestFileSystem(\n          FileSystems.getDefault().provider(), URI.create(\"test:///mutagate\"), archive, temp);\n      assertTrue(fs.isOpen());\n      fs.close();\n      assertFalse(fs.isOpen());\n      assertTrue(fs.deregistered);\n    } finally {\n      Files.deleteIfExists(archive);\n      Files.deleteIfExists(temp);\n    }\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 872,
+        "cache_read_input_tokens": 3299,
+        "output_tokens": 1070,
+        "thinking_tokens": 424
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate12Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.net.URI;\nimport java.nio.channels.SeekableByteChannel;\nimport java.nio.file.AccessMode;\nimport java.nio.file.CopyOption;\nimport java.nio.file.DirectoryStream;\nimport java.nio.file.FileStore;\nimport java.nio.file.FileSystem;\nimport java.nio.file.LinkOption;\nimport java.nio.file.OpenOption;\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport java.nio.file.attribute.BasicFileAttributes;\nimport java.nio.file.attribute.FileAttribute;\nimport java.nio.file.attribute.FileAttributeView;\nimport java.nio.file.spi.FileSystemProvider;\nimport java.util.Map;\nimport java.util.Set;\n\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate12Test {\n\n  private static final class StubProvider extends FileSystemProvider {\n    @Override\n    public String getScheme() {\n      return \"stub\";\n    }\n\n    @Override\n    public FileSystem newFileSystem(URI uri, Map<String, ?> env) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public FileSystem getFileSystem(URI uri) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public Path getPath(URI uri) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public SeekableByteChannel newByteChannel(\n        Path path, Set<? extends OpenOption> options, FileAttribute<?>... attrs) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public DirectoryStream<Path> newDirectoryStream(\n        Path dir, DirectoryStream.Filter<? super Path> filter) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void createDirectory(Path dir, FileAttribute<?>... attrs) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void delete(Path path) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void copy(Path source, Path target, CopyOption... options) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void move(Path source, Path target, CopyOption... options) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isSameFile(Path path, Path path2) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public boolean isHidden(Path path) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public FileStore getFileStore(Path path) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void checkAccess(Path path, AccessMode... modes) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public <V extends FileAttributeView> V getFileAttributeView(\n        Path path, Class<V> type, LinkOption... options) {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public <A extends BasicFileAttributes> A readAttributes(\n        Path path, Class<A> type, LinkOption... options) throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public Map<String, Object> readAttributes(Path path, String attributes, LinkOption... options)\n        throws IOException {\n      throw new UnsupportedOperationException();\n    }\n\n    @Override\n    public void setAttribute(Path path, String attribute, Object value, LinkOption... options)\n        throws IOException {\n      throw new UnsupportedOperationException();\n    }\n  }\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem(URI uri, Path archive, Path temp) {\n      super(new StubProvider(), uri, archive, \"gzip\", \"entry\", temp);\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      // nothing to deregister\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void fileSystemIsReadOnly() {\n    TestFileSystem fs =\n        new TestFileSystem(\n            URI.create(\"stub:///test\"), Paths.get(\"archive.gz\"), Paths.get(\"archive.tmp\"));\n    assertTrue(fs.isReadOnly());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 869,
+        "cache_read_input_tokens": 3299,
+        "output_tokens": 2286,
+        "thinking_tokens": 594
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystemMutaGate13Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.net.URI;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Path;\nimport java.util.Set;\nimport org.junit.jupiter.api.Test;\n\nclass AbstractCompressorArchiveFileSystemMutaGate13Test {\n\n  private static final class TestFileSystem extends AbstractCompressorArchiveFileSystem {\n    TestFileSystem() {\n      super(\n          FileSystems.getDefault().provider(),\n          URI.create(\"test:///archive\"),\n          Path.of(\"archive.gz\"),\n          \"gzip\",\n          \"entry\",\n          Path.of(\"archive.tmp\"));\n    }\n\n    @Override\n    protected void deregister(URI uri) {\n      // nothing to deregister\n    }\n\n    @Override\n    protected SingleEntryArchiveFormat pathFormat() {\n      return SingleEntryArchiveFormat.GZIP;\n    }\n  }\n\n  @Test\n  void supportedFileAttributeViewsContainsOnlyBasic() {\n    TestFileSystem fs = new TestFileSystem();\n    Set<String> views = fs.supportedFileAttributeViews();\n    assertEquals(Set.of(\"basic\"), views);\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 904,
+        "cache_read_input_tokens": 3299,
+        "output_tokens": 784,
+        "thinking_tokens": 329
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}
