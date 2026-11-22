@@ -170,9 +170,9 @@ def gate_rejections(runs: list[RunMetrics]) -> dict[str, int]:
 
 def redundant_kept(baseline: list[Mutant], runs: list[RunMetrics]) -> int:
     """Kept tests that killed no undetected mutant an earlier kept test in the
-    same class run had not already killed. In a control run that names a
-    method again, these are duplicates; in a targeted run, tests whose target
-    an earlier kept test had already killed. Reporting only; no verdict changes."""
+    same class run had not already killed; in a targeted run, tests whose
+    target an earlier kept test had already killed. Reporting only; no verdict
+    changes."""
     redundant = 0
     for run in runs:
         undetected = set(select_targets(baseline, run.target_class))
