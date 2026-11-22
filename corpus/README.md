@@ -4,8 +4,11 @@ Notes on the repositories used as targets, and on the candidates baselined
 while choosing them. The repositories themselves are not
 committed here; record how to obtain each one and why it was chosen.
 
-Direction: public open-source Java on Maven with JUnit 5 tests, prioritizing
-AI-generated codebases with thin test suites.
+Direction: public open-source Java projects (Maven, JUnit 5), favoring
+AI-generated ones that are weakly tested: a working test suite, but most
+classes with no tests of their own (74% or more in every project below). That
+count was only a first filter; the baseline score measures how weak each suite
+really is.
 
 Each repository also gets a folder, `corpus/<repo>/`, holding:
 
