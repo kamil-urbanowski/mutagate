@@ -1,0 +1,1764 @@
+{
+  "repo": "tarballfs",
+  "class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+  "kind": "CONTROL",
+  "setup": {
+    "repo_commit": "9d0d8eb2b3a52801b34531675750076fd46a1b5f",
+    "date": "2026-11-22",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "fbbf194a393f76fb2eabba89ffadc9c0a7b7e53d",
+    "provider": "claude-code",
+    "provider_version": "2.1.329",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.5263157894736842,
+  "score_after": 0.8947368421052632,
+  "mutants_total": 19,
+  "undetected_before": 9,
+  "newly_detected": 7,
+  "candidates": 9,
+  "kept": 9,
+  "acceptance_rate": 1.0,
+  "attempts_per_kept_test": 1.0,
+  "tokens": {
+    "input_tokens": 18,
+    "cache_creation_input_tokens": 7951,
+    "cache_read_input_tokens": 11080,
+    "output_tokens": 7397,
+    "thinking_tokens": 1729
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/TarBasicFileAttributesMutaGate1Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 7 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "creationTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 70,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::creationTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fileKey",
+          "method_description": "()Ljava/lang/Object;",
+          "line": 100,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::fileKey",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fromEntry",
+          "method_description": "(Lorg/apache/commons/compress/archivers/tar/TarArchiveEntry;Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 40,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            14
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fromEntry",
+          "method_description": "(Lorg/apache/commons/compress/archivers/tar/TarArchiveEntry;Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 40,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            16
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fromEntry",
+          "method_description": "(Lorg/apache/commons/compress/archivers/tar/TarArchiveEntry;Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 41,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            28
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fromEntry",
+          "method_description": "(Lorg/apache/commons/compress/archivers/tar/TarArchiveEntry;Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 50,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            85
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::fromEntry",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isDirectory",
+          "method_description": "()Z",
+          "line": 80,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isDirectory",
+          "method_description": "()Z",
+          "line": 80,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isOther",
+          "method_description": "()Z",
+          "line": 90,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isOther",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isRegularFile",
+          "method_description": "()Z",
+          "line": 75,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isRegularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isRegularFile",
+          "method_description": "()Z",
+          "line": 75,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isRegularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isSymbolicLink",
+          "method_description": "()Z",
+          "line": 85,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isSymbolicLink",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isSymbolicLink",
+          "method_description": "()Z",
+          "line": 85,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isSymbolicLink",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "lastAccessTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 65,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::lastAccessTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "lastModifiedTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 60,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::lastModifiedTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "size",
+          "method_description": "()J",
+          "line": 95,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/TarBasicFileAttributes::size",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.attribute.FileTime;\n\nimport org.apache.commons.compress.archivers.tar.TarArchiveEntry;\nimport org.apache.commons.compress.archivers.tar.TarConstants;\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributesMutaGate1Test {\n\n  @Test\n  void fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink() {\n    long millis = 1_700_000_000_000L;\n\n    TarArchiveEntry fileEntry = new TarArchiveEntry(\"dir/file.txt\");\n    fileEntry.setSize(1234L);\n    fileEntry.setModTime(millis);\n    String fileKey = \"dir/file.txt\";\n    TarBasicFileAttributes fileAttrs = TarBasicFileAttributes.fromEntry(fileEntry, fileKey);\n\n    assertTrue(fileAttrs.isRegularFile());\n    assertFalse(fileAttrs.isDirectory());\n    assertFalse(fileAttrs.isSymbolicLink());\n    assertFalse(fileAttrs.isOther());\n    assertEquals(1234L, fileAttrs.size());\n    assertEquals(FileTime.fromMillis(millis), fileAttrs.lastModifiedTime());\n    assertEquals(FileTime.fromMillis(millis), fileAttrs.lastAccessTime());\n    assertEquals(FileTime.fromMillis(millis), fileAttrs.creationTime());\n    assertSame(fileKey, fileAttrs.fileKey());\n\n    TarArchiveEntry dirEntry = new TarArchiveEntry(\"dir/\");\n    dirEntry.setSize(100L);\n    dirEntry.setModTime(millis);\n    String dirKey = \"dir/\";\n    TarBasicFileAttributes dirAttrs = TarBasicFileAttributes.fromEntry(dirEntry, dirKey);\n\n    assertFalse(dirAttrs.isRegularFile());\n    assertTrue(dirAttrs.isDirectory());\n    assertFalse(dirAttrs.isSymbolicLink());\n    assertFalse(dirAttrs.isOther());\n    assertEquals(0L, dirAttrs.size());\n    assertEquals(FileTime.fromMillis(millis), dirAttrs.lastModifiedTime());\n    assertSame(dirKey, dirAttrs.fileKey());\n\n    TarArchiveEntry linkEntry = new TarArchiveEntry(\"link\", TarConstants.LF_SYMLINK);\n    linkEntry.setLinkName(\"target\");\n    linkEntry.setSize(5L);\n    linkEntry.setModTime(millis);\n    String linkKey = \"link\";\n    TarBasicFileAttributes linkAttrs = TarBasicFileAttributes.fromEntry(linkEntry, linkKey);\n\n    assertFalse(linkAttrs.isRegularFile());\n    assertFalse(linkAttrs.isDirectory());\n    assertTrue(linkAttrs.isSymbolicLink());\n    assertFalse(linkAttrs.isOther());\n    assertEquals(5L, linkAttrs.size());\n    assertEquals(FileTime.fromMillis(millis), linkAttrs.lastModifiedTime());\n    assertEquals(FileTime.fromMillis(millis), linkAttrs.lastAccessTime());\n    assertEquals(FileTime.fromMillis(millis), linkAttrs.creationTime());\n    assertSame(linkKey, linkAttrs.fileKey());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/TarBasicFileAttributesMutaGate2Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 6 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "creationTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 70,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::creationTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fileKey",
+          "method_description": "()Ljava/lang/Object;",
+          "line": 100,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::fileKey",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "impliedDirectory",
+          "method_description": "(Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 55,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            19
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::impliedDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isDirectory",
+          "method_description": "()Z",
+          "line": 80,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isOther",
+          "method_description": "()Z",
+          "line": 90,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isOther",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isRegularFile",
+          "method_description": "()Z",
+          "line": 75,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isRegularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isSymbolicLink",
+          "method_description": "()Z",
+          "line": 85,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isSymbolicLink",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "lastAccessTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 65,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::lastAccessTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "lastModifiedTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 60,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::lastModifiedTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.attribute.FileTime;\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributesMutaGate2Test {\n\n  @Test\n  void impliedDirectoryHasDirectoryAttributesEpochTimesAndKey() {\n    String key = \"some/dir/\";\n    TarBasicFileAttributes attrs = TarBasicFileAttributes.impliedDirectory(key);\n\n    assertTrue(attrs.isDirectory());\n    assertFalse(attrs.isRegularFile());\n    assertFalse(attrs.isSymbolicLink());\n    assertFalse(attrs.isOther());\n    assertEquals(0L, attrs.size());\n\n    FileTime epoch = FileTime.fromMillis(0L);\n    assertEquals(epoch, attrs.lastModifiedTime());\n    assertEquals(epoch, attrs.lastAccessTime());\n    assertEquals(epoch, attrs.creationTime());\n\n    assertSame(key, attrs.fileKey());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/TarBasicFileAttributesMutaGate3Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 1 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fromEntry",
+          "method_description": "(Lorg/apache/commons/compress/archivers/tar/TarArchiveEntry;Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 50,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            85
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::fromEntry",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "impliedDirectory",
+          "method_description": "(Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 55,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            19
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::impliedDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "lastModifiedTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 60,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::lastModifiedTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.attribute.FileTime;\n\nimport org.apache.commons.compress.archivers.tar.TarArchiveEntry;\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributesMutaGate3Test {\n\n  @Test\n  void lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory() {\n    long millis = 1_600_000_000_000L;\n    TarArchiveEntry entry = new TarArchiveEntry(\"dir/file.txt\");\n    entry.setModTime(millis);\n\n    TarBasicFileAttributes fromEntry = TarBasicFileAttributes.fromEntry(entry, \"dir/file.txt\");\n    assertEquals(FileTime.fromMillis(millis), fromEntry.lastModifiedTime());\n\n    TarBasicFileAttributes implied = TarBasicFileAttributes.impliedDirectory(\"dir/\");\n    assertEquals(FileTime.fromMillis(0L), implied.lastModifiedTime());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/TarBasicFileAttributesMutaGate4Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 3 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "creationTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 70,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::creationTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fromEntry",
+          "method_description": "(Lorg/apache/commons/compress/archivers/tar/TarArchiveEntry;Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 50,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            85
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::fromEntry",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "impliedDirectory",
+          "method_description": "(Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 55,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            19
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::impliedDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "lastAccessTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 65,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::lastAccessTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "lastModifiedTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 60,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::lastModifiedTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.attribute.FileTime;\n\nimport org.apache.commons.compress.archivers.tar.TarArchiveEntry;\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributesMutaGate4Test {\n\n  @Test\n  void lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory() {\n    long millis = 1_700_000_000_000L;\n    TarArchiveEntry entry = new TarArchiveEntry(\"dir/file.txt\");\n    entry.setModTime(millis);\n\n    TarBasicFileAttributes fromEntry = TarBasicFileAttributes.fromEntry(entry, \"dir/file.txt\");\n    assertEquals(FileTime.fromMillis(millis), fromEntry.lastAccessTime());\n    assertEquals(fromEntry.lastModifiedTime(), fromEntry.lastAccessTime());\n    assertEquals(fromEntry.creationTime(), fromEntry.lastAccessTime());\n\n    TarBasicFileAttributes implied = TarBasicFileAttributes.impliedDirectory(\"dir/\");\n    assertEquals(FileTime.fromMillis(0L), implied.lastAccessTime());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/TarBasicFileAttributesMutaGate5Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "creationTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 70,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::creationTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fromEntry",
+          "method_description": "(Lorg/apache/commons/compress/archivers/tar/TarArchiveEntry;Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 50,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            85
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::fromEntry",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "impliedDirectory",
+          "method_description": "(Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 55,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            19
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::impliedDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "lastModifiedTime",
+          "method_description": "()Ljava/nio/file/attribute/FileTime;",
+          "line": 60,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::lastModifiedTime",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.attribute.FileTime;\nimport java.util.Date;\n\nimport org.apache.commons.compress.archivers.tar.TarArchiveEntry;\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributesMutaGate5Test {\n\n  @Test\n  void creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory() {\n    TarArchiveEntry entry = new TarArchiveEntry(\"file.txt\");\n    entry.setModTime(new Date(123456000L));\n\n    TarBasicFileAttributes attrs = TarBasicFileAttributes.fromEntry(entry, \"file.txt\");\n    assertEquals(FileTime.fromMillis(123456000L), attrs.creationTime());\n    assertEquals(attrs.lastModifiedTime(), attrs.creationTime());\n\n    TarBasicFileAttributes implied = TarBasicFileAttributes.impliedDirectory(\"dir/\");\n    assertEquals(FileTime.fromMillis(0L), implied.creationTime());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/TarBasicFileAttributesMutaGate6Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fromEntry",
+          "method_description": "(Lorg/apache/commons/compress/archivers/tar/TarArchiveEntry;Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 40,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            14
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fromEntry",
+          "method_description": "(Lorg/apache/commons/compress/archivers/tar/TarArchiveEntry;Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 40,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            16
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fromEntry",
+          "method_description": "(Lorg/apache/commons/compress/archivers/tar/TarArchiveEntry;Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 50,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            85
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::fromEntry",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "impliedDirectory",
+          "method_description": "(Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 55,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            19
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::impliedDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isDirectory",
+          "method_description": "()Z",
+          "line": 80,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isDirectory",
+          "method_description": "()Z",
+          "line": 80,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isRegularFile",
+          "method_description": "()Z",
+          "line": 75,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isRegularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isRegularFile",
+          "method_description": "()Z",
+          "line": 75,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isRegularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isSymbolicLink",
+          "method_description": "()Z",
+          "line": 85,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isSymbolicLink",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isSymbolicLink",
+          "method_description": "()Z",
+          "line": 85,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isSymbolicLink",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.apache.commons.compress.archivers.tar.TarArchiveEntry;\nimport org.apache.commons.compress.archivers.tar.TarConstants;\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributesMutaGate6Test {\n\n  @Test\n  void isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories() {\n    TarArchiveEntry fileEntry = new TarArchiveEntry(\"file.txt\");\n    fileEntry.setSize(42L);\n    TarBasicFileAttributes fileAttrs = TarBasicFileAttributes.fromEntry(fileEntry, \"file.txt\");\n    assertTrue(fileAttrs.isRegularFile());\n    assertFalse(fileAttrs.isDirectory());\n    assertFalse(fileAttrs.isSymbolicLink());\n\n    TarArchiveEntry dirEntry = new TarArchiveEntry(\"dir/\");\n    TarBasicFileAttributes dirAttrs = TarBasicFileAttributes.fromEntry(dirEntry, \"dir/\");\n    assertFalse(dirAttrs.isRegularFile());\n    assertTrue(dirAttrs.isDirectory());\n\n    TarArchiveEntry linkEntry = new TarArchiveEntry(\"link\", TarConstants.LF_SYMLINK);\n    linkEntry.setLinkName(\"file.txt\");\n    TarBasicFileAttributes linkAttrs = TarBasicFileAttributes.fromEntry(linkEntry, \"link\");\n    assertFalse(linkAttrs.isRegularFile());\n    assertTrue(linkAttrs.isSymbolicLink());\n\n    TarBasicFileAttributes implied = TarBasicFileAttributes.impliedDirectory(\"implied/\");\n    assertFalse(implied.isRegularFile());\n    assertTrue(implied.isDirectory());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/TarBasicFileAttributesMutaGate7Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fromEntry",
+          "method_description": "(Lorg/apache/commons/compress/archivers/tar/TarArchiveEntry;Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 40,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            14
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fromEntry",
+          "method_description": "(Lorg/apache/commons/compress/archivers/tar/TarArchiveEntry;Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 40,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            16
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fromEntry",
+          "method_description": "(Lorg/apache/commons/compress/archivers/tar/TarArchiveEntry;Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 50,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            85
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::fromEntry",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "impliedDirectory",
+          "method_description": "(Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 55,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            19
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::impliedDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isDirectory",
+          "method_description": "()Z",
+          "line": 80,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isDirectory",
+          "method_description": "()Z",
+          "line": 80,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isRegularFile",
+          "method_description": "()Z",
+          "line": 75,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isRegularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isRegularFile",
+          "method_description": "()Z",
+          "line": 75,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isRegularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isSymbolicLink",
+          "method_description": "()Z",
+          "line": 85,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isSymbolicLink",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isSymbolicLink",
+          "method_description": "()Z",
+          "line": 85,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isSymbolicLink",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.apache.commons.compress.archivers.tar.TarArchiveEntry;\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributesMutaGate7Test {\n\n  @Test\n  void isDirectoryReflectsEntryType() {\n    TarBasicFileAttributes dir =\n        TarBasicFileAttributes.fromEntry(new TarArchiveEntry(\"a/dir/\"), \"a/dir/\");\n    assertTrue(dir.isDirectory());\n    assertFalse(dir.isRegularFile());\n    assertFalse(dir.isSymbolicLink());\n\n    TarBasicFileAttributes file =\n        TarBasicFileAttributes.fromEntry(new TarArchiveEntry(\"a/file.txt\"), \"a/file.txt\");\n    assertFalse(file.isDirectory());\n    assertTrue(file.isRegularFile());\n\n    TarBasicFileAttributes link =\n        TarBasicFileAttributes.fromEntry(\n            new TarArchiveEntry(\"a/link\", TarArchiveEntry.LF_SYMLINK), \"a/link\");\n    assertFalse(link.isDirectory());\n    assertTrue(link.isSymbolicLink());\n\n    TarBasicFileAttributes implied = TarBasicFileAttributes.impliedDirectory(\"a/\");\n    assertTrue(implied.isDirectory());\n    assertFalse(implied.isRegularFile());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/TarBasicFileAttributesMutaGate8Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fromEntry",
+          "method_description": "(Lorg/apache/commons/compress/archivers/tar/TarArchiveEntry;Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 40,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            16
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fromEntry",
+          "method_description": "(Lorg/apache/commons/compress/archivers/tar/TarArchiveEntry;Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 50,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            85
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::fromEntry",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "impliedDirectory",
+          "method_description": "(Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 55,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            19
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::impliedDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isDirectory",
+          "method_description": "()Z",
+          "line": 80,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isRegularFile",
+          "method_description": "()Z",
+          "line": 75,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isRegularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isSymbolicLink",
+          "method_description": "()Z",
+          "line": 85,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isSymbolicLink",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isSymbolicLink",
+          "method_description": "()Z",
+          "line": 85,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isSymbolicLink",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.apache.commons.compress.archivers.tar.TarArchiveEntry;\nimport org.apache.commons.compress.archivers.tar.TarConstants;\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributesMutaGate8Test {\n\n  @Test\n  void isSymbolicLinkReflectsEntryType() {\n    TarArchiveEntry symlinkEntry = new TarArchiveEntry(\"link\", TarConstants.LF_SYMLINK);\n    symlinkEntry.setLinkName(\"target\");\n    TarArchiveEntry fileEntry = new TarArchiveEntry(\"file.txt\");\n    TarArchiveEntry dirEntry = new TarArchiveEntry(\"dir/\");\n\n    TarBasicFileAttributes symlink = TarBasicFileAttributes.fromEntry(symlinkEntry, \"link\");\n    TarBasicFileAttributes file = TarBasicFileAttributes.fromEntry(fileEntry, \"file.txt\");\n    TarBasicFileAttributes dir = TarBasicFileAttributes.fromEntry(dirEntry, \"dir/\");\n    TarBasicFileAttributes implied = TarBasicFileAttributes.impliedDirectory(\"implied/\");\n\n    assertTrue(symlink.isSymbolicLink());\n    assertFalse(symlink.isRegularFile());\n    assertFalse(symlink.isDirectory());\n\n    assertFalse(file.isSymbolicLink());\n    assertFalse(dir.isSymbolicLink());\n    assertFalse(implied.isSymbolicLink());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/TarBasicFileAttributesMutaGate9Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 2 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fromEntry",
+          "method_description": "(Lorg/apache/commons/compress/archivers/tar/TarArchiveEntry;Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 40,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            14
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fromEntry",
+          "method_description": "(Lorg/apache/commons/compress/archivers/tar/TarArchiveEntry;Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 40,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            16
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "fromEntry",
+          "method_description": "(Lorg/apache/commons/compress/archivers/tar/TarArchiveEntry;Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 50,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            85
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::fromEntry",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "impliedDirectory",
+          "method_description": "(Ljava/lang/String;)Lio/github/iachimoe/tarballfs/TarBasicFileAttributes;",
+          "line": 55,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            19
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributes::impliedDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test#lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test#lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test#creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isDirectory",
+          "method_description": "()Z",
+          "line": 80,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isDirectory",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_impliedDirectory_basicAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isOther",
+          "method_description": "()Z",
+          "line": 90,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isOther",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test#impliedDirectoryHasDirectoryAttributesEpochTimesAndKey",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isRegularFile",
+          "method_description": "()Z",
+          "line": 75,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isRegularFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readAttributes_basicFile_and_map"
+          ]
+        },
+        {
+          "source_file": "TarBasicFileAttributes.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+          "mutated_method": "isSymbolicLink",
+          "method_description": "()Z",
+          "line": 85,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/TarBasicFileAttributes::isSymbolicLink",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test#fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test#isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test#isDirectoryReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test#isSymbolicLinkReflectsEntryType",
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test#isOtherIsFalseForAllKindsOfAttributes"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.apache.commons.compress.archivers.tar.TarArchiveEntry;\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributesMutaGate9Test {\n\n  @Test\n  void isOtherIsFalseForAllKindsOfAttributes() {\n    TarBasicFileAttributes file =\n        TarBasicFileAttributes.fromEntry(new TarArchiveEntry(\"a.txt\"), \"a.txt\");\n    TarBasicFileAttributes dir =\n        TarBasicFileAttributes.fromEntry(new TarArchiveEntry(\"d/\"), \"d/\");\n    TarArchiveEntry link = new TarArchiveEntry(\"l\", TarArchiveEntry.LF_SYMLINK);\n    link.setLinkName(\"a.txt\");\n    TarBasicFileAttributes sym = TarBasicFileAttributes.fromEntry(link, \"l\");\n    TarBasicFileAttributes implied = TarBasicFileAttributes.impliedDirectory(\"x/\");\n\n    assertTrue(file.isRegularFile());\n    assertTrue(dir.isDirectory());\n    assertTrue(sym.isSymbolicLink());\n    assertTrue(implied.isDirectory());\n\n    assertFalse(file.isOther());\n    assertFalse(dir.isOther());\n    assertFalse(sym.isOther());\n    assertFalse(implied.isOther());\n  }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.attribute.FileTime;\n\nimport org.apache.commons.compress.archivers.tar.TarArchiveEntry;\nimport org.apache.commons.compress.archivers.tar.TarConstants;\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributesMutaGate1Test {\n\n  @Test\n  void fromEntryMapsTypeSizeTimesAndKeyForFileDirectoryAndSymlink() {\n    long millis = 1_700_000_000_000L;\n\n    TarArchiveEntry fileEntry = new TarArchiveEntry(\"dir/file.txt\");\n    fileEntry.setSize(1234L);\n    fileEntry.setModTime(millis);\n    String fileKey = \"dir/file.txt\";\n    TarBasicFileAttributes fileAttrs = TarBasicFileAttributes.fromEntry(fileEntry, fileKey);\n\n    assertTrue(fileAttrs.isRegularFile());\n    assertFalse(fileAttrs.isDirectory());\n    assertFalse(fileAttrs.isSymbolicLink());\n    assertFalse(fileAttrs.isOther());\n    assertEquals(1234L, fileAttrs.size());\n    assertEquals(FileTime.fromMillis(millis), fileAttrs.lastModifiedTime());\n    assertEquals(FileTime.fromMillis(millis), fileAttrs.lastAccessTime());\n    assertEquals(FileTime.fromMillis(millis), fileAttrs.creationTime());\n    assertSame(fileKey, fileAttrs.fileKey());\n\n    TarArchiveEntry dirEntry = new TarArchiveEntry(\"dir/\");\n    dirEntry.setSize(100L);\n    dirEntry.setModTime(millis);\n    String dirKey = \"dir/\";\n    TarBasicFileAttributes dirAttrs = TarBasicFileAttributes.fromEntry(dirEntry, dirKey);\n\n    assertFalse(dirAttrs.isRegularFile());\n    assertTrue(dirAttrs.isDirectory());\n    assertFalse(dirAttrs.isSymbolicLink());\n    assertFalse(dirAttrs.isOther());\n    assertEquals(0L, dirAttrs.size());\n    assertEquals(FileTime.fromMillis(millis), dirAttrs.lastModifiedTime());\n    assertSame(dirKey, dirAttrs.fileKey());\n\n    TarArchiveEntry linkEntry = new TarArchiveEntry(\"link\", TarConstants.LF_SYMLINK);\n    linkEntry.setLinkName(\"target\");\n    linkEntry.setSize(5L);\n    linkEntry.setModTime(millis);\n    String linkKey = \"link\";\n    TarBasicFileAttributes linkAttrs = TarBasicFileAttributes.fromEntry(linkEntry, linkKey);\n\n    assertFalse(linkAttrs.isRegularFile());\n    assertFalse(linkAttrs.isDirectory());\n    assertTrue(linkAttrs.isSymbolicLink());\n    assertFalse(linkAttrs.isOther());\n    assertEquals(5L, linkAttrs.size());\n    assertEquals(FileTime.fromMillis(millis), linkAttrs.lastModifiedTime());\n    assertEquals(FileTime.fromMillis(millis), linkAttrs.lastAccessTime());\n    assertEquals(FileTime.fromMillis(millis), linkAttrs.creationTime());\n    assertSame(linkKey, linkAttrs.fileKey());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 2330,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 1893,
+        "thinking_tokens": 525
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.attribute.FileTime;\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributesMutaGate2Test {\n\n  @Test\n  void impliedDirectoryHasDirectoryAttributesEpochTimesAndKey() {\n    String key = \"some/dir/\";\n    TarBasicFileAttributes attrs = TarBasicFileAttributes.impliedDirectory(key);\n\n    assertTrue(attrs.isDirectory());\n    assertFalse(attrs.isRegularFile());\n    assertFalse(attrs.isSymbolicLink());\n    assertFalse(attrs.isOther());\n    assertEquals(0L, attrs.size());\n\n    FileTime epoch = FileTime.fromMillis(0L);\n    assertEquals(epoch, attrs.lastModifiedTime());\n    assertEquals(epoch, attrs.lastAccessTime());\n    assertEquals(epoch, attrs.creationTime());\n\n    assertSame(key, attrs.fileKey());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 765,
+        "cache_read_input_tokens": 1385,
+        "output_tokens": 482,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate3Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.attribute.FileTime;\n\nimport org.apache.commons.compress.archivers.tar.TarArchiveEntry;\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributesMutaGate3Test {\n\n  @Test\n  void lastModifiedTimeReflectsEntryModTimeAndEpochForImpliedDirectory() {\n    long millis = 1_600_000_000_000L;\n    TarArchiveEntry entry = new TarArchiveEntry(\"dir/file.txt\");\n    entry.setModTime(millis);\n\n    TarBasicFileAttributes fromEntry = TarBasicFileAttributes.fromEntry(entry, \"dir/file.txt\");\n    assertEquals(FileTime.fromMillis(millis), fromEntry.lastModifiedTime());\n\n    TarBasicFileAttributes implied = TarBasicFileAttributes.impliedDirectory(\"dir/\");\n    assertEquals(FileTime.fromMillis(0L), implied.lastModifiedTime());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 698,
+        "cache_read_input_tokens": 1385,
+        "output_tokens": 662,
+        "thinking_tokens": 252
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate4Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.attribute.FileTime;\n\nimport org.apache.commons.compress.archivers.tar.TarArchiveEntry;\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributesMutaGate4Test {\n\n  @Test\n  void lastAccessTimeMirrorsModificationTimeAndIsEpochForImpliedDirectory() {\n    long millis = 1_700_000_000_000L;\n    TarArchiveEntry entry = new TarArchiveEntry(\"dir/file.txt\");\n    entry.setModTime(millis);\n\n    TarBasicFileAttributes fromEntry = TarBasicFileAttributes.fromEntry(entry, \"dir/file.txt\");\n    assertEquals(FileTime.fromMillis(millis), fromEntry.lastAccessTime());\n    assertEquals(fromEntry.lastModifiedTime(), fromEntry.lastAccessTime());\n    assertEquals(fromEntry.creationTime(), fromEntry.lastAccessTime());\n\n    TarBasicFileAttributes implied = TarBasicFileAttributes.impliedDirectory(\"dir/\");\n    assertEquals(FileTime.fromMillis(0L), implied.lastAccessTime());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 696,
+        "cache_read_input_tokens": 1385,
+        "output_tokens": 756,
+        "thinking_tokens": 275
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate5Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.attribute.FileTime;\nimport java.util.Date;\n\nimport org.apache.commons.compress.archivers.tar.TarArchiveEntry;\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributesMutaGate5Test {\n\n  @Test\n  void creationTimeMatchesModifiedTimeForEntryAndEpochForImpliedDirectory() {\n    TarArchiveEntry entry = new TarArchiveEntry(\"file.txt\");\n    entry.setModTime(new Date(123456000L));\n\n    TarBasicFileAttributes attrs = TarBasicFileAttributes.fromEntry(entry, \"file.txt\");\n    assertEquals(FileTime.fromMillis(123456000L), attrs.creationTime());\n    assertEquals(attrs.lastModifiedTime(), attrs.creationTime());\n\n    TarBasicFileAttributes implied = TarBasicFileAttributes.impliedDirectory(\"dir/\");\n    assertEquals(FileTime.fromMillis(0L), implied.creationTime());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 692,
+        "cache_read_input_tokens": 1385,
+        "output_tokens": 422,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate6Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.apache.commons.compress.archivers.tar.TarArchiveEntry;\nimport org.apache.commons.compress.archivers.tar.TarConstants;\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributesMutaGate6Test {\n\n  @Test\n  void isRegularFileDistinguishesFilesDirectoriesSymlinksAndImpliedDirectories() {\n    TarArchiveEntry fileEntry = new TarArchiveEntry(\"file.txt\");\n    fileEntry.setSize(42L);\n    TarBasicFileAttributes fileAttrs = TarBasicFileAttributes.fromEntry(fileEntry, \"file.txt\");\n    assertTrue(fileAttrs.isRegularFile());\n    assertFalse(fileAttrs.isDirectory());\n    assertFalse(fileAttrs.isSymbolicLink());\n\n    TarArchiveEntry dirEntry = new TarArchiveEntry(\"dir/\");\n    TarBasicFileAttributes dirAttrs = TarBasicFileAttributes.fromEntry(dirEntry, \"dir/\");\n    assertFalse(dirAttrs.isRegularFile());\n    assertTrue(dirAttrs.isDirectory());\n\n    TarArchiveEntry linkEntry = new TarArchiveEntry(\"link\", TarConstants.LF_SYMLINK);\n    linkEntry.setLinkName(\"file.txt\");\n    TarBasicFileAttributes linkAttrs = TarBasicFileAttributes.fromEntry(linkEntry, \"link\");\n    assertFalse(linkAttrs.isRegularFile());\n    assertTrue(linkAttrs.isSymbolicLink());\n\n    TarBasicFileAttributes implied = TarBasicFileAttributes.impliedDirectory(\"implied/\");\n    assertFalse(implied.isRegularFile());\n    assertTrue(implied.isDirectory());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 693,
+        "cache_read_input_tokens": 1385,
+        "output_tokens": 1014,
+        "thinking_tokens": 270
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate7Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.apache.commons.compress.archivers.tar.TarArchiveEntry;\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributesMutaGate7Test {\n\n  @Test\n  void isDirectoryReflectsEntryType() {\n    TarBasicFileAttributes dir =\n        TarBasicFileAttributes.fromEntry(new TarArchiveEntry(\"a/dir/\"), \"a/dir/\");\n    assertTrue(dir.isDirectory());\n    assertFalse(dir.isRegularFile());\n    assertFalse(dir.isSymbolicLink());\n\n    TarBasicFileAttributes file =\n        TarBasicFileAttributes.fromEntry(new TarArchiveEntry(\"a/file.txt\"), \"a/file.txt\");\n    assertFalse(file.isDirectory());\n    assertTrue(file.isRegularFile());\n\n    TarBasicFileAttributes link =\n        TarBasicFileAttributes.fromEntry(\n            new TarArchiveEntry(\"a/link\", TarArchiveEntry.LF_SYMLINK), \"a/link\");\n    assertFalse(link.isDirectory());\n    assertTrue(link.isSymbolicLink());\n\n    TarBasicFileAttributes implied = TarBasicFileAttributes.impliedDirectory(\"a/\");\n    assertTrue(implied.isDirectory());\n    assertFalse(implied.isRegularFile());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 690,
+        "cache_read_input_tokens": 1385,
+        "output_tokens": 571,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate8Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.apache.commons.compress.archivers.tar.TarArchiveEntry;\nimport org.apache.commons.compress.archivers.tar.TarConstants;\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributesMutaGate8Test {\n\n  @Test\n  void isSymbolicLinkReflectsEntryType() {\n    TarArchiveEntry symlinkEntry = new TarArchiveEntry(\"link\", TarConstants.LF_SYMLINK);\n    symlinkEntry.setLinkName(\"target\");\n    TarArchiveEntry fileEntry = new TarArchiveEntry(\"file.txt\");\n    TarArchiveEntry dirEntry = new TarArchiveEntry(\"dir/\");\n\n    TarBasicFileAttributes symlink = TarBasicFileAttributes.fromEntry(symlinkEntry, \"link\");\n    TarBasicFileAttributes file = TarBasicFileAttributes.fromEntry(fileEntry, \"file.txt\");\n    TarBasicFileAttributes dir = TarBasicFileAttributes.fromEntry(dirEntry, \"dir/\");\n    TarBasicFileAttributes implied = TarBasicFileAttributes.impliedDirectory(\"implied/\");\n\n    assertTrue(symlink.isSymbolicLink());\n    assertFalse(symlink.isRegularFile());\n    assertFalse(symlink.isDirectory());\n\n    assertFalse(file.isSymbolicLink());\n    assertFalse(dir.isSymbolicLink());\n    assertFalse(implied.isSymbolicLink());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 698,
+        "cache_read_input_tokens": 1385,
+        "output_tokens": 1034,
+        "thinking_tokens": 407
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributesMutaGate9Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.apache.commons.compress.archivers.tar.TarArchiveEntry;\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributesMutaGate9Test {\n\n  @Test\n  void isOtherIsFalseForAllKindsOfAttributes() {\n    TarBasicFileAttributes file =\n        TarBasicFileAttributes.fromEntry(new TarArchiveEntry(\"a.txt\"), \"a.txt\");\n    TarBasicFileAttributes dir =\n        TarBasicFileAttributes.fromEntry(new TarArchiveEntry(\"d/\"), \"d/\");\n    TarArchiveEntry link = new TarArchiveEntry(\"l\", TarArchiveEntry.LF_SYMLINK);\n    link.setLinkName(\"a.txt\");\n    TarBasicFileAttributes sym = TarBasicFileAttributes.fromEntry(link, \"l\");\n    TarBasicFileAttributes implied = TarBasicFileAttributes.impliedDirectory(\"x/\");\n\n    assertTrue(file.isRegularFile());\n    assertTrue(dir.isDirectory());\n    assertTrue(sym.isSymbolicLink());\n    assertTrue(implied.isDirectory());\n\n    assertFalse(file.isOther());\n    assertFalse(dir.isOther());\n    assertFalse(sym.isOther());\n    assertFalse(implied.isOther());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 689,
+        "cache_read_input_tokens": 1385,
+        "output_tokens": 563,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

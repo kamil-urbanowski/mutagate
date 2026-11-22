@@ -1,0 +1,123 @@
+{
+  "repo": "tarballfs",
+  "class": "io.github.iachimoe.tarballfs.TarBasicFileAttributeView",
+  "kind": "CONTROL",
+  "setup": {
+    "repo_commit": "9d0d8eb2b3a52801b34531675750076fd46a1b5f",
+    "date": "2026-11-22",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "fbbf194a393f76fb2eabba89ffadc9c0a7b7e53d",
+    "provider": "claude-code",
+    "provider_version": "2.1.329",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.0,
+  "score_after": 1.0,
+  "mutants_total": 2,
+  "undetected_before": 2,
+  "newly_detected": 2,
+  "candidates": 2,
+  "kept": 2,
+  "acceptance_rate": 1.0,
+  "attempts_per_kept_test": 1.0,
+  "tokens": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 3716,
+    "cache_read_input_tokens": 2302,
+    "output_tokens": 2461,
+    "thinking_tokens": 920
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributeViewMutaGate1Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/TarBasicFileAttributeViewMutaGate1Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 1 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "TarBasicFileAttributeView.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributeView",
+          "mutated_method": "name",
+          "method_description": "()Ljava/lang/String;",
+          "line": 18,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/TarBasicFileAttributeView::name",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributeViewMutaGate1Test#nameReturnsBasicRegardlessOfPath"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributeViewMutaGate1Test {\n\n  @Test\n  void nameReturnsBasicRegardlessOfPath() {\n    TarBasicFileAttributeView view = new TarBasicFileAttributeView(null);\n\n    assertEquals(\"basic\", view.name());\n    assertEquals(\"basic\", view.name());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributeViewMutaGate2Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/TarBasicFileAttributeViewMutaGate2Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 1 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "TarBasicFileAttributeView.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributeView",
+          "mutated_method": "readAttributes",
+          "method_description": "()Ljava/nio/file/attribute/BasicFileAttributes;",
+          "line": 23,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/TarBasicFileAttributeView::readAttributes",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.TarBasicFileAttributeViewMutaGate2Test#readAttributesReturnsRegularFileAttributesWithCorrectSize"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.ByteArrayOutputStream;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.nio.file.attribute.BasicFileAttributes;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.io.TempDir;\n\nclass TarBasicFileAttributeViewMutaGate2Test {\n\n  @TempDir Path tempDir;\n\n  private static void putOctal(byte[] block, int offset, int length, long value) {\n    String s = String.format(\"%0\" + (length - 1) + \"o\", value);\n    byte[] b = s.getBytes(StandardCharsets.US_ASCII);\n    System.arraycopy(b, 0, block, offset, b.length);\n    block[offset + b.length] = 0;\n  }\n\n  private static byte[] buildTar(String name, byte[] content) {\n    byte[] header = new byte[512];\n    byte[] nameBytes = name.getBytes(StandardCharsets.US_ASCII);\n    System.arraycopy(nameBytes, 0, header, 0, nameBytes.length);\n    putOctal(header, 100, 8, 0644);\n    putOctal(header, 108, 8, 0);\n    putOctal(header, 116, 8, 0);\n    putOctal(header, 124, 12, content.length);\n    putOctal(header, 136, 12, 1600000000L);\n    for (int i = 148; i < 156; i++) {\n      header[i] = ' ';\n    }\n    header[156] = '0';\n    byte[] magic = \"ustar\".getBytes(StandardCharsets.US_ASCII);\n    System.arraycopy(magic, 0, header, 257, magic.length);\n    header[262] = 0;\n    header[263] = '0';\n    header[264] = '0';\n    long sum = 0;\n    for (byte b : header) {\n      sum += (b & 0xff);\n    }\n    String cs = String.format(\"%06o\", sum);\n    byte[] csBytes = cs.getBytes(StandardCharsets.US_ASCII);\n    System.arraycopy(csBytes, 0, header, 148, csBytes.length);\n    header[154] = 0;\n    header[155] = ' ';\n\n    ByteArrayOutputStream out = new ByteArrayOutputStream();\n    out.write(header, 0, header.length);\n    out.write(content, 0, content.length);\n    int pad = (512 - (content.length % 512)) % 512;\n    out.write(new byte[pad], 0, pad);\n    out.write(new byte[1024], 0, 1024);\n    return out.toByteArray();\n  }\n\n  @Test\n  void readAttributesReturnsRegularFileAttributesWithCorrectSize() throws Exception {\n    byte[] content = \"hello\".getBytes(StandardCharsets.US_ASCII);\n    Path tar = tempDir.resolve(\"test.tar\");\n    Files.write(tar, buildTar(\"hello.txt\", content));\n\n    TarFileSystemProvider provider = new TarFileSystemProvider();\n    try (FileSystem fs = provider.newFileSystem(tar, Map.of())) {\n      TarPath path = (TarPath) fs.getPath(\"hello.txt\");\n      TarBasicFileAttributeView view = new TarBasicFileAttributeView(path);\n\n      BasicFileAttributes attrs = view.readAttributes();\n\n      assertTrue(attrs.isRegularFile());\n      assertFalse(attrs.isDirectory());\n      assertFalse(attrs.isSymbolicLink());\n      assertEquals(content.length, attrs.size());\n    }\n  }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributeViewMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass TarBasicFileAttributeViewMutaGate1Test {\n\n  @Test\n  void nameReturnsBasicRegardlessOfPath() {\n    TarBasicFileAttributeView view = new TarBasicFileAttributeView(null);\n\n    assertEquals(\"basic\", view.name());\n    assertEquals(\"basic\", view.name());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 2991,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 233,
+        "thinking_tokens": 47
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.TarBasicFileAttributeViewMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.ByteArrayOutputStream;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.nio.file.attribute.BasicFileAttributes;\nimport java.util.Map;\nimport org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.io.TempDir;\n\nclass TarBasicFileAttributeViewMutaGate2Test {\n\n  @TempDir Path tempDir;\n\n  private static void putOctal(byte[] block, int offset, int length, long value) {\n    String s = String.format(\"%0\" + (length - 1) + \"o\", value);\n    byte[] b = s.getBytes(StandardCharsets.US_ASCII);\n    System.arraycopy(b, 0, block, offset, b.length);\n    block[offset + b.length] = 0;\n  }\n\n  private static byte[] buildTar(String name, byte[] content) {\n    byte[] header = new byte[512];\n    byte[] nameBytes = name.getBytes(StandardCharsets.US_ASCII);\n    System.arraycopy(nameBytes, 0, header, 0, nameBytes.length);\n    putOctal(header, 100, 8, 0644);\n    putOctal(header, 108, 8, 0);\n    putOctal(header, 116, 8, 0);\n    putOctal(header, 124, 12, content.length);\n    putOctal(header, 136, 12, 1600000000L);\n    for (int i = 148; i < 156; i++) {\n      header[i] = ' ';\n    }\n    header[156] = '0';\n    byte[] magic = \"ustar\".getBytes(StandardCharsets.US_ASCII);\n    System.arraycopy(magic, 0, header, 257, magic.length);\n    header[262] = 0;\n    header[263] = '0';\n    header[264] = '0';\n    long sum = 0;\n    for (byte b : header) {\n      sum += (b & 0xff);\n    }\n    String cs = String.format(\"%06o\", sum);\n    byte[] csBytes = cs.getBytes(StandardCharsets.US_ASCII);\n    System.arraycopy(csBytes, 0, header, 148, csBytes.length);\n    header[154] = 0;\n    header[155] = ' ';\n\n    ByteArrayOutputStream out = new ByteArrayOutputStream();\n    out.write(header, 0, header.length);\n    out.write(content, 0, content.length);\n    int pad = (512 - (content.length % 512)) % 512;\n    out.write(new byte[pad], 0, pad);\n    out.write(new byte[1024], 0, 1024);\n    return out.toByteArray();\n  }\n\n  @Test\n  void readAttributesReturnsRegularFileAttributesWithCorrectSize() throws Exception {\n    byte[] content = \"hello\".getBytes(StandardCharsets.US_ASCII);\n    Path tar = tempDir.resolve(\"test.tar\");\n    Files.write(tar, buildTar(\"hello.txt\", content));\n\n    TarFileSystemProvider provider = new TarFileSystemProvider();\n    try (FileSystem fs = provider.newFileSystem(tar, Map.of())) {\n      TarPath path = (TarPath) fs.getPath(\"hello.txt\");\n      TarBasicFileAttributeView view = new TarBasicFileAttributeView(path);\n\n      BasicFileAttributes attrs = view.readAttributes();\n\n      assertTrue(attrs.isRegularFile());\n      assertFalse(attrs.isDirectory());\n      assertFalse(attrs.isSymbolicLink());\n      assertEquals(content.length, attrs.size());\n    }\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 725,
+        "cache_read_input_tokens": 2302,
+        "output_tokens": 2228,
+        "thinking_tokens": 873
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

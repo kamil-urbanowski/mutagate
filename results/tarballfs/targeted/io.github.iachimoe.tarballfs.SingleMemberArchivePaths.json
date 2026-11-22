@@ -1,0 +1,175 @@
+{
+  "repo": "tarballfs",
+  "class": "io.github.iachimoe.tarballfs.SingleMemberArchivePaths",
+  "kind": "TARGETED",
+  "setup": {
+    "repo_commit": "9d0d8eb2b3a52801b34531675750076fd46a1b5f",
+    "date": "2026-11-21",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "fbbf194a393f76fb2eabba89ffadc9c0a7b7e53d",
+    "provider": "claude-code",
+    "provider_version": "2.1.329",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.8333333333333334,
+  "score_after": 1.0,
+  "mutants_total": 6,
+  "undetected_before": 1,
+  "newly_detected": 1,
+  "candidates": 1,
+  "kept": 1,
+  "acceptance_rate": 1.0,
+  "attempts_per_kept_test": 1.0,
+  "tokens": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 1404,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 343,
+    "thinking_tokens": 106
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleMemberArchivePathsMutaGate1Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/SingleMemberArchivePathsMutaGate1Test.java",
+      "target": {
+        "source_file": "SingleMemberArchivePaths.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.SingleMemberArchivePaths",
+        "mutated_method": "pathExists",
+        "method_description": "(Ljava/lang/String;)Z",
+        "line": 13,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+        "indexes": [
+          19
+        ],
+        "description": "changed conditional boundary",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "SingleMemberArchivePaths.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleMemberArchivePaths",
+          "mutated_method": "pathExists",
+          "method_description": "(Ljava/lang/String;)Z",
+          "line": 13,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "indexes": [
+            19
+          ],
+          "description": "changed conditional boundary",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.SingleMemberArchivePathsMutaGate1Test#pathExistsHandlesSlashPositions"
+          ]
+        },
+        {
+          "source_file": "SingleMemberArchivePaths.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleMemberArchivePaths",
+          "mutated_method": "pathExists",
+          "method_description": "(Ljava/lang/String;)Z",
+          "line": 10,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.SingleMemberArchivePathsMutaGate1Test#pathExistsHandlesSlashPositions"
+          ]
+        },
+        {
+          "source_file": "SingleMemberArchivePaths.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleMemberArchivePaths",
+          "mutated_method": "pathExists",
+          "method_description": "(Ljava/lang/String;)Z",
+          "line": 10,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.SingleMemberArchivePathsMutaGate1Test#pathExistsHandlesSlashPositions"
+          ]
+        },
+        {
+          "source_file": "SingleMemberArchivePaths.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleMemberArchivePaths",
+          "mutated_method": "pathExists",
+          "method_description": "(Ljava/lang/String;)Z",
+          "line": 13,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            19
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName",
+            "io.github.iachimoe.tarballfs.SingleMemberArchivePathsMutaGate1Test#pathExistsHandlesSlashPositions"
+          ]
+        },
+        {
+          "source_file": "SingleMemberArchivePaths.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.SingleMemberArchivePaths",
+          "mutated_method": "pathExists",
+          "method_description": "(Ljava/lang/String;)Z",
+          "line": 13,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            27
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/SingleMemberArchivePaths::pathExists",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.SingleMemberArchivePathsMutaGate1Test#pathExistsHandlesSlashPositions"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleMemberArchivePathsMutaGate1Test {\n\n  @Test\n  void pathExistsHandlesSlashPositions() {\n    assertTrue(SingleMemberArchivePaths.pathExists(\"name\"));\n    assertFalse(SingleMemberArchivePaths.pathExists(\"/name\"));\n    assertFalse(SingleMemberArchivePaths.pathExists(\"dir/name\"));\n  }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.SingleMemberArchivePathsMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.junit.jupiter.api.Test;\n\nclass SingleMemberArchivePathsMutaGate1Test {\n\n  @Test\n  void pathExistsHandlesSlashPositions() {\n    assertTrue(SingleMemberArchivePaths.pathExists(\"name\"));\n    assertFalse(SingleMemberArchivePaths.pathExists(\"/name\"));\n    assertFalse(SingleMemberArchivePaths.pathExists(\"dir/name\"));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1404,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 343,
+        "thinking_tokens": 106
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

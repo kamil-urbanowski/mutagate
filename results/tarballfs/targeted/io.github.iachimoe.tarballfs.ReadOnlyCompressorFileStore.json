@@ -1,0 +1,754 @@
+{
+  "repo": "tarballfs",
+  "class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+  "kind": "TARGETED",
+  "setup": {
+    "repo_commit": "9d0d8eb2b3a52801b34531675750076fd46a1b5f",
+    "date": "2026-11-21",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "fbbf194a393f76fb2eabba89ffadc9c0a7b7e53d",
+    "provider": "claude-code",
+    "provider_version": "2.1.329",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.0,
+  "score_after": 1.0,
+  "mutants_total": 10,
+  "undetected_before": 10,
+  "newly_detected": 10,
+  "candidates": 10,
+  "kept": 10,
+  "acceptance_rate": 1.0,
+  "attempts_per_kept_test": 1.1,
+  "tokens": {
+    "input_tokens": 22,
+    "cache_creation_input_tokens": 11783,
+    "cache_read_input_tokens": 10020,
+    "output_tokens": 4234,
+    "thinking_tokens": 526
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate1Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStoreMutaGate1Test.java",
+      "target": {
+        "source_file": "ReadOnlyCompressorFileStore.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+        "mutated_method": "getBlockSize",
+        "method_description": "()J",
+        "line": 72,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+        "indexes": [
+          4
+        ],
+        "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::getBlockSize",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlyCompressorFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+          "mutated_method": "getBlockSize",
+          "method_description": "()J",
+          "line": 72,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::getBlockSize",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate1Test#blockSizeIs512"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlyCompressorFileStoreMutaGate1Test {\n\n  @Test\n  void blockSizeIs512() {\n    Path archive = Paths.get(\"archive.tar.gz\");\n    ReadOnlyCompressorFileStore store = new ReadOnlyCompressorFileStore(archive, \"gz\");\n    assertEquals(512L, store.getBlockSize());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate2Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStoreMutaGate2Test.java",
+      "target": {
+        "source_file": "ReadOnlyCompressorFileStore.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+        "mutated_method": "getTotalSpace",
+        "method_description": "()J",
+        "line": 37,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+        "indexes": [
+          6
+        ],
+        "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::getTotalSpace",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlyCompressorFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+          "mutated_method": "getTotalSpace",
+          "method_description": "()J",
+          "line": 37,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::getTotalSpace",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate2Test#getTotalSpaceReturnsArchiveFileSize"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.io.TempDir;\n\nclass ReadOnlyCompressorFileStoreMutaGate2Test {\n\n  @TempDir\n  Path tempDir;\n\n  @Test\n  void getTotalSpaceReturnsArchiveFileSize() throws Exception {\n    Path archive = tempDir.resolve(\"archive.tar.gz\");\n    byte[] content = new byte[1234];\n    for (int i = 0; i < content.length; i++) {\n      content[i] = (byte) i;\n    }\n    Files.write(archive, content);\n\n    ReadOnlyCompressorFileStore store = new ReadOnlyCompressorFileStore(archive, \"gz\");\n\n    assertEquals(1234L, store.getTotalSpace());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate3Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStoreMutaGate3Test.java",
+      "target": {
+        "source_file": "ReadOnlyCompressorFileStore.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+        "mutated_method": "isReadOnly",
+        "method_description": "()Z",
+        "line": 32,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+        "indexes": [
+          4
+        ],
+        "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::isReadOnly",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlyCompressorFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+          "mutated_method": "isReadOnly",
+          "method_description": "()Z",
+          "line": 32,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::isReadOnly",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate3Test#isReadOnlyReturnsTrue"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlyCompressorFileStoreMutaGate3Test {\n\n  @Test\n  void isReadOnlyReturnsTrue() {\n    Path archive = Paths.get(\"archive.tar.gz\");\n    ReadOnlyCompressorFileStore store = new ReadOnlyCompressorFileStore(archive, \"gz\");\n    assertTrue(store.isReadOnly());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate4Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStoreMutaGate4Test.java",
+      "target": {
+        "source_file": "ReadOnlyCompressorFileStore.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+        "mutated_method": "name",
+        "method_description": "()Ljava/lang/String;",
+        "line": 22,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+        "indexes": [
+          7
+        ],
+        "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::name",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlyCompressorFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+          "mutated_method": "name",
+          "method_description": "()Ljava/lang/String;",
+          "line": 22,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::name",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate4Test#nameReturnsArchiveFileName"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlyCompressorFileStoreMutaGate4Test {\n\n  @Test\n  void nameReturnsArchiveFileName() {\n    Path archive = Paths.get(\"some\", \"dir\", \"archive.tar.gz\");\n    ReadOnlyCompressorFileStore store = new ReadOnlyCompressorFileStore(archive, \"gz\");\n\n    assertEquals(\"archive.tar.gz\", store.name());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate5Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStoreMutaGate5Test.java",
+      "target": {
+        "source_file": "ReadOnlyCompressorFileStore.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+        "mutated_method": "supportsFileAttributeView",
+        "method_description": "(Ljava/lang/Class;)Z",
+        "line": 52,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+        "indexes": [
+          4
+        ],
+        "description": "negated conditional",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlyCompressorFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+          "mutated_method": "supportsFileAttributeView",
+          "method_description": "(Ljava/lang/Class;)Z",
+          "line": 52,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate5Test#supportsFileAttributeViewByClass",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate6Test#supportsFileAttributeViewByClass",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate7Test#supportsFileAttributeViewByClass"
+          ]
+        },
+        {
+          "source_file": "ReadOnlyCompressorFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+          "mutated_method": "supportsFileAttributeView",
+          "method_description": "(Ljava/lang/Class;)Z",
+          "line": 52,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            8
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate5Test#supportsFileAttributeViewByClass",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate6Test#supportsFileAttributeViewByClass",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate7Test#supportsFileAttributeViewByClass"
+          ]
+        },
+        {
+          "source_file": "ReadOnlyCompressorFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+          "mutated_method": "supportsFileAttributeView",
+          "method_description": "(Ljava/lang/Class;)Z",
+          "line": 52,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            16
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::supportsFileAttributeView",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate5Test#supportsFileAttributeViewByClass",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate6Test#supportsFileAttributeViewByClass",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate7Test#supportsFileAttributeViewByClass"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport java.nio.file.attribute.BasicFileAttributeView;\nimport java.nio.file.attribute.FileOwnerAttributeView;\nimport java.nio.file.attribute.PosixFileAttributeView;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlyCompressorFileStoreMutaGate5Test {\n\n  @Test\n  void supportsFileAttributeViewByClass() {\n    Path archive = Paths.get(\"archive.txt.gz\");\n    ReadOnlyCompressorFileStore store = new ReadOnlyCompressorFileStore(archive, \"gz\");\n\n    assertTrue(store.supportsFileAttributeView(BasicFileAttributeView.class));\n    assertTrue(store.supportsFileAttributeView(PosixFileAttributeView.class));\n    assertFalse(store.supportsFileAttributeView(FileOwnerAttributeView.class));\n    assertFalse(store.supportsFileAttributeView((Class<BasicFileAttributeView>) null));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate6Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStoreMutaGate6Test.java",
+      "target": {
+        "source_file": "ReadOnlyCompressorFileStore.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+        "mutated_method": "supportsFileAttributeView",
+        "method_description": "(Ljava/lang/Class;)Z",
+        "line": 52,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+        "indexes": [
+          8
+        ],
+        "description": "negated conditional",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 2,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlyCompressorFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+          "mutated_method": "supportsFileAttributeView",
+          "method_description": "(Ljava/lang/Class;)Z",
+          "line": 52,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate5Test#supportsFileAttributeViewByClass",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate6Test#supportsFileAttributeViewByClass",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate7Test#supportsFileAttributeViewByClass"
+          ]
+        },
+        {
+          "source_file": "ReadOnlyCompressorFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+          "mutated_method": "supportsFileAttributeView",
+          "method_description": "(Ljava/lang/Class;)Z",
+          "line": 52,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            8
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate5Test#supportsFileAttributeViewByClass",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate6Test#supportsFileAttributeViewByClass",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate7Test#supportsFileAttributeViewByClass"
+          ]
+        },
+        {
+          "source_file": "ReadOnlyCompressorFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+          "mutated_method": "supportsFileAttributeView",
+          "method_description": "(Ljava/lang/Class;)Z",
+          "line": 52,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            16
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::supportsFileAttributeView",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate5Test#supportsFileAttributeViewByClass",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate6Test#supportsFileAttributeViewByClass",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate7Test#supportsFileAttributeViewByClass"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport java.nio.file.attribute.BasicFileAttributeView;\nimport java.nio.file.attribute.FileAttributeView;\nimport java.nio.file.attribute.FileOwnerAttributeView;\nimport java.nio.file.attribute.PosixFileAttributeView;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlyCompressorFileStoreMutaGate6Test {\n\n  @Test\n  void supportsFileAttributeViewByClass() {\n    Path archive = Paths.get(\"archive.tar.gz\");\n    ReadOnlyCompressorFileStore store = new ReadOnlyCompressorFileStore(archive, \"gzip\");\n\n    Class<? extends FileAttributeView> nullType = null;\n    assertFalse(store.supportsFileAttributeView(nullType));\n    assertTrue(store.supportsFileAttributeView(BasicFileAttributeView.class));\n    assertTrue(store.supportsFileAttributeView(PosixFileAttributeView.class));\n    assertFalse(store.supportsFileAttributeView(FileOwnerAttributeView.class));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate7Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStoreMutaGate7Test.java",
+      "target": {
+        "source_file": "ReadOnlyCompressorFileStore.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+        "mutated_method": "supportsFileAttributeView",
+        "method_description": "(Ljava/lang/Class;)Z",
+        "line": 52,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+        "indexes": [
+          16
+        ],
+        "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::supportsFileAttributeView",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlyCompressorFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+          "mutated_method": "supportsFileAttributeView",
+          "method_description": "(Ljava/lang/Class;)Z",
+          "line": 52,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate5Test#supportsFileAttributeViewByClass",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate6Test#supportsFileAttributeViewByClass",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate7Test#supportsFileAttributeViewByClass"
+          ]
+        },
+        {
+          "source_file": "ReadOnlyCompressorFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+          "mutated_method": "supportsFileAttributeView",
+          "method_description": "(Ljava/lang/Class;)Z",
+          "line": 52,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            8
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate5Test#supportsFileAttributeViewByClass",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate6Test#supportsFileAttributeViewByClass",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate7Test#supportsFileAttributeViewByClass"
+          ]
+        },
+        {
+          "source_file": "ReadOnlyCompressorFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+          "mutated_method": "supportsFileAttributeView",
+          "method_description": "(Ljava/lang/Class;)Z",
+          "line": 52,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            16
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::supportsFileAttributeView",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate5Test#supportsFileAttributeViewByClass",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate6Test#supportsFileAttributeViewByClass",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate7Test#supportsFileAttributeViewByClass"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.Path;\nimport java.nio.file.attribute.BasicFileAttributeView;\nimport java.nio.file.attribute.FileOwnerAttributeView;\nimport java.nio.file.attribute.PosixFileAttributeView;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlyCompressorFileStoreMutaGate7Test {\n\n  @Test\n  void supportsFileAttributeViewByClass() {\n    ReadOnlyCompressorFileStore store =\n        new ReadOnlyCompressorFileStore(Path.of(\"archive.tar.gz\"), \"gz\");\n\n    assertTrue(store.supportsFileAttributeView(BasicFileAttributeView.class));\n    assertFalse(store.supportsFileAttributeView(FileOwnerAttributeView.class));\n    assertFalse(store.supportsFileAttributeView((Class<BasicFileAttributeView>) null));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate8Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStoreMutaGate8Test.java",
+      "target": {
+        "source_file": "ReadOnlyCompressorFileStore.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+        "mutated_method": "supportsFileAttributeView",
+        "method_description": "(Ljava/lang/String;)Z",
+        "line": 57,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+        "indexes": [
+          6
+        ],
+        "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::supportsFileAttributeView",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlyCompressorFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+          "mutated_method": "supportsFileAttributeView",
+          "method_description": "(Ljava/lang/String;)Z",
+          "line": 57,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::supportsFileAttributeView",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate8Test#supportsFileAttributeViewByNameOnlyForBasic",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate9Test#supportsFileAttributeViewByNameOnlyAcceptsBasic"
+          ]
+        },
+        {
+          "source_file": "ReadOnlyCompressorFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+          "mutated_method": "supportsFileAttributeView",
+          "method_description": "(Ljava/lang/String;)Z",
+          "line": 57,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::supportsFileAttributeView",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate8Test#supportsFileAttributeViewByNameOnlyForBasic",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate9Test#supportsFileAttributeViewByNameOnlyAcceptsBasic"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlyCompressorFileStoreMutaGate8Test {\n\n  @Test\n  void supportsFileAttributeViewByNameOnlyForBasic() {\n    Path archive = Paths.get(\"archive.tar.gz\");\n    ReadOnlyCompressorFileStore store = new ReadOnlyCompressorFileStore(archive, \"gz\");\n\n    assertTrue(store.supportsFileAttributeView(\"basic\"));\n    assertFalse(store.supportsFileAttributeView(\"posix\"));\n    assertFalse(store.supportsFileAttributeView((String) null));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate9Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStoreMutaGate9Test.java",
+      "target": {
+        "source_file": "ReadOnlyCompressorFileStore.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+        "mutated_method": "supportsFileAttributeView",
+        "method_description": "(Ljava/lang/String;)Z",
+        "line": 57,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+        "indexes": [
+          6
+        ],
+        "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::supportsFileAttributeView",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlyCompressorFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+          "mutated_method": "supportsFileAttributeView",
+          "method_description": "(Ljava/lang/String;)Z",
+          "line": 57,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::supportsFileAttributeView",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate8Test#supportsFileAttributeViewByNameOnlyForBasic",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate9Test#supportsFileAttributeViewByNameOnlyAcceptsBasic"
+          ]
+        },
+        {
+          "source_file": "ReadOnlyCompressorFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+          "mutated_method": "supportsFileAttributeView",
+          "method_description": "(Ljava/lang/String;)Z",
+          "line": 57,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::supportsFileAttributeView",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate8Test#supportsFileAttributeViewByNameOnlyForBasic",
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate9Test#supportsFileAttributeViewByNameOnlyAcceptsBasic"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlyCompressorFileStoreMutaGate9Test {\n\n  @Test\n  void supportsFileAttributeViewByNameOnlyAcceptsBasic() {\n    Path archive = Paths.get(\"archive.tar.gz\");\n    ReadOnlyCompressorFileStore store = new ReadOnlyCompressorFileStore(archive, \"gz\");\n\n    assertTrue(store.supportsFileAttributeView(\"basic\"));\n    assertFalse(store.supportsFileAttributeView(\"posix\"));\n    assertFalse(store.supportsFileAttributeView(\"owner\"));\n    assertFalse(store.supportsFileAttributeView((String) null));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate10Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStoreMutaGate10Test.java",
+      "target": {
+        "source_file": "ReadOnlyCompressorFileStore.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+        "mutated_method": "type",
+        "method_description": "()Ljava/lang/String;",
+        "line": 27,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+        "indexes": [
+          5
+        ],
+        "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::type",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ReadOnlyCompressorFileStore.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+          "mutated_method": "type",
+          "method_description": "()Ljava/lang/String;",
+          "line": 27,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore::type",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate10Test#typeReturnsConfiguredType"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlyCompressorFileStoreMutaGate10Test {\n\n  @Test\n  void typeReturnsConfiguredType() {\n    Path archive = Paths.get(\"archive.tar.gz\");\n    ReadOnlyCompressorFileStore store = new ReadOnlyCompressorFileStore(archive, \"gzip\");\n\n    assertEquals(\"gzip\", store.type());\n  }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlyCompressorFileStoreMutaGate1Test {\n\n  @Test\n  void blockSizeIs512() {\n    Path archive = Paths.get(\"archive.tar.gz\");\n    ReadOnlyCompressorFileStore store = new ReadOnlyCompressorFileStore(archive, \"gz\");\n    assertEquals(512L, store.getBlockSize());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1861,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 227,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.io.TempDir;\n\nclass ReadOnlyCompressorFileStoreMutaGate2Test {\n\n  @TempDir\n  Path tempDir;\n\n  @Test\n  void getTotalSpaceReturnsArchiveFileSize() throws Exception {\n    Path archive = tempDir.resolve(\"archive.tar.gz\");\n    byte[] content = new byte[1234];\n    for (int i = 0; i < content.length; i++) {\n      content[i] = (byte) i;\n    }\n    Files.write(archive, content);\n\n    ReadOnlyCompressorFileStore store = new ReadOnlyCompressorFileStore(archive, \"gz\");\n\n    assertEquals(1234L, store.getTotalSpace());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 890,
+        "cache_read_input_tokens": 1002,
+        "output_tokens": 348,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate3Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlyCompressorFileStoreMutaGate3Test {\n\n  @Test\n  void isReadOnlyReturnsTrue() {\n    Path archive = Paths.get(\"archive.tar.gz\");\n    ReadOnlyCompressorFileStore store = new ReadOnlyCompressorFileStore(archive, \"gz\");\n    assertTrue(store.isReadOnly());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 864,
+        "cache_read_input_tokens": 1002,
+        "output_tokens": 230,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate4Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlyCompressorFileStoreMutaGate4Test {\n\n  @Test\n  void nameReturnsArchiveFileName() {\n    Path archive = Paths.get(\"some\", \"dir\", \"archive.tar.gz\");\n    ReadOnlyCompressorFileStore store = new ReadOnlyCompressorFileStore(archive, \"gz\");\n\n    assertEquals(\"archive.tar.gz\", store.name());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 867,
+        "cache_read_input_tokens": 1002,
+        "output_tokens": 240,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate5Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport java.nio.file.attribute.BasicFileAttributeView;\nimport java.nio.file.attribute.FileOwnerAttributeView;\nimport java.nio.file.attribute.PosixFileAttributeView;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlyCompressorFileStoreMutaGate5Test {\n\n  @Test\n  void supportsFileAttributeViewByClass() {\n    Path archive = Paths.get(\"archive.txt.gz\");\n    ReadOnlyCompressorFileStore store = new ReadOnlyCompressorFileStore(archive, \"gz\");\n\n    assertTrue(store.supportsFileAttributeView(BasicFileAttributeView.class));\n    assertTrue(store.supportsFileAttributeView(PosixFileAttributeView.class));\n    assertFalse(store.supportsFileAttributeView(FileOwnerAttributeView.class));\n    assertFalse(store.supportsFileAttributeView((Class<BasicFileAttributeView>) null));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 936,
+        "cache_read_input_tokens": 1002,
+        "output_tokens": 582,
+        "thinking_tokens": 129
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate6Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport java.nio.file.attribute.BasicFileAttributeView;\nimport java.nio.file.attribute.FileAttributeView;\nimport java.nio.file.attribute.PosixFileAttributeView;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlyCompressorFileStoreMutaGate6Test {\n\n  @Test\n  void supportsFileAttributeViewByClass() {\n    Path archive = Paths.get(\"archive.tar.gz\");\n    ReadOnlyCompressorFileStore store = new ReadOnlyCompressorFileStore(archive, \"gzip\");\n\n    Class<? extends FileAttributeView> nullType = null;\n    assertFalse(store.supportsFileAttributeView(nullType));\n    assertTrue(store.supportsFileAttributeView(BasicFileAttributeView.class));\n    assertTrue(store.supportsFileAttributeView(PosixFileAttributeView.class) == false);\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 938,
+        "cache_read_input_tokens": 1002,
+        "output_tokens": 658,
+        "thinking_tokens": 231
+      },
+      "reused": false,
+      "screen": "FAILED_ON_UNMODIFIED_CODE",
+      "detail": "Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.020 s <<< FAILURE! -- in io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate6Test\nio.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate6Test.supportsFileAttributeViewByClass -- Time elapsed: 0.011 s <<< FAILURE!\nFailures:\nReadOnlyCompressorFileStoreMutaGate6Test.supportsFileAttributeViewByClass:23 expected: <true> but was: <false>\nTests run: 1, Failures: 1, Errors: 0, Skipped: 0\nFailed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.5:test (default-test) on project tarballfs: There are test failures.\nSee target/surefire-reports for the individual test results.\nSee dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream."
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate6Test",
+      "attempt": 2,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport java.nio.file.attribute.BasicFileAttributeView;\nimport java.nio.file.attribute.FileAttributeView;\nimport java.nio.file.attribute.FileOwnerAttributeView;\nimport java.nio.file.attribute.PosixFileAttributeView;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlyCompressorFileStoreMutaGate6Test {\n\n  @Test\n  void supportsFileAttributeViewByClass() {\n    Path archive = Paths.get(\"archive.tar.gz\");\n    ReadOnlyCompressorFileStore store = new ReadOnlyCompressorFileStore(archive, \"gzip\");\n\n    Class<? extends FileAttributeView> nullType = null;\n    assertFalse(store.supportsFileAttributeView(nullType));\n    assertTrue(store.supportsFileAttributeView(BasicFileAttributeView.class));\n    assertTrue(store.supportsFileAttributeView(PosixFileAttributeView.class));\n    assertFalse(store.supportsFileAttributeView(FileOwnerAttributeView.class));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1808,
+        "cache_read_input_tokens": 1002,
+        "output_tokens": 650,
+        "thinking_tokens": 166
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate7Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.Path;\nimport java.nio.file.attribute.BasicFileAttributeView;\nimport java.nio.file.attribute.FileOwnerAttributeView;\nimport java.nio.file.attribute.PosixFileAttributeView;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlyCompressorFileStoreMutaGate7Test {\n\n  @Test\n  void supportsFileAttributeViewByClass() {\n    ReadOnlyCompressorFileStore store =\n        new ReadOnlyCompressorFileStore(Path.of(\"archive.tar.gz\"), \"gz\");\n\n    assertTrue(store.supportsFileAttributeView(BasicFileAttributeView.class));\n    assertFalse(store.supportsFileAttributeView(FileOwnerAttributeView.class));\n    assertFalse(store.supportsFileAttributeView((Class<BasicFileAttributeView>) null));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 984,
+        "cache_read_input_tokens": 1002,
+        "output_tokens": 398,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate8Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlyCompressorFileStoreMutaGate8Test {\n\n  @Test\n  void supportsFileAttributeViewByNameOnlyForBasic() {\n    Path archive = Paths.get(\"archive.tar.gz\");\n    ReadOnlyCompressorFileStore store = new ReadOnlyCompressorFileStore(archive, \"gz\");\n\n    assertTrue(store.supportsFileAttributeView(\"basic\"));\n    assertFalse(store.supportsFileAttributeView(\"posix\"));\n    assertFalse(store.supportsFileAttributeView((String) null));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 896,
+        "cache_read_input_tokens": 1002,
+        "output_tokens": 322,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate9Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlyCompressorFileStoreMutaGate9Test {\n\n  @Test\n  void supportsFileAttributeViewByNameOnlyAcceptsBasic() {\n    Path archive = Paths.get(\"archive.tar.gz\");\n    ReadOnlyCompressorFileStore store = new ReadOnlyCompressorFileStore(archive, \"gz\");\n\n    assertTrue(store.supportsFileAttributeView(\"basic\"));\n    assertFalse(store.supportsFileAttributeView(\"posix\"));\n    assertFalse(store.supportsFileAttributeView(\"owner\"));\n    assertFalse(store.supportsFileAttributeView((String) null));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 896,
+        "cache_read_input_tokens": 1002,
+        "output_tokens": 351,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStoreMutaGate10Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.file.Path;\nimport java.nio.file.Paths;\nimport org.junit.jupiter.api.Test;\n\nclass ReadOnlyCompressorFileStoreMutaGate10Test {\n\n  @Test\n  void typeReturnsConfiguredType() {\n    Path archive = Paths.get(\"archive.tar.gz\");\n    ReadOnlyCompressorFileStore store = new ReadOnlyCompressorFileStore(archive, \"gzip\");\n\n    assertEquals(\"gzip\", store.type());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 843,
+        "cache_read_input_tokens": 1002,
+        "output_tokens": 228,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

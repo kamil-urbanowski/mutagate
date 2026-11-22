@@ -1,0 +1,149 @@
+{
+  "repo": "tarballfs",
+  "class": "io.github.iachimoe.tarballfs.GzipBasicFileAttributeView",
+  "kind": "TARGETED",
+  "setup": {
+    "repo_commit": "9d0d8eb2b3a52801b34531675750076fd46a1b5f",
+    "date": "2026-11-21",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "fbbf194a393f76fb2eabba89ffadc9c0a7b7e53d",
+    "provider": "claude-code",
+    "provider_version": "2.1.329",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.0,
+  "score_after": 1.0,
+  "mutants_total": 2,
+  "undetected_before": 2,
+  "newly_detected": 2,
+  "candidates": 2,
+  "kept": 2,
+  "acceptance_rate": 1.0,
+  "attempts_per_kept_test": 1.0,
+  "tokens": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 3811,
+    "cache_read_input_tokens": 2045,
+    "output_tokens": 1633,
+    "thinking_tokens": 885
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.GzipBasicFileAttributeViewMutaGate1Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/GzipBasicFileAttributeViewMutaGate1Test.java",
+      "target": {
+        "source_file": "GzipBasicFileAttributeView.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.GzipBasicFileAttributeView",
+        "mutated_method": "name",
+        "method_description": "()Ljava/lang/String;",
+        "line": 18,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+        "indexes": [
+          4
+        ],
+        "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/GzipBasicFileAttributeView::name",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "GzipBasicFileAttributeView.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.GzipBasicFileAttributeView",
+          "mutated_method": "name",
+          "method_description": "()Ljava/lang/String;",
+          "line": 18,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/GzipBasicFileAttributeView::name",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.GzipBasicFileAttributeViewMutaGate1Test#nameReturnsBasic"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass GzipBasicFileAttributeViewMutaGate1Test {\n\n  @Test\n  void nameReturnsBasic() {\n    GzipBasicFileAttributeView view = new GzipBasicFileAttributeView(null);\n    assertEquals(\"basic\", view.name());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.GzipBasicFileAttributeViewMutaGate2Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/GzipBasicFileAttributeViewMutaGate2Test.java",
+      "target": {
+        "source_file": "GzipBasicFileAttributeView.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.GzipBasicFileAttributeView",
+        "mutated_method": "readAttributes",
+        "method_description": "()Ljava/nio/file/attribute/BasicFileAttributes;",
+        "line": 23,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+        "indexes": [
+          6
+        ],
+        "description": "replaced return value with null for io/github/iachimoe/tarballfs/GzipBasicFileAttributeView::readAttributes",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "GzipBasicFileAttributeView.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.GzipBasicFileAttributeView",
+          "mutated_method": "readAttributes",
+          "method_description": "()Ljava/nio/file/attribute/BasicFileAttributes;",
+          "line": 23,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/GzipBasicFileAttributeView::readAttributes",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.GzipBasicFileAttributeViewMutaGate2Test#readAttributesReturnsNonNullAttributes"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\n\nimport java.io.OutputStream;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.FileSystem;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.nio.file.attribute.BasicFileAttributes;\nimport java.util.zip.GZIPOutputStream;\nimport org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.io.TempDir;\n\nclass GzipBasicFileAttributeViewMutaGate2Test {\n\n  @TempDir Path tempDir;\n\n  @Test\n  void readAttributesReturnsNonNullAttributes() throws Exception {\n    Path gz = tempDir.resolve(\"sample.txt.gz\");\n    try (OutputStream out = new GZIPOutputStream(Files.newOutputStream(gz))) {\n      out.write(\"hello world\".getBytes(StandardCharsets.UTF_8));\n    }\n\n    try (FileSystem fs = FileSystems.newFileSystem(gz, (ClassLoader) null)) {\n      Path root = fs.getRootDirectories().iterator().next();\n      SingleEntryArchivePath archivePath = (SingleEntryArchivePath) root;\n      GzipBasicFileAttributeView view =\n          new GzipBasicFileAttributeView(\n              SingleEntryArchivePath.require(archivePath, archivePath.format()));\n\n      BasicFileAttributes attributes = view.readAttributes();\n\n      assertNotNull(attributes);\n    }\n  }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.GzipBasicFileAttributeViewMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport org.junit.jupiter.api.Test;\n\nclass GzipBasicFileAttributeViewMutaGate1Test {\n\n  @Test\n  void nameReturnsBasic() {\n    GzipBasicFileAttributeView view = new GzipBasicFileAttributeView(null);\n    assertEquals(\"basic\", view.name());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 2888,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 247,
+        "thinking_tokens": 82
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.GzipBasicFileAttributeViewMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\n\nimport java.io.OutputStream;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.FileSystem;\nimport java.nio.file.FileSystems;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.nio.file.attribute.BasicFileAttributes;\nimport java.util.zip.GZIPOutputStream;\nimport org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.io.TempDir;\n\nclass GzipBasicFileAttributeViewMutaGate2Test {\n\n  @TempDir Path tempDir;\n\n  @Test\n  void readAttributesReturnsNonNullAttributes() throws Exception {\n    Path gz = tempDir.resolve(\"sample.txt.gz\");\n    try (OutputStream out = new GZIPOutputStream(Files.newOutputStream(gz))) {\n      out.write(\"hello world\".getBytes(StandardCharsets.UTF_8));\n    }\n\n    try (FileSystem fs = FileSystems.newFileSystem(gz, (ClassLoader) null)) {\n      Path root = fs.getRootDirectories().iterator().next();\n      SingleEntryArchivePath archivePath = (SingleEntryArchivePath) root;\n      GzipBasicFileAttributeView view =\n          new GzipBasicFileAttributeView(\n              SingleEntryArchivePath.require(archivePath, archivePath.format()));\n\n      BasicFileAttributes attributes = view.readAttributes();\n\n      assertNotNull(attributes);\n    }\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 923,
+        "cache_read_input_tokens": 2045,
+        "output_tokens": 1386,
+        "thinking_tokens": 803
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

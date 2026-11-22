@@ -1,0 +1,352 @@
+{
+  "repo": "tarballfs",
+  "class": "io.github.iachimoe.tarballfs.Bzip2FileSystem",
+  "kind": "CONTROL",
+  "setup": {
+    "repo_commit": "9d0d8eb2b3a52801b34531675750076fd46a1b5f",
+    "date": "2026-11-22",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "fbbf194a393f76fb2eabba89ffadc9c0a7b7e53d",
+    "provider": "claude-code",
+    "provider_version": "2.1.329",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.3333333333333333,
+  "score_after": 1.0,
+  "mutants_total": 6,
+  "undetected_before": 4,
+  "newly_detected": 4,
+  "candidates": 4,
+  "kept": 2,
+  "acceptance_rate": 0.5,
+  "attempts_per_kept_test": 2.0,
+  "tokens": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 10821,
+    "cache_read_input_tokens": 23745,
+    "output_tokens": 4418,
+    "thinking_tokens": 1346
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate1Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/Bzip2FileSystemMutaGate1Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 3 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "Bzip2FileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.Bzip2FileSystem",
+          "mutated_method": "bzip2File",
+          "method_description": "()Ljava/nio/file/Path;",
+          "line": 37,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/Bzip2FileSystem::bzip2File",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate1Test#constructor_wiresProviderArchivePathAndFileStoreType"
+          ]
+        },
+        {
+          "source_file": "Bzip2FileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.Bzip2FileSystem",
+          "mutated_method": "bzip2FileStore",
+          "method_description": "()Lio/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore;",
+          "line": 41,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/Bzip2FileSystem::bzip2FileStore",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate1Test#constructor_wiresProviderArchivePathAndFileStoreType"
+          ]
+        },
+        {
+          "source_file": "Bzip2FileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.Bzip2FileSystem",
+          "mutated_method": "provider",
+          "method_description": "()Lio/github/iachimoe/tarballfs/Bzip2FileSystemProvider;",
+          "line": 18,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/Bzip2FileSystem::provider",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate1Test#constructor_wiresProviderArchivePathAndFileStoreType",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate2Test#provider_returnsSameProviderInstanceThatCreatedFileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate3Test#close_deregistersUriFromProvider_allowingReuseOfSameUri",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate4Test#pathFormat_returnsBzip2Format",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_validBzip2Path_returnsBzip2FileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_validBzip2_returnsBzip2FileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#rootDirectoryStream_usesHostFileName_notInnerMetadata",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile"
+          ]
+        },
+        {
+          "source_file": "Bzip2FileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.Bzip2FileSystem",
+          "mutated_method": "toString",
+          "method_description": "()Ljava/lang/String;",
+          "line": 33,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/Bzip2FileSystem::toString",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate1Test#constructor_wiresProviderArchivePathAndFileStoreType"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.io.OutputStream;\nimport java.net.URI;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.Map;\n\nimport org.apache.commons.compress.compressors.bzip2.BZip2CompressorOutputStream;\nimport org.junit.jupiter.api.Test;\n\nfinal class Bzip2FileSystemMutaGate1Test {\n  @Test\n  void constructor_wiresProviderArchivePathAndFileStoreType() throws IOException {\n    Path bzPath = Files.createTempFile(\"tarballfs-ctor-\", \".bz2\");\n    try {\n      byte[] data = \"hello\".getBytes(StandardCharsets.UTF_8);\n      try (OutputStream out = Files.newOutputStream(bzPath);\n          BZip2CompressorOutputStream bzOut = new BZip2CompressorOutputStream(out)) {\n        bzOut.write(data);\n      }\n\n      Bzip2FileSystemProvider provider = new Bzip2FileSystemProvider();\n      URI uri = URI.create(\"bzip2:\" + bzPath.toAbsolutePath());\n      try (FileSystem fs = provider.newFileSystem(uri, Map.of())) {\n        Bzip2FileSystem bzFs = (Bzip2FileSystem) fs;\n\n        assertSame(provider, bzFs.provider());\n        assertNotNull(bzFs.bzip2File());\n        assertTrue(Files.isSameFile(bzPath, bzFs.bzip2File()));\n        assertEquals(\"bzip2:\" + bzFs.bzip2File(), bzFs.toString());\n\n        assertNotNull(bzFs.bzip2FileStore());\n        assertEquals(\"bzip2\", bzFs.bzip2FileStore().type());\n        assertTrue(bzFs.bzip2FileStore().isReadOnly());\n        assertTrue(bzFs.isOpen());\n        assertTrue(bzFs.isReadOnly());\n      }\n    } finally {\n      Files.deleteIfExists(bzPath);\n    }\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate2Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/Bzip2FileSystemMutaGate2Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "Bzip2FileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.Bzip2FileSystem",
+          "mutated_method": "provider",
+          "method_description": "()Lio/github/iachimoe/tarballfs/Bzip2FileSystemProvider;",
+          "line": 18,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/Bzip2FileSystem::provider",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate1Test#constructor_wiresProviderArchivePathAndFileStoreType",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate2Test#provider_returnsSameProviderInstanceThatCreatedFileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate3Test#close_deregistersUriFromProvider_allowingReuseOfSameUri",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate4Test#pathFormat_returnsBzip2Format",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_validBzip2Path_returnsBzip2FileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_validBzip2_returnsBzip2FileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#rootDirectoryStream_usesHostFileName_notInnerMetadata",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.io.IOException;\nimport java.io.OutputStream;\nimport java.net.URI;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.Map;\n\nimport org.apache.commons.compress.compressors.bzip2.BZip2CompressorOutputStream;\nimport org.junit.jupiter.api.Test;\n\nfinal class Bzip2FileSystemMutaGate2Test {\n  @Test\n  void provider_returnsSameProviderInstanceThatCreatedFileSystem() throws IOException {\n    Path bzPath = Files.createTempFile(\"tarballfs-test-\", \".bz2\");\n    try {\n      byte[] data = \"hello\".getBytes(StandardCharsets.UTF_8);\n      try (OutputStream out = Files.newOutputStream(bzPath);\n          BZip2CompressorOutputStream bzOut = new BZip2CompressorOutputStream(out)) {\n        bzOut.write(data);\n      }\n\n      Bzip2FileSystemProvider provider = new Bzip2FileSystemProvider();\n      URI uri = URI.create(\"bzip2:\" + bzPath.toAbsolutePath());\n      try (FileSystem fs = provider.newFileSystem(uri, Map.of())) {\n        Bzip2FileSystem bzFs = (Bzip2FileSystem) fs;\n        Bzip2FileSystemProvider returned = bzFs.provider();\n        assertNotNull(returned);\n        assertSame(provider, returned);\n        assertSame(fs.provider(), returned);\n        assertEquals(\"bzip2\", returned.getScheme());\n      }\n    } finally {\n      Files.deleteIfExists(bzPath);\n    }\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate3Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/Bzip2FileSystemMutaGate3Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 1 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "Bzip2FileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.Bzip2FileSystem",
+          "mutated_method": "deregister",
+          "method_description": "(Ljava/net/URI;)V",
+          "line": 23,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "indexes": [
+            6
+          ],
+          "description": "removed call to io/github/iachimoe/tarballfs/Bzip2FileSystemProvider::deregister",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate3Test#close_deregistersUriFromProvider_allowingReuseOfSameUri"
+          ]
+        },
+        {
+          "source_file": "Bzip2FileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.Bzip2FileSystem",
+          "mutated_method": "provider",
+          "method_description": "()Lio/github/iachimoe/tarballfs/Bzip2FileSystemProvider;",
+          "line": 18,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/Bzip2FileSystem::provider",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate1Test#constructor_wiresProviderArchivePathAndFileStoreType",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate2Test#provider_returnsSameProviderInstanceThatCreatedFileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate3Test#close_deregistersUriFromProvider_allowingReuseOfSameUri",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate4Test#pathFormat_returnsBzip2Format",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_validBzip2Path_returnsBzip2FileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_validBzip2_returnsBzip2FileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#rootDirectoryStream_usesHostFileName_notInnerMetadata",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertNotSame;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.io.OutputStream;\nimport java.net.URI;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.FileSystem;\nimport java.nio.file.FileSystemNotFoundException;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.Map;\n\nimport org.apache.commons.compress.compressors.bzip2.BZip2CompressorOutputStream;\nimport org.junit.jupiter.api.Test;\n\nfinal class Bzip2FileSystemMutaGate3Test {\n  @Test\n  void close_deregistersUriFromProvider_allowingReuseOfSameUri() throws IOException {\n    Path bzPath = Files.createTempFile(\"tarballfs-test-\", \".bz2\");\n    try {\n      byte[] data = \"hello\".getBytes(StandardCharsets.UTF_8);\n      try (OutputStream out = Files.newOutputStream(bzPath);\n          BZip2CompressorOutputStream bzOut = new BZip2CompressorOutputStream(out)) {\n        bzOut.write(data);\n      }\n\n      Bzip2FileSystemProvider provider = new Bzip2FileSystemProvider();\n      URI uri = URI.create(\"bzip2:\" + bzPath.toAbsolutePath());\n\n      FileSystem first = provider.newFileSystem(uri, Map.of());\n      assertTrue(first.isOpen());\n      first.close();\n      assertFalse(first.isOpen());\n\n      assertThrows(FileSystemNotFoundException.class, () -> provider.getFileSystem(uri));\n\n      try (FileSystem second = provider.newFileSystem(uri, Map.of())) {\n        assertNotNull(second);\n        assertNotSame(first, second);\n        assertTrue(second.isOpen());\n      }\n    } finally {\n      Files.deleteIfExists(bzPath);\n    }\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate4Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/Bzip2FileSystemMutaGate4Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "Bzip2FileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.Bzip2FileSystem",
+          "mutated_method": "pathFormat",
+          "method_description": "()Lio/github/iachimoe/tarballfs/SingleEntryArchiveFormat;",
+          "line": 28,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/Bzip2FileSystem::pathFormat",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate4Test#pathFormat_returnsBzip2Format",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#rootDirectoryStream_usesHostFileName_notInnerMetadata",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile"
+          ]
+        },
+        {
+          "source_file": "Bzip2FileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.Bzip2FileSystem",
+          "mutated_method": "provider",
+          "method_description": "()Lio/github/iachimoe/tarballfs/Bzip2FileSystemProvider;",
+          "line": 18,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/Bzip2FileSystem::provider",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate1Test#constructor_wiresProviderArchivePathAndFileStoreType",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate2Test#provider_returnsSameProviderInstanceThatCreatedFileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate3Test#close_deregistersUriFromProvider_allowingReuseOfSameUri",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate4Test#pathFormat_returnsBzip2Format",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#bzip2Payload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_validBzip2Path_returnsBzip2FileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#newFileSystem_validBzip2_returnsBzip2FileSystem",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#rootDirectoryStream_usesHostFileName_notInnerMetadata",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#singleSegmentAlias_readsSamePayload_underArbitraryName",
+            "io.github.iachimoe.tarballfs.Bzip2FileSystemProviderTest#toRealPath_resolvesVirtualFile"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.io.IOException;\nimport java.io.OutputStream;\nimport java.net.URI;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.Map;\n\nimport org.apache.commons.compress.compressors.bzip2.BZip2CompressorOutputStream;\nimport org.junit.jupiter.api.Test;\n\nfinal class Bzip2FileSystemMutaGate4Test {\n  @Test\n  void pathFormat_returnsBzip2Format() throws IOException {\n    Path bzPath = Files.createTempFile(\"tarballfs-test-\", \".bz2\");\n    try {\n      byte[] data = \"hello\".getBytes(StandardCharsets.UTF_8);\n      try (OutputStream out = Files.newOutputStream(bzPath);\n          BZip2CompressorOutputStream bzOut = new BZip2CompressorOutputStream(out)) {\n        bzOut.write(data);\n      }\n\n      Bzip2FileSystemProvider provider = new Bzip2FileSystemProvider();\n      URI uri = URI.create(\"bzip2:\" + bzPath.toAbsolutePath());\n      try (FileSystem fs = provider.newFileSystem(uri, Map.of())) {\n        Bzip2FileSystem bzFs = (Bzip2FileSystem) fs;\n        assertSame(SingleEntryArchiveFormat.BZIP2, bzFs.pathFormat());\n        assertNotEquals(SingleEntryArchiveFormat.GZIP, bzFs.pathFormat());\n      }\n    } finally {\n      Files.deleteIfExists(bzPath);\n    }\n  }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.io.OutputStream;\nimport java.net.URI;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.Map;\n\nimport org.apache.commons.compress.compressors.bzip2.BZip2CompressorOutputStream;\nimport org.junit.jupiter.api.Test;\n\nfinal class Bzip2FileSystemMutaGate1Test {\n  @Test\n  void constructor_wiresProviderArchivePathAndFileStoreType() throws IOException {\n    Path bzPath = Files.createTempFile(\"tarballfs-ctor-\", \".bz2\");\n    try {\n      byte[] data = \"hello\".getBytes(StandardCharsets.UTF_8);\n      try (OutputStream out = Files.newOutputStream(bzPath);\n          BZip2CompressorOutputStream bzOut = new BZip2CompressorOutputStream(out)) {\n        bzOut.write(data);\n      }\n\n      Bzip2FileSystemProvider provider = new Bzip2FileSystemProvider();\n      URI uri = URI.create(\"bzip2:\" + bzPath.toAbsolutePath());\n      try (FileSystem fs = provider.newFileSystem(uri, Map.of())) {\n        Bzip2FileSystem bzFs = (Bzip2FileSystem) fs;\n\n        assertSame(provider, bzFs.provider());\n        assertNotNull(bzFs.bzip2File());\n        assertTrue(Files.isSameFile(bzPath, bzFs.bzip2File()));\n        assertEquals(\"bzip2:\" + bzFs.bzip2File(), bzFs.toString());\n\n        assertNotNull(bzFs.bzip2FileStore());\n        assertEquals(\"bzip2\", bzFs.bzip2FileStore().type());\n        assertTrue(bzFs.bzip2FileStore().isReadOnly());\n        assertTrue(bzFs.isOpen());\n        assertTrue(bzFs.isReadOnly());\n      }\n    } finally {\n      Files.deleteIfExists(bzPath);\n    }\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 8696,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 1369,
+        "thinking_tokens": 491
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.io.IOException;\nimport java.io.OutputStream;\nimport java.net.URI;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.Map;\n\nimport org.apache.commons.compress.compressors.bzip2.BZip2CompressorOutputStream;\nimport org.junit.jupiter.api.Test;\n\nfinal class Bzip2FileSystemMutaGate2Test {\n  @Test\n  void provider_returnsSameProviderInstanceThatCreatedFileSystem() throws IOException {\n    Path bzPath = Files.createTempFile(\"tarballfs-test-\", \".bz2\");\n    try {\n      byte[] data = \"hello\".getBytes(StandardCharsets.UTF_8);\n      try (OutputStream out = Files.newOutputStream(bzPath);\n          BZip2CompressorOutputStream bzOut = new BZip2CompressorOutputStream(out)) {\n        bzOut.write(data);\n      }\n\n      Bzip2FileSystemProvider provider = new Bzip2FileSystemProvider();\n      URI uri = URI.create(\"bzip2:\" + bzPath.toAbsolutePath());\n      try (FileSystem fs = provider.newFileSystem(uri, Map.of())) {\n        Bzip2FileSystem bzFs = (Bzip2FileSystem) fs;\n        Bzip2FileSystemProvider returned = bzFs.provider();\n        assertNotNull(returned);\n        assertSame(provider, returned);\n        assertSame(fs.provider(), returned);\n        assertEquals(\"bzip2\", returned.getScheme());\n      }\n    } finally {\n      Files.deleteIfExists(bzPath);\n    }\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 713,
+        "cache_read_input_tokens": 7915,
+        "output_tokens": 716,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate3Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertNotSame;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.io.OutputStream;\nimport java.net.URI;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.FileSystem;\nimport java.nio.file.FileSystemNotFoundException;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.Map;\n\nimport org.apache.commons.compress.compressors.bzip2.BZip2CompressorOutputStream;\nimport org.junit.jupiter.api.Test;\n\nfinal class Bzip2FileSystemMutaGate3Test {\n  @Test\n  void close_deregistersUriFromProvider_allowingReuseOfSameUri() throws IOException {\n    Path bzPath = Files.createTempFile(\"tarballfs-test-\", \".bz2\");\n    try {\n      byte[] data = \"hello\".getBytes(StandardCharsets.UTF_8);\n      try (OutputStream out = Files.newOutputStream(bzPath);\n          BZip2CompressorOutputStream bzOut = new BZip2CompressorOutputStream(out)) {\n        bzOut.write(data);\n      }\n\n      Bzip2FileSystemProvider provider = new Bzip2FileSystemProvider();\n      URI uri = URI.create(\"bzip2:\" + bzPath.toAbsolutePath());\n\n      FileSystem first = provider.newFileSystem(uri, Map.of());\n      assertTrue(first.isOpen());\n      first.close();\n      assertFalse(first.isOpen());\n\n      assertThrows(FileSystemNotFoundException.class, () -> provider.getFileSystem(uri));\n\n      try (FileSystem second = provider.newFileSystem(uri, Map.of())) {\n        assertNotNull(second);\n        assertNotSame(first, second);\n        assertTrue(second.isOpen());\n      }\n    } finally {\n      Files.deleteIfExists(bzPath);\n    }\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 695,
+        "cache_read_input_tokens": 7915,
+        "output_tokens": 1322,
+        "thinking_tokens": 513
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.Bzip2FileSystemMutaGate4Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.io.IOException;\nimport java.io.OutputStream;\nimport java.net.URI;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.Map;\n\nimport org.apache.commons.compress.compressors.bzip2.BZip2CompressorOutputStream;\nimport org.junit.jupiter.api.Test;\n\nfinal class Bzip2FileSystemMutaGate4Test {\n  @Test\n  void pathFormat_returnsBzip2Format() throws IOException {\n    Path bzPath = Files.createTempFile(\"tarballfs-test-\", \".bz2\");\n    try {\n      byte[] data = \"hello\".getBytes(StandardCharsets.UTF_8);\n      try (OutputStream out = Files.newOutputStream(bzPath);\n          BZip2CompressorOutputStream bzOut = new BZip2CompressorOutputStream(out)) {\n        bzOut.write(data);\n      }\n\n      Bzip2FileSystemProvider provider = new Bzip2FileSystemProvider();\n      URI uri = URI.create(\"bzip2:\" + bzPath.toAbsolutePath());\n      try (FileSystem fs = provider.newFileSystem(uri, Map.of())) {\n        Bzip2FileSystem bzFs = (Bzip2FileSystem) fs;\n        assertSame(SingleEntryArchiveFormat.BZIP2, bzFs.pathFormat());\n        assertNotEquals(SingleEntryArchiveFormat.GZIP, bzFs.pathFormat());\n      }\n    } finally {\n      Files.deleteIfExists(bzPath);\n    }\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 717,
+        "cache_read_input_tokens": 7915,
+        "output_tokens": 1011,
+        "thinking_tokens": 342
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

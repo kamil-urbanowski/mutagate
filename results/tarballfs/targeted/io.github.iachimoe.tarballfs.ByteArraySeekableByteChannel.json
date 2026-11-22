@@ -1,0 +1,1903 @@
+{
+  "repo": "tarballfs",
+  "class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+  "kind": "TARGETED",
+  "setup": {
+    "repo_commit": "9d0d8eb2b3a52801b34531675750076fd46a1b5f",
+    "date": "2026-11-21",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "fbbf194a393f76fb2eabba89ffadc9c0a7b7e53d",
+    "provider": "claude-code",
+    "provider_version": "2.1.329",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.5,
+  "score_after": 1.0,
+  "mutants_total": 18,
+  "undetected_before": 9,
+  "newly_detected": 9,
+  "candidates": 9,
+  "kept": 9,
+  "acceptance_rate": 1.0,
+  "attempts_per_kept_test": 1.0,
+  "tokens": {
+    "input_tokens": 18,
+    "cache_creation_input_tokens": 9433,
+    "cache_read_input_tokens": 8352,
+    "output_tokens": 3629,
+    "thinking_tokens": 491
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate1Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ByteArraySeekableByteChannelMutaGate1Test.java",
+      "target": {
+        "source_file": "ByteArraySeekableByteChannel.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+        "mutated_method": "isOpen",
+        "method_description": "()Z",
+        "line": 67,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+        "indexes": [
+          5
+        ],
+        "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::isOpen",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "isOpen",
+          "method_description": "()Z",
+          "line": 67,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::isOpen",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate1Test#isOpenIsTrueUntilClosed",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate2Test#isOpenReflectsCloseState"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "isOpen",
+          "method_description": "()Z",
+          "line": 67,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::isOpen",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate1Test#isOpenIsTrueUntilClosed",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate2Test#isOpenReflectsCloseState"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.junit.jupiter.api.Test;\n\nclass ByteArraySeekableByteChannelMutaGate1Test {\n\n  @Test\n  void isOpenIsTrueUntilClosed() {\n    ByteArraySeekableByteChannel channel = new ByteArraySeekableByteChannel(new byte[] {1, 2, 3});\n    assertTrue(channel.isOpen());\n    channel.close();\n    assertFalse(channel.isOpen());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate2Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ByteArraySeekableByteChannelMutaGate2Test.java",
+      "target": {
+        "source_file": "ByteArraySeekableByteChannel.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+        "mutated_method": "isOpen",
+        "method_description": "()Z",
+        "line": 67,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+        "indexes": [
+          5
+        ],
+        "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::isOpen",
+        "status": "NO_COVERAGE",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "isOpen",
+          "method_description": "()Z",
+          "line": 67,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with false for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::isOpen",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate1Test#isOpenIsTrueUntilClosed",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate2Test#isOpenReflectsCloseState"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "isOpen",
+          "method_description": "()Z",
+          "line": 67,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced boolean return with true for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::isOpen",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate1Test#isOpenIsTrueUntilClosed",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate2Test#isOpenReflectsCloseState"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.junit.jupiter.api.Test;\n\nclass ByteArraySeekableByteChannelMutaGate2Test {\n\n  @Test\n  void isOpenReflectsCloseState() throws Exception {\n    ByteArraySeekableByteChannel channel = new ByteArraySeekableByteChannel(new byte[] {1, 2, 3});\n    assertTrue(channel.isOpen());\n    channel.close();\n    assertFalse(channel.isOpen());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ByteArraySeekableByteChannelMutaGate3Test.java",
+      "target": {
+        "source_file": "ByteArraySeekableByteChannel.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+        "mutated_method": "position",
+        "method_description": "()J",
+        "line": 40,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+        "indexes": [
+          6
+        ],
+        "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::position",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "<init>",
+          "method_description": "([B)V",
+          "line": 16,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            14
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate9Test#sizeReturnsDataLengthAndIsIndependentOfPosition",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "()J",
+          "line": 40,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 45,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            22
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 29,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "indexes": [
+            54
+          ],
+          "description": "Replaced integer addition with subtraction",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 21,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate9Test#sizeReturnsDataLengthAndIsIndependentOfPosition",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 24,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            20
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.ByteBuffer;\nimport org.junit.jupiter.api.Test;\n\nclass ByteArraySeekableByteChannelMutaGate3Test {\n\n  @Test\n  void positionReflectsReadsAndExplicitSeeks() throws Exception {\n    ByteArraySeekableByteChannel channel =\n        new ByteArraySeekableByteChannel(new byte[] {1, 2, 3, 4, 5, 6});\n\n    assertEquals(0L, channel.position());\n\n    channel.read(ByteBuffer.allocate(4));\n    assertEquals(4L, channel.position());\n\n    channel.position(2);\n    assertEquals(2L, channel.position());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ByteArraySeekableByteChannelMutaGate4Test.java",
+      "target": {
+        "source_file": "ByteArraySeekableByteChannel.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+        "mutated_method": "position",
+        "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+        "line": 48,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+        "indexes": [
+          22
+        ],
+        "description": "changed conditional boundary",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "()J",
+          "line": 40,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "indexes": [
+            18
+          ],
+          "description": "changed conditional boundary",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "indexes": [
+            22
+          ],
+          "description": "changed conditional boundary",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 45,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            22
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 52,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            42
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 21,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate9Test#sizeReturnsDataLengthAndIsIndependentOfPosition",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 24,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            20
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 25,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            24
+          ],
+          "description": "replaced int return with 0 for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::read",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ByteArraySeekableByteChannelMutaGate4Test {\n\n  @Test\n  void positionAcceptsBoundaryValuesAndRejectsOutOfRange() throws Exception {\n    ByteArraySeekableByteChannel channel =\n        new ByteArraySeekableByteChannel(new byte[] {1, 2, 3});\n\n    // Lower boundary: 0 is valid\n    SeekableByteChannel result = channel.position(0L);\n    assertSame(channel, result);\n    assertEquals(0L, channel.position());\n\n    // Upper boundary: Integer.MAX_VALUE is valid\n    channel.position((long) Integer.MAX_VALUE);\n    assertEquals((long) Integer.MAX_VALUE, channel.position());\n    assertEquals(-1, channel.read(ByteBuffer.allocate(1)));\n\n    // Just outside the boundaries is invalid\n    assertThrows(IllegalArgumentException.class, () -> channel.position(-1L));\n    assertThrows(\n        IllegalArgumentException.class, () -> channel.position((long) Integer.MAX_VALUE + 1L));\n\n    // Failed calls must not change the position\n    assertEquals((long) Integer.MAX_VALUE, channel.position());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ByteArraySeekableByteChannelMutaGate5Test.java",
+      "target": {
+        "source_file": "ByteArraySeekableByteChannel.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+        "mutated_method": "position",
+        "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+        "line": 52,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+        "indexes": [
+          42
+        ],
+        "description": "replaced return value with null for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::position",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "<init>",
+          "method_description": "([B)V",
+          "line": 16,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            14
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate9Test#sizeReturnsDataLengthAndIsIndependentOfPosition",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "()J",
+          "line": 40,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 45,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            22
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 52,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            42
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 21,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate9Test#sizeReturnsDataLengthAndIsIndependentOfPosition",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 24,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            20
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 30,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            59
+          ],
+          "description": "replaced int return with 0 for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::read",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ByteArraySeekableByteChannelMutaGate5Test {\n\n  @Test\n  void positionReturnsSameChannelAllowingChaining() throws Exception {\n    ByteArraySeekableByteChannel channel =\n        new ByteArraySeekableByteChannel(new byte[] {1, 2, 3, 4, 5});\n\n    SeekableByteChannel returned = channel.position(2);\n\n    assertSame(channel, returned);\n    assertEquals(2L, returned.position());\n\n    ByteBuffer buf = ByteBuffer.allocate(2);\n    int n = channel.position(1).read(buf);\n    assertEquals(2, n);\n    assertEquals(2, buf.get(0));\n    assertEquals(3, buf.get(1));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ByteArraySeekableByteChannelMutaGate6Test.java",
+      "target": {
+        "source_file": "ByteArraySeekableByteChannel.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+        "mutated_method": "read",
+        "method_description": "(Ljava/nio/ByteBuffer;)I",
+        "line": 24,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+        "indexes": [
+          20
+        ],
+        "description": "changed conditional boundary",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "<init>",
+          "method_description": "([B)V",
+          "line": 16,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            14
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate9Test#sizeReturnsDataLengthAndIsIndependentOfPosition",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "()J",
+          "line": 40,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 45,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            22
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 24,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "indexes": [
+            20
+          ],
+          "description": "changed conditional boundary",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 29,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "indexes": [
+            54
+          ],
+          "description": "Replaced integer addition with subtraction",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 21,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate9Test#sizeReturnsDataLengthAndIsIndependentOfPosition",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 24,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            20
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 25,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            24
+          ],
+          "description": "replaced int return with 0 for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::read",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 30,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            59
+          ],
+          "description": "replaced int return with 0 for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::read",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.ByteBuffer;\nimport org.junit.jupiter.api.Test;\n\nclass ByteArraySeekableByteChannelMutaGate6Test {\n\n  @Test\n  void readAtExactEndOfDataReturnsEndOfStream() throws Exception {\n    byte[] data = new byte[] {1, 2, 3};\n    ByteArraySeekableByteChannel channel = new ByteArraySeekableByteChannel(data);\n\n    ByteBuffer first = ByteBuffer.allocate(3);\n    assertEquals(3, channel.read(first));\n    assertEquals(3L, channel.position());\n\n    ByteBuffer second = ByteBuffer.allocate(4);\n    assertEquals(-1, channel.read(second));\n    assertEquals(0, second.position());\n\n    channel.position(data.length);\n    assertEquals(-1, channel.read(ByteBuffer.allocate(1)));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ByteArraySeekableByteChannelMutaGate7Test.java",
+      "target": {
+        "source_file": "ByteArraySeekableByteChannel.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+        "mutated_method": "read",
+        "method_description": "(Ljava/nio/ByteBuffer;)I",
+        "line": 27,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+        "indexes": [
+          35
+        ],
+        "description": "Replaced integer subtraction with addition",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "<init>",
+          "method_description": "([B)V",
+          "line": 16,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            14
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate9Test#sizeReturnsDataLengthAndIsIndependentOfPosition",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "()J",
+          "line": 40,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::position",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 45,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            22
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 24,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "indexes": [
+            20
+          ],
+          "description": "changed conditional boundary",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 27,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "indexes": [
+            35
+          ],
+          "description": "Replaced integer subtraction with addition",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 29,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "indexes": [
+            54
+          ],
+          "description": "Replaced integer addition with subtraction",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 21,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate9Test#sizeReturnsDataLengthAndIsIndependentOfPosition",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 24,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            20
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 25,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            24
+          ],
+          "description": "replaced int return with 0 for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::read",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 30,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            59
+          ],
+          "description": "replaced int return with 0 for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::read",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertArrayEquals;\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.ByteBuffer;\nimport org.junit.jupiter.api.Test;\n\nclass ByteArraySeekableByteChannelMutaGate7Test {\n\n  @Test\n  void readFromNonZeroPositionReturnsOnlyRemainingBytes() throws Exception {\n    byte[] data = {1, 2, 3, 4, 5};\n    ByteArraySeekableByteChannel channel = new ByteArraySeekableByteChannel(data);\n    channel.position(2);\n\n    ByteBuffer dst = ByteBuffer.allocate(10);\n    int read = channel.read(dst);\n\n    assertEquals(3, read);\n    assertEquals(5L, channel.position());\n    assertEquals(3, dst.position());\n    byte[] got = new byte[3];\n    dst.flip();\n    dst.get(got);\n    assertArrayEquals(new byte[] {3, 4, 5}, got);\n    assertEquals(-1, channel.read(ByteBuffer.allocate(4)));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ByteArraySeekableByteChannelMutaGate8Test.java",
+      "target": {
+        "source_file": "ByteArraySeekableByteChannel.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+        "mutated_method": "read",
+        "method_description": "(Ljava/nio/ByteBuffer;)I",
+        "line": 25,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+        "indexes": [
+          24
+        ],
+        "description": "replaced int return with 0 for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::read",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "<init>",
+          "method_description": "([B)V",
+          "line": 16,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            14
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate9Test#sizeReturnsDataLengthAndIsIndependentOfPosition",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 45,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            18
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "position",
+          "method_description": "(J)Ljava/nio/channels/SeekableByteChannel;",
+          "line": 48,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            22
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 24,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "indexes": [
+            20
+          ],
+          "description": "changed conditional boundary",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 29,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "indexes": [
+            54
+          ],
+          "description": "Replaced integer addition with subtraction",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 21,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate9Test#sizeReturnsDataLengthAndIsIndependentOfPosition",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 24,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            20
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 25,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            24
+          ],
+          "description": "replaced int return with 0 for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::read",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 30,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            59
+          ],
+          "description": "replaced int return with 0 for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::read",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.ByteBuffer;\nimport org.junit.jupiter.api.Test;\n\nclass ByteArraySeekableByteChannelMutaGate8Test {\n\n  @Test\n  void readAtEndReturnsMinusOne() throws Exception {\n    ByteArraySeekableByteChannel channel =\n        new ByteArraySeekableByteChannel(new byte[] {1, 2, 3});\n    ByteBuffer buf = ByteBuffer.allocate(10);\n\n    assertEquals(3, channel.read(buf));\n    assertEquals(-1, channel.read(ByteBuffer.allocate(4)));\n\n    channel.position(3);\n    assertEquals(-1, channel.read(ByteBuffer.allocate(4)));\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate9Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/ByteArraySeekableByteChannelMutaGate9Test.java",
+      "target": {
+        "source_file": "ByteArraySeekableByteChannel.java",
+        "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+        "mutated_method": "size",
+        "method_description": "()J",
+        "line": 57,
+        "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+        "indexes": [
+          7
+        ],
+        "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::size",
+        "status": "SURVIVED",
+        "killing_tests": []
+      },
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed its target",
+      "mutants_killed": [
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "<init>",
+          "method_description": "([B)V",
+          "line": 16,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            14
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate9Test#sizeReturnsDataLengthAndIsIndependentOfPosition",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "read",
+          "method_description": "(Ljava/nio/ByteBuffer;)I",
+          "line": 21,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "negated conditional",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test#positionReflectsReadsAndExplicitSeeks",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test#positionAcceptsBoundaryValuesAndRejectsOutOfRange",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test#positionReturnsSameChannelAllowingChaining",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test#readAtExactEndOfDataReturnsEndOfStream",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test#readFromNonZeroPositionReturnsOnlyRemainingBytes",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test#readAtEndReturnsMinusOne",
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate9Test#sizeReturnsDataLengthAndIsIndependentOfPosition",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#fileChannel_open_readsEntryBytes_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#getPath_viaFileSystemsGetPath_readsTextUsingStandardApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#nestedFile_readText_viaStandardFileApis",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#pathToUri_roundTripsThroughFileSystemsGetPath",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#readTextFileFromTar_viaFilesReadString",
+            "io.github.iachimoe.tarballfs.TarFileSystemProviderTest#tarPath_toRealPath_resolvesExistingFile"
+          ]
+        },
+        {
+          "source_file": "ByteArraySeekableByteChannel.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+          "mutated_method": "size",
+          "method_description": "()J",
+          "line": 57,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "replaced long return with 0 for io/github/iachimoe/tarballfs/ByteArraySeekableByteChannel::size",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate9Test#sizeReturnsDataLengthAndIsIndependentOfPosition"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.ByteBuffer;\nimport org.junit.jupiter.api.Test;\n\nclass ByteArraySeekableByteChannelMutaGate9Test {\n\n  @Test\n  void sizeReturnsDataLengthAndIsIndependentOfPosition() throws Exception {\n    ByteArraySeekableByteChannel channel =\n        new ByteArraySeekableByteChannel(new byte[] {1, 2, 3, 4, 5});\n    assertEquals(5L, channel.size());\n\n    channel.read(ByteBuffer.allocate(2));\n    assertEquals(5L, channel.size());\n\n    ByteArraySeekableByteChannel empty = new ByteArraySeekableByteChannel(null);\n    assertEquals(0L, empty.size());\n  }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.junit.jupiter.api.Test;\n\nclass ByteArraySeekableByteChannelMutaGate1Test {\n\n  @Test\n  void isOpenIsTrueUntilClosed() {\n    ByteArraySeekableByteChannel channel = new ByteArraySeekableByteChannel(new byte[] {1, 2, 3});\n    assertTrue(channel.isOpen());\n    channel.close();\n    assertFalse(channel.isOpen());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1898,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 236,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport org.junit.jupiter.api.Test;\n\nclass ByteArraySeekableByteChannelMutaGate2Test {\n\n  @Test\n  void isOpenReflectsCloseState() throws Exception {\n    ByteArraySeekableByteChannel channel = new ByteArraySeekableByteChannel(new byte[] {1, 2, 3});\n    assertTrue(channel.isOpen());\n    channel.close();\n    assertFalse(channel.isOpen());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 853,
+        "cache_read_input_tokens": 1044,
+        "output_tokens": 238,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate3Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.ByteBuffer;\nimport org.junit.jupiter.api.Test;\n\nclass ByteArraySeekableByteChannelMutaGate3Test {\n\n  @Test\n  void positionReflectsReadsAndExplicitSeeks() throws Exception {\n    ByteArraySeekableByteChannel channel =\n        new ByteArraySeekableByteChannel(new byte[] {1, 2, 3, 4, 5, 6});\n\n    assertEquals(0L, channel.position());\n\n    channel.read(ByteBuffer.allocate(4));\n    assertEquals(4L, channel.position());\n\n    channel.position(2);\n    assertEquals(2L, channel.position());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 863,
+        "cache_read_input_tokens": 1044,
+        "output_tokens": 284,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate4Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ByteArraySeekableByteChannelMutaGate4Test {\n\n  @Test\n  void positionAcceptsBoundaryValuesAndRejectsOutOfRange() throws Exception {\n    ByteArraySeekableByteChannel channel =\n        new ByteArraySeekableByteChannel(new byte[] {1, 2, 3});\n\n    // Lower boundary: 0 is valid\n    SeekableByteChannel result = channel.position(0L);\n    assertSame(channel, result);\n    assertEquals(0L, channel.position());\n\n    // Upper boundary: Integer.MAX_VALUE is valid\n    channel.position((long) Integer.MAX_VALUE);\n    assertEquals((long) Integer.MAX_VALUE, channel.position());\n    assertEquals(-1, channel.read(ByteBuffer.allocate(1)));\n\n    // Just outside the boundaries is invalid\n    assertThrows(IllegalArgumentException.class, () -> channel.position(-1L));\n    assertThrows(\n        IllegalArgumentException.class, () -> channel.position((long) Integer.MAX_VALUE + 1L));\n\n    // Failed calls must not change the position\n    assertEquals((long) Integer.MAX_VALUE, channel.position());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1009,
+        "cache_read_input_tokens": 1044,
+        "output_tokens": 813,
+        "thinking_tokens": 228
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate5Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.nio.ByteBuffer;\nimport java.nio.channels.SeekableByteChannel;\nimport org.junit.jupiter.api.Test;\n\nclass ByteArraySeekableByteChannelMutaGate5Test {\n\n  @Test\n  void positionReturnsSameChannelAllowingChaining() throws Exception {\n    ByteArraySeekableByteChannel channel =\n        new ByteArraySeekableByteChannel(new byte[] {1, 2, 3, 4, 5});\n\n    SeekableByteChannel returned = channel.position(2);\n\n    assertSame(channel, returned);\n    assertEquals(2L, returned.position());\n\n    ByteBuffer buf = ByteBuffer.allocate(2);\n    int n = channel.position(1).read(buf);\n    assertEquals(2, n);\n    assertEquals(2, buf.get(0));\n    assertEquals(3, buf.get(1));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1000,
+        "cache_read_input_tokens": 1044,
+        "output_tokens": 386,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate6Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.ByteBuffer;\nimport org.junit.jupiter.api.Test;\n\nclass ByteArraySeekableByteChannelMutaGate6Test {\n\n  @Test\n  void readAtExactEndOfDataReturnsEndOfStream() throws Exception {\n    byte[] data = new byte[] {1, 2, 3};\n    ByteArraySeekableByteChannel channel = new ByteArraySeekableByteChannel(data);\n\n    ByteBuffer first = ByteBuffer.allocate(3);\n    assertEquals(3, channel.read(first));\n    assertEquals(3L, channel.position());\n\n    ByteBuffer second = ByteBuffer.allocate(4);\n    assertEquals(-1, channel.read(second));\n    assertEquals(0, second.position());\n\n    channel.position(data.length);\n    assertEquals(-1, channel.read(ByteBuffer.allocate(1)));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 966,
+        "cache_read_input_tokens": 1044,
+        "output_tokens": 468,
+        "thinking_tokens": 104
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate7Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertArrayEquals;\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.ByteBuffer;\nimport org.junit.jupiter.api.Test;\n\nclass ByteArraySeekableByteChannelMutaGate7Test {\n\n  @Test\n  void readFromNonZeroPositionReturnsOnlyRemainingBytes() throws Exception {\n    byte[] data = {1, 2, 3, 4, 5};\n    ByteArraySeekableByteChannel channel = new ByteArraySeekableByteChannel(data);\n    channel.position(2);\n\n    ByteBuffer dst = ByteBuffer.allocate(10);\n    int read = channel.read(dst);\n\n    assertEquals(3, read);\n    assertEquals(5L, channel.position());\n    assertEquals(3, dst.position());\n    byte[] got = new byte[3];\n    dst.flip();\n    dst.get(got);\n    assertArrayEquals(new byte[] {3, 4, 5}, got);\n    assertEquals(-1, channel.read(ByteBuffer.allocate(4)));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 973,
+        "cache_read_input_tokens": 1044,
+        "output_tokens": 582,
+        "thinking_tokens": 159
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate8Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.ByteBuffer;\nimport org.junit.jupiter.api.Test;\n\nclass ByteArraySeekableByteChannelMutaGate8Test {\n\n  @Test\n  void readAtEndReturnsMinusOne() throws Exception {\n    ByteArraySeekableByteChannel channel =\n        new ByteArraySeekableByteChannel(new byte[] {1, 2, 3});\n    ByteBuffer buf = ByteBuffer.allocate(10);\n\n    assertEquals(3, channel.read(buf));\n    assertEquals(-1, channel.read(ByteBuffer.allocate(4)));\n\n    channel.position(3);\n    assertEquals(-1, channel.read(ByteBuffer.allocate(4)));\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 1005,
+        "cache_read_input_tokens": 1044,
+        "output_tokens": 307,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannelMutaGate9Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\nimport java.nio.ByteBuffer;\nimport org.junit.jupiter.api.Test;\n\nclass ByteArraySeekableByteChannelMutaGate9Test {\n\n  @Test\n  void sizeReturnsDataLengthAndIsIndependentOfPosition() throws Exception {\n    ByteArraySeekableByteChannel channel =\n        new ByteArraySeekableByteChannel(new byte[] {1, 2, 3, 4, 5});\n    assertEquals(5L, channel.size());\n\n    channel.read(ByteBuffer.allocate(2));\n    assertEquals(5L, channel.size());\n\n    ByteArraySeekableByteChannel empty = new ByteArraySeekableByteChannel(null);\n    assertEquals(0L, empty.size());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 866,
+        "cache_read_input_tokens": 1044,
+        "output_tokens": 315,
+        "thinking_tokens": 0
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

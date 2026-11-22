@@ -1,0 +1,415 @@
+{
+  "repo": "tarballfs",
+  "class": "io.github.iachimoe.tarballfs.GzipFileSystem",
+  "kind": "CONTROL",
+  "setup": {
+    "repo_commit": "9d0d8eb2b3a52801b34531675750076fd46a1b5f",
+    "date": "2026-11-22",
+    "java": "21.0.12.1",
+    "maven": "3.9.16",
+    "pitest_maven": "1.30.0",
+    "pitest_junit5_plugin": "1.2.3",
+    "mutagate_commit": "fbbf194a393f76fb2eabba89ffadc9c0a7b7e53d",
+    "provider": "claude-code",
+    "provider_version": "2.1.329",
+    "model": "claude-sonnet-5-5",
+    "effort": "medium",
+    "system_prompt": "the shared part of each request"
+  },
+  "score_before": 0.3333333333333333,
+  "score_after": 1.0,
+  "mutants_total": 6,
+  "undetected_before": 4,
+  "newly_detected": 4,
+  "candidates": 4,
+  "kept": 2,
+  "acceptance_rate": 0.5,
+  "attempts_per_kept_test": 2.0,
+  "tokens": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 11345,
+    "cache_read_input_tokens": 25395,
+    "output_tokens": 4327,
+    "thinking_tokens": 1528
+  },
+  "ledger": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate1Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/GzipFileSystemMutaGate1Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 3 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "GzipFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.GzipFileSystem",
+          "mutated_method": "gzipFile",
+          "method_description": "()Ljava/nio/file/Path;",
+          "line": 37,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/GzipFileSystem::gzipFile",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate1Test#constructor_storesArgumentsAndConfiguresGzipFileSystem"
+          ]
+        },
+        {
+          "source_file": "GzipFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.GzipFileSystem",
+          "mutated_method": "gzipFileStore",
+          "method_description": "()Lio/github/iachimoe/tarballfs/ReadOnlyCompressorFileStore;",
+          "line": 41,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            5
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/GzipFileSystem::gzipFileStore",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate1Test#constructor_storesArgumentsAndConfiguresGzipFileSystem"
+          ]
+        },
+        {
+          "source_file": "GzipFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.GzipFileSystem",
+          "mutated_method": "pathFormat",
+          "method_description": "()Lio/github/iachimoe/tarballfs/SingleEntryArchiveFormat;",
+          "line": 28,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/GzipFileSystem::pathFormat",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate1Test#constructor_storesArgumentsAndConfiguresGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate2Test#provider_returnsSameProviderInstanceThatCreatedFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate4Test#pathFormat_returnsGzipFormat",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName"
+          ]
+        },
+        {
+          "source_file": "GzipFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.GzipFileSystem",
+          "mutated_method": "provider",
+          "method_description": "()Lio/github/iachimoe/tarballfs/GzipFileSystemProvider;",
+          "line": 18,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/GzipFileSystem::provider",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate1Test#constructor_storesArgumentsAndConfiguresGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate2Test#provider_returnsSameProviderInstanceThatCreatedFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate3Test#close_deregistersUri_soItCanBeReopenedAndIsNoLongerLookedUp",
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate4Test#pathFormat_returnsGzipFormat",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_validGzipPath_returnsGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_validGzip_returnsGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName"
+          ]
+        },
+        {
+          "source_file": "GzipFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.GzipFileSystem",
+          "mutated_method": "toString",
+          "method_description": "()Ljava/lang/String;",
+          "line": 33,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+          "indexes": [
+            7
+          ],
+          "description": "replaced return value with \"\" for io/github/iachimoe/tarballfs/GzipFileSystem::toString",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate1Test#constructor_storesArgumentsAndConfiguresGzipFileSystem"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.net.URI;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\n\nfinal class GzipFileSystemMutaGate1Test {\n  @Test\n  void constructor_storesArgumentsAndConfiguresGzipFileSystem() {\n    GzipFileSystemProvider provider = new GzipFileSystemProvider();\n    Path gzipPath = Path.of(\"some-dir\", \"archive.gz\");\n    Path tempFile = Path.of(\"some-dir\", \"payload.tmp\");\n    URI uri = URI.create(\"gzip:archive.gz\");\n\n    GzipFileSystem fs = new GzipFileSystem(provider, uri, gzipPath, \"entry.txt\", tempFile);\n\n    assertSame(provider, fs.provider());\n    assertSame(gzipPath, fs.gzipFile());\n    assertSame(gzipPath, fs.hostArchivePath());\n    assertEquals(\"entry.txt\", fs.virtualEntryName());\n    assertSame(tempFile, fs.uncompressedTempFile());\n    assertEquals(\"gzip:\" + gzipPath, fs.toString());\n    assertEquals(SingleEntryArchiveFormat.GZIP, fs.pathFormat());\n\n    ReadOnlyCompressorFileStore store = fs.gzipFileStore();\n    assertNotNull(store);\n    assertSame(store, fs.compressorFileStore());\n    assertEquals(\"gzip\", store.type());\n\n    assertTrue(fs.isOpen());\n    assertTrue(fs.isReadOnly());\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate2Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/GzipFileSystemMutaGate2Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "GzipFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.GzipFileSystem",
+          "mutated_method": "pathFormat",
+          "method_description": "()Lio/github/iachimoe/tarballfs/SingleEntryArchiveFormat;",
+          "line": 28,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/GzipFileSystem::pathFormat",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate1Test#constructor_storesArgumentsAndConfiguresGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate2Test#provider_returnsSameProviderInstanceThatCreatedFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate4Test#pathFormat_returnsGzipFormat",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName"
+          ]
+        },
+        {
+          "source_file": "GzipFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.GzipFileSystem",
+          "mutated_method": "provider",
+          "method_description": "()Lio/github/iachimoe/tarballfs/GzipFileSystemProvider;",
+          "line": 18,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/GzipFileSystem::provider",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate1Test#constructor_storesArgumentsAndConfiguresGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate2Test#provider_returnsSameProviderInstanceThatCreatedFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate3Test#close_deregistersUri_soItCanBeReopenedAndIsNoLongerLookedUp",
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate4Test#pathFormat_returnsGzipFormat",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_validGzipPath_returnsGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_validGzip_returnsGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.io.IOException;\nimport java.io.OutputStream;\nimport java.net.URI;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.Map;\n\nimport org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream;\nimport org.junit.jupiter.api.Test;\n\nfinal class GzipFileSystemMutaGate2Test {\n  @Test\n  void provider_returnsSameProviderInstanceThatCreatedFileSystem() throws IOException {\n    Path gzPath = Files.createTempFile(\"tarballfs-test-\", \".gz\");\n    try {\n      try (OutputStream out = Files.newOutputStream(gzPath);\n          GzipCompressorOutputStream gzOut = new GzipCompressorOutputStream(out)) {\n        gzOut.write(\"hello\".getBytes(StandardCharsets.UTF_8));\n      }\n\n      GzipFileSystemProvider provider = new GzipFileSystemProvider();\n      URI uri = URI.create(\"gzip:\" + gzPath.toAbsolutePath());\n      FileSystem fs = provider.newFileSystem(uri, Map.of());\n      try {\n        GzipFileSystem gzipFs = (GzipFileSystem) fs;\n        GzipFileSystemProvider typed = gzipFs.provider();\n        assertSame(provider, typed);\n        assertSame(provider, fs.provider());\n        assertSame(provider, gzipFs.getPath(\"/\").getFileSystem().provider());\n      } finally {\n        fs.close();\n      }\n    } finally {\n      Files.deleteIfExists(gzPath);\n    }\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate3Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/GzipFileSystemMutaGate3Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "KEPT",
+      "detail": "killed 1 of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "GzipFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.GzipFileSystem",
+          "mutated_method": "deregister",
+          "method_description": "(Ljava/net/URI;)V",
+          "line": 23,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "indexes": [
+            6
+          ],
+          "description": "removed call to io/github/iachimoe/tarballfs/GzipFileSystemProvider::deregister",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate3Test#close_deregistersUri_soItCanBeReopenedAndIsNoLongerLookedUp"
+          ]
+        },
+        {
+          "source_file": "GzipFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.GzipFileSystem",
+          "mutated_method": "provider",
+          "method_description": "()Lio/github/iachimoe/tarballfs/GzipFileSystemProvider;",
+          "line": 18,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/GzipFileSystem::provider",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate1Test#constructor_storesArgumentsAndConfiguresGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate2Test#provider_returnsSameProviderInstanceThatCreatedFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate3Test#close_deregistersUri_soItCanBeReopenedAndIsNoLongerLookedUp",
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate4Test#pathFormat_returnsGzipFormat",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_validGzipPath_returnsGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_validGzip_returnsGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertNotSame;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.io.OutputStream;\nimport java.net.URI;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.FileSystem;\nimport java.nio.file.FileSystemNotFoundException;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.Map;\n\nimport org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream;\nimport org.junit.jupiter.api.Test;\n\nfinal class GzipFileSystemMutaGate3Test {\n  @Test\n  void close_deregistersUri_soItCanBeReopenedAndIsNoLongerLookedUp() throws IOException {\n    Path gzPath = Files.createTempFile(\"tarballfs-test-\", \".gz\");\n    try {\n      byte[] data = \"hello\".getBytes(StandardCharsets.UTF_8);\n      try (OutputStream out = Files.newOutputStream(gzPath);\n          GzipCompressorOutputStream gzOut = new GzipCompressorOutputStream(out)) {\n        gzOut.write(data);\n      }\n\n      GzipFileSystemProvider provider = new GzipFileSystemProvider();\n      URI uri = URI.create(\"gzip:\" + gzPath.toAbsolutePath());\n\n      FileSystem first = provider.newFileSystem(uri, Map.of());\n      assertTrue(first.isOpen());\n      first.close();\n      assertTrue(!first.isOpen());\n\n      assertThrows(FileSystemNotFoundException.class, () -> provider.getFileSystem(uri));\n\n      FileSystem second = provider.newFileSystem(uri, Map.of());\n      try {\n        assertNotNull(second);\n        assertNotSame(first, second);\n        assertTrue(second.isOpen());\n      } finally {\n        second.close();\n      }\n    } finally {\n      Files.deleteIfExists(gzPath);\n    }\n  }\n}\n"
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate4Test",
+      "path": "src/test/java/io/github/iachimoe/tarballfs/GzipFileSystemMutaGate4Test.java",
+      "target": null,
+      "attempts": 1,
+      "verdict": "NO_NEW_KILL",
+      "detail": "killed none of the class's undetected mutants",
+      "mutants_killed": [
+        {
+          "source_file": "GzipFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.GzipFileSystem",
+          "mutated_method": "pathFormat",
+          "method_description": "()Lio/github/iachimoe/tarballfs/SingleEntryArchiveFormat;",
+          "line": 28,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            4
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/GzipFileSystem::pathFormat",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate1Test#constructor_storesArgumentsAndConfiguresGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate2Test#provider_returnsSameProviderInstanceThatCreatedFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate4Test#pathFormat_returnsGzipFormat",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName"
+          ]
+        },
+        {
+          "source_file": "GzipFileSystem.java",
+          "mutated_class": "io.github.iachimoe.tarballfs.GzipFileSystem",
+          "mutated_method": "provider",
+          "method_description": "()Lio/github/iachimoe/tarballfs/GzipFileSystemProvider;",
+          "line": 18,
+          "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+          "indexes": [
+            6
+          ],
+          "description": "replaced return value with null for io/github/iachimoe/tarballfs/GzipFileSystem::provider",
+          "status": "KILLED",
+          "killing_tests": [
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate1Test#constructor_storesArgumentsAndConfiguresGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate2Test#provider_returnsSameProviderInstanceThatCreatedFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate3Test#close_deregistersUri_soItCanBeReopenedAndIsNoLongerLookedUp",
+            "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate4Test#pathFormat_returnsGzipFormat",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#fileChannel_open_readsPayload_andAbsoluteRead",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#gzipPayload_decompressedToTempFile_deletedWhenFileSystemCloses",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#nestedPath_throwsNoSuchFileException_forReadApis",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newByteChannel_root_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newDirectoryStream_nonRoot_throwsNoSuchFileException",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_validGzipPath_returnsGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#newFileSystem_validGzip_returnsGzipFileSystem",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#readAttributes_rootIsDirectory_virtualFileIsRegularFile",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesGzipHeaderFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesHostFileName_whenGzipHasNoFilename",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#rootDirectoryStream_usesLastSegmentOfGzipHeaderPath",
+            "io.github.iachimoe.tarballfs.GzipFileSystemProviderTest#singleSegmentAlias_readsSamePayload_whenHeaderHasDifferentName"
+          ]
+        }
+      ],
+      "source": "package io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.io.IOException;\nimport java.io.OutputStream;\nimport java.net.URI;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.Map;\n\nimport org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream;\nimport org.junit.jupiter.api.Test;\n\nfinal class GzipFileSystemMutaGate4Test {\n  @Test\n  void pathFormat_returnsGzipFormat() throws IOException {\n    Path gzPath = Files.createTempFile(\"tarballfs-test-\", \".gz\");\n    try {\n      try (OutputStream out = Files.newOutputStream(gzPath);\n          GzipCompressorOutputStream gzOut = new GzipCompressorOutputStream(out)) {\n        gzOut.write(\"hello\".getBytes(StandardCharsets.UTF_8));\n      }\n\n      GzipFileSystemProvider provider = new GzipFileSystemProvider();\n      URI uri = URI.create(\"gzip:\" + gzPath.toAbsolutePath());\n      try (FileSystem fs = provider.newFileSystem(uri, Map.of())) {\n        GzipFileSystem gzipFs = (GzipFileSystem) fs;\n        SingleEntryArchiveFormat format = gzipFs.pathFormat();\n        assertSame(SingleEntryArchiveFormat.GZIP, format);\n        assertNotEquals(SingleEntryArchiveFormat.BZIP2, format);\n        assertEquals(\"GZIP\", format.name());\n      }\n    } finally {\n      Files.deleteIfExists(gzPath);\n    }\n  }\n}\n"
+    }
+  ],
+  "requests": [
+    {
+      "test_class": "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate1Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertSame;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.net.URI;\nimport java.nio.file.Path;\nimport org.junit.jupiter.api.Test;\n\nfinal class GzipFileSystemMutaGate1Test {\n  @Test\n  void constructor_storesArgumentsAndConfiguresGzipFileSystem() {\n    GzipFileSystemProvider provider = new GzipFileSystemProvider();\n    Path gzipPath = Path.of(\"some-dir\", \"archive.gz\");\n    Path tempFile = Path.of(\"some-dir\", \"payload.tmp\");\n    URI uri = URI.create(\"gzip:archive.gz\");\n\n    GzipFileSystem fs = new GzipFileSystem(provider, uri, gzipPath, \"entry.txt\", tempFile);\n\n    assertSame(provider, fs.provider());\n    assertSame(gzipPath, fs.gzipFile());\n    assertSame(gzipPath, fs.hostArchivePath());\n    assertEquals(\"entry.txt\", fs.virtualEntryName());\n    assertSame(tempFile, fs.uncompressedTempFile());\n    assertEquals(\"gzip:\" + gzipPath, fs.toString());\n    assertEquals(SingleEntryArchiveFormat.GZIP, fs.pathFormat());\n\n    ReadOnlyCompressorFileStore store = fs.gzipFileStore();\n    assertNotNull(store);\n    assertSame(store, fs.compressorFileStore());\n    assertEquals(\"gzip\", store.type());\n\n    assertTrue(fs.isOpen());\n    assertTrue(fs.isReadOnly());\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 9235,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 1297,
+        "thinking_tokens": 633
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate2Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.io.IOException;\nimport java.io.OutputStream;\nimport java.net.URI;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.Map;\n\nimport org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream;\nimport org.junit.jupiter.api.Test;\n\nfinal class GzipFileSystemMutaGate2Test {\n  @Test\n  void provider_returnsSameProviderInstanceThatCreatedFileSystem() throws IOException {\n    Path gzPath = Files.createTempFile(\"tarballfs-test-\", \".gz\");\n    try {\n      try (OutputStream out = Files.newOutputStream(gzPath);\n          GzipCompressorOutputStream gzOut = new GzipCompressorOutputStream(out)) {\n        gzOut.write(\"hello\".getBytes(StandardCharsets.UTF_8));\n      }\n\n      GzipFileSystemProvider provider = new GzipFileSystemProvider();\n      URI uri = URI.create(\"gzip:\" + gzPath.toAbsolutePath());\n      FileSystem fs = provider.newFileSystem(uri, Map.of());\n      try {\n        GzipFileSystem gzipFs = (GzipFileSystem) fs;\n        GzipFileSystemProvider typed = gzipFs.provider();\n        assertSame(provider, typed);\n        assertSame(provider, fs.provider());\n        assertSame(provider, gzipFs.getPath(\"/\").getFileSystem().provider());\n      } finally {\n        fs.close();\n      }\n    } finally {\n      Files.deleteIfExists(gzPath);\n    }\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 706,
+        "cache_read_input_tokens": 8465,
+        "output_tokens": 800,
+        "thinking_tokens": 153
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate3Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.junit.jupiter.api.Assertions.assertNotSame;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nimport java.io.IOException;\nimport java.io.OutputStream;\nimport java.net.URI;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.FileSystem;\nimport java.nio.file.FileSystemNotFoundException;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.Map;\n\nimport org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream;\nimport org.junit.jupiter.api.Test;\n\nfinal class GzipFileSystemMutaGate3Test {\n  @Test\n  void close_deregistersUri_soItCanBeReopenedAndIsNoLongerLookedUp() throws IOException {\n    Path gzPath = Files.createTempFile(\"tarballfs-test-\", \".gz\");\n    try {\n      byte[] data = \"hello\".getBytes(StandardCharsets.UTF_8);\n      try (OutputStream out = Files.newOutputStream(gzPath);\n          GzipCompressorOutputStream gzOut = new GzipCompressorOutputStream(out)) {\n        gzOut.write(data);\n      }\n\n      GzipFileSystemProvider provider = new GzipFileSystemProvider();\n      URI uri = URI.create(\"gzip:\" + gzPath.toAbsolutePath());\n\n      FileSystem first = provider.newFileSystem(uri, Map.of());\n      assertTrue(first.isOpen());\n      first.close();\n      assertTrue(!first.isOpen());\n\n      assertThrows(FileSystemNotFoundException.class, () -> provider.getFileSystem(uri));\n\n      FileSystem second = provider.newFileSystem(uri, Map.of());\n      try {\n        assertNotNull(second);\n        assertNotSame(first, second);\n        assertTrue(second.isOpen());\n      } finally {\n        second.close();\n      }\n    } finally {\n      Files.deleteIfExists(gzPath);\n    }\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 692,
+        "cache_read_input_tokens": 8465,
+        "output_tokens": 1234,
+        "thinking_tokens": 443
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    },
+    {
+      "test_class": "io.github.iachimoe.tarballfs.GzipFileSystemMutaGate4Test",
+      "attempt": 1,
+      "reply": "```java\npackage io.github.iachimoe.tarballfs;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotEquals;\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nimport java.io.IOException;\nimport java.io.OutputStream;\nimport java.net.URI;\nimport java.nio.charset.StandardCharsets;\nimport java.nio.file.FileSystem;\nimport java.nio.file.Files;\nimport java.nio.file.Path;\nimport java.util.Map;\n\nimport org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream;\nimport org.junit.jupiter.api.Test;\n\nfinal class GzipFileSystemMutaGate4Test {\n  @Test\n  void pathFormat_returnsGzipFormat() throws IOException {\n    Path gzPath = Files.createTempFile(\"tarballfs-test-\", \".gz\");\n    try {\n      try (OutputStream out = Files.newOutputStream(gzPath);\n          GzipCompressorOutputStream gzOut = new GzipCompressorOutputStream(out)) {\n        gzOut.write(\"hello\".getBytes(StandardCharsets.UTF_8));\n      }\n\n      GzipFileSystemProvider provider = new GzipFileSystemProvider();\n      URI uri = URI.create(\"gzip:\" + gzPath.toAbsolutePath());\n      try (FileSystem fs = provider.newFileSystem(uri, Map.of())) {\n        GzipFileSystem gzipFs = (GzipFileSystem) fs;\n        SingleEntryArchiveFormat format = gzipFs.pathFormat();\n        assertSame(SingleEntryArchiveFormat.GZIP, format);\n        assertNotEquals(SingleEntryArchiveFormat.BZIP2, format);\n        assertEquals(\"GZIP\", format.name());\n      }\n    } finally {\n      Files.deleteIfExists(gzPath);\n    }\n  }\n}\n```",
+      "tokens": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 712,
+        "cache_read_input_tokens": 8465,
+        "output_tokens": 996,
+        "thinking_tokens": 299
+      },
+      "reused": false,
+      "screen": null,
+      "detail": ""
+    }
+  ]
+}

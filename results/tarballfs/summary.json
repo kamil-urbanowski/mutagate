@@ -1,0 +1,517 @@
+{
+  "repo": "tarballfs",
+  "mutants_total": 722,
+  "detected_before": 288,
+  "targeted": {
+    "score_before": 0.3988919667590028,
+    "score_after": 0.9667590027700831,
+    "detected_after": 698,
+    "newly_detected_by_status": {
+      "NO_COVERAGE": {
+        "undetected": 368,
+        "newly_detected": 353
+      },
+      "SURVIVED": {
+        "undetected": 66,
+        "newly_detected": 57
+      }
+    },
+    "candidates": 434,
+    "kept": 407,
+    "acceptance_rate": 0.9377880184331797,
+    "attempts_per_kept_test": 1.135135135135135,
+    "kept_after_repair": 25,
+    "redundant_kept": 218,
+    "verdicts": {
+      "FAILED_ON_UNMODIFIED_CODE": 1,
+      "KEPT": 407,
+      "MISSED_TARGET": 26
+    },
+    "gate": {
+      "rejected_at_screen": {
+        "count": 1,
+        "share": 0.002304147465437788
+      },
+      "rejected_at_verification": {
+        "count": 26,
+        "share": 0.059907834101382486
+      },
+      "batch_failed": {
+        "count": 0,
+        "share": 0.0
+      }
+    },
+    "by_target_status": {
+      "NO_COVERAGE": {
+        "candidates": 368,
+        "kept": 350
+      },
+      "SURVIVED": {
+        "candidates": 66,
+        "kept": 57
+      }
+    },
+    "requests": 462,
+    "requests_reused": 15,
+    "tokens": {
+      "input_tokens": 924,
+      "cache_creation_input_tokens": 600813,
+      "cache_read_input_tokens": 2404864,
+      "output_tokens": 498996,
+      "thinking_tokens": 192316
+    },
+    "settings": [
+      {
+        "provider": "claude-code",
+        "model": "claude-sonnet-5-5",
+        "effort": "medium",
+        "system_prompt": "the shared part of each request"
+      }
+    ],
+    "classes_not_run": [],
+    "classes": [
+      {
+        "class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+        "candidates": 13,
+        "kept": 13,
+        "score_before": 0.35,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.ArchivePathSupport",
+        "candidates": 7,
+        "kept": 5,
+        "score_before": 0.6956521739130435,
+        "score_after": 0.9130434782608695
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+        "candidates": 13,
+        "kept": 12,
+        "score_before": 0.3157894736842105,
+        "score_after": 0.9473684210526315
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+        "candidates": 4,
+        "kept": 4,
+        "score_before": 0.5,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+        "candidates": 9,
+        "kept": 9,
+        "score_before": 0.5,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.Bzip2BasicFileAttributeView",
+        "candidates": 2,
+        "kept": 1,
+        "score_before": 0.0,
+        "score_after": 0.5
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.Bzip2FileSystem",
+        "candidates": 4,
+        "kept": 4,
+        "score_before": 0.3333333333333333,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.Bzip2FileSystemProvider",
+        "candidates": 8,
+        "kept": 8,
+        "score_before": 0.6521739130434783,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.CompressorArchiveProviderSupport",
+        "candidates": 26,
+        "kept": 24,
+        "score_before": 0.43478260869565216,
+        "score_after": 0.9565217391304348
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.GzipBasicFileAttributeView",
+        "candidates": 2,
+        "kept": 2,
+        "score_before": 0.0,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.GzipFileSystem",
+        "candidates": 4,
+        "kept": 4,
+        "score_before": 0.3333333333333333,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.GzipFileSystemProvider",
+        "candidates": 14,
+        "kept": 10,
+        "score_before": 0.6744186046511628,
+        "score_after": 0.9302325581395349
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+        "candidates": 10,
+        "kept": 10,
+        "score_before": 0.0,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+        "candidates": 32,
+        "kept": 29,
+        "score_before": 0.058823529411764705,
+        "score_after": 0.9117647058823529
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+        "candidates": 7,
+        "kept": 7,
+        "score_before": 0.46153846153846156,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat",
+        "candidates": 14,
+        "kept": 14,
+        "score_before": 0.0,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.SingleEntryArchivePath",
+        "candidates": 109,
+        "kept": 108,
+        "score_before": 0.14173228346456693,
+        "score_after": 0.9921259842519685
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.SingleMemberArchivePaths",
+        "candidates": 1,
+        "kept": 1,
+        "score_before": 0.8333333333333334,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.TarBasicFileAttributeView",
+        "candidates": 2,
+        "kept": 2,
+        "score_before": 0.0,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+        "candidates": 9,
+        "kept": 9,
+        "score_before": 0.5263157894736842,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.TarFileStore",
+        "candidates": 8,
+        "kept": 8,
+        "score_before": 0.2,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.TarFileSystem",
+        "candidates": 13,
+        "kept": 11,
+        "score_before": 0.5517241379310345,
+        "score_after": 0.9310344827586207
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.TarFileSystemProvider",
+        "candidates": 26,
+        "kept": 20,
+        "score_before": 0.7777777777777778,
+        "score_after": 0.9487179487179487
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.TarPath",
+        "candidates": 97,
+        "kept": 92,
+        "score_before": 0.21774193548387097,
+        "score_after": 0.9758064516129032
+      }
+    ]
+  },
+  "control": {
+    "score_before": 0.3988919667590028,
+    "score_after": 0.9265927977839336,
+    "detected_after": 669,
+    "newly_detected_by_status": {
+      "NO_COVERAGE": {
+        "undetected": 368,
+        "newly_detected": 329
+      },
+      "SURVIVED": {
+        "undetected": 66,
+        "newly_detected": 52
+      }
+    },
+    "candidates": 243,
+    "kept": 190,
+    "acceptance_rate": 0.7818930041152263,
+    "attempts_per_kept_test": 1.3526315789473684,
+    "kept_after_repair": 11,
+    "redundant_kept": 73,
+    "verdicts": {
+      "KEPT": 190,
+      "NO_NEW_KILL": 53
+    },
+    "gate": {
+      "rejected_at_screen": {
+        "count": 0,
+        "share": 0.0
+      },
+      "rejected_at_verification": {
+        "count": 53,
+        "share": 0.21810699588477367
+      },
+      "batch_failed": {
+        "count": 0,
+        "share": 0.0
+      }
+    },
+    "requests": 257,
+    "requests_reused": 2,
+    "tokens": {
+      "input_tokens": 514,
+      "cache_creation_input_tokens": 323526,
+      "cache_read_input_tokens": 1506896,
+      "output_tokens": 310639,
+      "thinking_tokens": 78506
+    },
+    "settings": [
+      {
+        "provider": "claude-code",
+        "model": "claude-sonnet-5-5",
+        "effort": "medium",
+        "system_prompt": "the shared part of each request"
+      }
+    ],
+    "classes_not_run": [],
+    "classes": [
+      {
+        "class": "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+        "candidates": 13,
+        "kept": 10,
+        "score_before": 0.35,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.ArchivePathSupport",
+        "candidates": 2,
+        "kept": 2,
+        "score_before": 0.6956521739130435,
+        "score_after": 0.9130434782608695
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+        "candidates": 3,
+        "kept": 3,
+        "score_before": 0.3157894736842105,
+        "score_after": 0.8947368421052632
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+        "candidates": 1,
+        "kept": 1,
+        "score_before": 0.5,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+        "candidates": 9,
+        "kept": 9,
+        "score_before": 0.5,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.Bzip2BasicFileAttributeView",
+        "candidates": 2,
+        "kept": 1,
+        "score_before": 0.0,
+        "score_after": 0.5
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.Bzip2FileSystem",
+        "candidates": 4,
+        "kept": 2,
+        "score_before": 0.3333333333333333,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.Bzip2FileSystemProvider",
+        "candidates": 8,
+        "kept": 4,
+        "score_before": 0.6521739130434783,
+        "score_after": 0.8260869565217391
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.CompressorArchiveProviderSupport",
+        "candidates": 11,
+        "kept": 10,
+        "score_before": 0.43478260869565216,
+        "score_after": 0.8260869565217391
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.GzipBasicFileAttributeView",
+        "candidates": 2,
+        "kept": 1,
+        "score_before": 0.0,
+        "score_after": 0.5
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.GzipFileSystem",
+        "candidates": 4,
+        "kept": 2,
+        "score_before": 0.3333333333333333,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.GzipFileSystemProvider",
+        "candidates": 14,
+        "kept": 6,
+        "score_before": 0.6744186046511628,
+        "score_after": 0.813953488372093
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+        "candidates": 10,
+        "kept": 9,
+        "score_before": 0.0,
+        "score_after": 0.9
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+        "candidates": 18,
+        "kept": 17,
+        "score_before": 0.058823529411764705,
+        "score_after": 0.8823529411764706
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+        "candidates": 7,
+        "kept": 7,
+        "score_before": 0.46153846153846156,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat",
+        "candidates": 14,
+        "kept": 12,
+        "score_before": 0.0,
+        "score_after": 0.8571428571428571
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.SingleEntryArchivePath",
+        "candidates": 32,
+        "kept": 29,
+        "score_before": 0.14173228346456693,
+        "score_after": 0.984251968503937
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.SingleMemberArchivePaths",
+        "candidates": 1,
+        "kept": 1,
+        "score_before": 0.8333333333333334,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.TarBasicFileAttributeView",
+        "candidates": 2,
+        "kept": 2,
+        "score_before": 0.0,
+        "score_after": 1.0
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+        "candidates": 9,
+        "kept": 9,
+        "score_before": 0.5263157894736842,
+        "score_after": 0.8947368421052632
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.TarFileStore",
+        "candidates": 8,
+        "kept": 4,
+        "score_before": 0.2,
+        "score_after": 0.9
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.TarFileSystem",
+        "candidates": 13,
+        "kept": 11,
+        "score_before": 0.5517241379310345,
+        "score_after": 0.9310344827586207
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.TarFileSystemProvider",
+        "candidates": 26,
+        "kept": 10,
+        "score_before": 0.7777777777777778,
+        "score_after": 0.9145299145299145
+      },
+      {
+        "class": "io.github.iachimoe.tarballfs.TarPath",
+        "candidates": 30,
+        "kept": 28,
+        "score_before": 0.21774193548387097,
+        "score_after": 0.9758064516129032
+      }
+    ]
+  },
+  "comparison": {
+    "classes": [
+      "io.github.iachimoe.tarballfs.AbstractCompressorArchiveFileSystem",
+      "io.github.iachimoe.tarballfs.ArchivePathSupport",
+      "io.github.iachimoe.tarballfs.ArchiveUriSupport",
+      "io.github.iachimoe.tarballfs.BasicFileAttributesMaps",
+      "io.github.iachimoe.tarballfs.ByteArraySeekableByteChannel",
+      "io.github.iachimoe.tarballfs.Bzip2BasicFileAttributeView",
+      "io.github.iachimoe.tarballfs.Bzip2FileSystem",
+      "io.github.iachimoe.tarballfs.Bzip2FileSystemProvider",
+      "io.github.iachimoe.tarballfs.CompressorArchiveProviderSupport",
+      "io.github.iachimoe.tarballfs.GzipBasicFileAttributeView",
+      "io.github.iachimoe.tarballfs.GzipFileSystem",
+      "io.github.iachimoe.tarballfs.GzipFileSystemProvider",
+      "io.github.iachimoe.tarballfs.ReadOnlyCompressorFileStore",
+      "io.github.iachimoe.tarballfs.ReadOnlySeekableFileChannel",
+      "io.github.iachimoe.tarballfs.SimpleVirtualBasicAttributes",
+      "io.github.iachimoe.tarballfs.SingleEntryArchiveFormat",
+      "io.github.iachimoe.tarballfs.SingleEntryArchivePath",
+      "io.github.iachimoe.tarballfs.SingleMemberArchivePaths",
+      "io.github.iachimoe.tarballfs.TarBasicFileAttributeView",
+      "io.github.iachimoe.tarballfs.TarBasicFileAttributes",
+      "io.github.iachimoe.tarballfs.TarFileStore",
+      "io.github.iachimoe.tarballfs.TarFileSystem",
+      "io.github.iachimoe.tarballfs.TarFileSystemProvider",
+      "io.github.iachimoe.tarballfs.TarPath"
+    ],
+    "targeted": {
+      "score_after": 0.9667590027700831,
+      "candidates": 434,
+      "kept": 407,
+      "kept_with_new_kill": 189,
+      "attempts_per_kept_test": 1.135135135135135
+    },
+    "control": {
+      "score_after": 0.9265927977839336,
+      "candidates": 243,
+      "kept": 190,
+      "kept_with_new_kill": 117,
+      "attempts_per_kept_test": 1.3526315789473684
+    },
+    "newly_detected": {
+      "targeted_only": 31,
+      "control_only": 2,
+      "both": 379
+    }
+  }
+}
