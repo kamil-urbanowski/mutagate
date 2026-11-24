@@ -174,3 +174,12 @@ def test_settings_and_version(monkeypatch):
     monkeypatch.setattr(local.metadata, "version", missing)
     with pytest.raises(ProviderError, match="pip install"):
         _ = provider.version
+
+
+def test_release_frees_the_model_and_a_later_request_loads_it_again(mlx):
+    provider = LocalProvider()
+    provider.complete("s", "t")
+    provider.release()
+    assert mlx["cleared"] == 2  # after the request, then on release
+    provider.complete("s", "t")
+    assert len(mlx["loads"]) == 2

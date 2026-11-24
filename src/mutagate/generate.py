@@ -141,7 +141,7 @@ def extract_test(reply: str, test_class: str) -> str | None:
 def generate_test(context: MutantContext, provider: Provider, test_class: str) -> Candidate:
     """Ask for one test and wrap the reply as a Candidate."""
     shared, task = build_prompt(context, test_class)
-    return _candidate(context, test_class, provider.complete(shared, task), attempts=1)
+    return _candidate(context, test_class, provider.complete(shared, task), 1, provider.name)
 
 
 def repair(
@@ -162,7 +162,7 @@ def repair(
     # The original `shared`, unchanged, so the repair reads the class from the cache too.
     shared, task = build_prompt(context, candidate.test_class)
     reply = provider.complete(shared, task + "\n\n" + _previous(candidate, failure))
-    return _candidate(context, candidate.test_class, reply, attempts=2)
+    return _candidate(context, candidate.test_class, reply, 2, provider.name)
 
 
 # --------------------------------------------------------------------------
@@ -170,13 +170,16 @@ def repair(
 # --------------------------------------------------------------------------
 
 
-def _candidate(context: MutantContext, test_class: str, reply: str, attempts: int) -> Candidate:
+def _candidate(
+    context: MutantContext, test_class: str, reply: str, attempts: int, provider: str
+) -> Candidate:
     return Candidate(
         test_class=test_class,
         path=context.test_dir / f"{test_class.rpartition('.')[2]}.java",
         source=extract_test(reply, test_class),
         target=context.mutant,
         attempts=attempts,
+        provider=provider,
     )
 
 

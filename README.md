@@ -206,6 +206,16 @@ about 13 GB of memory (measured on a 24 GB M4 Pro). Its runs are saved apart
 from Claude's, in `results/<repo>/local/`, and
 `mutagate summarize <repo> --provider local` sums them up.
 
+With `--provider cascade`, the local model first writes a test for every
+missed mutant, and Claude gets only the mutants its kept tests left
+undetected, so only those requests count against your Claude plan. Cascade
+runs are saved in `results/<repo>/cascade/`, and
+`mutagate summarize <repo> --provider cascade` shows each model's part.
+
+To choose the Claude model for `claude-code` or `cascade`, add
+`--claude-model` with its full name, such as `claude-opus-5-5`. The committed
+runs used the default, `claude-sonnet-5-5`.
+
 To use another model, or no Claude Code, add `--provider offline`. MutaGate
 then writes each prompt to `.mutagate/offline/prompt.txt` and waits for you to
 save the model's reply to `.mutagate/offline/response.txt`.

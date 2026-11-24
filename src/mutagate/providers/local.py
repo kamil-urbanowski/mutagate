@@ -105,6 +105,15 @@ class LocalProvider:
         }
         return _answer(raw)
 
+    def release(self) -> None:
+        """Free the model's memory, as between a cascade's two passes; a later
+        request loads it again."""
+        if self._loaded is not None:
+            import mlx.core as mx
+
+            self._loaded = None
+            mx.clear_cache()
+
     def _load(self, mlx_lm):
         """The model and its tokenizer, loaded by the first request."""
         if self._loaded is None:

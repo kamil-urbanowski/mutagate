@@ -302,7 +302,7 @@ def test_generate_wraps_the_reply_as_a_candidate():
     provider = FakeProvider(reply())
     candidate = generate.generate_test(context(), provider, NAME)
     assert candidate == Candidate(
-        NAME, Path("src/test/java/pkg/ShopMutaGate1Test.java"), TEST, target(), 1
+        NAME, Path("src/test/java/pkg/ShopMutaGate1Test.java"), TEST, target(), 1, "fake"
     )
     assert provider.requests == [generate.build_prompt(context(), NAME)]
 
@@ -310,7 +310,7 @@ def test_generate_wraps_the_reply_as_a_candidate():
 def test_control_candidate_has_no_target():
     candidate = generate.generate_test(control(), FakeProvider(reply()), NAME)
     assert candidate == Candidate(
-        NAME, Path("src/test/java/pkg/ShopMutaGate1Test.java"), TEST, None, 1
+        NAME, Path("src/test/java/pkg/ShopMutaGate1Test.java"), TEST, None, 1, "fake"
     )
 
 
@@ -341,7 +341,7 @@ def test_repair_shows_the_failed_test_and_the_error():
     provider = FakeProvider(reply())
     repaired = generate.repair(context(), provider, failed, failure)
 
-    assert repaired == Candidate(NAME, failed.path, TEST, target(), 2)
+    assert repaired == Candidate(NAME, failed.path, TEST, target(), 2, "fake")
     ((shared, task),) = provider.requests
     original_shared, original_task = generate.build_prompt(context(), NAME)
     assert shared == original_shared
@@ -357,7 +357,7 @@ def test_control_repair_follows_the_control_request():
     provider = FakeProvider(reply())
     repaired = generate.repair(control(), provider, failed, failure)
 
-    assert repaired == Candidate(NAME, failed.path, TEST, None, 2)
+    assert repaired == Candidate(NAME, failed.path, TEST, None, 2, "fake")
     ((shared, task),) = provider.requests
     control_shared, control_task = generate.build_prompt(control(), NAME)
     assert shared == control_shared

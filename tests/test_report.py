@@ -377,3 +377,117 @@ def test_control_run_round_trip(tmp_path):
     assert json.loads(path.read_text())["ledger"][0]["target"] is None
     report.write_run(run(), root=tmp_path)
     assert report.read_runs("demo", root=tmp_path) == [run(), control]  # targeted first
+
+
+# --------------------------------------------------------------------------
+# A cascade: two providers in one run
+# --------------------------------------------------------------------------
+
+LOCAL_TOKENS = {"input_tokens": 6000, "output_tokens": 900}
+CLAUDE_TOKENS = {"input_tokens": 3, "cache_read_input_tokens": 5000, "output_tokens": 400}
+
+
+def cascade_run(second_model="claude-sonnet-5-5", class_name="pkg.Foo"):
+    """A targeted cascade on Foo: the local model's pass, then Claude's on the
+    two targets still undetected. Their tests keep their first-pass names."""
+    first = [
+        entry(1, Verdict.KEPT, (F1,), target=F1),
+        entry(2, Verdict.MISSED_TARGET, target=F2),
+        entry(3, Verdict.NO_USABLE_TEST, target=F3, attempts=2),
+    ]
+    second = [entry(2, Verdict.KEPT, (F2,), target=F2), entry(3, Verdict.MISSED_TARGET, target=F3)]
+    for provider, entries in (("local", first), ("claude-code", second)):
+        for r in entries:
+            r.candidate.provider = provider
+    run = class_run(TARGETED, class_name, 2, *first, *second)
+    run.setup = {
+        "provider": report.CASCADE,
+        "first_provider": "local",
+        "first_model": "gpt",
+        "first_max_tokens": "8192",
+        "second_provider": "claude-code",
+        "second_model": second_model,
+    }
+    name = "pkg.FooMutaGate{}Test".format
+    run.requests = [
+        report.Request(name(1), 1, "r1", LOCAL_TOKENS, False, provider="local"),
+        report.Request(name(2), 1, "r2", LOCAL_TOKENS, False, provider="local"),
+        report.Request(name(3), 1, "r3", LOCAL_TOKENS, False, Verdict.NO_USABLE_TEST, "", "local"),
+        report.Request(name(3), 2, "r4", LOCAL_TOKENS, False, Verdict.NO_USABLE_TEST, "", "local"),
+        report.Request(name(2), 1, "r5", CLAUDE_TOKENS, True, provider="claude-code"),
+        report.Request(name(3), 1, "r6", CLAUDE_TOKENS, False, provider="claude-code"),
+    ]
+    return run
+
+
+def test_by_provider_shows_claude_apart_from_the_local_model():
+    assert report.by_provider([cascade_run()]) == {
+        "local": {
+            "candidates": 3,
+            "kept": 1,
+            "requests": 4,
+            "requests_reused": 0,
+            "tokens": {"input_tokens": 24000, "output_tokens": 3600},
+        },
+        "claude-code": {
+            "candidates": 2,
+            "kept": 1,
+            "requests": 2,
+            "requests_reused": 1,
+            "tokens": {"input_tokens": 6, "cache_read_input_tokens": 10000, "output_tokens": 800},
+        },
+    }
+
+
+def test_a_cascade_run_round_trip(tmp_path):
+    metrics = cascade_run()
+    path = report.write_run(metrics, root=tmp_path)
+
+    assert path == tmp_path / "demo" / "cascade" / "targeted" / "pkg.Foo.json"
+    assert report.read_runs("demo", root=tmp_path) == []  # apart from Claude-only runs
+    assert report.read_runs("demo", root=tmp_path, provider="cascade") == [metrics]
+    kept = sorted(p.name for p in (path.parent / "kept").rglob("*.java"))
+    assert kept == ["FooMutaGate1Test.java", "FooMutaGate2Test.java"]  # one per pass
+    saved = json.loads(path.read_text())
+    assert [e["provider"] for e in saved["ledger"]] == ["local"] * 3 + ["claude-code"] * 2
+    assert [q["provider"] for q in saved["requests"]] == ["local"] * 4 + ["claude-code"] * 2
+
+
+def test_a_run_file_from_before_providers_were_recorded_reads_as_the_setups(tmp_path):
+    path = report.write_run(run(), root=tmp_path)
+    saved = json.loads(path.read_text())
+    for item in saved["ledger"] + saved["requests"]:
+        del item["provider"]
+    path.write_text(json.dumps(saved))
+
+    (loaded,) = report.read_runs("demo", root=tmp_path)
+    assert {r.candidate.provider for r in loaded.ledger} == {"fake"}
+    assert {q.provider for q in loaded.requests} == {"fake"}
+
+
+def test_summary_of_cascade_runs(tmp_path):
+    runs = [cascade_run(), cascade_run("claude-opus-5-5", class_name="pkg.Bar")]
+    runs[1].ledger, runs[1].requests, runs[1].newly_detected = [], [], 0
+    path, summary = report.write_summary(
+        "demo", MODULE, runs, ["pkg.Foo", "pkg.Bar"], tmp_path, provider="cascade"
+    )
+
+    assert path == tmp_path / "demo" / "cascade" / "summary.json"
+    targeted = summary["targeted"]
+    assert list(targeted["by_provider"]) == ["local", "claude-code"]
+    assert targeted["by_provider"]["claude-code"]["kept"] == 1
+    # Each pass's settings are compared, so the two Claude models are told apart.
+    first, second = targeted["settings"]
+    assert first["provider"] == "cascade" and first["first_max_tokens"] == "8192"
+    assert {first["second_model"], second["second_model"]} == {
+        "claude-sonnet-5-5",
+        "claude-opus-5-5",
+    }
+
+
+def test_a_one_provider_summary_has_no_split_and_compares_four_settings(tmp_path):
+    _, summary = report.write_summary("demo", MODULE, list(paired_runs()), root=tmp_path)
+    assert "by_provider" not in summary["targeted"]
+    assert summary["targeted"]["settings"] == [
+        {"provider": "fake", "model": "m", "effort": "", "system_prompt": ""}
+    ]
