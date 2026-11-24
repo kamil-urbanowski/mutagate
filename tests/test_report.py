@@ -147,6 +147,22 @@ def test_a_rerun_replaces_the_class_run_and_its_kept_tests(tmp_path):
     assert loaded.kept == 0
 
 
+def test_a_local_model_run_is_saved_apart_and_replaces_no_claude_run(tmp_path):
+    claude = run()
+    local = run(newly_detected=0, kept=False)
+    local.setup = {**local.setup, "provider": "local"}
+    report.write_run(claude, root=tmp_path)
+    path = report.write_run(local, root=tmp_path)
+
+    assert path == tmp_path / "demo" / "local" / "targeted" / "pkg.Foo.json"
+    assert report.read_runs("demo", root=tmp_path) == [claude]
+    assert report.read_runs("demo", root=tmp_path, provider="local") == [local]
+    assert (tmp_path / "demo" / "targeted" / "kept").is_dir()  # Claude's kept test stays
+    baseline = [mutant(i, Status.KILLED) for i in range(6)] + [mutant(i) for i in range(6, 10)]
+    summary, _ = report.write_summary("demo", baseline, [local], root=tmp_path, provider="local")
+    assert summary == tmp_path / "demo" / "local" / "summary.json"
+
+
 def test_headline_scores():
     baseline = [mutant(i, Status.KILLED) for i in range(6)] + [mutant(i) for i in range(6, 10)]
     runs = [run(newly_detected=2), run(newly_detected=1, target_class="pkg.Bar")]

@@ -67,7 +67,7 @@ def baseline(repo: Path) -> None:
 @click.option("--control", is_flag=True, help="Untargeted control run")
 @click.option(
     "--provider",
-    type=click.Choice(["claude-code", "offline"]),
+    type=click.Choice(["claude-code", "local", "offline"]),
     default="claude-code",
     show_default=True,
 )
@@ -77,6 +77,8 @@ def run(repo: Path, target: str, control: bool, provider: str) -> None:
 
     With --control, an untargeted control run instead: each request names one
     of the class's methods rather than a mutant, each method at most once.
+    With --provider local, the local model writes the tests, and the run is
+    saved apart from Claude's.
     """
     replies = SavedReplies(load(provider), REPLIES_DIR / repo.resolve().name)
     try:
@@ -113,15 +115,22 @@ def run(repo: Path, target: str, control: bool, provider: str) -> None:
 
 @main.command()
 @click.argument("repo_name")
-def summarize(repo_name: str) -> None:
+@click.option(
+    "--provider",
+    type=click.Choice(["claude-code", "local"]),
+    default="claude-code",
+    show_default=True,
+    help="Whose runs to summarize: the local model's are saved apart from Claude's",
+)
+def summarize(repo_name: str, provider: str) -> None:
     """Compute the whole-module headline scores from every saved run, and
     compare targeted and control runs."""
     baseline = report.read_baseline(repo_name)
     selected = mutants.select_classes(baseline, report.read_exclusions(repo_name))
-    runs = report.read_runs(repo_name)
+    runs = report.read_runs(repo_name, provider=provider)
     if not runs:
-        raise click.ClickException(f"no saved runs for {repo_name}")
-    path, summary = report.write_summary(repo_name, baseline, runs, selected)
+        raise click.ClickException(f"no saved {provider} runs for {repo_name}")
+    path, summary = report.write_summary(repo_name, baseline, runs, selected, provider=provider)
 
     click.echo(f"Saved {path}")
     total, before = summary["mutants_total"], summary["detected_before"]

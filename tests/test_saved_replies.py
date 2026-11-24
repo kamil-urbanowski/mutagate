@@ -2,6 +2,7 @@ import pytest
 
 from mutagate.providers.base import ProviderError, SavedReplies, load
 from mutagate.providers.claude_code import ClaudeCodeProvider
+from mutagate.providers.local import LocalProvider
 from mutagate.providers.offline import OfflineProvider
 
 
@@ -72,6 +73,7 @@ def test_an_unreadable_saved_reply_stops_the_run(tmp_path):
 
 def test_load():
     assert isinstance(load("claude-code"), ClaudeCodeProvider)
+    assert isinstance(load("local"), LocalProvider)
     assert isinstance(load("offline"), OfflineProvider)
     with pytest.raises(ValueError):
         load("nobody")

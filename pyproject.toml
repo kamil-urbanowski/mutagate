@@ -13,6 +13,12 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "ruff>=0.5"]
+# The local model's runtime, Apple Silicon only. Pinned, like the parser: it
+# shapes the local model's replies.
+local = [
+    "mlx-lm==0.32.2; sys_platform == 'darwin' and platform_machine == 'arm64'",
+    "mlx==0.32.4; sys_platform == 'darwin' and platform_machine == 'arm64'",
+]
 
 [project.scripts]
 mutagate = "mutagate.cli:main"
@@ -27,6 +33,7 @@ where = ["src"]
 [tool.pytest.ini_options]
 markers = [
     "integration: real builds and PIT runs; skipped unless MUTAGATE_INTEGRATION=1",
+    "local_model: the real local model; skipped unless MUTAGATE_LOCAL_MODEL=1",
 ]
 
 [tool.ruff]

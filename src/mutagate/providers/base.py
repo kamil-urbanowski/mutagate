@@ -43,6 +43,10 @@ def load(name: str) -> Provider:
         from .claude_code import ClaudeCodeProvider
 
         return ClaudeCodeProvider()
+    if name == "local":
+        from .local import LocalProvider
+
+        return LocalProvider()
     if name == "offline":
         from .offline import OfflineProvider
 

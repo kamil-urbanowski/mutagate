@@ -12,13 +12,18 @@ GAMEZONE_URL = "https://github.com/adbautistar/GameZoneUnicesar.git"
 
 
 def pytest_collection_modifyitems(config, items):
-    # Real builds and PIT runs need git, Maven, and JDK 21, and take minutes.
-    if os.environ.get("MUTAGATE_INTEGRATION") == "1":
-        return
-    skip = pytest.mark.skip(reason="opt in with MUTAGATE_INTEGRATION=1")
-    for item in items:
-        if item.get_closest_marker("integration"):
-            item.add_marker(skip)
+    # Real builds and PIT runs need git, Maven, and JDK 21, and take minutes; the
+    # real local model needs mlx-lm, its 12 GB of weights, and about 13 GB of memory.
+    for marker, variable in (
+        ("integration", "MUTAGATE_INTEGRATION"),
+        ("local_model", "MUTAGATE_LOCAL_MODEL"),
+    ):
+        if os.environ.get(variable) == "1":
+            continue
+        skip = pytest.mark.skip(reason=f"opt in with {variable}=1")
+        for item in items:
+            if item.get_closest_marker(marker):
+                item.add_marker(skip)
 
 
 @pytest.fixture(scope="session")

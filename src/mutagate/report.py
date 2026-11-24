@@ -16,6 +16,9 @@ from .mutants import Mutant, Status, is_detected, select_targets
 CORPUS_DIR = Path("corpus")
 RESULTS_DIR = Path("results")
 KEPT_DIR = "kept"
+# Runs with these providers are saved in a folder of their own, so that they never
+# replace the Claude-only runs, the measured setup.
+SETUP_DIRS = {"local": "local"}
 
 # The setup keys a run's replies depend on. Runs summarized together should
 # share them; the summary lists every combination it found.
@@ -287,9 +290,10 @@ def write_run(metrics: RunMetrics, root: Path = RESULTS_DIR) -> Path:
     """Save one run: its metrics, its run ledger and requests, and the source of
     every kept test.
 
-    Replaces the class's earlier run of the same kind, kept tests included.
+    Replaces the class's earlier run of the same kind with the same provider,
+    kept tests included.
     """
-    folder = root / metrics.repo / metrics.kind.value.lower()
+    folder = _folder(root, metrics.repo, metrics.setup.get("provider")) / metrics.kind.value.lower()
     path = folder / f"{metrics.target_class}.json"
     if path.is_file():
         for entry in _read_json(path)["ledger"]:
@@ -324,13 +328,20 @@ def write_run(metrics: RunMetrics, root: Path = RESULTS_DIR) -> Path:
     return path
 
 
-def read_runs(repo: str, root: Path = RESULTS_DIR) -> list[RunMetrics]:
-    """Load every saved run for a repository, of every kind."""
+def read_runs(repo: str, root: Path = RESULTS_DIR, provider: str | None = None) -> list[RunMetrics]:
+    """Load every saved run for a repository, of every kind, from the folder of
+    `provider`'s runs (`SETUP_DIRS`); by default, the Claude-only runs'."""
     return [
         _run(_read_json(path))
         for kind in RunKind
-        for path in sorted((root / repo / kind.value.lower()).glob("*.json"))
+        for path in sorted((_folder(root, repo, provider) / kind.value.lower()).glob("*.json"))
     ]
+
+
+def _folder(root: Path, repo: str, provider: str | None) -> Path:
+    """Where a repository's runs with that provider, and their summary, are saved."""
+    setup = SETUP_DIRS.get(provider or "")
+    return root / repo / setup if setup else root / repo
 
 
 def write_summary(
@@ -339,9 +350,11 @@ def write_summary(
     runs: list[RunMetrics],
     selected: Collection[str] = (),
     root: Path = RESULTS_DIR,
+    provider: str | None = None,
 ) -> tuple[Path, dict]:
     """Save the repository's headline scores for each run kind, and the derived
-    metrics, with the comparison when a class has runs of both kinds.
+    metrics, with the comparison when a class has runs of both kinds, next to
+    the runs of `provider` (`read_runs`).
     `selected` are the classes the selection rule picks; any without a run are
     listed as not run. Returns the file's path and what it holds."""
     detected = sum(is_detected(m) for m in baseline)
@@ -411,7 +424,7 @@ def write_summary(
     comparison = compare(baseline, runs)
     if comparison is not None:
         summary["comparison"] = comparison
-    path = root / repo / "summary.json"
+    path = _folder(root, repo, provider) / "summary.json"
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     return path, summary
