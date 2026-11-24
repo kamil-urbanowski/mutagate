@@ -16,13 +16,21 @@ from .mutants import Mutant, Status, is_detected, select_targets
 CORPUS_DIR = Path("corpus")
 RESULTS_DIR = Path("results")
 KEPT_DIR = "kept"
+# A cascade run's `setup["provider"]`. Its two providers' setups follow under
+# the `first_` and `second_` prefixes (`CASCADE_PASSES`).
+CASCADE = "cascade"
+CASCADE_PASSES = ("first", "second")
 # Runs with these providers are saved in a folder of their own, so that they never
 # replace the Claude-only runs, the measured setup.
-SETUP_DIRS = {"local": "local"}
+SETUP_DIRS = {"local": "local", CASCADE: "cascade"}
 
 # The setup keys a run's replies depend on. Runs summarized together should
 # share them; the summary lists every combination it found.
 REPLY_SETTINGS = ("provider", "model", "effort", "system_prompt")
+# Compared too where a run's setup has them: the local model's other settings,
+# and a cascade's for each of its providers. Absent from Claude-only runs, so
+# their combinations stay as they were.
+_MORE_REPLY_SETTINGS = ("revision", "temperature", "top_p", "max_tokens")
 
 
 class RunKind(str, Enum):
@@ -42,6 +50,7 @@ class Request:
     reused: bool  # a saved reply from an earlier, stopped run; not sent again
     screen: Verdict | None = None  # the screen's rejection; None if it passed
     detail: str = ""
+    provider: str = ""  # the name of the provider that answered it
 
 
 @dataclass
@@ -127,6 +136,28 @@ def verdict_counts(runs: list[RunMetrics]) -> dict[Verdict, int]:
 def kept_after_repair(runs: list[RunMetrics]) -> int:
     """Kept tests that needed the repair attempt. Shows what the repair adds."""
     return sum(r.kept and r.candidate.attempts == 2 for run in runs for r in run.ledger)
+
+
+def by_provider(runs: list[RunMetrics]) -> dict[str, dict]:
+    """Candidates, kept tests, requests, and tokens per provider, in the order
+    the providers first appear: a cascade's Claude usage apart from the local
+    model's."""
+    counts: dict[str, dict] = {}
+    for run in runs:
+        for r in run.ledger:
+            c = counts.setdefault(r.candidate.provider, _provider_counts())
+            c["candidates"] += 1
+            c["kept"] += r.kept
+        for q in run.requests:
+            c = counts.setdefault(q.provider, _provider_counts())
+            c["requests"] += 1
+            c["requests_reused"] += q.reused
+            c["tokens"].update(q.tokens or {})
+    return {p: {**c, "tokens": dict(c["tokens"])} for p, c in counts.items()}
+
+
+def _provider_counts() -> dict:
+    return {"candidates": 0, "kept": 0, "requests": 0, "requests_reused": 0, "tokens": Counter()}
 
 
 def by_target_status(runs: list[RunMetrics]) -> dict[Status, tuple[int, int]]:
@@ -400,12 +431,7 @@ def write_summary(
             "requests": sum(len(r.requests) for r in of_kind),
             "requests_reused": sum(q.reused for r in of_kind for q in r.requests),
             "tokens": dict(tokens),
-            "settings": [
-                dict(s)
-                for s in sorted(
-                    {tuple((k, r.setup.get(k, "")) for k in REPLY_SETTINGS) for r in of_kind}
-                )
-            ],
+            "settings": [dict(s) for s in sorted({_reply_settings(r.setup) for r in of_kind})],
             "classes_not_run": sorted(set(selected) - {r.target_class for r in of_kind}),
             "classes": [
                 {
@@ -420,6 +446,9 @@ def write_summary(
         }
         if kind is RunKind.CONTROL:
             del stats["by_target_status"]  # control candidates have no target
+        providers = by_provider(of_kind)
+        if len(providers) > 1:  # a cascade; with one provider it repeats the totals
+            stats["by_provider"] = providers
         summary[kind.value.lower()] = stats
     comparison = compare(baseline, runs)
     if comparison is not None:
@@ -430,6 +459,16 @@ def write_summary(
     return path, summary
 
 
+def _reply_settings(setup: dict[str, str]) -> tuple[tuple[str, str], ...]:
+    """The run's settings that shape its replies (`REPLY_SETTINGS`), as one
+    hashable combination."""
+    names = REPLY_SETTINGS + _MORE_REPLY_SETTINGS
+    more = (*_MORE_REPLY_SETTINGS, *(f"{p}_{n}" for p in CASCADE_PASSES for n in names))
+    return tuple((k, setup.get(k, "")) for k in REPLY_SETTINGS) + tuple(
+        (k, setup[k]) for k in more if k in setup
+    )
+
+
 def _result_json(r: GateResult) -> dict:
     c = r.candidate
     return {
@@ -437,6 +476,7 @@ def _result_json(r: GateResult) -> dict:
         "path": c.path.as_posix(),
         "target": asdict(c.target) if c.target else None,
         "attempts": c.attempts,
+        "provider": c.provider,
         "verdict": r.verdict.value,
         "detail": r.detail,
         "mutants_killed": [asdict(m) for m in r.mutants_killed],
@@ -445,6 +485,9 @@ def _result_json(r: GateResult) -> dict:
 
 
 def _run(run: dict) -> RunMetrics:
+    # Run files from before providers were recorded per candidate and per
+    # request had one provider, the setup's.
+    provider = run["setup"].get("provider", "")
     ledger = [
         GateResult(
             Candidate(
@@ -453,6 +496,7 @@ def _run(run: dict) -> RunMetrics:
                 e["source"],
                 _mutant(e["target"]) if e["target"] else None,
                 e["attempts"],
+                e.get("provider", provider),
             ),
             Verdict(e["verdict"]),
             e["detail"],
@@ -461,7 +505,9 @@ def _run(run: dict) -> RunMetrics:
         for e in run["ledger"]
     ]
     requests = [
-        Request(**{**q, "screen": Verdict(q["screen"]) if q["screen"] else None})
+        Request(
+            **{"provider": provider, **q, "screen": Verdict(q["screen"]) if q["screen"] else None}
+        )
         for q in run["requests"]
     ]
     return RunMetrics(

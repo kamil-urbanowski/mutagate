@@ -1,6 +1,9 @@
 """Commands and orchestration; the logic lives in the modules. Design: `docs/design/cli.md`."""
 
+from collections.abc import Sequence
+from dataclasses import dataclass
 from pathlib import Path
+from typing import NamedTuple
 
 import click
 
@@ -9,6 +12,7 @@ from .context import MutantContext
 from .gate import Candidate, GateResult
 from .mutants import Mutant
 from .providers.base import REPLIES_DIR, Provider, ProviderError, SavedReplies, load
+from .providers.claude_code import MODEL as CLAUDE_MODEL
 
 RepoPath = click.Path(exists=True, file_okay=False, path_type=Path)
 
@@ -67,22 +71,43 @@ def baseline(repo: Path) -> None:
 @click.option("--control", is_flag=True, help="Untargeted control run")
 @click.option(
     "--provider",
-    type=click.Choice(["claude-code", "local", "offline"]),
+    type=click.Choice(["claude-code", "local", report.CASCADE, "offline"]),
     default="claude-code",
     show_default=True,
 )
-def run(repo: Path, target: str, control: bool, provider: str) -> None:
+@click.option(
+    "--claude-model",
+    help=f"Claude model for claude-code and cascade, by its full name  [default: {CLAUDE_MODEL}]",
+)
+def run(repo: Path, target: str, control: bool, provider: str, claude_model: str | None) -> None:
     """Generate tests for one class's undetected mutants and keep the ones that
     pass the gate.
 
     With --control, an untargeted control run instead: each request names one
     of the class's methods rather than a mutant, each method at most once.
-    With --provider local, the local model writes the tests, and the run is
-    saved apart from Claude's.
+    With --provider local, the local model writes the tests; with cascade, the
+    local model first and Claude for what it left. Both are saved apart from
+    Claude's runs.
     """
-    replies = SavedReplies(load(provider), REPLIES_DIR / repo.resolve().name)
+    if claude_model is not None:
+        if provider not in ("claude-code", report.CASCADE):
+            raise click.UsageError("--claude-model is for --provider claude-code or cascade")
+        # The reply check needs the name Claude Code reports, and an alias can
+        # move to another model over time.
+        if not claude_model.startswith("claude-"):
+            raise click.UsageError(
+                f"give the model's full name, such as {CLAUDE_MODEL}; an alias such as "
+                "sonnet or opus can change over time"
+            )
+    replies_dir = REPLIES_DIR / repo.resolve().name
+    second = None
+    if provider == report.CASCADE:
+        first = SavedReplies(load("local"), replies_dir)
+        second = SavedReplies(load("claude-code", claude_model), replies_dir)
+    else:
+        first = SavedReplies(load(provider, claude_model), replies_dir)
     try:
-        metrics = (run_control if control else run_targeted)(repo, target, replies)
+        metrics = (run_control if control else run_targeted)(repo, target, first, second=second)
     except FileNotFoundError as e:
         raise click.ClickException(f"{e}: record the repo in corpus/ before any run") from e
     except pit.PitError as e:
@@ -100,6 +125,12 @@ def run(repo: Path, target: str, control: bool, provider: str) -> None:
         f"Kept {metrics.kept} of {len(metrics.ledger)} candidates "
         f"({report.kept_after_repair([metrics])} after a repair)"
     )
+    providers = report.by_provider([metrics])
+    if len(providers) > 1:
+        click.echo(
+            "  "
+            + "; ".join(f"{p}: kept {n['kept']} of {n['candidates']}" for p, n in providers.items())
+        )
     for verdict, count in sorted(counts.items()):
         click.echo(f"  {verdict.value}: {count}")
     total, undetected = metrics.mutants_total, metrics.undetected_before
@@ -107,20 +138,23 @@ def run(repo: Path, target: str, control: bool, provider: str) -> None:
         f"Class mutation score: {total - undetected}/{total} = {metrics.score_before:.1%} -> "
         f"{total - undetected + metrics.newly_detected}/{total} = {metrics.score_after:.1%}"
     )
-    reused = sum(q.reused for q in metrics.requests)
-    click.echo(f"Requests: {len(metrics.requests) - reused} sent, {reused} reused")
-    if metrics.tokens:
-        click.echo("Tokens: " + ", ".join(f"{k} {v:,}" for k, v in metrics.tokens.items()))
+    for p, n in providers.items():
+        # Provider names only in a cascade, which has two.
+        who = f" ({p})" if len(providers) > 1 else ""
+        sent = n["requests"] - n["requests_reused"]
+        click.echo(f"Requests{who}: {sent} sent, {n['requests_reused']} reused")
+        if n["tokens"]:
+            click.echo(f"Tokens{who}: " + ", ".join(f"{k} {v:,}" for k, v in n["tokens"].items()))
 
 
 @main.command()
 @click.argument("repo_name")
 @click.option(
     "--provider",
-    type=click.Choice(["claude-code", "local"]),
+    type=click.Choice(["claude-code", "local", report.CASCADE]),
     default="claude-code",
     show_default=True,
-    help="Whose runs to summarize: the local model's are saved apart from Claude's",
+    help="Whose runs to summarize: local and cascade runs are saved apart from Claude's",
 )
 def summarize(repo_name: str, provider: str) -> None:
     """Compute the whole-module headline scores from every saved run, and
@@ -164,6 +198,15 @@ def summarize(repo_name: str, provider: str) -> None:
             f"{g['batch_failed']} in failed verification runs"
         )
         click.echo(f"  Redundant kept tests: {s['redundant_kept']}")
+        if "by_provider" in s:
+            click.echo(
+                "  By provider: "
+                + "; ".join(
+                    f"{p} kept {n['kept']} of {n['candidates']}, "
+                    f"{n['requests']} requests ({n['requests_reused']} reused)"
+                    for p, n in s["by_provider"].items()
+                )
+            )
         for c in s["classes"]:
             click.echo(
                 f"  {c['class']}: kept {c['kept']} of {c['candidates']}, "
@@ -201,29 +244,69 @@ def summarize(repo_name: str, provider: str) -> None:
 
 
 def run_targeted(
-    repo: Path, class_name: str, provider: SavedReplies, corpus: Path = report.CORPUS_DIR
+    repo: Path,
+    class_name: str,
+    provider: SavedReplies,
+    corpus: Path = report.CORPUS_DIR,
+    second: SavedReplies | None = None,
 ) -> report.RunMetrics:
     """One targeted run of one class: steps 2-6 of the flow in ARCHITECTURE.md.
 
     Every request goes through `provider`; its exchanges become the run's
-    requests. Nothing is written to `results/`: the caller saves the run.
+    requests. With `second`, a cascade: the targets whose mutant is still
+    undetected then go through steps 4-6 again with `second`. Nothing is
+    written to `results/`: the caller saves the run.
     """
-    return _run(repo, class_name, provider, corpus, report.RunKind.TARGETED)
+    return _run(repo, class_name, provider, corpus, report.RunKind.TARGETED, second)
 
 
 def run_control(
-    repo: Path, class_name: str, provider: SavedReplies, corpus: Path = report.CORPUS_DIR
+    repo: Path,
+    class_name: str,
+    provider: SavedReplies,
+    corpus: Path = report.CORPUS_DIR,
+    second: SavedReplies | None = None,
 ) -> report.RunMetrics:
     """One untargeted control run of one class: one request per method, at most
     as many as it has targets, each naming one of its methods and nothing from
-    PIT. Otherwise the same as `run_targeted`."""
-    return _run(repo, class_name, provider, corpus, report.RunKind.CONTROL)
+    PIT. With `second`, a cascade: each request left without a kept test goes to
+    `second`, for the same method. Otherwise the same as `run_targeted`."""
+    return _run(repo, class_name, provider, corpus, report.RunKind.CONTROL, second)
+
+
+@dataclass
+class _Class:
+    """What every pass over one class's requests shares."""
+
+    name: str
+    baseline: list[Mutant]
+    targets: list[Mutant]
+    failing: set[str]
+    contexts: list[MutantContext]  # one per request
+    labels: list[str]  # how each request's progress line names it
+    # Each request's test class, the same in both passes of a cascade, so that its
+    # second pass's requests are a Claude-only run's and can reuse its replies.
+    names: list[str]
+
+
+class _Pass(NamedTuple):
+    """One provider's pass over some of a class's requests: steps 4-6."""
+
+    ledger: list[GateResult]  # in request order
+    requests: list[report.Request]
+    newly_detected: list[Mutant]  # undetected mutants its kept tests killed
 
 
 def _run(
-    repo: Path, class_name: str, provider: SavedReplies, corpus: Path, kind: report.RunKind
+    repo: Path,
+    class_name: str,
+    provider: SavedReplies,
+    corpus: Path,
+    kind: report.RunKind,
+    second: SavedReplies | None = None,
 ) -> report.RunMetrics:
-    """What both run kinds share; only their requests differ (`_requests`)."""
+    """What both run kinds share; only their requests differ (`_requests`).
+    With `second`, a cascade's second pass follows (`_second_pass`)."""
     name = repo.resolve().name
     baseline = report.read_baseline(name, corpus)
     excluded = report.read_exclusions(name, corpus)
@@ -231,25 +314,20 @@ def _run(
     if class_name not in mutants.select_classes(baseline, excluded):
         raise click.ClickException(f"{class_name} is not one of {name}'s selected classes")
     targets = mutants.select_targets(baseline, class_name)
-    setup = {
-        **pit.describe_setup(repo),
-        **pit.describe_tool(),
-        "provider": provider.name,
-        "provider_version": provider.version,
-        **provider.settings,
-    }
+    setup = {**pit.describe_setup(repo), **pit.describe_tool(), **_setup(provider, second)}
     if setup["mutagate_commit"].endswith("-dirty"):
         click.echo(
             "Warning: MutaGate's code has uncommitted changes; this run has no exact commit."
         )
+    what = "targets" if kind is report.RunKind.TARGETED else "control requests"
     workspace = pit.make_workspace(repo)
     try:
         sources = pit.read_sources(workspace)  # before any candidate is added
         contexts, labels = _requests(kind, sources, class_name, targets)
-        what = "targets" if kind is report.RunKind.TARGETED else "control requests"
-        click.echo(
-            f"{class_name}: {len(contexts)} {what}, provider {provider.name} {provider.settings}"
-        )
+        who = f"provider {provider.name} {provider.settings}"
+        if second is not None:
+            who = f"cascade of {provider.name} {provider.settings}, then {second.name} {second.settings}"
+        click.echo(f"{class_name}: {len(contexts)} {what}, {who}")
         names = [generate.test_class_name(class_name, i) for i in range(1, len(contexts) + 1)]
         for ctx, test_class in zip(contexts, names):
             path = ctx.test_dir / f"{test_class.rpartition('.')[2]}.java"
@@ -257,56 +335,38 @@ def _run(
                 raise click.ClickException(
                     f"{path} exists in the repo; MutaGate never replaces a file"
                 )
-        # Compile before any candidate is added, so a later build failure is the
-        # candidate's own.
-        ok, output = pit.compile_tests(workspace)
-        if not ok:
-            raise pit.PitError("the copy does not compile before any candidate is added", output)
-
-        screened: list[tuple[Candidate, GateResult | None]] = []
-        requests: list[report.Request] = []
-        for i, (ctx, label, test_class) in enumerate(zip(contexts, labels, names), start=1):
-            sent = len(provider.exchanges)
-            first = generate.generate_test(ctx, provider, test_class)
-            candidate, result, failure = screen_with_repair(workspace, first, ctx, provider)
-            screens = [failure, result] if failure else [result]
-            for attempt, (exchange, screen) in enumerate(
-                zip(provider.exchanges[sent:], screens, strict=True), start=1
-            ):
-                requests.append(
-                    report.Request(
-                        test_class,
-                        attempt,
-                        exchange.reply,
-                        exchange.tokens,
-                        exchange.reused,
-                        screen.verdict if screen else None,
-                        screen.detail if screen else "",
-                    )
-                )
-            screened.append((candidate, result))
-            outcome = result.verdict.value if result else "passed the screen"
-            repaired = ", after a repair" if candidate.attempts == 2 else ""
-            click.echo(f"  [{i}/{len(contexts)}] {label}: {outcome}{repaired}")
-
-        batch = [c for c, r in screened if r is None]
-        verification: list[Mutant] = []
-        verified: dict[str, GateResult] = {}
-        if batch:
-            click.echo(f"  Verifying {len(batch)} candidates in one PIT run")
-            try:
-                verification = pit.parse_report(pit.run_pit(workspace, class_name, failing))
-                results = gate.verify(batch, verification, targets)
-            except pit.PitError as e:
-                verification = []
-                tail = "\n".join(e.output.splitlines()[-gate.DETAIL_LINES :])
-                results = gate.batch_failed(batch, f"{e}\n{tail}")
-            verified = {r.candidate.test_class: r for r in results}
+        cls = _Class(class_name, baseline, targets, failing, contexts, labels, names)
+        _compile(workspace, "the copy does not compile before any candidate is added")
+        first = _pass(workspace, provider, range(len(contexts)), cls)
     finally:
         pit.remove_workspace(workspace)
 
-    ledger = [r if r is not None else verified[c.test_class] for c, r in screened]
-    kept = [r.candidate.test_class for r in ledger if r.kept]
+    ledger, requests, newly = list(first.ledger), list(first.requests), list(first.newly_detected)
+    if second is not None:
+        again = _second_pass(kind, first.ledger, set(first.newly_detected), targets)
+        _release(provider)
+        left = "still undetected" if kind is report.RunKind.TARGETED else "left without a kept test"
+        click.echo(
+            f"  Second pass, {second.name} {second.settings}: "
+            f"{len(again)} of {len(contexts)} {what} {left}"
+        )
+        if again:
+            # A fresh copy: under some mutants a class's own code writes files into
+            # the copy, which can break its next build. With the first pass's kept
+            # tests in it, the second PIT run checks all of the class's kept tests.
+            workspace = pit.make_workspace(repo)
+            try:
+                for r in first.ledger:
+                    if r.kept:
+                        pit.add_candidate(workspace, r.candidate)
+                _compile(workspace, "the second copy does not compile with the kept tests")
+                result = _pass(workspace, second, again, cls)
+            finally:
+                pit.remove_workspace(workspace)
+            ledger += result.ledger
+            requests += result.requests
+            newly += [m for m in result.newly_detected if m not in set(newly)]
+
     return report.RunMetrics(
         repo=name,
         target_class=class_name,
@@ -314,10 +374,104 @@ def _run(
         setup=setup,
         mutants_total=len(mutants.for_class(baseline, class_name)),
         undetected_before=len(targets),
-        newly_detected=len(mutants.newly_detected(baseline, verification, kept)),
+        newly_detected=len(newly),
         ledger=ledger,
         requests=requests,
     )
+
+
+def _setup(provider: SavedReplies, second: SavedReplies | None) -> dict[str, str]:
+    """The run's provider, its version, and its settings; a cascade's two
+    providers' under the `first_` and `second_` prefixes."""
+    if second is None:
+        return _provider_setup(provider)
+    first_, second_ = report.CASCADE_PASSES
+    return {
+        "provider": report.CASCADE,
+        **{f"{first_}_{k}": v for k, v in _provider_setup(provider).items()},
+        **{f"{second_}_{k}": v for k, v in _provider_setup(second).items()},
+    }
+
+
+def _provider_setup(provider: SavedReplies) -> dict[str, str]:
+    return {"provider": provider.name, "provider_version": provider.version, **provider.settings}
+
+
+def _compile(workspace: Path, failure: str) -> None:
+    """Compile the copy before a pass adds any candidate, so a later build
+    failure is the candidate's own."""
+    ok, output = pit.compile_tests(workspace)
+    if not ok:
+        raise pit.PitError(failure, output)
+
+
+def _pass(workspace: Path, provider: SavedReplies, indices: Sequence[int], cls: _Class) -> _Pass:
+    """Steps 4-6 with one provider for the requests at `indices`: each is
+    screened, with its repair, then the screened candidates are verified
+    together in one PIT run."""
+    screened: list[tuple[Candidate, GateResult | None]] = []
+    requests: list[report.Request] = []
+    for n, i in enumerate(indices, start=1):
+        ctx, test_class = cls.contexts[i], cls.names[i]
+        sent = len(provider.exchanges)
+        first = generate.generate_test(ctx, provider, test_class)
+        candidate, result, failure = screen_with_repair(workspace, first, ctx, provider)
+        screens = [failure, result] if failure else [result]
+        for attempt, (exchange, screen) in enumerate(
+            zip(provider.exchanges[sent:], screens, strict=True), start=1
+        ):
+            requests.append(
+                report.Request(
+                    test_class,
+                    attempt,
+                    exchange.reply,
+                    exchange.tokens,
+                    exchange.reused,
+                    screen.verdict if screen else None,
+                    screen.detail if screen else "",
+                    provider.name,
+                )
+            )
+        screened.append((candidate, result))
+        outcome = result.verdict.value if result else "passed the screen"
+        repaired = ", after a repair" if candidate.attempts == 2 else ""
+        click.echo(f"  [{n}/{len(indices)}] {cls.labels[i]}: {outcome}{repaired}")
+
+    batch = [c for c, r in screened if r is None]
+    verification: list[Mutant] = []
+    verified: dict[str, GateResult] = {}
+    if batch:
+        click.echo(f"  Verifying {len(batch)} candidates in one PIT run")
+        try:
+            verification = pit.parse_report(pit.run_pit(workspace, cls.name, cls.failing))
+            results = gate.verify(batch, verification, cls.targets)
+        except pit.PitError as e:
+            verification = []
+            tail = "\n".join(e.output.splitlines()[-gate.DETAIL_LINES :])
+            results = gate.batch_failed(batch, f"{e}\n{tail}")
+        verified = {r.candidate.test_class: r for r in results}
+    ledger = [r if r is not None else verified[c.test_class] for c, r in screened]
+    kept = [r.candidate.test_class for r in ledger if r.kept]
+    return _Pass(ledger, requests, mutants.newly_detected(cls.baseline, verification, kept))
+
+
+def _second_pass(
+    kind: report.RunKind, first: list[GateResult], newly: set[Mutant], targets: list[Mutant]
+) -> list[int]:
+    """The requests a cascade's second provider gets, by index: in a targeted run,
+    the targets whose mutant no kept test of the first pass killed, so none
+    whose mutant a kept test already caught; in a control run, the requests
+    left without a kept test."""
+    if kind is report.RunKind.TARGETED:
+        return [i for i, t in enumerate(targets) if t not in newly]
+    return [i for i, r in enumerate(first) if not r.kept]
+
+
+def _release(provider: SavedReplies) -> None:
+    """Give the memory a local model holds back to the second pass's builds."""
+    release = getattr(provider.provider, "release", None)  # only a local model has one
+    if release is not None:
+        release()
 
 
 def _requests(

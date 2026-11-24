@@ -60,6 +60,7 @@ class Candidate:
     source: str | None
     target: Mutant | None  # None for a control candidate
     attempts: int = 1
+    provider: str = ""  # the name of the provider that wrote it
 
 
 @dataclass

@@ -12,7 +12,7 @@ import re
 
 import pytest
 
-from mutagate import cli, generate, mutants, report
+from mutagate import cli, generate, mutants, pit, report
 from mutagate.gate import Verdict
 from mutagate.providers.base import SavedReplies
 
@@ -134,3 +134,76 @@ def test_control_run(tmp_path, gamezone_repo, corpus, gate_fixtures, capsys):
     assert report.read_runs("GameZoneUnicesar", root=tmp_path / "results") == [metrics]
     kept = path.parent / "kept" / "src/test/java/com/gamezone/model"
     assert sorted(p.name for p in kept.iterdir()) == [f"{names[0]}.java", f"{names[2]}.java"]
+
+
+def test_cascade_run(tmp_path, gamezone_repo, corpus, gate_fixtures, monkeypatch, capsys):
+    baseline = report.read_baseline("GameZoneUnicesar", root=corpus)
+    targets = mutants.select_targets(baseline, CLASS)
+    lines = [t.line for t in targets]
+    assert sorted(lines) == [37, 55, 81]
+    simple = {
+        t.line: generate.test_class_name(CLASS, i).rpartition(".")[2]
+        for i, t in enumerate(targets, start=1)
+    }
+    # First pass: only line 55 gets a test that kills it (the gate check's
+    # Gate2, which kills line 55 alone). Second pass: lines 37 and 81.
+    first = CannedProvider(
+        {simple[55]: [renamed(gate_fixtures, "CategoryDiscountGate2Test", simple[55])]}
+    )
+    first.name = "first"
+    second = CannedProvider(
+        {
+            simple[37]: [renamed(gate_fixtures, "CategoryDiscountGate6Test", simple[37])],
+            simple[81]: [renamed(gate_fixtures, "CategoryDiscountGate1Test", simple[81])],
+        }
+    )
+    second.name = "second"
+
+    # Record which candidates each PIT run sees, and after the first one leave a
+    # file that breaks the copy's next build, as some of codegen's mutants do.
+    seen = []
+    real_run_pit = pit.run_pit
+
+    def run_pit(workspace, class_name, failing):
+        tests = workspace / "src/test/java/com/gamezone/model"
+        seen.append(sorted(p.stem for p in tests.glob("*MutaGate*Test.java")))
+        output = real_run_pit(workspace, class_name, failing)
+        if len(seen) == 1:
+            (workspace / "src/main/java/com/gamezone/model/Stray.java").write_text("class Stray {")
+        return output
+
+    monkeypatch.setattr(pit, "run_pit", run_pit)
+    replies = tmp_path / "replies"
+    metrics = cli.run_targeted(
+        gamezone_repo,
+        CLASS,
+        SavedReplies(first, replies),
+        corpus=corpus,
+        second=SavedReplies(second, replies),
+    )
+
+    expected = [("first", n, Verdict.KEPT if n == 55 else Verdict.NO_USABLE_TEST) for n in lines]
+    expected += [("second", n, Verdict.KEPT) for n in lines if n != 55]
+    assert [(r.candidate.provider, r.candidate.target.line, r.verdict) for r in metrics.ledger] == (
+        expected
+    )
+    assert [q.provider for q in metrics.requests] == ["first"] * 5 + ["second"] * 2
+    assert second.asked == [simple[n] for n in lines if n != 55]  # only the still undetected
+    # A fresh copy for the second pass, holding the first pass's kept test.
+    assert seen == [[simple[55]], sorted(simple.values())]
+    assert metrics.newly_detected == 3 and metrics.score_after > metrics.score_before
+    assert metrics.setup["provider"] == "cascade"
+    assert (metrics.setup["first_provider"], metrics.setup["second_provider"]) == (
+        "first",
+        "second",
+    )
+    assert "Second pass, second {'model': 'canned'}: 2 of 3 targets still undetected" in (
+        capsys.readouterr().out
+    )
+
+    path = report.write_run(metrics, root=tmp_path / "results")
+    assert path.parent == tmp_path / "results" / "GameZoneUnicesar" / "cascade" / "targeted"
+    loaded = report.read_runs("GameZoneUnicesar", root=tmp_path / "results", provider="cascade")
+    assert loaded == [metrics]
+    kept = path.parent / "kept" / "src/test/java/com/gamezone/model"
+    assert sorted(p.stem for p in kept.iterdir()) == sorted(simple.values())

@@ -37,12 +37,13 @@ class Provider(Protocol):
         ...
 
 
-def load(name: str) -> Provider:
-    """The provider of that name, with the settings the measured runs use."""
+def load(name: str, claude_model: str | None = None) -> Provider:
+    """The provider of that name, with the settings the measured runs use; for
+    Claude Code, `claude_model` in place of the measured runs' model if given."""
     if name == "claude-code":
         from .claude_code import ClaudeCodeProvider
 
-        return ClaudeCodeProvider()
+        return ClaudeCodeProvider() if claude_model is None else ClaudeCodeProvider(claude_model)
     if name == "local":
         from .local import LocalProvider
 
