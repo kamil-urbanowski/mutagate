@@ -197,6 +197,15 @@ codegen run covered all 10 classes, 91 missed mutants, in 100 requests;
 `.mutagate/replies/`, so if a run stops partway, at a usage limit for example,
 running the same command again sends only the requests not yet answered.
 
+To use a local model instead, on an Apple Silicon Mac, install with
+`pip install -e ".[local]"` and add `--provider local`. MutaGate then runs
+gpt-oss-20b, OpenAI's open-weight model, on your machine through
+[mlx-lm](https://github.com/ml-explore/mlx-lm), using none of your Claude
+plan. The first run downloads its 12 GB of weights, and while it runs it takes
+about 13 GB of memory (measured on a 24 GB M4 Pro). Its runs are saved apart
+from Claude's, in `results/<repo>/local/`, and
+`mutagate summarize <repo> --provider local` sums them up.
+
 To use another model, or no Claude Code, add `--provider offline`. MutaGate
 then writes each prompt to `.mutagate/offline/prompt.txt` and waits for you to
 save the model's reply to `.mutagate/offline/response.txt`.
@@ -226,6 +235,7 @@ class in a package. A `pom.xml` that already declares PIT is not handled yet.
 ```sh
 pytest                          # unit tests: a few seconds, no Java or model
 MUTAGATE_INTEGRATION=1 pytest   # adds real Maven builds and PIT runs; still no model
+MUTAGATE_LOCAL_MODEL=1 pytest tests/test_local_model.py   # one request to the local model
 ```
 
 The integration tests need git, Maven, and JDK 21. They clone
